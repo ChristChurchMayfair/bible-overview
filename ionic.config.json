@@ -1,0 +1,8 @@
+{
+  "name": "Bible Overview",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite",
+  "id": "d5bbee0b"
+}
