@@ -1,16 +1,17 @@
-#message-list-item {
+#study-list-item {
   --padding-start: 0;
   --inner-padding-end: 0;
+  padding-inline-start: 20px;
 }
 
-#message-list-item ion-label {
+#study-list-item ion-label {
   margin-top: 12px;
   margin-bottom: 12px;
 
   overflow: hidden;
 }
 
-#message-list-item ion-label h2 {
+#study-list-item ion-label h2 {
   font-weight: 600;
   margin: 0;
 
@@ -26,31 +27,31 @@
   justify-content: space-between;
 }
 
-#message-list-item p {
+#study-list-item p {
   white-space: nowrap;
   width: 95%;
 }
 
-#message-list-item .date {
+#study-list-item .index {
   align-items: center;
   display: flex;
 }
 
-#message-list-item ion-icon {
+#study-list-item ion-icon {
   color: #c9c9ca;
 }
 
-#message-list-item ion-note {
+#study-list-item ion-note {
   font-size: 0.9375rem;
   margin-right: 8px;
   font-weight: normal;
 }
 
-#message-list-item ion-note.md {
+#study-list-item ion-note.md {
   margin-right: 14px;
 }
 
-#message-list-item .dot {
+#study-list-item .completed {
   display: block;
   height: 12px;
   width: 12px;
@@ -59,6 +60,6 @@
   margin: 16px 10px 16px 16px;
 }
 
-#message-list-item .dot-unread {
-  background: var(--ion-color-primary);
+#study-list-item .completed {
+  /* background: var(--ion-color-primary); */
 }

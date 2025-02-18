@@ -1,26 +1,29 @@
-import MessageListItem from '../components/MessageListItem';
-import { useState } from 'react';
-import { Message, getMessages } from '../data/messages';
 import {
+  IonButton,
+  IonButtons,
   IonContent,
   IonHeader,
+  IonItem,
+  IonLabel,
   IonList,
   IonPage,
   IonRefresher,
   IonRefresherContent,
   IonTitle,
   IonToolbar,
-  useIonViewWillEnter
-} from '@ionic/react';
-import './Home.css';
+  useIonViewWillEnter,
+} from "@ionic/react";
+import { useState } from "react";
+import StudyListItem from "../components/StudyListItem";
+import { Study, getStudies } from "../data/studies";
+import "./Home.css";
 
 const Home: React.FC = () => {
-
-  const [messages, setMessages] = useState<Message[]>([]);
+  const [studies, setStudies] = useState<Study[]>([]);
 
   useIonViewWillEnter(() => {
-    const msgs = getMessages();
-    setMessages(msgs);
+    const studies_ = getStudies();
+    setStudies(studies_);
   });
 
   const refresh = (e: CustomEvent) => {
@@ -32,8 +35,13 @@ const Home: React.FC = () => {
   return (
     <IonPage id="home-page">
       <IonHeader>
-        <IonToolbar>
-          <IonTitle>Inbox</IonTitle>
+        <IonToolbar mode="ios">
+          <IonTitle>Bible Overview</IonTitle>
+          <IonButtons slot="end">
+            <IonButton routerLink={`/about`} mode="ios">
+              About
+            </IonButton>
+          </IonButtons>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
@@ -43,14 +51,18 @@ const Home: React.FC = () => {
 
         <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle size="large">
-              Inbox
-            </IonTitle>
+            <IonTitle size="large">Bible Overview</IonTitle>
           </IonToolbar>
         </IonHeader>
 
         <IonList>
-          {messages.map(m => <MessageListItem key={m.id} message={m} />)}
+          {studies.map((study) => (
+            <StudyListItem
+              key={study.index}
+              study={study}
+              totalNumberOfStudies={studies.length}
+            />
+          ))}
         </IonList>
       </IonContent>
     </IonPage>
