@@ -1,5 +1,6 @@
 import {
   IonBackButton,
+  IonButton,
   IonButtons,
   IonChip,
   IonContent,
@@ -16,7 +17,7 @@ import {
   useIonViewWillEnter,
 } from "@ionic/react";
 import { useState } from "react";
-import { bookOutline } from "ionicons/icons";
+import { bookOutline, checkmarkCircleOutline } from "ionicons/icons";
 import { useParams } from "react-router";
 import { Study, getStudy } from "../data/studies";
 import "./ViewStudy.css";
@@ -32,7 +33,7 @@ function ViewStudy() {
 
   return (
     <IonPage id="view-study-page">
-      <IonHeader translucent>
+      <IonHeader collapse="fade">
         <IonToolbar>
           <IonButtons slot="start">
             <IonBackButton
@@ -99,11 +100,16 @@ function ViewStudy() {
                 <h1>Further Reading</h1>
                 <ul>
                   {study.furtherReading?.map((reading) => (
-                    <li key={reading.url}>{reading.title}</li>
+                    <li key={reading.url}>
+                      <a href={reading.url}>{reading.title} - {reading.author}</a>
+                      </li>
                   ))}
                 </ul>
               </IonText>
             </IonItem>
+            {/* <IonItem> */}
+              <IonButton expand="block" shape="round" fill="outline">Mark Study Completed <IonIcon slot="end" icon={checkmarkCircleOutline}/></IonButton>
+            {/* </IonItem> */}
           </>
         ) : (
           <div>Message not found</div>

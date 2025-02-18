@@ -56,6 +56,18 @@ const studies: Study[] = [
     keyApplication: "The story of Abraham demonstrates faith and obedience in response to God’s call and promises. It also points to God’s redemptive plan through the nation",
     questions: ["What is the significance of God’s call to Abraham?", "How does Abraham demonstrate faith and obedience?", "What promises does God make to Abraham?", "How does the story of Abraham point to God’s redemptive plan?"],
     index: 4,
+  },
+  {
+    title: "Exodus",
+    overview: "The exodus account in Exodus 1-15 recounts God’s deliverance of the Israelites from captivity in Egypt, establishing a covenant with them, and leading them to the promised land. The story begins with the Israelites’ enslavement and God’s call to Moses to deliver His people. Through a series of plagues, God demonstrates His power over the Egyptian gods and Pharaoh, culminating in the Passover and the parting of the Red Sea. The exodus reveals God’s faithfulness in fulfilling His promises, His power over the forces of evil, and His desire to establish a covenant with His people. It also points to the ultimate deliverance through Christ, who liberates us from sin and death.",
+    passages: ["Exodus 1-15"],
+    themes: ["Deliverance", "Redemption", "Covenant"],
+    keyApplication: "The exodus account reveals God’s faithfulness in delivering His people from bondage, establishing a covenant with them, and leading them to the promised land. It also points to the ultimate deliverance through Christ",
+    questions: ["What led to the Israelites’ enslavement in Egypt?", "How did God deliver His people from bondage?", "What is the significance of the Passover?", "How does the exodus point to the ultimate deliverance through Christ?"],
+    furtherReading: [
+      { title: "Exodus", author: "Douglas K. Stuart", url: "https://www.amazon.com/Exodus-Tyndale-Old-Testament-Commentaries/dp/083084214X" },
+    ],
+    index: 5,
   }
 ];
 

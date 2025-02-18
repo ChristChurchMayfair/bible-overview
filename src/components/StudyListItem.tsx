@@ -1,6 +1,7 @@
 import { IonIcon, IonItem, IonLabel, IonNote } from "@ionic/react";
 import { Study } from "../data/studies";
 import "./StudyListItem.css";
+import { addCircle, checkmarkCircle } from "ionicons/icons";
 
 interface StudyListItemProps {
   study: Study;
@@ -17,21 +18,13 @@ const StudyListItem: React.FC<StudyListItemProps> = ({
       routerLink={`/study/${study.index}`}
       detail={false}
     >
-      {/* <IonIcon
-        className="completed"
-        name="checkmark-circle"
-        size="large"
-        color="primary"
-      /> */}
-      <IonLabel className="ion-text-wrap">
-        <h1>
+      <IonLabel className="ion-text-wrap" slot={"start"}>
+        <h2>
           {study.title}
-          <span className="index">
-            <IonNote>
-              {study.index}/{totalNumberOfStudies}
-            </IonNote>
-          </span>
-        </h1>
+        </h2>
+      </IonLabel>
+      <IonLabel slot={"end"}>
+        {study.passages[0]}
       </IonLabel>
     </IonItem>
   );
