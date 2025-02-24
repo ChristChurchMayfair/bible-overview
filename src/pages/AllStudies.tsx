@@ -12,40 +12,22 @@ import {
   IonPage,
   IonRefresher,
   IonRefresherContent,
-  IonSegment,
-  IonSegmentButton,
   IonTitle,
   IonToolbar,
-  SegmentValue,
   useIonViewWillEnter,
 } from "@ionic/react";
 import { useState } from "react";
 import StudyListItem from "../components/StudyListItem";
 import { Study, getStudies } from "../data/studies";
 import "./Home.css";
-import {
-  checkmarkCircleOutline,
-  helpOutline,
-  listOutline,
-  sparklesOutline,
-} from "ionicons/icons";
+import { checkmarkCircleOutline, helpOutline, listOutline, sparklesOutline } from "ionicons/icons";
 import { useLocalStorage } from "usehooks-ts";
 import { Menu } from "../components/Menu";
 
-type FilterMode = "upcoming" | "completed" | "all";
-
-const filters: { [key in FilterMode]: (study: Study, completedStudies: number[]) => boolean } = {
-  upcoming: (study,completedStudies) => !completedStudies.includes(study.index),
-  completed: (study,completedStudies) => completedStudies.includes(study.index),
-  all: (study,completedStudies) => true,
-}
-
-const Home: React.FC = () => {
+const AllStudies: React.FC = () => {
   const [studies, setStudies] = useState<Study[]>([]);
-  const [filterMode, setFilterMode] = useState<SegmentValue>("upcoming");
 
-  const [completedStudies, setCompletedStudies, removeCompletedStudies] =
-    useLocalStorage<number[]>("completedStudies", []);
+  const [completedStudies, setCompletedStudies, removeCompletedStudies] = useLocalStorage<number[]>("completedStudies", []);
 
   useIonViewWillEnter(() => {
     const studies_ = getStudies();
@@ -60,12 +42,12 @@ const Home: React.FC = () => {
 
   return (
     <>
-      <Menu />
+     <Menu/>
       <IonPage id="home-page" className="ion-page">
         <IonHeader collapse="fade">
           <IonToolbar mode="ios">
             <IonButtons slot="start">
-              <IonMenuButton mode="ios" />
+              <IonMenuButton mode="ios"/>
             </IonButtons>
             <IonTitle>Bible Overview</IonTitle>
             <IonButtons slot="end">
@@ -85,23 +67,11 @@ const Home: React.FC = () => {
               <IonTitle>Bible Overview</IonTitle>
             </IonToolbar>
           </IonHeader>
+          <div className="ion-padding ion-text-center">All studies</div>
 
-          {/* <div className="ion-padding ion-text-center">All studies</div> */}
-
-          {/* <IonSegment mode={"ios"} value="upcoming" onIonChange={(e) => setFilterMode(e.detail.value ?? "all")}>
-            <IonSegmentButton value="upcoming">
-              <IonIcon icon={sparklesOutline} />
-            </IonSegmentButton>
-            <IonSegmentButton value="completed">
-              <IonIcon icon={checkmarkCircleOutline} />
-            </IonSegmentButton>
-            <IonSegmentButton value="all">
-              <IonIcon icon={listOutline} />
-            </IonSegmentButton>
-          </IonSegment> */}
 
           <IonList>
-            {studies.filter(study => filters[filterMode as FilterMode](study, completedStudies)).map((study) => (
+            {studies.map((study) => (
               <StudyListItem
                 key={study.index}
                 study={study}
@@ -115,4 +85,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default AllStudies;

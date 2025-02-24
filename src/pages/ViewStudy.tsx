@@ -21,9 +21,12 @@ import { bookOutline, checkmarkCircleOutline } from "ionicons/icons";
 import { useParams } from "react-router";
 import { Study, getStudy } from "../data/studies";
 import "./ViewStudy.css";
+import { useLocalStorage } from "usehooks-ts";
 
 function ViewStudy() {
   const [study, setStudy] = useState<Study>();
+  const [completedStudies, setCompletedStudies, removeCompletedStudies] =
+    useLocalStorage<number[]>("completedStudies", []);
   const params = useParams<{ id: string }>();
 
   useIonViewWillEnter(() => {
@@ -101,15 +104,44 @@ function ViewStudy() {
                 <ul>
                   {study.furtherReading?.map((reading) => (
                     <li key={reading.url}>
-                      <a href={reading.url}>{reading.title} - {reading.author}</a>
-                      </li>
+                      <a href={reading.url}>
+                        {reading.title} - {reading.author}
+                      </a>
+                    </li>
                   ))}
                 </ul>
               </IonText>
             </IonItem>
-            {/* <IonItem> */}
-              <IonButton expand="block" shape="round" fill="outline">Mark Study Completed <IonIcon slot="end" icon={checkmarkCircleOutline}/></IonButton>
-            {/* </IonItem> */}
+
+            <IonButton
+              expand="block"
+              shape="round"
+              fill={
+                completedStudies.includes(study.index) ? "solid" : "outline"
+              }
+              onClick={(e) => {
+                setCompletedStudies([...completedStudies, study.index]);
+              }}
+            >
+              {completedStudies.includes(study.index)
+                ? "Completed"
+                : "Mark as Completed"}
+              <IonIcon slot="end" icon={checkmarkCircleOutline} />
+            </IonButton>
+            {completedStudies.includes(study.index) && (
+              <IonButton
+                expand="block"
+                shape="round"
+                fill={"outline"}
+                onClick={(e) => {
+                  setCompletedStudies(
+                    completedStudies.filter((s) => s !== study.index)
+                  );
+                }}
+              >
+                Reset
+              </IonButton>
+            )}
           </>
         ) : (
           <div>Message not found</div>
