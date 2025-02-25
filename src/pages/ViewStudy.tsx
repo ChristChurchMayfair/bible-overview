@@ -7,7 +7,6 @@ import {
   IonHeader,
   IonIcon,
   IonItem,
-  IonLabel,
   IonPage,
   IonText,
   IonTitle,
@@ -147,7 +146,7 @@ function ViewStudy() {
             )}
           </>
         ) : (
-          <div>Message not found</div>
+          <div>Study not found</div>
         )}
       </IonContent>
     </IonPage>
