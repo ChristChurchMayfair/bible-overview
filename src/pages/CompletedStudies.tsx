@@ -38,9 +38,7 @@ const CompletedStudies: React.FC = () => {
     useLocalStorage<number[]>("completedStudies", []);
 
   useIonViewWillEnter(() => {
-    const studies_ = getStudies().filter((study) =>
-      completedStudies.includes(study.index)
-    );
+    const studies_ = getStudies()
     setStudies(studies_);
   });
 
@@ -49,6 +47,10 @@ const CompletedStudies: React.FC = () => {
       e.detail.complete();
     }, 3000);
   };
+
+  const studiesToShow = studies.filter((study) =>
+    completedStudies.includes(study.index)
+  );
 
   return (
     <>
@@ -80,7 +82,7 @@ const CompletedStudies: React.FC = () => {
           <div className="ion-padding ion-text-center">Completed studies</div>
 
           <IonList>
-            {studies.map((study) => (
+            {studiesToShow.map((study) => (
               <StudyListItem
                 key={study.index}
                 study={study}
@@ -88,10 +90,10 @@ const CompletedStudies: React.FC = () => {
               />
             ))}
           </IonList>
-          {studies.length === 0 && (
+          {studiesToShow.length === 0 && (
                 <p className="ion-text-center">You've not yet marked any of the studies as completed.</p>
           )}
-          {studies.length !== 0 && (
+          {studiesToShow.length !== 0 && (
             <IonButton
               expand="block"
               color={"danger"}

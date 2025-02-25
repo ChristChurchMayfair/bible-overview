@@ -4,14 +4,11 @@ import {
   IonButtons,
   IonChip,
   IonContent,
-  IonGrid,
   IonHeader,
   IonIcon,
   IonItem,
   IonLabel,
-  IonList,
   IonPage,
-  IonRow,
   IonText,
   IonToolbar,
   useIonViewWillEnter,
@@ -98,7 +95,7 @@ function ViewStudy() {
                 </ol>
               </IonText>
             </IonItem>
-            <IonItem>
+            {/* <IonItem> */}
               <IonText>
                 <h1>Further Reading</h1>
                 <ul>
@@ -111,7 +108,7 @@ function ViewStudy() {
                   ))}
                 </ul>
               </IonText>
-            </IonItem>
+            {/* </IonItem> */}
 
             <IonButton
               expand="block"

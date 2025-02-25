@@ -4,19 +4,13 @@ import {
   IonContent,
   IonHeader,
   IonIcon,
-  IonItem,
-  IonLabel,
   IonList,
-  IonMenu,
   IonMenuButton,
   IonPage,
   IonRefresher,
   IonRefresherContent,
-  IonSegment,
-  IonSegmentButton,
   IonTitle,
   IonToolbar,
-  SegmentValue,
   useIonViewWillEnter,
 } from "@ionic/react";
 import { useState } from "react";
@@ -24,25 +18,13 @@ import StudyListItem from "../components/StudyListItem";
 import { Study, getStudies } from "../data/studies";
 import "./Home.css";
 import {
-  checkmarkCircleOutline,
   helpOutline,
-  listOutline,
-  sparklesOutline,
 } from "ionicons/icons";
 import { useLocalStorage } from "usehooks-ts";
 import { Menu } from "../components/Menu";
 
-type FilterMode = "upcoming" | "completed" | "all";
-
-const filters: { [key in FilterMode]: (study: Study, completedStudies: number[]) => boolean } = {
-  upcoming: (study,completedStudies) => !completedStudies.includes(study.index),
-  completed: (study,completedStudies) => completedStudies.includes(study.index),
-  all: (study,completedStudies) => true,
-}
-
 const Home: React.FC = () => {
   const [studies, setStudies] = useState<Study[]>([]);
-  const [filterMode, setFilterMode] = useState<SegmentValue>("upcoming");
 
   const [completedStudies, setCompletedStudies, removeCompletedStudies] =
     useLocalStorage<number[]>("completedStudies", []);
@@ -51,6 +33,8 @@ const Home: React.FC = () => {
     const studies_ = getStudies();
     setStudies(studies_);
   });
+
+  const studiesToDisplay = studies.filter(study => !completedStudies.includes(study.index))
 
   const refresh = (e: CustomEvent) => {
     setTimeout(() => {
@@ -86,29 +70,19 @@ const Home: React.FC = () => {
             </IonToolbar>
           </IonHeader>
 
-          {/* <div className="ion-padding ion-text-center">All studies</div> */}
-
-          {/* <IonSegment mode={"ios"} value="upcoming" onIonChange={(e) => setFilterMode(e.detail.value ?? "all")}>
-            <IonSegmentButton value="upcoming">
-              <IonIcon icon={sparklesOutline} />
-            </IonSegmentButton>
-            <IonSegmentButton value="completed">
-              <IonIcon icon={checkmarkCircleOutline} />
-            </IonSegmentButton>
-            <IonSegmentButton value="all">
-              <IonIcon icon={listOutline} />
-            </IonSegmentButton>
-          </IonSegment> */}
-
-          <IonList>
-            {studies.filter(study => filters[filterMode as FilterMode](study, completedStudies)).map((study) => (
-              <StudyListItem
-                key={study.index}
-                study={study}
-                totalNumberOfStudies={studies.length}
-              />
-            ))}
-          </IonList>
+          {studiesToDisplay.length !== 0 ? <>
+            <div className="ion-padding ion-text-center">Next studies</div>
+            <IonList>
+              {studiesToDisplay.map((study) => (
+                <StudyListItem
+                  key={study.index}
+                  study={study}
+                  totalNumberOfStudies={studies.length}
+                />
+              ))}
+            </IonList>
+          </>:<><div className="ion-padding ion-text-center">You've finished all the studies in this series.</div>
+          </>}
         </IonContent>
       </IonPage>
     </>
