@@ -10,11 +10,16 @@ import {
   IonLabel,
   IonPage,
   IonText,
+  IonTitle,
   IonToolbar,
   useIonViewWillEnter,
 } from "@ionic/react";
 import { useState } from "react";
-import { bookOutline, checkmarkCircleOutline } from "ionicons/icons";
+import {
+  bookOutline,
+  checkmarkCircleOutline,
+  helpOutline,
+} from "ionicons/icons";
 import { useParams } from "react-router";
 import { Study, getStudy } from "../data/studies";
 import "./ViewStudy.css";
@@ -34,25 +39,26 @@ function ViewStudy() {
   return (
     <IonPage id="view-study-page">
       <IonHeader collapse="fade">
-        <IonToolbar>
-          <IonButtons slot="start">
+        <IonToolbar mode="ios">
+          <IonButtons slot="start" >
             <IonBackButton
               mode="ios"
-              text="Bible Overview"
+              text="Studies"
               defaultHref="/home"
             ></IonBackButton>
           </IonButtons>
+          <IonTitle>{study?.title}</IonTitle>
         </IonToolbar>
       </IonHeader>
 
       <IonContent fullscreen>
         {study ? (
           <>
-            <IonItem>
-              <IonLabel className="ion-text-wrap">
-                <h1>{study.title}</h1>
-              </IonLabel>
-            </IonItem>
+            <IonHeader collapse="condense">
+              <IonToolbar>
+                <IonTitle>{study.title}</IonTitle>
+              </IonToolbar>
+            </IonHeader>
             <IonItem>
               <IonIcon
                 aria-hidden="true"
@@ -96,18 +102,18 @@ function ViewStudy() {
               </IonText>
             </IonItem>
             {/* <IonItem> */}
-              <IonText>
-                <h1>Further Reading</h1>
-                <ul>
-                  {study.furtherReading?.map((reading) => (
-                    <li key={reading.url}>
-                      <a href={reading.url}>
-                        {reading.title} - {reading.author}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </IonText>
+            <IonText>
+              <h1>Further Reading</h1>
+              <ul>
+                {study.furtherReading?.map((reading) => (
+                  <li key={reading.url}>
+                    <a href={reading.url}>
+                      {reading.title} - {reading.author}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </IonText>
             {/* </IonItem> */}
 
             <IonButton
