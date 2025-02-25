@@ -17,7 +17,6 @@ import { useState } from "react";
 import {
   bookOutline,
   checkmarkCircleOutline,
-  helpOutline,
 } from "ionicons/icons";
 import { useParams } from "react-router";
 import { Study, getStudy } from "../data/studies";
