@@ -7,9 +7,9 @@ import {
   IonHeader,
   IonIcon,
   IonItem,
+  IonLabel,
   IonList,
   IonPage,
-  IonRouterLink,
   IonText,
   IonTitle,
   IonToolbar,
@@ -27,14 +27,15 @@ import {
   CompletedStudiesStorageKey,
   ShowLeadersNotesStorageKey,
 } from "../components/localStorageKeys";
-import { Study, getStudy } from "../data/studies";
+import { Study, getStudies, getStudy, getTheme } from "../data/studies";
 import "./ViewStudy.css";
 
-function ViewStudy() {
-  const [study, setStudy] = useState<Study>();
+function ViewTheme() {
+  const [theme, setTheme] = useState<{ name: string; description: string }>();
+  const [relatedStudies, setRelatedStudies] = useState<Study[]>([]);
   const [completedStudies, setCompletedStudies, removeCompletedStudies] =
     useLocalStorage<number[]>(CompletedStudiesStorageKey, []);
-  const params = useParams<{ id: string }>();
+  const params = useParams<{ name: string }>();
 
   const [showLeadersNotes, setShowLeadersNotes] = useLocalStorage<boolean>(
     ShowLeadersNotesStorageKey,
@@ -42,8 +43,13 @@ function ViewStudy() {
   );
 
   useIonViewWillEnter(() => {
-    const study_ = getStudy(parseInt(params.id, 10));
-    setStudy(study_);
+    const theme_ = getTheme(params.name);
+    setTheme({ name: params.name, description: theme_ });
+    const allStudies = getStudies();
+    const relatedStudies_ = allStudies.filter((study) =>
+      study.themes.includes(params.name)
+    );
+    setRelatedStudies(relatedStudies_);
   });
 
   return (
@@ -53,23 +59,42 @@ function ViewStudy() {
           <IonButtons slot="start">
             <IonBackButton
               mode="ios"
-              text="Studies"
+              text="Study"
               defaultHref="/home"
             ></IonBackButton>
           </IonButtons>
-          <IonTitle>{study?.title}</IonTitle>
+          <IonTitle>{theme?.name}</IonTitle>
         </IonToolbar>
       </IonHeader>
 
       <IonContent fullscreen>
-        {study ? (
+        {theme ? (
           <>
             <IonHeader collapse="condense">
               <IonToolbar>
-                <IonTitle>{study.title}</IonTitle>
+                <IonTitle>{theme.name}</IonTitle>
               </IonToolbar>
             </IonHeader>
+            <IonItem>{theme.description}</IonItem>
             <IonItem>
+              <IonText>
+                <h3>Studies</h3>
+                <IonList lines="full">
+                  {relatedStudies.map((study) => (
+                    <IonItem
+                      lines="full"
+                      routerLink={`/study/${study.index}`}
+                      key={study.index}
+                      detail={false}
+                    >
+                      <IonLabel slot="start">{study.title}</IonLabel>
+                      <IonLabel slot="end">{study.passages[0]}</IonLabel>
+                    </IonItem>
+                  ))}
+                </IonList>
+              </IonText>
+            </IonItem>
+            {/* <IonItem>
               <IonIcon
                 aria-hidden="true"
                 icon={bookOutline}
@@ -77,36 +102,25 @@ function ViewStudy() {
                 size="small"
               ></IonIcon>
               {study.passages.map((passage) => (
-                <IonRouterLink
+                <a
+                  className="passageLink"
                   key={passage}
-                  href={`/biblepassage/${passage}`}
+                  href={`https://www.biblegateway.com/passage/?search=${passage}&version=NIV`}
                   target="_blank"
-                  rel="noreferrer">{passage}</IonRouterLink>
-                // <a
-                //   className="passageLink"
-                //   key={passage}
-                //   href={`https://www.biblegateway.com/passage/?search=${passage}&version=NIV`}
-                //   target="_blank"
-                //   rel="noreferrer"
-                // >
-                //   {passage}
-                // </a>
+                  rel="noreferrer"
+                >
+                  {passage}
+                </a>
               ))}
-            </IonItem>
-            <IonItem>
+            </IonItem> */}
+            {/* <IonItem>
               <IonText className="ion-padding">
                 <p>{study.overview}</p>
               </IonText>
             </IonItem>
             <IonItem>
               {study.themes.map((theme) => (
-                <IonChip
-                  key={theme}
-                  outline
-                  onClick={() => {
-                    window.location.href = `/theme/${theme}`;
-                  }}
-                >
+                <IonChip key={theme} outline>
                   {theme}
                 </IonChip>
               ))}
@@ -136,14 +150,14 @@ function ViewStudy() {
                 <IonList>
                   {study.additionalResources?.map((reading) => (
                     <IonItem key={reading.url}>
-                      <a href={reading.url} target="_blank" rel="noreferrer">
+                        <a href={reading.url} target="_blank" rel="noreferrer">
                         {reading.title} - {reading.author}
                         <IonIcon
                           icon={exitOutline}
                           size="small"
                           style={{ marginLeft: "8px" }}
                         />
-                      </a>
+                        </a>
                     </IonItem>
                   ))}
                 </IonList>
@@ -179,8 +193,8 @@ function ViewStudy() {
                 }}
               >
                 Reset
-              </IonButton>
-            )}
+              </IonButton> */}
+            {/* )} */}
           </>
         ) : (
           <div>Study not found</div>
@@ -190,4 +204,4 @@ function ViewStudy() {
   );
 }
 
-export default ViewStudy;
+export default ViewTheme;

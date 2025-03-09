@@ -1,0 +1,2 @@
+export const CompletedStudiesStorageKey = "org.christchurchmayfair.app.biblestudies.completedStudiesIndices";
+export const ShowLeadersNotesStorageKey = "org.christchurchmayfair.app.biblestudies.showLeadersNotes";

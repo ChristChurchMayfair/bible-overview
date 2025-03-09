@@ -32,10 +32,13 @@ import "@ionic/react/css/text-transformation.css";
 import "@ionic/react/css/palettes/dark.system.css";
 
 /* Theme variables */
-import "./theme/variables.css";
-import Introduction from "./pages/Introduction";
+import About from "./pages/About";
 import AllStudies from "./pages/AllStudies";
 import CompletedStudies from "./pages/CompletedStudies";
+import Settings from "./pages/Settings";
+import "./theme/variables.css";
+import ViewTheme from "./pages/ViewTheme";
+import BiblePassage from "./pages/BiblePassage";
 
 setupIonicReact();
 
@@ -52,14 +55,23 @@ const App: React.FC = () => (
         <Route path="/study/:id">
           <ViewStudy />
         </Route>
+        <Route path="/theme/:name">
+          <ViewTheme />
+        </Route>
         <Route path="/about">
-          <Introduction/>
+          <About />
         </Route>
         <Route path="/allstudies">
-          <AllStudies/>
+          <AllStudies />
         </Route>
         <Route path="/completedstudies">
-          <CompletedStudies/>
+          <CompletedStudies />
+        </Route>
+        <Route path="/settings">
+          <Settings />
+        </Route>
+        <Route path="/biblepassage/:passage">
+          <BiblePassage />
         </Route>
       </IonRouterOutlet>
     </IonReactRouter>

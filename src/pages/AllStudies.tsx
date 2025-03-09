@@ -23,11 +23,12 @@ import "./Home.css";
 import { checkmarkCircleOutline, helpOutline, listOutline, sparklesOutline } from "ionicons/icons";
 import { useLocalStorage } from "usehooks-ts";
 import { Menu } from "../components/Menu";
+import { CompletedStudiesStorageKey } from "../components/localStorageKeys";
 
 const AllStudies: React.FC = () => {
   const [studies, setStudies] = useState<Study[]>([]);
 
-  const [completedStudies, setCompletedStudies, removeCompletedStudies] = useLocalStorage<number[]>("completedStudies", []);
+  const [completedStudies, setCompletedStudies, removeCompletedStudies] = useLocalStorage<number[]>(CompletedStudiesStorageKey, []);
 
   useIonViewWillEnter(() => {
     const studies_ = getStudies();

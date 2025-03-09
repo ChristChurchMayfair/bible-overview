@@ -22,12 +22,13 @@ import {
 } from "ionicons/icons";
 import { useLocalStorage } from "usehooks-ts";
 import { Menu } from "../components/Menu";
+import { CompletedStudiesStorageKey } from "../components/localStorageKeys";
 
 const Home: React.FC = () => {
   const [studies, setStudies] = useState<Study[]>([]);
 
   const [completedStudies, setCompletedStudies, removeCompletedStudies] =
-    useLocalStorage<number[]>("completedStudies", []);
+    useLocalStorage<number[]>(CompletedStudiesStorageKey, []);
 
   useIonViewWillEnter(() => {
     const studies_ = getStudies();

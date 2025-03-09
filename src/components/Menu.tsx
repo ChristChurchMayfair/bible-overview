@@ -13,6 +13,8 @@ import {
   sparklesOutline,
   checkmarkCircleOutline,
   listOutline,
+  cogOutline,
+  helpOutline,
 } from "ionicons/icons";
 import React from "react";
 
@@ -25,7 +27,7 @@ export const Menu: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding">
-        <IonList>
+        <IonList lines="full">
           <IonItem routerLink="/" detail={false}>
             <IonIcon icon={sparklesOutline} color="primary" slot="start" />
             <IonLabel>Upcoming Studies</IonLabel>
@@ -41,6 +43,14 @@ export const Menu: React.FC = () => {
           <IonItem routerLink="/allstudies" detail={false}>
             <IonIcon icon={listOutline} color="primary" slot="start" />
             <IonLabel>All Studies</IonLabel>
+          </IonItem>
+          <IonItem routerLink="/settings" detail={false}>
+            <IonIcon icon={cogOutline} color="primary" slot="start" />
+            <IonLabel>Settings</IonLabel>
+          </IonItem>
+          <IonItem routerLink="/about" detail={false}>
+            <IonIcon icon={helpOutline} color="primary" slot="start" />
+            <IonLabel>About</IonLabel>
           </IonItem>
         </IonList>
       </IonContent>
