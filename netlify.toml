@@ -4,7 +4,7 @@ command = "sed -i \"s|CROSSWAY_ESV_API_KEY|${CROSSWAY_ESV_API_KEY}|g\" netlify.t
 
 [[redirects]]
   from = "/esv/*"
-  to = "https://api.esv.org"
+  to = "https://api.esv.org/:splat"
   status = 200
   force = true
   headers = {Authorization = "CROSSWAY_ESV_API_KEY"}
