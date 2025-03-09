@@ -8,3 +8,8 @@ command = "sed -i \"s|CROSSWAY_ESV_API_KEY|${CROSSWAY_ESV_API_KEY}|g\" netlify.t
   status = 200
   force = true
   headers = {Authorization = "CROSSWAY_ESV_API_KEY"}
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
