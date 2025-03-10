@@ -6,6 +6,7 @@ import {
   IonLabel,
   IonList,
   IonMenu,
+  IonMenuToggle,
   IonTitle,
   IonToolbar,
 } from "@ionic/react";
@@ -28,30 +29,32 @@ export const Menu: React.FC = () => {
       </IonHeader>
       <IonContent className="ion-padding">
         <IonList lines="full">
-          <IonItem routerLink="/" detail={false}>
-            <IonIcon icon={sparklesOutline} color="primary" slot="start" />
-            <IonLabel>Upcoming Studies</IonLabel>
-          </IonItem>
-          <IonItem routerLink="/completedstudies" detail={false}>
-            <IonIcon
-              icon={checkmarkCircleOutline}
-              color="primary"
-              slot="start"
-            />
-            <IonLabel>Completed Studies</IonLabel>
-          </IonItem>
-          <IonItem routerLink="/allstudies" detail={false}>
-            <IonIcon icon={listOutline} color="primary" slot="start" />
-            <IonLabel>All Studies</IonLabel>
-          </IonItem>
-          <IonItem routerLink="/settings" detail={false}>
-            <IonIcon icon={cogOutline} color="primary" slot="start" />
-            <IonLabel>Settings</IonLabel>
-          </IonItem>
-          <IonItem routerLink="/about" detail={false}>
-            <IonIcon icon={helpOutline} color="primary" slot="start" />
-            <IonLabel>About</IonLabel>
-          </IonItem>
+          <IonMenuToggle>
+            <IonItem routerLink="/" detail={false}>
+              <IonIcon icon={sparklesOutline} color="primary" slot="start" />
+              <IonLabel>Upcoming Studies</IonLabel>
+            </IonItem>
+            <IonItem routerLink="/completedstudies" detail={false}>
+              <IonIcon
+                icon={checkmarkCircleOutline}
+                color="primary"
+                slot="start"
+              />
+              <IonLabel>Completed Studies</IonLabel>
+            </IonItem>
+            <IonItem routerLink="/allstudies" detail={false}>
+              <IonIcon icon={listOutline} color="primary" slot="start" />
+              <IonLabel>All Studies</IonLabel>
+            </IonItem>
+            <IonItem routerLink="/settings" detail={false}>
+              <IonIcon icon={cogOutline} color="primary" slot="start" />
+              <IonLabel>Settings</IonLabel>
+            </IonItem>
+            <IonItem routerLink="/about" detail={false}>
+              <IonIcon icon={helpOutline} color="primary" slot="start" />
+              <IonLabel>About</IonLabel>
+            </IonItem>
+          </IonMenuToggle>
         </IonList>
       </IonContent>
     </IonMenu>
