@@ -81,7 +81,10 @@ function ViewStudy() {
                   key={passage}
                   href={`/biblepassage/${passage}`}
                   target="_blank"
-                  rel="noreferrer">{passage}</IonRouterLink>
+                  rel="noreferrer"
+                >
+                  {passage}
+                </IonRouterLink>
                 // <a
                 //   className="passageLink"
                 //   key={passage}
@@ -151,6 +154,7 @@ function ViewStudy() {
             </IonItem>
 
             <IonButton
+              className="ion-padding"
               expand="block"
               shape="round"
               mode="ios"
@@ -168,6 +172,7 @@ function ViewStudy() {
             </IonButton>
             {completedStudies.includes(study.index) && (
               <IonButton
+                className="ion-padding-horizontal"
                 expand="block"
                 shape="round"
                 mode="ios"
@@ -181,6 +186,7 @@ function ViewStudy() {
                 Reset
               </IonButton>
             )}
+            <div className="ion-padding" style={{ height: "90px" }} />
           </>
         ) : (
           <div>Study not found</div>
