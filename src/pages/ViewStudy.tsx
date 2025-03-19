@@ -7,18 +7,18 @@ import {
   IonHeader,
   IonIcon,
   IonItem,
+  IonLabel,
   IonList,
   IonPage,
   IonRouterLink,
+  IonRow,
   IonText,
   IonTitle,
   IonToolbar,
   useIonViewWillEnter,
 } from "@ionic/react";
 import {
-  bookOutline,
   checkmarkCircleOutline,
-  exitOutline,
 } from "ionicons/icons";
 import { useState } from "react";
 import { useParams } from "react-router";
@@ -69,42 +69,32 @@ function ViewStudy() {
                 <IonTitle>{study.title}</IonTitle>
               </IonToolbar>
             </IonHeader>
-            <IonItem>
-              <IonIcon
-                aria-hidden="true"
-                icon={bookOutline}
-                color="primary"
-                size="small"
-              ></IonIcon>
-              {study.passages.map((passage) => (
-                <IonRouterLink
-                  key={passage}
-                  href={`/biblepassage/${passage}`}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  {passage}
-                </IonRouterLink>
-                // <a
-                //   className="passageLink"
-                //   key={passage}
-                //   href={`https://www.biblegateway.com/passage/?search=${passage}&version=NIV`}
-                //   target="_blank"
-                //   rel="noreferrer"
-                // >
-                //   {passage}
-                // </a>
-              ))}
-            </IonItem>
-            <IonItem>
-              <IonText className="ion-padding">
+
+            <IonRow>
+              <IonText>
+                {study.passages.map((passage) => (
+                  <IonRouterLink
+                    className="ion-padding-end"
+                    key={passage}
+                    href={`/biblepassage/${passage}`}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {passage}
+                  </IonRouterLink>
+                ))}
+              </IonText>
+            </IonRow>
+            <IonRow>
+              <IonText>
                 <p>{study.overview}</p>
               </IonText>
-            </IonItem>
-            <IonItem>
+            </IonRow>
+            <IonRow>
               {study.themes.map((theme) => (
                 <IonChip
                   key={theme}
+                  color="primary"
                   outline
                   onClick={() => {
                     window.location.href = `/theme/${theme}`;
@@ -113,48 +103,39 @@ function ViewStudy() {
                   {theme}
                 </IonChip>
               ))}
-            </IonItem>
+            </IonRow>
             {showLeadersNotes && (
-              <IonItem>
-                <IonText className="ion-padding">
+              <IonRow>
+                <IonText>
                   <h3>Leaders Notes</h3>
                   <p>{study.leadersNotes ?? "No leaders notes available"}</p>
                 </IonText>
-              </IonItem>
+              </IonRow>
             )}
-            <IonItem>
-              <IonText className="ion-padding">
+            <IonRow>
+              <IonText>
                 <h3>Questions</h3>
-
                 <ol>
                   {study.questions.map((question, index) => (
                     <li key={index}>{question}</li>
                   ))}
                 </ol>
               </IonText>
-            </IonItem>
-            <IonItem>
+            </IonRow>
+            <IonRow>
               <IonText>
-                <h1>Additional Resources</h1>
-                <IonList>
+                <h3>Additional Resources</h3>
                   {study.additionalResources?.map((reading) => (
-                    <IonItem key={reading.url}>
+                    <div key={reading.url} className="ion-padding-bottom">
                       <a href={reading.url} target="_blank" rel="noreferrer">
                         {reading.title} - {reading.author}
-                        <IonIcon
-                          icon={exitOutline}
-                          size="small"
-                          style={{ marginLeft: "8px" }}
-                        />
                       </a>
-                    </IonItem>
+                    </div>
                   ))}
-                </IonList>
               </IonText>
-            </IonItem>
+            </IonRow>
 
             <IonButton
-              className="ion-padding"
               expand="block"
               shape="round"
               mode="ios"
@@ -172,7 +153,7 @@ function ViewStudy() {
             </IonButton>
             {completedStudies.includes(study.index) && (
               <IonButton
-                className="ion-padding-horizontal"
+                className="ion-margin-top"
                 expand="block"
                 shape="round"
                 mode="ios"
