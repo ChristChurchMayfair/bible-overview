@@ -82,6 +82,7 @@ const Home: React.FC = () => {
                 />
               ))}
             </IonList>
+            <div className="ion-padding" style={{ height: "90px" }} />
           </>:<><div className="ion-padding ion-text-center">You've finished all the studies in this series.</div>
           </>}
         </IonContent>

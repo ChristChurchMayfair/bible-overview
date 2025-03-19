@@ -80,6 +80,7 @@ const AllStudies: React.FC = () => {
               />
             ))}
           </IonList>
+          <div className="ion-padding" style={{ height: "90px" }} />
         </IonContent>
       </IonPage>
     </>

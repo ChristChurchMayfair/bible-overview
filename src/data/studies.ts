@@ -5,9 +5,10 @@ export interface Study {
   passages: string[];
   themes: string[];
   keyApplication: string;
-  questions: string[];
+  questions: { [section: string]: string[] };
   additionalResources?: Resource[];
   leadersNotes?: string;
+  prayerPoints?: string[];
 }
 
 type Resource = {
@@ -20,17 +21,20 @@ type Resource = {
 const studies: Study[] = [
   {
     title: "Creation",
-    overview: "The creation of the world and humanity, and God's sovereignty. It is the foundation of the Bible and sets the stage for the rest of the story. It reveals God's power, wisdom, and goodness in creating all things.  It also establishes the relationship between God and humanity, as well as the purpose of humanity in God's creation.",
+    overview:
+      "The creation of the world and humanity, and God's sovereignty. It is the foundation of the Bible and sets the stage for the rest of the story. It reveals God's power, wisdom, and goodness in creating all things.  It also establishes the relationship between God and humanity, as well as the purpose of humanity in God's creation.",
     passages: ["Genesis 1-2"],
     themes: ["Creation", "God's Sovereignty", "Humanity"],
     keyApplication:
       "Understanding the creation helps us recognize God's sovereignty and our purpose in His creation.",
-    questions: [
-      "What does the creation account teach us about God?",
-      "How does the creation account shape our understanding of humanity?",
-      "What is the significance of the seventh day?",
-      "How does the creation account point to Christ?",
-    ],
+    questions: {
+      "": [
+        "What does the creation account teach us about God?",
+        "How does the creation account shape our understanding of humanity?",
+        "What is the significance of the seventh day?",
+        "How does the creation account point to Christ?",
+      ],
+    },
     additionalResources: [
       {
         title: "The Genesis Creation Account",
@@ -42,18 +46,56 @@ const studies: Study[] = [
     index: 1,
   },
   {
+    index: 21,
+    title: "Ephesians 1:1-14",
+    passages: ["Ephesians 1:1-14"],
+    overview:
+      "The book of Ephesians is a letter written by the apostle Paul to the church in Ephesus. It emphasizes the unity of believers in Christ, the spiritual blessings in Christ, and the calling to live a life worthy of the gospel. Ephesians 1 focuses on God's plan of salvation, predestination, adoption, redemption, and the sealing of the Holy Spirit.",
+    themes: ["Salvation", "Predestination", "Adoption", "Redemption"],
+    keyApplication:
+      "God has blessed us richly in Christ as part of his plan to unite all things under Christ for his glory. So praise God for all the blessings we have in Christ.",
+    questions: {
+      "": ["What is God’s big plan for the universe?"],
+      "vv1-2": ["How does Paul describe himself and the Ephesians?"],
+      "vv3-10": [
+        "Make a table detailing all the blessings Paul lists in 3-10 in one column, and what is good about them in the other column. Begin by getting the group to identify all the blessings, and then making sure they understand what they mean.",
+        "What encouragement is there for us to learn that we didn’t just choose to follow Jesus, God chose to save us before we were even born?",
+        "What motivated God to lavish all these blessings on us?",
+        "Which of these blessings do you find most precious? Why? ",
+        "What is God’s plan for this universe?",
+      ],
+      "vv11-14": [
+        "What can stop God achieving his purpose for the world?",
+        "What part do we play in God’s plan to bring the cosmos under Jesus’ blessed rule?",
+        "How can we come to enjoy all these blessings?",
+        "How would you feel if the government passed a law stating it was ok to believe in Jesus, it was ok to pray, and even ok to evangelise. But it was illegal to sing God’s praises?",
+        "How does this impact/change the way you think about God? What would it look like if you really grasped this?",
+      ],
+    },
+    prayerPoints: [
+      "Thank God for choosing to save us before we were even born.",
+      "Thank God for the blessings he has lavished on us in Christ.",
+      "Ask God to help you understand and enjoy these blessings more.",
+      "Ask God to help you live in a way that brings glory to him.",
+    ],
+    additionalResources: [],
+  },
+  {
     title: "Fall",
-    overview: "The fall of humanity and the introduction of sin into the world. It explains the origin of sin and the need for redemption through Christ. It reveals the consequences of disobedience to God's commands and the brokenness of the world as a result of sin.",
+    overview:
+      "The fall of humanity and the introduction of sin into the world. It explains the origin of sin and the need for redemption through Christ. It reveals the consequences of disobedience to God's commands and the brokenness of the world as a result of sin.",
     passages: ["Genesis 3"],
     themes: ["Sin", "Judgment", "Redemption"],
     keyApplication:
       "The fall explains the origin of sin and the need for redemption through Christ.",
-    questions: [
-      "What led to the fall of humanity?",
-      "What were the consequences of the fall?",
-      "How does the fall affect our understanding of sin and redemption?",
-      "How does the fall point to the need for Christ?",
-    ],
+    questions: {
+      "": [
+        "What led to the fall of humanity?",
+        "What were the consequences of the fall?",
+        "How does the fall affect our understanding of sin and redemption?",
+        "How does the fall point to the need for Christ?",
+      ],
+    },
     additionalResources: [
       {
         title: "The Fall of Man",
@@ -71,12 +113,14 @@ const studies: Study[] = [
     themes: ["Judgment", "Grace", "Covenant"],
     keyApplication:
       "The flood narrative highlights God's judgment on sin and His grace in providing a way of salvation.",
-    questions: [
-      "What led to the flood?",
-      "How did Noah find favor with God?",
-      "What is the significance of the covenant with Noah?",
-      "How does the flood narrative point to Christ?",
-    ],
+    questions: {
+      "": [
+        "What led to the flood?",
+        "How did Noah find favor with God?",
+        "What is the significance of the covenant with Noah?",
+        "How does the flood narrative point to Christ?",
+      ],
+    },
     additionalResources: [
       {
         title: "Noah's Ark and the Flood",
@@ -94,12 +138,14 @@ const studies: Study[] = [
     themes: ["Faith", "Promise", "Covenant"],
     keyApplication:
       "The lives of the patriarchs demonstrate God's faithfulness to His promises and the importance of faith.",
-    questions: [
-      "Who were the patriarchs, and what were their roles?",
-      "How did God fulfill His promises to the patriarchs?",
-      "What can we learn from the faith of the patriarchs?",
-      "How do the patriarchs point to Christ?",
-    ],
+    questions: {
+      "": [
+        "Who were the patriarchs, and what were their roles?",
+        "How did God fulfill His promises to the patriarchs?",
+        "What can we learn from the faith of the patriarchs?",
+        "How do the patriarchs point to Christ?",
+      ],
+    },
     additionalResources: [
       {
         title: "The Patriarchs",
@@ -117,12 +163,14 @@ const studies: Study[] = [
     themes: ["Deliverance", "Covenant", "Law"],
     keyApplication:
       "The exodus narrative reveals God's power to deliver His people and establish a covenant relationship with them.",
-    questions: [
-      "What led to the exodus from Egypt?",
-      "How did God deliver His people from slavery?",
-      "What is the significance of the covenant at Sinai?",
-      "How does the exodus narrative point to Christ?",
-    ],
+    questions: {
+      "": [
+        "What led to the exodus from Egypt?",
+        "How did God deliver His people from slavery?",
+        "What is the significance of the covenant at Sinai?",
+        "How does the exodus narrative point to Christ?",
+      ],
+    },
     additionalResources: [
       {
         title: "The Exodus",
@@ -140,12 +188,14 @@ const studies: Study[] = [
     themes: ["Law", "Holiness", "Covenant"],
     keyApplication:
       "The giving of the law shows God's standards for holiness and the covenant relationship with His people.",
-    questions: [
-      "What is the purpose of the law?",
-      "How does the law reveal God's holiness?",
-      "What is the significance of the covenant relationship?",
-      "How does the law point to Christ?",
-    ],
+    questions: {
+      "": [
+        "What is the purpose of the law?",
+        "How does the law reveal God's holiness?",
+        "What is the significance of the covenant relationship?",
+        "How does the law point to Christ?",
+      ],
+    },
     additionalResources: [
       {
         title: "The Law and the Gospel",
@@ -163,12 +213,14 @@ const studies: Study[] = [
     themes: ["Faith", "Obedience", "Promise"],
     keyApplication:
       "The conquest of the promised land demonstrates the importance of faith and obedience to God's promises.",
-    questions: [
-      "What was the significance of the conquest of the promised land?",
-      "How did Joshua lead the Israelites in faith and obedience?",
-      "What challenges did the Israelites face during the conquest?",
-      "How does the conquest narrative point to Christ?",
-    ],
+    questions: {
+      "": [
+        "What was the significance of the conquest of the promised land?",
+        "How did Joshua lead the Israelites in faith and obedience?",
+        "What challenges did the Israelites face during the conquest?",
+        "How does the conquest narrative point to Christ?",
+      ],
+    },
     additionalResources: [
       {
         title: "Joshua and the Conquest of Canaan",
@@ -186,12 +238,14 @@ const studies: Study[] = [
     themes: ["Leadership", "Faithfulness", "Cycle of Sin"],
     keyApplication:
       "The period of the judges highlights the need for godly leadership and faithfulness to God.",
-    questions: [
-      "What was the role of the judges in Israel?",
-      "How did the cycle of sin affect the Israelites?",
-      "What can we learn from the leadership of the judges?",
-      "How does the period of the judges point to Christ?",
-    ],
+    questions: {
+      "": [
+        "What was the role of the judges in Israel?",
+        "How did the cycle of sin affect the Israelites?",
+        "What can we learn from the leadership of the judges?",
+        "How does the period of the judges point to Christ?",
+      ],
+    },
     additionalResources: [
       {
         title: "Judges: A Theological Commentary",
@@ -209,12 +263,14 @@ const studies: Study[] = [
     themes: ["Leadership", "Covenant", "Faithfulness"],
     keyApplication:
       "The history of the kings reveals the importance of godly leadership and faithfulness to God's covenant.",
-    questions: [
-      "What was the significance of the united and divided kingdoms?",
-      "How did the leadership of the kings affect Israel and Judah?",
-      "What can we learn from the successes and failures of the kings?",
-      "How do the kings point to Christ?",
-    ],
+    questions: {
+      "": [
+        "What was the significance of the united and divided kingdoms?",
+        "How did the leadership of the kings affect Israel and Judah?",
+        "What can we learn from the successes and failures of the kings?",
+        "How do the kings point to Christ?",
+      ],
+    },
     additionalResources: [
       {
         title: "The Kings of Israel and Judah",
@@ -232,12 +288,14 @@ const studies: Study[] = [
     themes: ["Judgment", "Repentance", "Hope"],
     keyApplication:
       "The exile demonstrates the consequences of unfaithfulness to God and the hope of restoration.",
-    questions: [
-      "What led to the exile of Israel and Judah?",
-      "What were the consequences of the exile?",
-      "How did the prophets call the people to repentance during the exile?",
-      "How does the exile point to the hope of restoration in Christ?",
-    ],
+    questions: {
+      "": [
+        "What led to the exile of Israel and Judah?",
+        "What were the consequences of the exile?",
+        "How did the prophets call the people to repentance during the exile?",
+        "How does the exile point to the hope of restoration in Christ?",
+      ],
+    },
     additionalResources: [
       {
         title: "The Exile and Restoration",
@@ -255,12 +313,14 @@ const studies: Study[] = [
     themes: ["Restoration", "Rebuilding", "Faithfulness", "Covenant"],
     keyApplication:
       "The return from exile highlights God's faithfulness in restoring His people and the importance of rebuilding and renewing the covenant relationship with Him.",
-    questions: [
-      "What led to the return from exile?",
-      "How did the Israelites rebuild and renew their covenant with God?",
-      "What challenges did they face during the return?",
-      "What lessons can we learn about restoration and faithfulness?",
-    ],
+    questions: {
+      "": [
+        "What led to the return from exile?",
+        "How did the Israelites rebuild and renew their covenant with God?",
+        "What challenges did they face during the return?",
+        "What lessons can we learn about restoration and faithfulness?",
+      ],
+    },
     additionalResources: [
       {
         title: "Ezra and Nehemiah",
@@ -278,12 +338,14 @@ const studies: Study[] = [
     themes: ["Prophecy", "Judgment", "Hope", "Redemption"],
     keyApplication:
       "The prophets called God's people to repentance, warned of judgment, and offered hope of redemption and restoration.",
-    questions: [
-      "What was the role of the prophets in Israel?",
-      "How did the prophets call the people to repentance?",
-      "What messages of hope and redemption did the prophets deliver?",
-      "How do the prophecies point to Christ?",
-    ],
+    questions: {
+      "": [
+        "What was the role of the prophets in Israel?",
+        "How did the prophets call the people to repentance?",
+        "What messages of hope and redemption did the prophets deliver?",
+        "How do the prophecies point to Christ?",
+      ],
+    },
     additionalResources: [
       {
         title: "The Prophets",
@@ -301,12 +363,14 @@ const studies: Study[] = [
     themes: ["Wisdom", "Suffering", "Fear of the Lord", "Life"],
     keyApplication:
       "The wisdom literature provides insights into living a life that honors God, addresses the problem of suffering, and emphasizes the fear of the Lord as the beginning of wisdom.",
-    questions: [
-      "What is the purpose of the wisdom literature?",
-      "How do Proverbs, Ecclesiastes, and Job address different aspects of life and faith?",
-      "What is the fear of the Lord, and why is it important?",
-      "How does the wisdom literature point to Christ?",
-    ],
+    questions: {
+      "": [
+        "What is the purpose of the wisdom literature?",
+        "How do Proverbs, Ecclesiastes, and Job address different aspects of life and faith?",
+        "What is the fear of the Lord, and why is it important?",
+        "How does the wisdom literature point to Christ?",
+      ],
+    },
     additionalResources: [
       {
         title: "The Wisdom of Proverbs, Job, and Ecclesiastes",
@@ -324,12 +388,14 @@ const studies: Study[] = [
     themes: ["Worship", "Prayer", "Lament", "Praise"],
     keyApplication:
       "The Psalms provide a model for worship, prayer, and expressing the full range of human emotions before God.",
-    questions: [
-      "What are the different types of Psalms?",
-      "How do the Psalms teach us to worship and pray?",
-      "What role do lament and praise play in the Psalms?",
-      "How do the Psalms point to Christ?",
-    ],
+    questions: {
+      "": [
+        "What are the different types of Psalms?",
+        "How do the Psalms teach us to worship and pray?",
+        "What role do lament and praise play in the Psalms?",
+        "How do the Psalms point to Christ?",
+      ],
+    },
     additionalResources: [
       {
         title: "The Psalms: An Introduction",
@@ -347,12 +413,14 @@ const studies: Study[] = [
     themes: ["Jesus", "Kingdom of God", "Salvation", "Discipleship"],
     keyApplication:
       "The Gospels reveal the life, ministry, death, and resurrection of Jesus, calling us to follow Him and participate in the Kingdom of God.",
-    questions: [
-      "What do the Gospels reveal about Jesus?",
-      "How did Jesus inaugurate the Kingdom of God?",
-      "What is the significance of Jesus' death and resurrection?",
-      "What does it mean to be a disciple of Jesus?",
-    ],
+    questions: {
+      "": [
+        "What do the Gospels reveal about Jesus?",
+        "How did Jesus inaugurate the Kingdom of God?",
+        "What is the significance of Jesus' death and resurrection?",
+        "What does it mean to be a disciple of Jesus?",
+      ],
+    },
     additionalResources: [
       {
         title: "Jesus and the Gospels",
@@ -370,12 +438,14 @@ const studies: Study[] = [
     themes: ["Holy Spirit", "Church", "Mission", "Witness"],
     keyApplication:
       "The book of Acts describes the birth and growth of the early church, the work of the Holy Spirit, and the mission to spread the gospel to the ends of the earth.",
-    questions: [
-      "What is the significance of the Holy Spirit in Acts?",
-      "How did the early church grow and spread the gospel?",
-      "What challenges did the early church face?",
-      "What lessons can we learn from the early church about mission and witness?",
-    ],
+    questions: {
+      "": [
+        "What is the significance of the Holy Spirit in Acts?",
+        "How did the early church grow and spread the gospel?",
+        "What challenges did the early church face?",
+        "What lessons can we learn from the early church about mission and witness?",
+      ],
+    },
     additionalResources: [
       {
         title: "Acts",
@@ -407,12 +477,14 @@ const studies: Study[] = [
     themes: ["Gospel", "Church", "Grace", "Faith"],
     keyApplication:
       "Paul's letters provide theological insights, practical instructions, and encouragement for living out the gospel in the context of the church.",
-    questions: [
-      "What are the main themes of Paul's letters?",
-      "How do Paul's letters address the life and mission of the church?",
-      "What practical instructions does Paul give for Christian living?",
-      "How do Paul's letters point to the gospel of grace and faith in Christ?",
-    ],
+    questions: {
+      "": [
+        "What are the main themes of Paul's letters?",
+        "How do Paul's letters address the life and mission of the church?",
+        "What practical instructions does Paul give for Christian living?",
+        "How do Paul's letters point to the gospel of grace and faith in Christ?",
+      ],
+    },
     additionalResources: [
       {
         title: "Paul: Apostle of the Heart Set Free",
@@ -439,12 +511,14 @@ const studies: Study[] = [
     themes: ["Faith", "Perseverance", "Holiness", "Truth"],
     keyApplication:
       "The general epistles address various aspects of faith, perseverance, holiness, and truth, encouraging believers to live faithfully in the midst of trials and challenges.",
-    questions: [
-      "What are the main themes of the general epistles?",
-      "How do the general epistles encourage perseverance and faithfulness?",
-      "What instructions do the general epistles give for holy living?",
-      "How do the general epistles address the importance of truth and sound doctrine?",
-    ],
+    questions: {
+      "": [
+        "What are the main themes of the general epistles?",
+        "How do the general epistles encourage perseverance and faithfulness?",
+        "What instructions do the general epistles give for holy living?",
+        "How do the general epistles address the importance of truth and sound doctrine?",
+      ],
+    },
     additionalResources: [
       {
         title: "The General Epistles",
@@ -462,12 +536,14 @@ const studies: Study[] = [
     themes: ["End Times", "Judgment", "Hope", "Victory"],
     keyApplication:
       "The book of Revelation provides a vision of the end times, the final judgment, and the ultimate victory of Christ, offering hope and encouragement to believers.",
-    questions: [
-      "What is the main message of the book of Revelation?",
-      "How does Revelation describe the end times and final judgment?",
-      "What hope and encouragement does Revelation offer to believers?",
-      "How does Revelation point to the ultimate victory of Christ?",
-    ],
+    questions: {
+      default: [
+        "What is the main message of the book of Revelation?",
+        "How does Revelation describe the end times and final judgment?",
+        "What hope and encouragement does Revelation offer to believers?",
+        "How does Revelation point to the ultimate victory of Christ?",
+      ],
+    },
     additionalResources: [
       {
         title: "Revelation",
@@ -485,12 +561,14 @@ const studies: Study[] = [
     themes: ["Church", "Mission", "Persecution", "Growth"],
     keyApplication:
       "The history of the church provides insights into the mission, growth, and challenges faced by the church throughout the centuries, encouraging us to remain faithful and committed to the gospel.",
-    questions: [
-      "What are the key events in the history of the church?",
-      "How has the church grown and spread the gospel throughout the centuries?",
-      "What challenges and persecutions has the church faced?",
-      "What lessons can we learn from church history about mission and faithfulness?",
-    ],
+    questions: {
+      default: [
+        "What are the key events in the history of the church?",
+        "How has the church grown and spread the gospel throughout the centuries?",
+        "What challenges and persecutions has the church faced?",
+        "What lessons can we learn from church history about mission and faithfulness?",
+      ],
+    },
     additionalResources: [
       {
         title: "Church History in Plain Language",
@@ -503,50 +581,48 @@ const studies: Study[] = [
   },
 ];
 
-
-
-const themeData: {[themeName: string]: string} = {
-  "Creation": "The creation of the world",
+const themeData: { [themeName: string]: string } = {
+  Creation: "The creation of the world",
   "God's Sovereignty": "The sovereignty of God over all creation",
-  "Humanity": "The creation and purpose of humanity",
-  "Sin": "The origin and consequences of sin",
-  "Judgment": "God's judgment on sin and unrighteousness",
-  "Redemption": "God's plan of redemption and salvation",
-  "Grace": "God's unmerited favor and kindness",
-  "Covenant": "The covenant relationship between God and His people",
-  "Faith": "The importance and role of faith in God's promises",
-  "Promise": "God's faithfulness to His promises and covenants",
-  "Deliverance": "God's power to deliver His people from bondage",
-  "Law": "God's standards for holiness and righteousness",
-  "Holiness": "The call to be holy as God is holy",
-  "Conquest": "The conquest of the promised land by the Israelites",
-  "Obedience": "The importance of obedience to God's commands",
-  "Leadership": "The role of leaders in guiding and shepherding God's people",
+  Humanity: "The creation and purpose of humanity",
+  Sin: "The origin and consequences of sin",
+  Judgment: "God's judgment on sin and unrighteousness",
+  Redemption: "God's plan of redemption and salvation",
+  Grace: "God's unmerited favor and kindness",
+  Covenant: "The covenant relationship between God and His people",
+  Faith: "The importance and role of faith in God's promises",
+  Promise: "God's faithfulness to His promises and covenants",
+  Deliverance: "God's power to deliver His people from bondage",
+  Law: "God's standards for holiness and righteousness",
+  Holiness: "The call to be holy as God is holy",
+  Conquest: "The conquest of the promised land by the Israelites",
+  Obedience: "The importance of obedience to God's commands",
+  Leadership: "The role of leaders in guiding and shepherding God's people",
   "Cycle of Sin": "The recurring pattern of sin, judgment, and repentance",
   "Kingdom of God": "The reign and rule of God over all creation",
-  "Salvation": "The work of Jesus in saving and redeeming humanity",
-  "Discipleship": "The call to follow and imitate Jesus as His disciples",
+  Salvation: "The work of Jesus in saving and redeeming humanity",
+  Discipleship: "The call to follow and imitate Jesus as His disciples",
   "Holy Spirit": "The empowering presence of the Holy Spirit in the church",
-  "Church": "The community of believers and the body of Christ",
-  "Mission": "The mission of the church to spread the gospel to all nations",
-  "Witness": "The call to be witnesses of Jesus and His kingdom",
-  "Gospel": "The good news of salvation through Jesus Christ",
-  "Faithfulness": "The importance of faithfulness to God and His word",
-  "Perseverance": "The call to endure and remain faithful in the midst of trials",
-  "Truth": "The importance of sound doctrine and the truth of God's word",
+  Church: "The community of believers and the body of Christ",
+  Mission: "The mission of the church to spread the gospel to all nations",
+  Witness: "The call to be witnesses of Jesus and His kingdom",
+  Gospel: "The good news of salvation through Jesus Christ",
+  Faithfulness: "The importance of faithfulness to God and His word",
+  Perseverance: "The call to endure and remain faithful in the midst of trials",
+  Truth: "The importance of sound doctrine and the truth of God's word",
   "End Times": "The final events and culmination of God's redemptive plan",
-  "Hope": "The hope and assurance of Christ's return and victory",
-  "Victory": "The ultimate victory of Christ over sin, death, and evil",
-  "Persecution": "The challenges and persecutions faced by the early church",
-  "Growth": "The growth and spread of the gospel throughout history",
-  "Worship": "The act of showing reverence and adoration for God",
-  "Prayer": "The practice of communicating with God",
-  "Lament": "A passionate expression of grief or sorrow",
-  "Praise": "The expression of approval or admiration for God",
-  "Prophecy": "The inspired declaration of divine will and purpose",
-  "Suffering": "The experience of pain, distress, or hardship",
+  Hope: "The hope and assurance of Christ's return and victory",
+  Victory: "The ultimate victory of Christ over sin, death, and evil",
+  Persecution: "The challenges and persecutions faced by the early church",
+  Growth: "The growth and spread of the gospel throughout history",
+  Worship: "The act of showing reverence and adoration for God",
+  Prayer: "The practice of communicating with God",
+  Lament: "A passionate expression of grief or sorrow",
+  Praise: "The expression of approval or admiration for God",
+  Prophecy: "The inspired declaration of divine will and purpose",
+  Suffering: "The experience of pain, distress, or hardship",
   "Fear of the Lord": "A profound respect and reverence for God",
-  "Life": "The existence and experience of living beings",
+  Life: "The existence and experience of living beings",
 };
 
 export const getThemes = () => Object.keys(themeData);

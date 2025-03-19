@@ -91,6 +91,7 @@ const CompletedStudies: React.FC = () => {
               />
             ))}
           </IonList>
+          <div className="ion-padding" style={{ height: "90px" }} />
           {studiesToShow.length === 0 && (
                 <p className="ion-text-center">You've not yet marked any of the studies as completed.</p>
           )}

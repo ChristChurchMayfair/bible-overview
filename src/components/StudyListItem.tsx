@@ -14,19 +14,19 @@ const StudyListItem: React.FC<StudyListItemProps> = ({
 }) => {
   return (
     <IonItem
-      id="study-list-item"
+    className="ion-padding-left"
       routerLink={`/study/${study.index}`}
-      detail={true}
-      lines="full"
+      lines="inset"
+      detail
     >
-      <IonLabel className="ion-text-wrap" slot={"start"}>
+      <IonLabel className="ion-text-wrap">
         <h2>
           {study.title}
         </h2>
       </IonLabel>
-      <IonLabel slot={"end"}>
+      <IonNote slot={"end"}>
         {study.passages[0]}
-      </IonLabel>
+      </IonNote>
     </IonItem>
   );
 };

@@ -1,7 +1,7 @@
 #study-list-item {
   --padding-start: 0;
   --inner-padding-end: 0;
-  padding-inline-start: 20px;
+  /* padding-inline-start: 20px; */
 }
 
 #study-list-item ion-label {

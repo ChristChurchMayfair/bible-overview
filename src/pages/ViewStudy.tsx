@@ -2,13 +2,12 @@ import {
   IonBackButton,
   IonButton,
   IonButtons,
+  IonCheckbox,
   IonChip,
   IonContent,
   IonHeader,
   IonIcon,
-  IonItem,
   IonLabel,
-  IonList,
   IonPage,
   IonRouterLink,
   IonRow,
@@ -17,9 +16,8 @@ import {
   IonToolbar,
   useIonViewWillEnter,
 } from "@ionic/react";
-import {
-  checkmarkCircleOutline,
-} from "ionicons/icons";
+import classNames from "classnames";
+import { checkmarkCircleOutline, key } from "ionicons/icons";
 import { useState } from "react";
 import { useParams } from "react-router";
 import { useLocalStorage } from "usehooks-ts";
@@ -70,7 +68,7 @@ function ViewStudy() {
               </IonToolbar>
             </IonHeader>
 
-            <IonRow>
+            <IonRow className="ion-padding-horizontal">
               <IonText>
                 {study.passages.map((passage) => (
                   <IonRouterLink
@@ -85,12 +83,12 @@ function ViewStudy() {
                 ))}
               </IonText>
             </IonRow>
-            <IonRow>
+            <IonRow className="ion-padding-horizontal">
               <IonText>
                 <p>{study.overview}</p>
               </IonText>
             </IonRow>
-            <IonRow>
+            <IonRow className="ion-padding-horizontal">
               {study.themes.map((theme) => (
                 <IonChip
                   key={theme}
@@ -104,27 +102,65 @@ function ViewStudy() {
                 </IonChip>
               ))}
             </IonRow>
+            <IonRow className="ion-padding-horizontal">
+              <IonText>
+                <h3>Key Application</h3>
+                {study.keyApplication}
+              </IonText>
+            </IonRow>
             {showLeadersNotes && (
-              <IonRow>
+              <IonRow className="ion-padding-horizontal">
                 <IonText>
                   <h3>Leaders Notes</h3>
                   <p>{study.leadersNotes ?? "No leaders notes available"}</p>
                 </IonText>
               </IonRow>
             )}
-            <IonRow>
+            <IonRow className="ion-padding-horizontal">
               <IonText>
                 <h3>Questions</h3>
-                <ol>
-                  {study.questions.map((question, index) => (
-                    <li key={index}>{question}</li>
-                  ))}
-                </ol>
+                {Object.entries(study.questions).map(
+                  ([questionSectionTitle, questions]) => (
+                    <div key={questionSectionTitle}>
+                      {questionSectionTitle != "" ? (
+                        <h4>{questionSectionTitle}</h4>
+                      ) : (
+                        <></>
+                      )}
+                      <ul>
+                        {questions.map((question, index) => (
+                          <li key={index} className={"ion-padding-bottom"}>
+                            {/* <IonCheckbox  labelPlacement="end"> */}
+                            {/* </IonCheckbox> */}
+                            {question}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )
+                )}
               </IonText>
             </IonRow>
-            <IonRow>
-              <IonText>
-                <h3>Additional Resources</h3>
+            {(study.prayerPoints?.length ?? 0) > 0 ? (
+              <IonRow className="ion-padding-horizontal">
+                <IonText>
+                  <h3>Pray</h3>
+                  <ul>
+                    {study.prayerPoints?.map((prayerPoint) => (
+                      <li key={prayerPoint} className={"ion-padding-bottom"}>
+                        {prayerPoint}
+                      </li>
+                    ))}
+                  </ul>
+                </IonText>
+              </IonRow>
+            ) : (
+              <></>
+            )}
+            {(study.additionalResources?.length ?? 0) > 0 ? (
+              <IonRow className="ion-padding-horizontal">
+                <IonText>
+                  <h3>Additional Resources</h3>
                   {study.additionalResources?.map((reading) => (
                     <div key={reading.url} className="ion-padding-bottom">
                       <a href={reading.url} target="_blank" rel="noreferrer">
@@ -132,10 +168,14 @@ function ViewStudy() {
                       </a>
                     </div>
                   ))}
-              </IonText>
-            </IonRow>
+                </IonText>
+              </IonRow>
+            ) : (
+              <></>
+            )}
 
             <IonButton
+              className="ion-padding-horizontal"
               expand="block"
               shape="round"
               mode="ios"
@@ -153,7 +193,10 @@ function ViewStudy() {
             </IonButton>
             {completedStudies.includes(study.index) && (
               <IonButton
-                className="ion-margin-top"
+                className={classNames(
+                  "ion-padding-horizontal",
+                  "ion-margin-top"
+                )}
                 expand="block"
                 shape="round"
                 mode="ios"
