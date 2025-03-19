@@ -16,7 +16,7 @@ const StudyListItem: React.FC<StudyListItemProps> = ({
     <IonItem
       id="study-list-item"
       routerLink={`/study/${study.index}`}
-      detail={false}
+      detail={true}
       lines="full"
     >
       <IonLabel className="ion-text-wrap" slot={"start"}>
