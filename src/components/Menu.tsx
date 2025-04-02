@@ -27,7 +27,7 @@ export const Menu: React.FC = () => {
           <IonTitle>Menu Content</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent className="ion-padding">
+      <IonContent>
         <IonList lines="full">
           <IonMenuToggle>
             <IonItem routerLink="/" detail={false}>
