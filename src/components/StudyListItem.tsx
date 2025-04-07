@@ -1,7 +1,6 @@
 import { IonIcon, IonItem, IonLabel, IonNote } from "@ionic/react";
 import { Study } from "../data/studies";
 import "./StudyListItem.css";
-import { addCircle, checkmarkCircle } from "ionicons/icons";
 
 interface StudyListItemProps {
   study: Study;
@@ -19,6 +18,7 @@ const StudyListItem: React.FC<StudyListItemProps> = ({
       lines="inset"
       detail
     >
+      <IonIcon icon={"/svgs/globe.svg"} slot="start" />
       <IonLabel className="ion-text-wrap">
         <h2>
           {study.title}
