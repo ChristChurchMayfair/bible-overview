@@ -24,6 +24,7 @@ import { checkmarkCircleOutline, helpOutline, listOutline, sparklesOutline } fro
 import { useLocalStorage } from "usehooks-ts";
 import { Menu } from "../components/Menu";
 import { CompletedStudiesStorageKey } from "../components/localStorageKeys";
+import { AppTitle } from "../data/contants";
 
 const AllStudies: React.FC = () => {
   const [studies, setStudies] = useState<Study[]>([]);
@@ -50,7 +51,7 @@ const AllStudies: React.FC = () => {
             <IonButtons slot="start">
               <IonMenuButton mode="ios"/>
             </IonButtons>
-            <IonTitle>Bible Overview</IonTitle>
+            <IonTitle>{AppTitle}</IonTitle>
             <IonButtons slot="end">
               <IonButton routerLink={`/about`} mode="ios">
                 <IonIcon icon={helpOutline} />
@@ -65,7 +66,7 @@ const AllStudies: React.FC = () => {
 
           <IonHeader collapse="condense">
             <IonToolbar>
-              <IonTitle>Bible Overview</IonTitle>
+              <IonTitle>{AppTitle}</IonTitle>
             </IonToolbar>
           </IonHeader>
           <div className="ion-padding ion-text-center">All studies</div>

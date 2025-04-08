@@ -20,11 +20,11 @@ type Resource = {
 
 const studies: Study[] = [
   {
-    title: "Creation",
+    title: "God's Grand Plan",
     overview:
-      "The creation of the world and humanity, and God's sovereignty. It is the foundation of the Bible and sets the stage for the rest of the story. It reveals God's power, wisdom, and goodness in creating all things.  It also establishes the relationship between God and humanity, as well as the purpose of humanity in God's creation.",
-    passages: ["Genesis 1-2"],
-    themes: ["Creation", "God's Sovereignty", "Humanity"],
+      "God's ultimate plan is to unite all things in heaven and on earth under Christ. This plan reveals His sovereignty, wisdom, and purpose in creation and redemption.",
+    passages: ["Ephesians 1:9-10", "Colossians 1:15-20"],
+    themes: ["creation", "god's sovereignty", "humanity"],
     keyApplication:
       "Understanding the creation helps us recognize God's sovereignty and our purpose in His creation.",
     questions: {
@@ -51,7 +51,7 @@ const studies: Study[] = [
     passages: ["Ephesians 1:1-14"],
     overview:
       "The book of Ephesians is a letter written by the apostle Paul to the church in Ephesus. It emphasizes the unity of believers in Christ, the spiritual blessings in Christ, and the calling to live a life worthy of the gospel. Ephesians 1 focuses on God's plan of salvation, predestination, adoption, redemption, and the sealing of the Holy Spirit.",
-    themes: ["Salvation", "Predestination", "Adoption", "Redemption"],
+    themes: ["salvation", "predestination", "adoption", "redemption"],
     keyApplication:
       "God has blessed us richly in Christ as part of his plan to unite all things under Christ for his glory. So praise God for all the blessings we have in Christ.",
     questions: {
@@ -85,7 +85,7 @@ const studies: Study[] = [
     overview:
       "The fall of humanity and the introduction of sin into the world. It explains the origin of sin and the need for redemption through Christ. It reveals the consequences of disobedience to God's commands and the brokenness of the world as a result of sin.",
     passages: ["Genesis 3"],
-    themes: ["Sin", "Judgment", "Redemption"],
+    themes: ["sin", "judgment", "redemption"],
     keyApplication:
       "The fall explains the origin of sin and the need for redemption through Christ.",
     questions: {
@@ -110,7 +110,7 @@ const studies: Study[] = [
     title: "Flood",
     overview: "The flood and Noah's ark",
     passages: ["Genesis 6-9"],
-    themes: ["Judgment", "Grace", "Covenant"],
+    themes: ["judgment", "grace", "covenant"],
     keyApplication:
       "The flood narrative highlights God's judgment on sin and His grace in providing a way of salvation.",
     questions: {
@@ -135,7 +135,7 @@ const studies: Study[] = [
     title: "Patriarchs",
     overview: "The patriarchs of Israel",
     passages: ["Genesis 12-50"],
-    themes: ["Faith", "Promise", "Covenant"],
+    themes: ["faith", "promise", "covenant"],
     keyApplication:
       "The lives of the patriarchs demonstrate God's faithfulness to His promises and the importance of faith.",
     questions: {
@@ -160,7 +160,7 @@ const studies: Study[] = [
     title: "Exodus",
     overview: "The exodus from Egypt",
     passages: ["Exodus 1-15"],
-    themes: ["Deliverance", "Covenant", "Law"],
+    themes: ["deliverance", "covenant", "law"],
     keyApplication:
       "The exodus narrative reveals God's power to deliver His people and establish a covenant relationship with them.",
     questions: {
@@ -185,7 +185,7 @@ const studies: Study[] = [
     title: "Law",
     overview: "The giving of the law",
     passages: ["Exodus 20", "Leviticus", "Deuteronomy"],
-    themes: ["Law", "Holiness", "Covenant"],
+    themes: ["law", "holiness", "covenant"],
     keyApplication:
       "The giving of the law shows God's standards for holiness and the covenant relationship with His people.",
     questions: {
@@ -210,7 +210,7 @@ const studies: Study[] = [
     title: "Conquest",
     overview: "The conquest of the promised land",
     passages: ["Joshua"],
-    themes: ["Faith", "Obedience", "Promise"],
+    themes: ["faith", "obedience", "promise"],
     keyApplication:
       "The conquest of the promised land demonstrates the importance of faith and obedience to God's promises.",
     questions: {
@@ -235,7 +235,7 @@ const studies: Study[] = [
     title: "Judges",
     overview: "The period of the judges",
     passages: ["Judges"],
-    themes: ["Leadership", "Faithfulness", "Cycle of Sin"],
+    themes: ["leadership", "faithfulness", "cycle of sin"],
     keyApplication:
       "The period of the judges highlights the need for godly leadership and faithfulness to God.",
     questions: {
@@ -260,7 +260,7 @@ const studies: Study[] = [
     title: "Kings",
     overview: "The united and divided kingdoms",
     passages: ["1 Samuel", "2 Samuel", "1 Kings", "2 Kings"],
-    themes: ["Leadership", "Covenant", "Faithfulness"],
+    themes: ["leadership", "covenant", "faithfulness"],
     keyApplication:
       "The history of the kings reveals the importance of godly leadership and faithfulness to God's covenant.",
     questions: {
@@ -285,7 +285,7 @@ const studies: Study[] = [
     title: "Exile",
     overview: "The exile of Israel and Judah",
     passages: ["2 Kings 17", "2 Kings 25"],
-    themes: ["Judgment", "Repentance", "Hope"],
+    themes: ["judgment", "repentance", "hope"],
     keyApplication:
       "The exile demonstrates the consequences of unfaithfulness to God and the hope of restoration.",
     questions: {
@@ -310,7 +310,7 @@ const studies: Study[] = [
     title: "Return",
     overview: "The return from exile",
     passages: ["Ezra 1-10", "Nehemiah 1-13"],
-    themes: ["Restoration", "Rebuilding", "Faithfulness", "Covenant"],
+    themes: ["restoration", "rebuilding", "faithfulness", "covenant"],
     keyApplication:
       "The return from exile highlights God's faithfulness in restoring His people and the importance of rebuilding and renewing the covenant relationship with Him.",
     questions: {
@@ -335,7 +335,7 @@ const studies: Study[] = [
     title: "Prophets",
     overview: "The role of the prophets",
     passages: ["Isaiah", "Jeremiah", "Ezekiel", "Daniel"],
-    themes: ["Prophecy", "Judgment", "Hope", "Redemption"],
+    themes: ["prophecy", "judgment", "hope", "redemption"],
     keyApplication:
       "The prophets called God's people to repentance, warned of judgment, and offered hope of redemption and restoration.",
     questions: {
@@ -360,7 +360,7 @@ const studies: Study[] = [
     title: "Wisdom Literature",
     overview: "The wisdom literature",
     passages: ["Proverbs", "Ecclesiastes", "Job"],
-    themes: ["Wisdom", "Suffering", "Fear of the Lord", "Life"],
+    themes: ["wisdom", "suffering", "fear of the lord", "life"],
     keyApplication:
       "The wisdom literature provides insights into living a life that honors God, addresses the problem of suffering, and emphasizes the fear of the Lord as the beginning of wisdom.",
     questions: {
@@ -582,47 +582,47 @@ const studies: Study[] = [
 ];
 
 const themeData: { [themeName: string]: string } = {
-  Creation: "The creation of the world",
-  "God's Sovereignty": "The sovereignty of God over all creation",
-  Humanity: "The creation and purpose of humanity",
-  Sin: "The origin and consequences of sin",
-  Judgment: "God's judgment on sin and unrighteousness",
-  Redemption: "God's plan of redemption and salvation",
-  Grace: "God's unmerited favor and kindness",
-  Covenant: "The covenant relationship between God and His people",
-  Faith: "The importance and role of faith in God's promises",
-  Promise: "God's faithfulness to His promises and covenants",
-  Deliverance: "God's power to deliver His people from bondage",
-  Law: "God's standards for holiness and righteousness",
-  Holiness: "The call to be holy as God is holy",
-  Conquest: "The conquest of the promised land by the Israelites",
-  Obedience: "The importance of obedience to God's commands",
-  Leadership: "The role of leaders in guiding and shepherding God's people",
-  "Cycle of Sin": "The recurring pattern of sin, judgment, and repentance",
-  "Kingdom of God": "The reign and rule of God over all creation",
-  Salvation: "The work of Jesus in saving and redeeming humanity",
-  Discipleship: "The call to follow and imitate Jesus as His disciples",
-  "Holy Spirit": "The empowering presence of the Holy Spirit in the church",
-  Church: "The community of believers and the body of Christ",
-  Mission: "The mission of the church to spread the gospel to all nations",
-  Witness: "The call to be witnesses of Jesus and His kingdom",
-  Gospel: "The good news of salvation through Jesus Christ",
-  Faithfulness: "The importance of faithfulness to God and His word",
-  Perseverance: "The call to endure and remain faithful in the midst of trials",
-  Truth: "The importance of sound doctrine and the truth of God's word",
-  "End Times": "The final events and culmination of God's redemptive plan",
-  Hope: "The hope and assurance of Christ's return and victory",
-  Victory: "The ultimate victory of Christ over sin, death, and evil",
-  Persecution: "The challenges and persecutions faced by the early church",
-  Growth: "The growth and spread of the gospel throughout history",
-  Worship: "The act of showing reverence and adoration for God",
-  Prayer: "The practice of communicating with God",
-  Lament: "A passionate expression of grief or sorrow",
-  Praise: "The expression of approval or admiration for God",
-  Prophecy: "The inspired declaration of divine will and purpose",
-  Suffering: "The experience of pain, distress, or hardship",
-  "Fear of the Lord": "A profound respect and reverence for God",
-  Life: "The existence and experience of living beings",
+  creation: "The creation of the world",
+  "god's sovereignty": "The sovereignty of God over all creation",
+  humanity: "The creation and purpose of humanity",
+  sin: "The origin and consequences of sin",
+  judgment: "God's judgment on sin and unrighteousness",
+  redemption: "God's plan of redemption and salvation",
+  grace: "God's unmerited favor and kindness",
+  covenant: "The covenant relationship between God and His people",
+  faith: "The importance and role of faith in God's promises",
+  promise: "God's faithfulness to His promises and covenants",
+  deliverance: "God's power to deliver His people from bondage",
+  law: "God's standards for holiness and righteousness",
+  holiness: "The call to be holy as God is holy",
+  conquest: "The conquest of the promised land by the Israelites",
+  obedience: "The importance of obedience to God's commands",
+  leadership: "The role of leaders in guiding and shepherding God's people",
+  "cycle of sin": "The recurring pattern of sin, judgment, and repentance",
+  "kingdom of god": "The reign and rule of God over all creation",
+  salvation: "The work of Jesus in saving and redeeming humanity",
+  discipleship: "The call to follow and imitate Jesus as His disciples",
+  "holy spirit": "The empowering presence of the Holy Spirit in the church",
+  church: "The community of believers and the body of Christ",
+  mission: "The mission of the church to spread the gospel to all nations",
+  witness: "The call to be witnesses of Jesus and His kingdom",
+  gospel: "The good news of salvation through Jesus Christ",
+  faithfulness: "The importance of faithfulness to God and His word",
+  perseverance: "The call to endure and remain faithful in the midst of trials",
+  truth: "The importance of sound doctrine and the truth of God's word",
+  "end times": "The final events and culmination of God's redemptive plan",
+  hope: "The hope and assurance of Christ's return and victory",
+  victory: "The ultimate victory of Christ over sin, death, and evil",
+  persecution: "The challenges and persecutions faced by the early church",
+  growth: "The growth and spread of the gospel throughout history",
+  worship: "The act of showing reverence and adoration for God",
+  prayer: "The practice of communicating with God",
+  lament: "A passionate expression of grief or sorrow",
+  praise: "The expression of approval or admiration for God",
+  prophecy: "The inspired declaration of divine will and purpose",
+  suffering: "The experience of pain, distress, or hardship",
+  "fear of the lord": "A profound respect and reverence for God",
+  life: "The existence and experience of living beings",
 };
 
 export const getThemes = () => Object.keys(themeData);

@@ -18,21 +18,22 @@ import {
   helpOutline,
 } from "ionicons/icons";
 import React from "react";
+import { AppTitle } from "../data/contants";
 
 export const Menu: React.FC = () => {
   return (
     <IonMenu contentId="home-page">
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Menu Content</IonTitle>
+          <IonTitle>{AppTitle}</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>
         <IonList lines="full">
           <IonMenuToggle>
             <IonItem routerLink="/" detail={false}>
-              <IonIcon icon={sparklesOutline} color="primary" slot="start" />
-              <IonLabel>Upcoming Studies</IonLabel>
+              <IonIcon icon={listOutline} color="primary" slot="start" />
+              <IonLabel>Studies</IonLabel>
             </IonItem>
             <IonItem routerLink="/completedstudies" detail={false}>
               <IonIcon
@@ -41,10 +42,6 @@ export const Menu: React.FC = () => {
                 slot="start"
               />
               <IonLabel>Completed Studies</IonLabel>
-            </IonItem>
-            <IonItem routerLink="/allstudies" detail={false}>
-              <IonIcon icon={listOutline} color="primary" slot="start" />
-              <IonLabel>All Studies</IonLabel>
             </IonItem>
             <IonItem routerLink="/settings" detail={false}>
               <IonIcon icon={cogOutline} color="primary" slot="start" />

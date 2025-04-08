@@ -1,2 +1,4 @@
-export const CompletedStudiesStorageKey = "org.christchurchmayfair.app.biblestudies.completedStudiesIndices";
-export const ShowLeadersNotesStorageKey = "org.christchurchmayfair.app.biblestudies.showLeadersNotes";
+const prefix = "org.christchurchmayfair.app.biblestudies.";
+export const CompletedStudiesStorageKey = `${prefix}completedStudiesIndices`;
+export const ShowLeadersNotesStorageKey = `${prefix}.showLeadersNotes`;
+export const ShowIntroBlurbStorageKey   = `${prefix}showIntroBlurb`;
