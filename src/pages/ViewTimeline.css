@@ -1,0 +1,34 @@
+.timeline {
+    position: relative;
+    padding-right: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+}
+
+
+.event {
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+}
+
+.event svg {
+    width: 30px;
+    stroke-width: 5px;
+    stroke: var(--ion-color-primary);
+    fill: light-dark(white, black);
+    flex-shrink: 0;
+
+    circle {
+        fill: var(--ion-background-color-rgb);
+        
+        r: 10px;
+        cy: 24px;
+        cx: 00px;
+        
+    }
+}

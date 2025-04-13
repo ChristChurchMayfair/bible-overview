@@ -9,7 +9,14 @@ export interface Study {
   additionalResources?: Resource[];
   leadersNotes?: string;
   prayerPoints?: string[];
+  timeline?: TimelineEvent[];
 }
+
+export type TimelineEvent = {
+  title: string;
+  details: string;
+  date: number;
+};
 
 type Resource = {
   title: string;
@@ -44,6 +51,31 @@ const studies: Study[] = [
       },
     ],
     index: 1,
+    timeline: [
+      {
+        title: "Creation",
+        details: "God created the heavens and the earth in six days.",
+        date: 0,
+      },
+      {
+        title: "The Fall",
+        details:
+          "Humanity disobeyed God, leading to sin and separation from Him.",
+        date: 1,
+      },
+      {
+        title: "The Flood",
+        details:
+          "God judged the world through a flood but saved Noah and his family.",
+        date: 2,
+      },
+      {
+        title: "The Tower of Babel",
+        details:
+          "Humanity attempted to build a tower to reach heaven, leading to God's confusion of languages.",
+        date: 3,
+      },
+    ],
   },
   {
     index: 21,

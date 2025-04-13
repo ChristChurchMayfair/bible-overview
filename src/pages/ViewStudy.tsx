@@ -2,12 +2,9 @@ import {
   IonBackButton,
   IonButton,
   IonButtons,
-  IonCheckbox,
-  IonChip,
   IonContent,
   IonHeader,
   IonIcon,
-  IonLabel,
   IonPage,
   IonRouterLink,
   IonRow,
@@ -17,7 +14,12 @@ import {
   useIonViewWillEnter,
 } from "@ionic/react";
 import classNames from "classnames";
-import { checkmarkCircleOutline, key } from "ionicons/icons";
+import {
+  checkmarkCircleOutline,
+  key,
+  logoApple,
+  settingsSharp,
+} from "ionicons/icons";
 import { useState } from "react";
 import { useParams } from "react-router";
 import { useLocalStorage } from "usehooks-ts";
@@ -27,6 +29,7 @@ import {
 } from "../components/localStorageKeys";
 import { Study, getStudy } from "../data/studies";
 import "./ViewStudy.css";
+import { Link } from "react-router-dom";
 
 function ViewStudy() {
   const [study, setStudy] = useState<Study>();
@@ -67,8 +70,12 @@ function ViewStudy() {
                 <IonTitle>{study.title}</IonTitle>
               </IonToolbar>
             </IonHeader>
-
-            <IonRow className="ion-padding-horizontal">
+            <IonRow
+              className={classNames(
+                "ion-padding-horizontal",
+                "ion-padding-top"
+              )}
+            >
               <IonText>
                 {study.passages.map((passage) => (
                   <IonRouterLink
@@ -88,19 +95,32 @@ function ViewStudy() {
                 <p>{study.overview}</p>
               </IonText>
             </IonRow>
+            {study.timeline !== undefined ? <IonRow className="ion-padding-horizontal">
+              <IonRouterLink
+                routerLink={`/timeline/${study.index}`}
+                routerDirection="forward"
+              >
+                Timeline
+              </IonRouterLink>
+            </IonRow> : <></>}
             <IonRow className="ion-padding-horizontal">
-              {study.themes.map((theme) => (
-                <IonChip
+              <IonText>
+                <h3>Patterns, Promises & Progression</h3>
+                {study.themes.map((theme) => (
+                <IonButton
                   key={theme}
+                  className={"ion-text-lowercase"}
                   color="primary"
-                  outline
-                  onClick={() => {
-                    window.location.href = `/theme/${theme}`;
-                  }}
+                  shape="round"
+                  size="small"
+                  fill="outline"
+                  routerLink={`/theme/${theme.toLowerCase()}`}
                 >
                   {theme}
-                </IonChip>
+                </IonButton>
               ))}
+              </IonText>
+            
             </IonRow>
             <IonRow className="ion-padding-horizontal">
               <IonText>

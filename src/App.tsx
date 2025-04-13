@@ -39,6 +39,7 @@ import Settings from "./pages/Settings";
 import "./theme/variables.css";
 import ViewTheme from "./pages/ViewTheme";
 import BiblePassage from "./pages/BiblePassage";
+import ViewTimeline from "./pages/ViewTimeline";
 
 setupIonicReact();
 
@@ -51,7 +52,11 @@ const App: React.FC = () => (
         </Route>
         <Route path="/home" exact={true}>
           <Home />
+        
         </Route>
+        <Route path="/timeline/:id">
+            <ViewTimeline />
+          </Route>
         <Route path="/study/:id">
           <ViewStudy />
         </Route>
