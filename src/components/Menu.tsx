@@ -16,6 +16,7 @@ import {
   listOutline,
   cogOutline,
   helpOutline,
+  homeOutline,
 } from "ionicons/icons";
 import React from "react";
 import { AppTitle } from "../data/contants";
@@ -31,7 +32,7 @@ export const Menu: React.FC = () => {
       <IonContent>
         <IonList lines="full">
           <IonMenuToggle>
-            <IonItem routerLink="/" detail={false}>
+            <IonItem routerLink="/studies" detail={false}>
               <IonIcon icon={listOutline} color="primary" slot="start" />
               <IonLabel>Studies</IonLabel>
             </IonItem>
@@ -42,6 +43,11 @@ export const Menu: React.FC = () => {
                 slot="start"
               />
               <IonLabel>Completed Studies</IonLabel>
+            </IonItem>
+
+            <IonItem routerLink="/intro" detail={false}>
+              <IonIcon icon={homeOutline} color="primary" slot="start" />
+              <IonLabel>Intro</IonLabel>
             </IonItem>
             <IonItem routerLink="/settings" detail={false}>
               <IonIcon icon={cogOutline} color="primary" slot="start" />

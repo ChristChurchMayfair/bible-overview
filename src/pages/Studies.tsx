@@ -4,14 +4,13 @@ import {
   IonContent,
   IonHeader,
   IonIcon,
-  IonItem,
-  IonLabel,
   IonList,
-  IonMenu,
   IonMenuButton,
   IonPage,
   IonRefresher,
   IonRefresherContent,
+  IonRow,
+  IonText,
   IonTitle,
   IonToolbar,
   useIonViewWillEnter,
@@ -20,21 +19,34 @@ import { useState } from "react";
 import StudyListItem from "../components/StudyListItem";
 import { Study, getStudies } from "../data/studies";
 import "./Studies.css";
-import { checkmarkCircleOutline, helpOutline, listOutline, sparklesOutline } from "ionicons/icons";
+import { helpOutline } from "ionicons/icons";
 import { useLocalStorage } from "usehooks-ts";
 import { Menu } from "../components/Menu";
-import { CompletedStudiesStorageKey } from "../components/localStorageKeys";
+import {
+  CompletedStudiesStorageKey,
+  ShowIntroBlurbStorageKey,
+} from "../components/localStorageKeys";
 import { AppTitle } from "../data/contants";
 
-const AllStudies: React.FC = () => {
+const Studies: React.FC = () => {
   const [studies, setStudies] = useState<Study[]>([]);
 
-  const [completedStudies, setCompletedStudies, removeCompletedStudies] = useLocalStorage<number[]>(CompletedStudiesStorageKey, []);
+  const [completedStudies, setCompletedStudies, removeCompletedStudies] =
+    useLocalStorage<number[]>(CompletedStudiesStorageKey, []);
+
+  const [showIntro, setShowIntro] = useLocalStorage<boolean>(
+    ShowIntroBlurbStorageKey,
+    true
+  );
 
   useIonViewWillEnter(() => {
     const studies_ = getStudies();
     setStudies(studies_);
   });
+
+  const studiesToDisplay = studies.filter(
+    (study) => !completedStudies.includes(study.index)
+  );
 
   const refresh = (e: CustomEvent) => {
     setTimeout(() => {
@@ -44,12 +56,12 @@ const AllStudies: React.FC = () => {
 
   return (
     <>
-     <Menu/>
+      <Menu />
       <IonPage id="home-page" className="ion-page">
         <IonHeader collapse="fade">
           <IonToolbar mode="ios">
             <IonButtons slot="start">
-              <IonMenuButton mode="ios"/>
+              <IonMenuButton mode="ios" />
             </IonButtons>
             <IonTitle>{AppTitle}</IonTitle>
             <IonButtons slot="end">
@@ -69,23 +81,31 @@ const AllStudies: React.FC = () => {
               <IonTitle>{AppTitle}</IonTitle>
             </IonToolbar>
           </IonHeader>
-          <div className="ion-padding ion-text-center">All studies</div>
 
-
-          <IonList>
-            {studies.map((study) => (
-              <StudyListItem
-                key={study.index}
-                study={study}
-                totalNumberOfStudies={studies.length}
-              />
-            ))}
-          </IonList>
-          <div className="ion-padding" style={{ height: "90px" }} />
+          {studiesToDisplay.length !== 0 ? (
+            <>
+              <IonList>
+                {studiesToDisplay.map((study) => (
+                  <StudyListItem
+                    key={study.index}
+                    study={study}
+                    totalNumberOfStudies={studies.length}
+                  />
+                ))}
+              </IonList>
+              <div className="ion-padding" style={{ height: "90px" }} />
+            </>
+          ) : (
+            <>
+              <div className="ion-padding ion-text-center">
+                You've finished all the studies in this series.
+              </div>
+            </>
+          )}
         </IonContent>
       </IonPage>
     </>
   );
 };
 
-export default AllStudies;
+export default Studies;

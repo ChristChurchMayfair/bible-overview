@@ -19,7 +19,6 @@ import {
 import { useState } from "react";
 import StudyListItem from "../components/StudyListItem";
 import { Study, getStudies } from "../data/studies";
-import "./Home.css";
 import { helpOutline } from "ionicons/icons";
 import { useLocalStorage } from "usehooks-ts";
 import { Menu } from "../components/Menu";
@@ -95,13 +94,13 @@ const Settings: React.FC = () => {
             </IonItem>
             <IonItem>
               <IonLabel slot="start" className="no-wrap">
-                Hide Intro Blurb
+                Show Intro
               </IonLabel>
               <IonToggle
                 slot="end"
                 mode="ios"
-                checked={!showIntroBlurb}
-                onIonChange={(e) => setShowIntroBlurb(!e.detail.checked)}
+                checked={showIntroBlurb}
+                onIonChange={(e) => setShowIntroBlurb(e.detail.checked)}
               ></IonToggle>
             </IonItem>
             <IonItem>

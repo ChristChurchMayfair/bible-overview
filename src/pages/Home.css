@@ -1,0 +1,5 @@
+.logo {
+    stroke: var(--ion-color-primary);
+    width: 80px;
+    height: 80px;
+}

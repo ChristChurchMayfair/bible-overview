@@ -9,7 +9,6 @@
 
 }
 
-
 .event {
     display: flex;
     flex-direction: row;
@@ -25,7 +24,6 @@
 
     circle {
         fill: var(--ion-background-color-rgb);
-        
         r: 10px;
         cy: 24px;
         cx: 00px;

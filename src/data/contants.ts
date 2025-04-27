@@ -1,1 +1,1 @@
-export const AppTitle = "All Things Reconciled"
+export const AppTitle = "A True and Better Story";

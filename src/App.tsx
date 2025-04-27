@@ -40,47 +40,59 @@ import "./theme/variables.css";
 import ViewTheme from "./pages/ViewTheme";
 import BiblePassage from "./pages/BiblePassage";
 import ViewTimeline from "./pages/ViewTimeline";
+import Studies from "./pages/Studies";
+import { useLocalStorage } from "usehooks-ts";
+import { ShowIntroBlurbStorageKey } from "./components/localStorageKeys";
 
 setupIonicReact();
 
-const App: React.FC = () => (
-  <IonApp>
-    <IonReactRouter>
-      <IonRouterOutlet>
-        <Route path="/" exact={true}>
-          <Redirect to="/home" />
-        </Route>
-        <Route path="/home" exact={true}>
-          <Home />
-        
-        </Route>
-        <Route path="/timeline/:id">
+const App: React.FC = () => {
+  const [showIntroBlurb, setShowIntroBlurb] = useLocalStorage<boolean>(
+    ShowIntroBlurbStorageKey,
+    true
+  );
+
+  return (
+    <IonApp>
+      <IonReactRouter>
+        <IonRouterOutlet>
+          <Route path="/" exact={true}>
+            {showIntroBlurb ? <Home /> : <Redirect to="/studies" />}
+          </Route>
+          <Route path="/intro" exact={true}>
+            <Home />
+          </Route>
+          <Route path="/studies" exact={true}>
+            <Studies />
+          </Route>
+          <Route path="/timeline/:id">
             <ViewTimeline />
           </Route>
-        <Route path="/study/:id">
-          <ViewStudy />
-        </Route>
-        <Route path="/theme/:name">
-          <ViewTheme />
-        </Route>
-        <Route path="/about">
-          <About />
-        </Route>
-        <Route path="/allstudies">
-          <AllStudies />
-        </Route>
-        <Route path="/completedstudies">
-          <CompletedStudies />
-        </Route>
-        <Route path="/settings">
-          <Settings />
-        </Route>
-        <Route path="/biblepassage/:passage">
-          <BiblePassage />
-        </Route>
-      </IonRouterOutlet>
-    </IonReactRouter>
-  </IonApp>
-);
+          <Route path="/study/:id">
+            <ViewStudy />
+          </Route>
+          <Route path="/theme/:name">
+            <ViewTheme />
+          </Route>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/allstudies">
+            <AllStudies />
+          </Route>
+          <Route path="/completedstudies">
+            <CompletedStudies />
+          </Route>
+          <Route path="/settings">
+            <Settings />
+          </Route>
+          <Route path="/biblepassage/:passage">
+            <BiblePassage />
+          </Route>
+        </IonRouterOutlet>
+      </IonReactRouter>
+    </IonApp>
+  );
+};
 
 export default App;

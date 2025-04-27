@@ -19,7 +19,7 @@ import {
 import { useState } from "react";
 import StudyListItem from "../components/StudyListItem";
 import { Study, getStudies } from "../data/studies";
-import "./Home.css";
+import "./Studies.css";
 import {
   checkmarkCircleOutline,
   helpOutline,
@@ -31,6 +31,7 @@ import {
 import { useLocalStorage } from "usehooks-ts";
 import { Menu } from "../components/Menu";
 import { CompletedStudiesStorageKey } from "../components/localStorageKeys";
+import { AppTitle } from "../data/contants";
 
 const CompletedStudies: React.FC = () => {
   const [studies, setStudies] = useState<Study[]>([]);
@@ -39,7 +40,7 @@ const CompletedStudies: React.FC = () => {
     useLocalStorage<number[]>(CompletedStudiesStorageKey, []);
 
   useIonViewWillEnter(() => {
-    const studies_ = getStudies()
+    const studies_ = getStudies();
     setStudies(studies_);
   });
 
@@ -62,7 +63,7 @@ const CompletedStudies: React.FC = () => {
             <IonButtons slot="start">
               <IonMenuButton mode="ios" />
             </IonButtons>
-            <IonTitle>Bible Overview</IonTitle>
+            <IonTitle>{AppTitle}</IonTitle>
             <IonButtons slot="end">
               <IonButton routerLink={`/about`} mode="ios">
                 <IonIcon icon={helpOutline} />
@@ -77,23 +78,29 @@ const CompletedStudies: React.FC = () => {
 
           <IonHeader collapse="condense">
             <IonToolbar>
-              <IonTitle>Bible Overview</IonTitle>
+              <IonTitle>{AppTitle}</IonTitle>
             </IonToolbar>
           </IonHeader>
           <div className="ion-padding ion-text-center">Completed studies</div>
 
-          <IonList>
-            {studiesToShow.map((study) => (
-              <StudyListItem
-                key={study.index}
-                study={study}
-                totalNumberOfStudies={studies.length}
-              />
-            ))}
-          </IonList>
-          <div className="ion-padding" style={{ height: "90px" }} />
+          {studiesToShow.length > 1 ? (
+            <IonList>
+              {studiesToShow.map((study) => (
+                <StudyListItem
+                  key={study.index}
+                  study={study}
+                  totalNumberOfStudies={studies.length}
+                />
+              ))}
+            </IonList>
+          ) : (
+            <></>
+          )}
+          <div className="ion-padding" style={{ height: "50px" }} />
           {studiesToShow.length === 0 && (
-                <p className="ion-text-center">You've not yet marked any of the studies as completed.</p>
+            <p className="ion-text-center">
+              You've not yet marked any of the studies as completed.
+            </p>
           )}
           {studiesToShow.length !== 0 && (
             <IonButton
