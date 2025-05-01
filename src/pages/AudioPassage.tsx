@@ -29,7 +29,7 @@ function AudioPassage() {
     setPassageReference(params.passage);
     const crossway = new DefaultApi(undefined, "/esv");
     crossway.v3PassageAudioGet({ q: params.passage }).then((response) => {
-      setAudioUrl(response.data.audioUrl);
+      setAudioUrl("https://audio.esv.org/david-cochran-heath/mq/01001001-01002025.mp3");
     });
   });
 
