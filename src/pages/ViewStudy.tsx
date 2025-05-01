@@ -14,12 +14,7 @@ import {
   useIonViewWillEnter,
 } from "@ionic/react";
 import classNames from "classnames";
-import {
-  checkmarkCircleOutline,
-  key,
-  logoApple,
-  settingsSharp,
-} from "ionicons/icons";
+import { checkmarkCircleOutline } from "ionicons/icons";
 import { useState } from "react";
 import { useParams } from "react-router";
 import { useLocalStorage } from "usehooks-ts";
@@ -29,7 +24,6 @@ import {
 } from "../components/localStorageKeys";
 import { Study, getStudy } from "../data/studies";
 import "./ViewStudy.css";
-import { Link } from "react-router-dom";
 
 function ViewStudy() {
   const [study, setStudy] = useState<Study>();
@@ -43,7 +37,7 @@ function ViewStudy() {
   );
 
   useIonViewWillEnter(() => {
-    const study_ = getStudy(parseInt(params.id, 10));
+    const study_ = getStudy(params.id);
     setStudy(study_);
   });
 
@@ -95,32 +89,35 @@ function ViewStudy() {
                 <p>{study.overview}</p>
               </IonText>
             </IonRow>
-            {study.timeline !== undefined ? <IonRow className="ion-padding-horizontal">
-              <IonRouterLink
-                routerLink={`/timeline/${study.index}`}
-                routerDirection="forward"
-              >
-                Timeline
-              </IonRouterLink>
-            </IonRow> : <></>}
+            {study.timeline !== undefined ? (
+              <IonRow className="ion-padding-horizontal">
+                <IonRouterLink
+                  routerLink={`/timeline/${study.index}`}
+                  routerDirection="forward"
+                >
+                  Timeline
+                </IonRouterLink>
+              </IonRow>
+            ) : (
+              <></>
+            )}
             <IonRow className="ion-padding-horizontal">
               <IonText>
                 <h3>Patterns, Promises & Progression</h3>
                 {study.themes.map((theme) => (
-                <IonButton
-                  key={theme}
-                  className={"ion-text-lowercase"}
-                  color="primary"
-                  shape="round"
-                  size="small"
-                  fill="outline"
-                  routerLink={`/theme/${theme.toLowerCase()}`}
-                >
-                  {theme}
-                </IonButton>
-              ))}
+                  <IonButton
+                    key={theme}
+                    className={"ion-text-lowercase"}
+                    color="primary"
+                    shape="round"
+                    size="small"
+                    fill="outline"
+                    routerLink={`/theme/${theme.toLowerCase()}`}
+                  >
+                    {theme}
+                  </IonButton>
+                ))}
               </IonText>
-            
             </IonRow>
             <IonRow className="ion-padding-horizontal">
               <IonText>

@@ -9,27 +9,26 @@ import {
   IonPage,
   IonRefresher,
   IonRefresherContent,
-  IonRow,
-  IonText,
   IonTitle,
   IonToolbar,
   useIonViewWillEnter,
 } from "@ionic/react";
-import { useState } from "react";
-import StudyListItem from "../components/StudyListItem";
-import { Study, getStudies } from "../data/studies";
-import "./Studies.css";
 import { helpOutline } from "ionicons/icons";
+import { useEffect, useRef, useState } from "react";
 import { useLocalStorage } from "usehooks-ts";
 import { Menu } from "../components/Menu";
+import StudyListItem from "../components/StudyListItem";
 import {
   CompletedStudiesStorageKey,
   ShowIntroBlurbStorageKey,
 } from "../components/localStorageKeys";
 import { AppTitle } from "../data/contants";
+import { Study, getStudies } from "../data/studies";
+import "./Studies.css";
 
 const Studies: React.FC = () => {
   const [studies, setStudies] = useState<Study[]>([]);
+  const contentRef = useRef<HTMLIonContentElement>(null);
 
   const [completedStudies, setCompletedStudies, removeCompletedStudies] =
     useLocalStorage<number[]>(CompletedStudiesStorageKey, []);
@@ -44,9 +43,25 @@ const Studies: React.FC = () => {
     setStudies(studies_);
   });
 
-  const studiesToDisplay = studies.filter(
-    (study) => !completedStudies.includes(study.index)
-  );
+  useEffect(() => {
+    // Find the first uncompleted study
+    const firstUncompletedStudy = studies.find(
+      (study) => !completedStudies.includes(study.index)
+    );
+
+    if (firstUncompletedStudy && contentRef.current) {
+      // Scroll to the first uncompleted study after a delay to allow the content to render
+      setTimeout(() => {
+        const element = document.getElementById(
+          `study-${firstUncompletedStudy.index}`
+        );
+        if (element && contentRef.current) {
+          const y = element.offsetTop - 100; // Offset by 100px to account for header
+          contentRef.current.scrollToPoint(0, y, 500);
+        }
+      }, 500); // Increased delay to ensure content is rendered
+    }
+  }, [studies, completedStudies]);
 
   const refresh = (e: CustomEvent) => {
     setTimeout(() => {
@@ -71,7 +86,7 @@ const Studies: React.FC = () => {
             </IonButtons>
           </IonToolbar>
         </IonHeader>
-        <IonContent fullscreen>
+        <IonContent fullscreen ref={contentRef}>
           <IonRefresher slot="fixed" onIonRefresh={refresh}>
             <IonRefresherContent></IonRefresherContent>
           </IonRefresher>
@@ -82,26 +97,17 @@ const Studies: React.FC = () => {
             </IonToolbar>
           </IonHeader>
 
-          {studiesToDisplay.length !== 0 ? (
-            <>
-              <IonList>
-                {studiesToDisplay.map((study) => (
-                  <StudyListItem
-                    key={study.index}
-                    study={study}
-                    totalNumberOfStudies={studies.length}
-                  />
-                ))}
-              </IonList>
-              <div className="ion-padding" style={{ height: "90px" }} />
-            </>
-          ) : (
-            <>
-              <div className="ion-padding ion-text-center">
-                You've finished all the studies in this series.
-              </div>
-            </>
-          )}
+          <IonList>
+            {studies.map((study) => (
+              <StudyListItem
+                key={study.index}
+                study={study}
+                totalNumberOfStudies={studies.length}
+                isCompleted={completedStudies.includes(study.index)}
+              />
+            ))}
+          </IonList>
+          <div className="ion-padding" style={{ height: "90px" }} />
         </IonContent>
       </IonPage>
     </>

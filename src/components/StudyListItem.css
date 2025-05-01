@@ -63,3 +63,15 @@
 #study-list-item .completed {
   /* background: var(--ion-color-primary); */
 }
+
+.completed-study {
+  opacity: 0.5;
+}
+
+.completed-study h2 {
+  color: var(--ion-color-medium);
+}
+
+.completed-study ion-note {
+  color: var(--ion-color-medium);
+}

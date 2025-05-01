@@ -32,17 +32,17 @@ import "@ionic/react/css/text-transformation.css";
 import "@ionic/react/css/palettes/dark.system.css";
 
 /* Theme variables */
-import About from "./pages/About";
-import AllStudies from "./pages/AllStudies";
-import CompletedStudies from "./pages/CompletedStudies";
-import Settings from "./pages/Settings";
-import "./theme/variables.css";
-import ViewTheme from "./pages/ViewTheme";
-import BiblePassage from "./pages/BiblePassage";
-import ViewTimeline from "./pages/ViewTimeline";
-import Studies from "./pages/Studies";
 import { useLocalStorage } from "usehooks-ts";
 import { ShowIntroBlurbStorageKey } from "./components/localStorageKeys";
+import AllStudies from "./pages/AllStudies";
+import BiblePassage from "./pages/BiblePassage";
+import CompletedStudies from "./pages/CompletedStudies";
+import Help from "./pages/Help";
+import Settings from "./pages/Settings";
+import Studies from "./pages/Studies";
+import ViewTheme from "./pages/ViewTheme";
+import ViewTimeline from "./pages/ViewTimeline";
+import "./theme/variables.css";
 
 setupIonicReact();
 
@@ -75,7 +75,7 @@ const App: React.FC = () => {
             <ViewTheme />
           </Route>
           <Route path="/about">
-            <About />
+            <Help />
           </Route>
           <Route path="/allstudies">
             <AllStudies />

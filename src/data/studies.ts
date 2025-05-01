@@ -1,15 +1,17 @@
 export interface Study {
   index: number;
   title: string;
+  slug: string;
+  icon: string;
   overview: string;
   passages: string[];
   themes: string[];
   keyApplication: string;
-  questions: { [section: string]: string[] };
-  additionalResources?: Resource[];
-  leadersNotes?: string;
-  prayerPoints?: string[];
+  questions: Record<string, string[]>;
   timeline?: TimelineEntry[];
+  prayerPoints?: string[];
+  leadersNotes?: string;
+  additionalResources?: Resource[];
 }
 
 type BaseTimelineEntry = {
@@ -41,8 +43,10 @@ const studies: Study[] = [
   {
     index: 1,
     title: "Plan",
+    slug: "plan",
+    icon: "analytics",
     overview:
-      "God’s plan for history is the blessed rule of Christ. His plan progresses through fulfilment of his promises",
+      "God's plan for history is the blessed rule of Christ. His plan progresses through fulfilment of his promises",
     passages: ["Ephesians 1:9-14", "Acts 13:13-39"],
     themes: ["god's sovereignty", "promise"],
     keyApplication: "Trust in God's sovereign plan and promises.",
@@ -60,8 +64,10 @@ const studies: Study[] = [
   {
     index: 2,
     title: "Creation",
+    slug: "creation",
+    icon: "globe",
     overview:
-      "God created all things. We are made in his image to enjoy God’s place, presence, people.",
+      "God created all things. We are made in his image to enjoy God's place, presence, people.",
     passages: ["Genesis 1:1-2:25"],
     themes: ["creation", "humanity"],
     keyApplication: "Recognize our purpose in God's creation.",
@@ -70,18 +76,23 @@ const studies: Study[] = [
   {
     index: 3,
     title: "Fall",
+    slug: "fall",
+    icon: "alert",
     overview:
       "What went wrong: 4-fold ruin of sin. Promise of evil overcome in Genesis 3:15.",
     passages: ["Genesis 3:1-24"],
     themes: ["sin", "redemption"],
-    keyApplication: "Understand the consequences of sin and God's promise of redemption.",
+    keyApplication:
+      "Understand the consequences of sin and God's promise of redemption.",
     questions: {},
   },
   {
     index: 4,
     title: "Promise",
+    slug: "promise",
+    icon: "ribbon",
     overview:
-      "The promise of a recovery of the lost blessings of Eden through God’s choice of one man.",
+      "The promise of a recovery of the lost blessings of Eden through God's choice of one man.",
     passages: ["Genesis 12:1-9", "Genesis 15:1-21", "Genesis 17:1-14"],
     themes: ["promise", "covenant"],
     keyApplication: "Trust in God's faithfulness to His promises.",
@@ -90,6 +101,8 @@ const studies: Study[] = [
   {
     index: 5,
     title: "Rescue",
+    slug: "rescue",
+    icon: "hand-left",
     overview:
       "God rescues his people. Reveals himself as faithful promise-maker; rescues through substitutionary sacrifice.",
     passages: ["Exodus 6:1-8", "Exodus 12:21-32"],
@@ -100,6 +113,8 @@ const studies: Study[] = [
   {
     index: 6,
     title: "Law",
+    slug: "law",
+    icon: "book",
     overview:
       "God relates to his people – presence and word. Covenant ceremony. Grace leads to obedience.",
     passages: ["Exodus 19:1-20:21"],
@@ -110,8 +125,10 @@ const studies: Study[] = [
   {
     index: 7,
     title: "Fear",
+    slug: "fear",
+    icon: "warning",
     overview:
-      "Refusing to trust God’s promise to take the land. Condemned to 40 years wilderness wandering.",
+      "Refusing to trust God's promise to take the land. Condemned to 40 years wilderness wandering.",
     passages: ["Numbers 13-14"],
     themes: ["faith", "judgment"],
     keyApplication: "Trust in God's promises even when it seems difficult.",
@@ -120,8 +137,10 @@ const studies: Study[] = [
   {
     index: 8,
     title: "Invasion / Jericho",
+    slug: "invasion-jericho",
+    icon: "shield-checkmark",
     overview:
-      "Trusting God’s promise to take the land. Parallels with Numbers. Victory at the hands of God.",
+      "Trusting God's promise to take the land. Parallels with Numbers. Victory at the hands of God.",
     passages: ["Joshua 2", "Joshua 5:13-6:23"],
     themes: ["faith", "victory"],
     keyApplication: "Trust in God's power to fulfill His promises.",
@@ -130,6 +149,8 @@ const studies: Study[] = [
   {
     index: 9,
     title: "Spiral",
+    slug: "spiral",
+    icon: "refresh",
     overview:
       "Toxic cycle of sin – there was no king, everyone did as they pleased.",
     passages: ["Judges 2:6-19", "Judges 3:7-11", "Judges 21:25"],
@@ -140,7 +161,9 @@ const studies: Study[] = [
   {
     index: 10,
     title: "True king",
-    overview: "The promise of a forever king in David’s line.",
+    slug: "true-king",
+    icon: "crown",
+    overview: "The promise of a forever king in David's line.",
     passages: ["2 Samuel 7", "Ezekiel 34:11-16, 23"],
     themes: ["kingdom of god", "promise"],
     keyApplication: "Hope in the eternal reign of Christ.",
@@ -148,110 +171,126 @@ const studies: Study[] = [
   },
   {
     index: 11,
-    title: "Temple",
-    overview: "Temple – God rules and dwells with his people.",
-    passages: [
-      "2 Chronicles 5:1-2, 13-6:2",
-      "2 Chronicles 6:12-7:3",
-      "[1 Kings 8:22-53]",
-    ],
-    themes: ["worship", "presence"],
-    keyApplication: "Worship God as the one who dwells with His people.",
+    title: "High point",
+    slug: "high-point",
+    icon: "trending-up",
+    overview: "Solomon is the best of the best, but it's not quite right.",
+    passages: ["1 Kings 10:1-10", "1 Kings 11:1-13"],
+    themes: ["leadership", "faithfulness"],
+    keyApplication:
+      "Recognize that even the best human leadership falls short of God's perfect rule.",
     questions: {},
   },
   {
     index: 12,
-    title: "High point",
-    overview: "Solomon is the best of the best, but it’s not quite right.",
-    passages: ["1 Kings 10:1-10", "1 Kings 11:1-13"],
-    themes: ["leadership", "faithfulness"],
-    keyApplication: "Recognize the limitations of human leaders.",
+    title: "Rebuild",
+    slug: "rebuild",
+    icon: "construct",
+    overview:
+      "The promised restoration… A cause for rejoicing, but it's some way short of the glorious promises.",
+    passages: ["Ezra 1:1-10", "Ezra 3:8-13"],
+    themes: ["restoration", "hope"],
+    keyApplication: "Find hope in God's ongoing work of restoration.",
     questions: {},
   },
   {
     index: 13,
-    title: "Invasion / Exile",
+    title: "Flame",
+    slug: "flame",
+    icon: "flame",
     overview:
-      "Failure of kings, fall of Jerusalem. God warned repeatedly through his prophets.",
-    passages: ["2 Chronicles 36"],
-    themes: ["judgment", "prophecy"],
-    keyApplication: "Heed God's warnings and trust in His justice.",
+      "Risen Lord Jesus sends Spirit to create new community of God's people.",
+    passages: ["Acts 2"],
+    themes: ["holy spirit", "church"],
+    keyApplication:
+      "Experience the power of the Holy Spirit in building God's community.",
     questions: {},
   },
   {
     index: 14,
-    title: "New Covenant",
-    overview: "Promises of new covenant, work of the Spirit.",
-    passages: [
-      "Jeremiah 31:21-34",
-      "Ezekiel 36:22-28",
-      "Ezekiel 37:1-14",
-    ],
-    themes: ["covenant", "holy spirit"],
-    keyApplication: "Embrace the new covenant through the Spirit.",
+    title: "Rest",
+    slug: "rest",
+    icon: "moon",
+    overview:
+      "Rest is past, present, and future. Reviews Israel's history and teaches biblical theology.",
+    passages: ["Hebrews 3-4"],
+    themes: ["rest", "faith"],
+    keyApplication: "Enter into God's rest through faith in Christ.",
     questions: {},
   },
   {
     index: 15,
-    title: "Suffering Lamb",
+    title: "Invasion / Exile",
+    slug: "invasion-exile",
+    icon: "exit",
     overview:
-      "Suffering servant. Sin will be atoned for, not ignored.",
-    passages: ["Isaiah 53"],
-    themes: ["redemption", "suffering"],
-    keyApplication: "Trust in Jesus as the atoning sacrifice for sin.",
+      "God's people are exiled from the land. But God promises restoration.",
+    passages: ["2 Kings 25:1-12", "Jeremiah 29:1-14"],
+    themes: ["judgment", "hope"],
+    keyApplication: "Trust in God's promises even in times of judgment.",
     questions: {},
   },
   {
     index: 16,
-    title: "Rebuild",
-    overview:
-      "The promised restoration… A cause for rejoicing, but it’s some way short of the glorious promises.",
-    passages: ["Ezra 1:1-10", "Ezra 3:8-13"],
-    themes: ["restoration", "hope"],
-    keyApplication: "Rejoice in God's restoration while awaiting fulfillment.",
+    title: "New Covenant",
+    slug: "new-covenant",
+    icon: "heart-circle",
+    overview: "Promises of new covenant, work of the Spirit.",
+    passages: ["Jeremiah 31:31-34", "Ezekiel 36:22-32"],
+    themes: ["covenant", "holy spirit"],
+    keyApplication: "Embrace the new covenant through Christ.",
     questions: {},
   },
   {
     index: 17,
-    title: "Jesus",
-    overview: "Jesus comes to fulfil the promises of God.",
-    passages: ["Luke 3:21-4:17"],
-    themes: ["salvation", "promise"],
-    keyApplication: "Follow Jesus as the fulfillment of God's promises.",
+    title: "Suffering Lamb",
+    slug: "suffering-lamb",
+    icon: "paw",
+    overview: "Suffering servant. Sin will be atoned for, not ignored.",
+    passages: ["Isaiah 53"],
+    themes: ["atonement", "suffering"],
+    keyApplication: "Find hope in Christ's atoning sacrifice.",
     questions: {},
   },
   {
     index: 18,
-    title: "Cross",
-    overview:
-      "Cross as fulfilment of promise (touch on the 4 achievements? Redemption, Reconciliation, Justification, Conquest).",
-    passages: ["Mark 15", "John 19"],
-    themes: ["redemption", "salvation"],
-    keyApplication: "Trust in the finished work of Christ on the cross.",
+    title: "Jesus",
+    slug: "jesus",
+    icon: "person",
+    overview: "Jesus comes to fulfil the promises of God.",
+    passages: ["Luke 4:14-21"],
+    themes: ["fulfillment", "messiah"],
+    keyApplication: "Recognize Jesus as the fulfillment of God's promises.",
     questions: {},
   },
   {
     index: 19,
-    title: "Resurrection",
-    overview: "Resurrection – in fulfilment of Scripture.",
-    passages: ["Luke 24"],
-    themes: ["victory", "hope"],
-    keyApplication: "Rejoice in the hope of the resurrection.",
+    title: "Cross",
+    slug: "cross",
+    icon: "cross",
+    overview:
+      "Jesus dies as the perfect sacrifice, fulfilling the law and the prophets.",
+    passages: ["Matthew 27:45-54"],
+    themes: ["sacrifice", "atonement"],
+    keyApplication: "Find salvation through Christ's sacrifice.",
     questions: {},
   },
   {
     index: 20,
-    title: "Flame",
-    overview:
-      "Risen Lord Jesus sends Spirit to create new community of God’s people.",
-    passages: ["Acts 2"],
-    themes: ["holy spirit", "church"],
-    keyApplication: "Live as part of God's Spirit-filled community.",
+    title: "Resurrection",
+    slug: "resurrection",
+    icon: "sunny",
+    overview: "Resurrection – in fulfilment of Scripture.",
+    passages: ["1 Corinthians 15:1-28"],
+    themes: ["resurrection", "victory"],
+    keyApplication: "Live in the power of Christ's resurrection.",
     questions: {},
   },
   {
     index: 21,
     title: "Now… not yet",
+    slug: "now-not-yet",
+    icon: "hourglass",
     overview:
       "Life now is life in the Spirit, awaiting glory. Still struggle with sin & suffering, but full assurance.",
     passages: ["Romans 8:1-39"],
@@ -261,32 +300,41 @@ const studies: Study[] = [
   },
   {
     index: 22,
-    title: "Rest",
+    title: "No more sacrifice",
+    slug: "no-more-sacrifice",
+    icon: "checkmark-done",
     overview:
-      "Rest is past, present, and future. Reviews Israel’s history and teaches biblical theology.",
-    passages: ["Hebrews 3-4"],
-    themes: ["rest", "faith"],
-    keyApplication: "Find rest in Christ now and in the future.",
+      "The perfect sacrifice has been made. No more need for temple sacrifices.",
+    passages: ["Hebrews 10:1-18"],
+    themes: ["atonement", "fulfillment"],
+    keyApplication: "Rest in the finished work of Christ.",
     questions: {},
   },
   {
     index: 23,
-    title: "No more sacrifice",
+    title: "Heaven",
+    slug: "heaven",
+    icon: "cloud",
     overview:
-      "Jesus is the once-for-all sacrifice who brings us perfect access to the presence of God.",
-    passages: ["Hebrews 10:1-25"],
-    themes: ["sacrifice", "salvation"],
-    keyApplication: "Rely on Jesus' perfect sacrifice for access to God.",
+      "The new creation – God's people in God's place, enjoying God's presence and people forever.",
+    passages: ["Revelation 21:1-22:5"],
+    themes: ["new creation", "eternity"],
+    keyApplication: "Live with hope for the new creation.",
     questions: {},
   },
   {
     index: 24,
-    title: "Heaven",
-    overview:
-      "The new creation fulfilling all that has been promised. Spot all the links and fulfilments…",
-    passages: ["Revelation 21-22"],
-    themes: ["hope", "victory"],
-    keyApplication: "Look forward to the new creation with hope.",
+    title: "Temple",
+    slug: "temple",
+    icon: "home",
+    overview: "Temple – God rules and dwells with his people.",
+    passages: [
+      "2 Chronicles 5:1-2, 13-6:2",
+      "2 Chronicles 6:12-7:3",
+      "[1 Kings 8:22-53]",
+    ],
+    themes: ["worship", "presence"],
+    keyApplication: "Worship God as the one who dwells with His people.",
     questions: {},
   },
 ];
@@ -341,4 +389,4 @@ export const getTheme = (theme: string) => themeData[theme];
 
 export const getStudies = () => studies;
 
-export const getStudy = (id: number) => studies.find((m) => m.index === id);
+export const getStudy = (slug: string) => studies.find((m) => m.slug === slug);

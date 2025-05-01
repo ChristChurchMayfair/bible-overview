@@ -10,7 +10,7 @@ import {
   IonToolbar,
   useIonViewWillEnter,
 } from "@ionic/react";
-import { ReactElement, useState } from "react";
+import { useState } from "react";
 import { useParams } from "react-router";
 import { useLocalStorage } from "usehooks-ts";
 import {
@@ -32,7 +32,7 @@ function ViewTimeline() {
   );
 
   useIonViewWillEnter(() => {
-    const study_ = getStudy(parseInt(params.id, 10));
+    const study_ = getStudy(params.id);
     setStudy(study_);
   });
 
@@ -109,8 +109,8 @@ const TimelineEventView: React.FC<TimelineEventProps> = (props) => (
         props.event.duration === "Infinite" &&
         props.last === true ? (
           <>
-          <line x1={0} y1={20} x2={0} y2={400} stroke="green" />
-          <line x1={0} y1={500} x2={-10} y2={490} stroke="green" />
+            <line x1={0} y1={20} x2={0} y2={400} stroke="green" />
+            <line x1={0} y1={500} x2={-10} y2={490} stroke="green" />
           </>
         ) : (
           <></>
