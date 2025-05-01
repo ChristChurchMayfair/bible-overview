@@ -76,7 +76,6 @@ function ViewStudy() {
                     className="ion-padding-end"
                     key={passage}
                     href={`/biblepassage/${passage}`}
-                    target="_blank"
                     rel="noreferrer"
                   >
                     {passage}
