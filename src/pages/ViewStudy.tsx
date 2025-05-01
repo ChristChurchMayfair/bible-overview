@@ -228,7 +228,13 @@ function ViewStudy() {
                 completedStudies.includes(study.index) ? "solid" : "outline"
               }
               onClick={(e) => {
-                setCompletedStudies([...completedStudies, study.index]);
+                if (completedStudies.includes(study.index)) {
+                  setCompletedStudies(
+                    completedStudies.filter((s) => s !== study.index)
+                  );
+                } else {
+                  setCompletedStudies([...completedStudies, study.index]);
+                }
               }}
             >
               {completedStudies.includes(study.index)
@@ -236,25 +242,6 @@ function ViewStudy() {
                 : "Mark Study as Completed"}
               <IonIcon slot="end" icon={checkmarkCircleOutline} />
             </IonButton>
-            {completedStudies.includes(study.index) && (
-              <IonButton
-                className={classNames(
-                  "ion-padding-horizontal",
-                  "ion-margin-top"
-                )}
-                expand="block"
-                shape="round"
-                mode="ios"
-                fill={"outline"}
-                onClick={(e) => {
-                  setCompletedStudies(
-                    completedStudies.filter((s) => s !== study.index)
-                  );
-                }}
-              >
-                Reset
-              </IonButton>
-            )}
             <div className="ion-padding" style={{ height: "90px" }} />
 
             <IonItem>
