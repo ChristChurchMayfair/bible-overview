@@ -49,7 +49,7 @@ function ViewStudy() {
             <IonBackButton
               mode="ios"
               text="Studies"
-              defaultHref="/home"
+              defaultHref="/"
             ></IonBackButton>
           </IonButtons>
           <IonTitle>{study?.title}</IonTitle>

@@ -23,7 +23,7 @@ export const Help: React.FC = () => (
           <IonBackButton
             mode="ios"
             text="Bible Overview"
-            defaultHref="/home"
+            defaultHref="/"
           ></IonBackButton>
         </IonButtons>
         <IonTitle>About</IonTitle>

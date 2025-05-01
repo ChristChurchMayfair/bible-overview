@@ -59,8 +59,8 @@ function ViewTheme() {
           <IonButtons slot="start">
             <IonBackButton
               mode="ios"
-              text="Study"
-              defaultHref="/home"
+              text="Studies"
+              defaultHref="/"
             ></IonBackButton>
           </IonButtons>
           <IonTitle>{theme?.name}</IonTitle>
@@ -193,8 +193,8 @@ function ViewTheme() {
                 }}
               >
                 Reset
-              </IonButton> */}
-            {/* )} */}
+              </IonButton>
+            )}
           </>
         ) : (
           <div>Study not found</div>

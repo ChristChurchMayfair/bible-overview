@@ -60,8 +60,8 @@ function BiblePassage() {
           <IonButtons slot="start">
             <IonBackButton
               mode="ios"
-              text="Studies"
-              defaultHref="/home"
+              text="Study"
+              defaultHref="/"
             ></IonBackButton>
           </IonButtons>
           <IonTitle>{passageReference}</IonTitle>
