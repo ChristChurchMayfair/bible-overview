@@ -27,15 +27,26 @@ import { Study, getStudy } from "../data/studies";
 import "./ViewStudy.css";
 
 function ViewStudy() {
+  const params = useParams<{ slug: string }>();
   const [study, setStudy] = useState<Study>();
   const [completedStudies, setCompletedStudies, removeCompletedStudies] =
     useLocalStorage<number[]>(CompletedStudiesStorageKey, []);
-  const params = useParams<{ slug: string }>();
+  const [completedQuestions, setCompletedQuestions] = useLocalStorage<{
+    [key: string]: boolean;
+  }>(`completed-questions-${params.slug}`, {});
 
   const [showLeadersNotes, setShowLeadersNotes] = useLocalStorage<boolean>(
     ShowLeadersNotesStorageKey,
     false
   );
+
+  const toggleQuestion = (sectionTitle: string, questionIndex: number) => {
+    const key = `${sectionTitle}-${questionIndex}`;
+    setCompletedQuestions((prev) => ({
+      ...prev,
+      [key]: !prev[key],
+    }));
+  };
 
   useIonViewWillEnter(() => {
     const study_ = getStudy(params.slug);
@@ -145,7 +156,18 @@ function ViewStudy() {
                       )}
                       <ul>
                         {questionSection.questions.map((question, index) => (
-                          <li key={index} className={"ion-padding-bottom"}>
+                          <li
+                            key={index}
+                            className={classNames(
+                              "ion-padding-bottom",
+                              completedQuestions[
+                                `${questionSectionTitle}-${index}`
+                              ] && "completed"
+                            )}
+                            onClick={() =>
+                              toggleQuestion(questionSectionTitle, index)
+                            }
+                          >
                             {question}
                             {showLeadersNotes &&
                               questionSection.answers &&

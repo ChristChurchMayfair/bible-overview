@@ -63,6 +63,12 @@
 #view-study-page ul li {
   padding-left: 0;
   margin-bottom: 8px;
+  cursor: pointer;
+}
+
+#view-study-page ul li.completed {
+  text-decoration: line-through;
+  color: var(--ion-color-medium);
 }
 
 #view-study-page .ion-padding-start {
