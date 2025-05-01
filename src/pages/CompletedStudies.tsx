@@ -89,8 +89,7 @@ const CompletedStudies: React.FC = () => {
                 <StudyListItem
                   key={study.index}
                   study={study}
-                  totalNumberOfStudies={studies.length}
-                />
+                  totalNumberOfStudies={studies.length} isCompleted={false}                />
               ))}
             </IonList>
           ) : (

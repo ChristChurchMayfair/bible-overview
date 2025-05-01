@@ -4,10 +4,7 @@ import {
   IonContent,
   IonHeader,
   IonIcon,
-  IonItem,
-  IonLabel,
   IonList,
-  IonMenu,
   IonMenuButton,
   IonPage,
   IonRefresher,
@@ -16,20 +13,21 @@ import {
   IonToolbar,
   useIonViewWillEnter,
 } from "@ionic/react";
+import { helpOutline } from "ionicons/icons";
 import { useState } from "react";
-import StudyListItem from "../components/StudyListItem";
-import { Study, getStudies } from "../data/studies";
-import "./Studies.css";
-import { checkmarkCircleOutline, helpOutline, listOutline, sparklesOutline } from "ionicons/icons";
 import { useLocalStorage } from "usehooks-ts";
 import { Menu } from "../components/Menu";
+import StudyListItem from "../components/StudyListItem";
 import { CompletedStudiesStorageKey } from "../components/localStorageKeys";
 import { AppTitle } from "../data/contants";
+import { Study, getStudies } from "../data/studies";
+import "./Studies.css";
 
 const AllStudies: React.FC = () => {
   const [studies, setStudies] = useState<Study[]>([]);
 
-  const [completedStudies, setCompletedStudies, removeCompletedStudies] = useLocalStorage<number[]>(CompletedStudiesStorageKey, []);
+  const [completedStudies, setCompletedStudies, removeCompletedStudies] =
+    useLocalStorage<number[]>(CompletedStudiesStorageKey, []);
 
   useIonViewWillEnter(() => {
     const studies_ = getStudies();
@@ -44,12 +42,12 @@ const AllStudies: React.FC = () => {
 
   return (
     <>
-     <Menu/>
+      <Menu />
       <IonPage id="home-page" className="ion-page">
         <IonHeader collapse="fade">
           <IonToolbar mode="ios">
             <IonButtons slot="start">
-              <IonMenuButton mode="ios"/>
+              <IonMenuButton mode="ios" />
             </IonButtons>
             <IonTitle>{AppTitle}</IonTitle>
             <IonButtons slot="end">
@@ -71,13 +69,13 @@ const AllStudies: React.FC = () => {
           </IonHeader>
           <div className="ion-padding ion-text-center">All studies</div>
 
-
           <IonList>
             {studies.map((study) => (
               <StudyListItem
                 key={study.index}
                 study={study}
                 totalNumberOfStudies={studies.length}
+                isCompleted={completedStudies.includes(study.index)}
               />
             ))}
           </IonList>
