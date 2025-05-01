@@ -5,6 +5,7 @@ import {
   IonContent,
   IonHeader,
   IonIcon,
+  IonItem,
   IonPage,
   IonRouterLink,
   IonRow,
@@ -14,7 +15,7 @@ import {
   useIonViewWillEnter,
 } from "@ionic/react";
 import classNames from "classnames";
-import { checkmarkCircleOutline } from "ionicons/icons";
+import { bookOutline, checkmarkCircleOutline, play } from "ionicons/icons";
 import { useState } from "react";
 import { useParams } from "react-router";
 import { useLocalStorage } from "usehooks-ts";
@@ -29,7 +30,7 @@ function ViewStudy() {
   const [study, setStudy] = useState<Study>();
   const [completedStudies, setCompletedStudies, removeCompletedStudies] =
     useLocalStorage<number[]>(CompletedStudiesStorageKey, []);
-  const params = useParams<{ id: string }>();
+  const params = useParams<{ slug: string }>();
 
   const [showLeadersNotes, setShowLeadersNotes] = useLocalStorage<boolean>(
     ShowLeadersNotesStorageKey,
@@ -37,7 +38,7 @@ function ViewStudy() {
   );
 
   useIonViewWillEnter(() => {
-    const study_ = getStudy(params.id);
+    const study_ = getStudy(params.slug);
     setStudy(study_);
   });
 
@@ -75,8 +76,7 @@ function ViewStudy() {
                   <IonRouterLink
                     className="ion-padding-end"
                     key={passage}
-                    href={`/biblepassage/${passage}`}
-                    rel="noreferrer"
+                    routerLink={`/study/${study.slug}/passage`}
                   >
                     {passage}
                   </IonRouterLink>
@@ -91,7 +91,7 @@ function ViewStudy() {
             {study.timeline !== undefined ? (
               <IonRow className="ion-padding-horizontal">
                 <IonRouterLink
-                  routerLink={`/timeline/${study.index}`}
+                  routerLink={`/study/${study.slug}/timeline`}
                   routerDirection="forward"
                 >
                   Timeline
@@ -227,6 +227,29 @@ function ViewStudy() {
               </IonButton>
             )}
             <div className="ion-padding" style={{ height: "90px" }} />
+
+            <IonItem>
+              <IonText>
+                <h3>Passage</h3>
+                <p>{study.passages[0]}</p>
+                <IonButton
+                  fill="clear"
+                  routerLink={`/study/${study.slug}/passage`}
+                  className="ion-margin-top"
+                >
+                  <IonIcon slot="start" icon={bookOutline} />
+                  Read Passage
+                </IonButton>
+                <IonButton
+                  fill="clear"
+                  routerLink={`/study/${study.slug}/audio`}
+                  className="ion-margin-top"
+                >
+                  <IonIcon slot="start" icon={play} />
+                  Listen to Passage
+                </IonButton>
+              </IonText>
+            </IonItem>
           </>
         ) : (
           <div>Study not found</div>

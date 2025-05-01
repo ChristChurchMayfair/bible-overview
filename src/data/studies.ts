@@ -389,4 +389,10 @@ export const getTheme = (theme: string) => themeData[theme];
 
 export const getStudies = () => studies;
 
-export const getStudy = (slug: string) => studies.find((m) => m.slug === slug);
+export const getStudy = (slug: string) => {
+  const study = studies.find((s) => s.slug === slug);
+  if (!study) {
+    console.error(`Study not found for slug: ${slug}`);
+  }
+  return study;
+};

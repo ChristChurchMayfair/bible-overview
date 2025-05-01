@@ -35,11 +35,11 @@ import "@ionic/react/css/palettes/dark.system.css";
 import { useLocalStorage } from "usehooks-ts";
 import { ShowIntroBlurbStorageKey } from "./components/localStorageKeys";
 import AllStudies from "./pages/AllStudies";
+import AudioPassage from "./pages/AudioPassage";
 import BiblePassage from "./pages/BiblePassage";
 import CompletedStudies from "./pages/CompletedStudies";
 import Help from "./pages/Help";
 import Settings from "./pages/Settings";
-import Studies from "./pages/Studies";
 import ViewTheme from "./pages/ViewTheme";
 import ViewTimeline from "./pages/ViewTimeline";
 import "./theme/variables.css";
@@ -63,31 +63,31 @@ const App: React.FC = () => {
             <Home />
           </Route>
           <Route path="/studies" exact={true}>
-            <Studies />
-          </Route>
-          <Route path="/timeline/:id">
-            <ViewTimeline />
-          </Route>
-          <Route path="/study/:id">
-            <ViewStudy />
-          </Route>
-          <Route path="/theme/:name">
-            <ViewTheme />
-          </Route>
-          <Route path="/about">
-            <Help />
-          </Route>
-          <Route path="/allstudies">
             <AllStudies />
           </Route>
-          <Route path="/completedstudies">
+          <Route path="/study/:slug" exact={true}>
+            <ViewStudy />
+          </Route>
+          <Route path="/study/:slug/timeline" exact={true}>
+            <ViewTimeline />
+          </Route>
+          <Route path="/study/:slug/passage" exact={true}>
+            <BiblePassage />
+          </Route>
+          <Route path="/study/:slug/audio" exact={true}>
+            <AudioPassage />
+          </Route>
+          <Route path="/theme/:name" exact={true}>
+            <ViewTheme />
+          </Route>
+          <Route path="/help" exact={true}>
+            <Help />
+          </Route>
+          <Route path="/completedstudies" exact={true}>
             <CompletedStudies />
           </Route>
-          <Route path="/settings">
+          <Route path="/settings" exact={true}>
             <Settings />
-          </Route>
-          <Route path="/biblepassage/:passage">
-            <BiblePassage />
           </Route>
         </IonRouterOutlet>
       </IonReactRouter>
