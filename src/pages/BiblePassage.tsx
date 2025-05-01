@@ -1,24 +1,16 @@
+import { DefaultApi } from "@christchurchmayfair/crossway-esv-api-client";
 import {
   IonBackButton,
-  IonButton,
   IonButtons,
-  IonChip,
   IonContent,
   IonHeader,
-  IonIcon,
-  IonItem,
-  IonList,
   IonPage,
+  IonSpinner,
   IonText,
   IonTitle,
   IonToolbar,
   useIonViewWillEnter,
 } from "@ionic/react";
-import {
-  bookOutline,
-  checkmarkCircleOutline,
-  exitOutline,
-} from "ionicons/icons";
 import { useState } from "react";
 import { useParams } from "react-router";
 import { useLocalStorage } from "usehooks-ts";
@@ -26,11 +18,7 @@ import {
   CompletedStudiesStorageKey,
   ShowLeadersNotesStorageKey,
 } from "../components/localStorageKeys";
-import { Study, getStudy } from "../data/studies";
 import "./ViewStudy.css";
-import { BaseAPI as CrosswayESV } from "@christchurchmayfair/crossway-esv-api-client/dist/base";
-import { b } from "vitest/dist/reporters-5f784f42";
-import { DefaultApi } from "@christchurchmayfair/crossway-esv-api-client";
 
 function BiblePassage() {
   const [passage, setPassage] = useState<string>();
@@ -69,13 +57,27 @@ function BiblePassage() {
       </IonHeader>
 
       <IonContent fullscreen>
-        <IonText className="ion-padding" mode="ios">
+        {passage ? (
+          <IonText className="ion-padding" mode="ios">
+            <div
+              dangerouslySetInnerHTML={{
+                __html: passage,
+              }}
+            ></div>
+          </IonText>
+        ) : (
           <div
-            dangerouslySetInnerHTML={{
-              __html: passage ?? "Loading...",
+            className="ion-text-center ion-padding"
+            style={{
+              height: "100%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
             }}
-          ></div>
-        </IonText>
+          >
+            <IonSpinner name="crescent" />
+          </div>
+        )}
       </IonContent>
     </IonPage>
   );
