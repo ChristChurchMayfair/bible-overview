@@ -53,3 +53,19 @@
   padding-right: 10px;
   text-decoration: none;
 }
+
+/* Question and Answer Styling */
+#view-study-page ul {
+  padding-left: 16px;
+  margin: 0;
+}
+
+#view-study-page ul li {
+  padding-left: 0;
+  margin-bottom: 8px;
+}
+
+#view-study-page .ion-padding-start {
+  padding-left: 0;
+  margin-top: 8px;
+}

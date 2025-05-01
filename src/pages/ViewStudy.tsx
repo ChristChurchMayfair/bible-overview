@@ -136,7 +136,7 @@ function ViewStudy() {
               <IonText>
                 <h3>Questions</h3>
                 {Object.entries(study.questions).map(
-                  ([questionSectionTitle, questions]) => (
+                  ([questionSectionTitle, questionSection]) => (
                     <div key={questionSectionTitle}>
                       {questionSectionTitle != "" ? (
                         <h4>{questionSectionTitle}</h4>
@@ -144,11 +144,18 @@ function ViewStudy() {
                         <></>
                       )}
                       <ul>
-                        {questions.map((question, index) => (
+                        {questionSection.questions.map((question, index) => (
                           <li key={index} className={"ion-padding-bottom"}>
-                            {/* <IonCheckbox  labelPlacement="end"> */}
-                            {/* </IonCheckbox> */}
                             {question}
+                            {showLeadersNotes &&
+                              questionSection.answers &&
+                              questionSection.answers[index] && (
+                                <div className="ion-padding-start">
+                                  <IonText color="medium">
+                                    {questionSection.answers[index]}
+                                  </IonText>
+                                </div>
+                              )}
                           </li>
                         ))}
                       </ul>
