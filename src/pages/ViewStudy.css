@@ -75,3 +75,13 @@
   padding-left: 0;
   margin-top: 8px;
 }
+
+.passage-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.passage-link ion-icon {
+  color: var(--ion-color-primary);
+}

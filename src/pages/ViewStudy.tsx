@@ -15,7 +15,11 @@ import {
   useIonViewWillEnter,
 } from "@ionic/react";
 import classNames from "classnames";
-import { bookOutline, checkmarkCircleOutline, play } from "ionicons/icons";
+import {
+  bookOutline,
+  checkmarkCircleOutline,
+  volumeMedium,
+} from "ionicons/icons";
 import { useState } from "react";
 import { useParams } from "react-router";
 import { useLocalStorage } from "usehooks-ts";
@@ -84,13 +88,19 @@ function ViewStudy() {
             >
               <IonText>
                 {study.passages.map((passage, index) => (
-                  <IonRouterLink
-                    className="ion-padding-end"
-                    key={passage}
-                    routerLink={`/study/${study.slug}/passage/${index + 1}`}
-                  >
-                    {passage}
-                  </IonRouterLink>
+                  <span key={passage} className="ion-padding-end">
+                    <IonRouterLink
+                      routerLink={`/study/${study.slug}/passage/${index + 1}`}
+                    >
+                      {passage}
+                    </IonRouterLink>
+                    <IonRouterLink
+                      routerLink={`/study/${study.slug}/audio/${index + 1}`}
+                      className="ion-padding-start"
+                    >
+                      <IonIcon icon={volumeMedium} size="small" />
+                    </IonRouterLink>
+                  </span>
                 ))}
               </IonText>
             </IonRow>
@@ -243,29 +253,6 @@ function ViewStudy() {
               <IonIcon slot="end" icon={checkmarkCircleOutline} />
             </IonButton>
             <div className="ion-padding" style={{ height: "90px" }} />
-
-            <IonItem>
-              <IonText>
-                <h3>Passage</h3>
-                <p>{study.passages[0]}</p>
-                <IonButton
-                  fill="clear"
-                  routerLink={`/study/${study.slug}/passage/1`}
-                  className="ion-margin-top"
-                >
-                  <IonIcon slot="start" icon={bookOutline} />
-                  Read Passage
-                </IonButton>
-                <IonButton
-                  fill="clear"
-                  routerLink={`/study/${study.slug}/audio/1`}
-                  className="ion-margin-top"
-                >
-                  <IonIcon slot="start" icon={play} />
-                  Listen to Passage
-                </IonButton>
-              </IonText>
-            </IonItem>
           </>
         ) : (
           <div>Study not found</div>
