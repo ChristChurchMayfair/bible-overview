@@ -20,8 +20,9 @@ import { Menu } from "../components/Menu";
 import StudyListItem from "../components/StudyListItem";
 import { CompletedStudiesStorageKey } from "../components/localStorageKeys";
 import { AppTitle } from "../data/contants";
-import { Study, getStudies } from "../data/studies";
+import { getStudies } from "../data/studies";
 import "./Studies.css";
+import { Study } from "../data/types";
 
 const AllStudies: React.FC = () => {
   const [studies, setStudies] = useState<Study[]>([]);

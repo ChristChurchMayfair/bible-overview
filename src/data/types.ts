@@ -25,7 +25,7 @@ export type Resource = {
   type: "video" | "audio" | "article" | "book";
 };
 
-export interface Study {
+export type Study ={
   index: number;
   title: string;
   slug: string;
