@@ -58,10 +58,10 @@
 }
 
 .play-button {
+  font-size: 3rem;
   width: 4rem;
   height: 4rem;
-  background-color: var(--ion-color-primary);
-  color: white;
+  --ionicon-stroke-width: 40px;
 }
 
 .play-button:hover {
@@ -74,4 +74,15 @@
 
 .play-button ion-icon {
   font-size: 2rem;
+}
+
+.audio-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.audio-player {
+  display: none;
 } 

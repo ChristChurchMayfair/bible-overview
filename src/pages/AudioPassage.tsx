@@ -1,21 +1,17 @@
-import { DefaultApi } from "@christchurchmayfair/crossway-esv-api-client";
 import {
   IonBackButton,
   IonButtons,
   IonContent,
   IonHeader,
   IonIcon,
-  IonItem,
-  IonLabel,
-  IonList,
   IonPage,
   IonSpinner,
   IonTitle,
   IonToolbar,
   useIonViewWillEnter,
 } from "@ionic/react";
-import { play } from "ionicons/icons";
-import { useState } from "react";
+import { pause, play, playSkipBack, playSkipForward } from "ionicons/icons";
+import { useRef, useState } from "react";
 import { useParams } from "react-router";
 import { getStudy } from "../data/studies";
 import "./AudioPassage.css";
@@ -24,6 +20,9 @@ function AudioPassage() {
   const [passageReference, setPassageReference] = useState<string>();
   const [audioUrl, setAudioUrl] = useState<string>();
   const [isPlaying, setIsPlaying] = useState(false);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
+  const audioRef = useRef<HTMLAudioElement>(null);
   const params = useParams<{ slug: string; index: string }>();
 
   useIonViewWillEnter(() => {
@@ -33,31 +32,62 @@ function AudioPassage() {
 
     if (passageRef) {
       setPassageReference(passageRef);
-      const crossway = new DefaultApi(
-        undefined,
-        "https://study.christchurchmayfair.org/esv"
+      setAudioUrl(
+        "https://study.christchurchmayfair.org/esv/v3/passage/audio/?q=" +
+          encodeURIComponent(passageRef)
       );
-
-      crossway
-        .v3PassageAudioGet({ q: passageRef })
-        .then((response) => {
-          if (
-            response.data &&
-            typeof response.data === "object" &&
-            "audioUrl" in response.data
-          ) {
-            console.log("Audio URL:", response.data.audioUrl);
-            setAudioUrl(response.data.audioUrl as string);
-          }
-        })
-        .catch((error) => {
-          console.error("Error fetching audio URL:", error);
-        });
     }
   });
 
   const togglePlay = () => {
-    setIsPlaying(!isPlaying);
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.pause();
+      } else {
+        audioRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
+
+  const handleTimeUpdate = () => {
+    if (audioRef.current) {
+      setCurrentTime(audioRef.current.currentTime);
+    }
+  };
+
+  const handleLoadedMetadata = () => {
+    if (audioRef.current) {
+      setDuration(audioRef.current.duration);
+    }
+  };
+
+  const handleScrub = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (audioRef.current) {
+      const rect = e.currentTarget.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const percentage = x / rect.width;
+      const newTime = percentage * duration;
+      audioRef.current.currentTime = newTime;
+    }
+  };
+
+  const formatTime = (time: number) => {
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60);
+    return `${minutes}:${seconds.toString().padStart(2, "0")}`;
+  };
+
+  const skipBack = () => {
+    if (audioRef.current) {
+      audioRef.current.currentTime = Math.max(0, currentTime - 15);
+    }
+  };
+
+  const skipForward = () => {
+    if (audioRef.current) {
+      audioRef.current.currentTime = Math.min(duration, currentTime + 15);
+    }
   };
 
   return (
@@ -77,24 +107,40 @@ function AudioPassage() {
 
       <IonContent fullscreen>
         {audioUrl ? (
-          <IonList>
-            <IonItem>
-              <IonLabel>{passageReference}</IonLabel>
-              <IonIcon
-                icon={play}
-                color="primary"
-                onClick={togglePlay}
-                style={{ cursor: "pointer" }}
+          <div className="audio-container">
+            <div className="progress-container" onClick={handleScrub}>
+              <div
+                className="progress-bar"
+                style={{ width: `${(currentTime / duration) * 100}%` }}
               />
-            </IonItem>
-            {isPlaying && (
-              <audio
-                src={audioUrl}
-                autoPlay
-                onEnded={() => setIsPlaying(false)}
-              />
-            )}
-          </IonList>
+            </div>
+            <div className="time-display">
+              <span>{formatTime(currentTime)}</span>
+              <span>{formatTime(duration)}</span>
+            </div>
+            <div className="controls">
+              <button className="control-button" onClick={skipBack}>
+                <IonIcon icon={playSkipBack} />
+              </button>
+              <button className="control-button" onClick={togglePlay}>
+                <IonIcon
+                  icon={isPlaying ? pause : play}
+                  className="play-button"
+                />
+              </button>
+              <button className="control-button" onClick={skipForward}>
+                <IonIcon icon={playSkipForward} />
+              </button>
+            </div>
+            <audio
+              ref={audioRef}
+              className="audio-player"
+              src={audioUrl}
+              onTimeUpdate={handleTimeUpdate}
+              onLoadedMetadata={handleLoadedMetadata}
+              onEnded={() => setIsPlaying(false)}
+            />
+          </div>
         ) : (
           <div
             className="ion-text-center ion-padding"
