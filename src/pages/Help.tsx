@@ -34,7 +34,7 @@ export const Help: React.FC = () => (
       <p>
         You're very welcome to use this app for your own personal study.
         However, we really encourage you to go through these studies with your
-        Discipleship Group (DG) where yuo can explore and discuss the studies
+        Discipleship Group (DG) where you can explore and discuss the studies
         with others and with the help of study leaders.
       </p>
       <p>
@@ -52,7 +52,10 @@ export const Help: React.FC = () => (
         particularly Phil Allcock who has developed this study series and would
         be happy to help with any questions you may have.
       </p>
-      <IonButton expand="block">
+      <IonButton
+        expand="block"
+        href="mailto:phil.allcock@christchurchmayfair.org"
+      >
         <IonIcon slot="start" icon={helpCircleOutline} />
         Contact Phil with a Question
       </IonButton>
@@ -78,11 +81,11 @@ export const Help: React.FC = () => (
       </p>
       <p>
         If you encounter any bugs or have feature requests, please raise them
-        via a Github issue
+        via a Github issue.
       </p>
       <IonButton
         expand="block"
-        href="https://github.com/tomduckering/bibleoverviewapp/issues"
+        href="https://github.com/tomduckering/bibleoverviewapp/issues/new/choose"
       >
         <IonIcon slot="start" icon={settingsOutline} />
         Report an Issue

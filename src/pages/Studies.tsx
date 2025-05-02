@@ -80,7 +80,7 @@ const Studies: React.FC = () => {
             </IonButtons>
             <IonTitle>{AppTitle}</IonTitle>
             <IonButtons slot="end">
-              <IonButton routerLink={`/about`} mode="ios">
+              <IonButton routerLink={`/help`} mode="ios">
                 <IonIcon icon={helpOutline} />
               </IonButton>
             </IonButtons>

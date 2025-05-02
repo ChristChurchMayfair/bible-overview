@@ -10,11 +10,11 @@ import {
   IonTitle,
   IonToolbar,
 } from "@ionic/react";
+import classNames from "classnames";
 import { helpOutline } from "ionicons/icons";
 import { Menu } from "../components/Menu";
 import { AppTitle } from "../data/contants";
 import "./Home.css";
-import classNames from "classnames";
 
 const Logo: React.FC = () => {
   return (
@@ -33,13 +33,7 @@ const Logo: React.FC = () => {
         fill="none"
         fillRule="evenodd"
       >
-        <circle
-          id="Oval"
-          strokeWidth="25"
-          cx="1253"
-          cy="200"
-          r="200"
-        ></circle>
+        <circle id="Oval" strokeWidth="25" cx="1253" cy="200" r="200"></circle>
         <ellipse
           id="Oval"
           strokeWidth="25"
@@ -48,16 +42,8 @@ const Logo: React.FC = () => {
           rx="101"
           ry="200"
         ></ellipse>
-        <path
-          d="M1253,0.5 L1253,400"
-          id="Path-2"
-          strokeWidth="25"
-        ></path>
-        <path
-          d="M1452.5,199 L1053,199"
-          id="Path-2"
-          strokeWidth="25"
-        ></path>
+        <path d="M1253,0.5 L1253,400" id="Path-2" strokeWidth="25"></path>
+        <path d="M1452.5,199 L1053,199" id="Path-2" strokeWidth="25"></path>
         <path
           d="M1086,94 C1124.87831,110 1180.54497,118 1253,118 C1325.45503,118 1381.12169,110 1420,94"
           id="Path-3"
@@ -122,7 +108,7 @@ const Home: React.FC = () => {
             </IonButtons>
             <IonTitle>{AppTitle}</IonTitle>
             <IonButtons slot="end">
-              <IonButton routerLink={`/about`} mode="ios">
+              <IonButton routerLink={`/help`} mode="ios">
                 <IonIcon icon={helpOutline} />
               </IonButton>
             </IonButtons>
@@ -151,7 +137,7 @@ const Home: React.FC = () => {
             <p>
               God himself answers these questions in the Bible. It is a book of
               books. A multitude of genres. Spanning thousands of years. All of
-              it telling the true and better story of God’s plan of salvation,
+              it telling the true and better story of God's plan of salvation,
               unfolded through history, recorded in the Bible, reveals the
               glorious truth. At its heart is Jesus Christ. Richer and better
               than finding myself at the heart of the story.

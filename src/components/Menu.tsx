@@ -11,12 +11,11 @@ import {
   IonToolbar,
 } from "@ionic/react";
 import {
-  sparklesOutline,
   checkmarkCircleOutline,
-  listOutline,
   cogOutline,
   helpOutline,
   homeOutline,
+  listOutline,
 } from "ionicons/icons";
 import React from "react";
 import { AppTitle } from "../data/contants";
@@ -53,7 +52,7 @@ export const Menu: React.FC = () => {
               <IonIcon icon={cogOutline} color="primary" slot="start" />
               <IonLabel>Settings</IonLabel>
             </IonItem>
-            <IonItem routerLink="/about" detail={false}>
+            <IonItem routerLink="/help" detail={false}>
               <IonIcon icon={helpOutline} color="primary" slot="start" />
               <IonLabel>Help</IonLabel>
             </IonItem>
