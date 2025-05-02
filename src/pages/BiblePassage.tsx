@@ -1,10 +1,13 @@
 import { DefaultApi } from "@christchurchmayfair/crossway-esv-api-client";
 import {
   IonBackButton,
+  IonButton,
   IonButtons,
   IonContent,
   IonHeader,
+  IonIcon,
   IonPage,
+  IonRow,
   IonSpinner,
   IonText,
   IonTitle,
@@ -20,6 +23,7 @@ import {
 } from "../components/localStorageKeys";
 import { getPassagesFromStudy, getStudy } from "../data/studies";
 import "./BiblePassage.css";
+import { volumeMedium } from "ionicons/icons";
 
 function BiblePassage() {
   const [passage, setPassage] = useState<string>();
@@ -48,9 +52,17 @@ function BiblePassage() {
         "https://study.christchurchmayfair.org/esv"
       );
 
-      crossway.v3PassageHtmlGet({ q: passageRef }).then((response) => {
-        setPassage(response.data.passages![0]);
-      });
+      crossway
+        .v3PassageHtmlGet({
+          q: passageRef,
+          includeAudioLink: false,
+          includeCrossrefs: false,
+          includeFootnotes: false,
+          includeHeadings: false,
+        })
+        .then((response) => {
+          setPassage(response.data.passages![0]);
+        });
     }
   });
 
@@ -66,6 +78,11 @@ function BiblePassage() {
             ></IonBackButton>
           </IonButtons>
           <IonTitle>{passageReference}</IonTitle>
+          <IonButtons slot="end">
+            <IonButton mode="ios" href={`/study/${params.slug}/audio/1`}>
+              <IonIcon icon={volumeMedium} />
+            </IonButton>
+          </IonButtons>
         </IonToolbar>
       </IonHeader>
 
