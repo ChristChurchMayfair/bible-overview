@@ -34,14 +34,14 @@ export interface Study {
   promises: string[];
   progressions: string[];
   keyApplication: string;
+  prayerPoints: string[];
   questions: {
-    [sectionName: string]: {
+    [key: string]: {
       questions: string[];
-      answers?: string[]; // Optional answers for leaders
+      answers?: string[];
     };
   };
   timeline?: TimelineEntry[];
-  prayerPoints?: string[];
   leadersNotes?: string;
   additionalResources?: Resource[];
 }

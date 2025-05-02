@@ -2,255 +2,184 @@ import { Study } from "./types";
 
 export const studies: Study[] = [
   {
-    index: 1,
+    index: 0,
     title: "Plan",
     slug: "plan",
-    icon: "analytics",
-    overview:
-      "God's plan for history is the blessed rule of Christ. His plan progresses through fulfilment of his promises",
-    themes: ["god's sovereignty", "promise"],
+    icon: "📜",
+    overview: "God's plan for humanity and the world",
+    themes: ["Creation", "Purpose", "Relationship"],
     patterns: [
-      "God's sovereign rule",
-      "Promise and fulfillment",
-      "Progressive revelation",
+      "God's intentional design",
+      "Order from chaos",
+      "Purpose in creation",
     ],
-    promises: [
-      "Christ's eternal rule",
-      "Inheritance in Christ",
-      "Redemption through His blood",
-    ],
+    promises: ["God's provision", "Human dominion", "Relationship with God"],
     progressions: [
-      "From promise to fulfillment",
-      "From creation to new creation",
-      "From partial to complete revelation",
+      "From nothing to everything",
+      "From chaos to order",
+      "From potential to purpose",
     ],
-    keyApplication: "Trust in God's sovereign plan and promises.",
+    keyApplication:
+      "Recognize God's intentional design in your life and the world around you",
+    prayerPoints: [
+      "Thank God for His perfect design and purpose in creation",
+      "Pray for wisdom to see God's hand in your life",
+      "Ask for guidance in stewarding God's creation well",
+      "Pray for a deeper understanding of your purpose in God's plan",
+    ],
     questions: {
       Introduction: {
         questions: [
-          "What do you think God's plan for history is?",
-          "How do you see God's sovereignty at work in the world today?",
-          "What promises of God are you most looking forward to seeing fulfilled?",
-        ],
-        answers: [
-          "God's plan is to bring all things under Christ's rule, uniting heaven and earth under His headship.",
-          "Examples might include: global spread of the gospel, preservation of the church, personal testimonies of conversion.",
-          "Encourage personal responses but guide toward key promises like Christ's return, resurrection, new creation.",
+          "What comes to mind when you think about God's plan?",
+          "How do you see God's design in the world around you?",
+          "What questions do you have about God's plan?",
         ],
       },
-      "Ephesians 1:9-14": {
+      "Genesis 1:1-2:3": {
         questions: [
-          "What does this passage teach us about God's plan for history?",
-          "How does the concept of being 'sealed with the Holy Spirit' impact our understanding of God's promises?",
-          "What does it mean to have an inheritance in Christ?",
-          "How does this passage show the progression of God's plan?",
-        ],
-        answers: [
-          "The passage reveals God's plan to unite all things in Christ, both in heaven and earth.",
-          "The Spirit is our guarantee of future inheritance, showing God's promises are certain.",
-          "We are co-heirs with Christ, sharing in His inheritance of all things.",
-          "Shows progression from God's eternal purpose, through Christ's work, to final inheritance.",
-        ],
-      },
-      "Acts 13:13-39": {
-        questions: [
-          "How does Paul explain the fulfillment of God's promises in this passage?",
-          "What role does Jesus play in the unfolding of God's plan according to Paul?",
-          "How does this sermon connect the Old Testament promises to their fulfillment in Christ?",
-          "What does this passage teach us about God's faithfulness to His promises?",
-        ],
-        answers: [
-          "Paul shows how Jesus fulfills God's promises to David and brings forgiveness of sins.",
-          "Jesus is presented as the promised Davidic king and Savior.",
-          "Paul traces God's promises through Israel's history to their fulfillment in Jesus.",
-          "Demonstrates God's consistent faithfulness across generations in bringing His promises to completion.",
+          "What does this passage reveal about God's character?",
+          "How does God bring order to chaos?",
+          "What does it mean that God created humans in His image?",
+          "What responsibilities did God give to humans?",
         ],
       },
       Application: {
         questions: [
-          "How can you align your life more closely with God's sovereign plan?",
-          "What specific promises of God do you need to trust in today?",
-          "How can you help others see God's plan at work in their lives?",
-          "What steps can you take to live as someone who has an inheritance in Christ?",
-          "How can you demonstrate trust in God's promises in your daily decisions?",
+          "How can you better recognize God's design in your daily life?",
+          "What areas of your life need God's order and purpose?",
+          "How can you better fulfill your role in God's creation?",
         ],
-        answers: [
-          "Encourage submission to God's word, prayer for His kingdom's advance, participation in His mission.",
-          "Guide toward promises of God's presence, provision, purpose, and future hope.",
-          "Suggest ways to share personal testimonies of God's faithfulness and point to His work in history.",
-          "Discuss practical expressions of heavenly citizenship and eternal perspective.",
-          "Explore examples of choosing faith over fear, obedience over convenience.",
+      },
+    },
+  },
+  {
+    index: 1,
+    title: "Creation",
+    slug: "creation",
+    icon: "🌍",
+    overview: "The beginning of all things",
+    themes: ["Power", "Beauty", "Goodness"],
+    patterns: [
+      "God's creative power",
+      "Purpose in design",
+      "Goodness of creation",
+    ],
+    promises: ["God's sovereignty", "Human value", "Creation's purpose"],
+    progressions: [
+      "From void to fullness",
+      "From potential to actuality",
+      "From design to purpose",
+    ],
+    keyApplication:
+      "Appreciate and care for God's creation as an expression of worship",
+    prayerPoints: [
+      "Praise God for His creative power and wisdom",
+      "Thank God for the beauty and diversity of His creation",
+      "Pray for wisdom in caring for God's creation",
+      "Ask for eyes to see God's hand in the natural world",
+    ],
+    questions: {
+      Introduction: {
+        questions: [
+          "What aspects of creation amaze you the most?",
+          "How do you see God's creativity in nature?",
+          "What questions do you have about creation?",
+        ],
+      },
+      "Genesis 1:1-2:3": {
+        questions: [
+          "What does this passage teach us about God's power?",
+          "How does God demonstrate His care in creation?",
+          "What does it mean that creation was 'good'?",
+          "How does creation reflect God's character?",
+        ],
+      },
+      Application: {
+        questions: [
+          "How can you better appreciate God's creation?",
+          "What steps can you take to care for creation?",
+          "How can creation inspire your worship?",
         ],
       },
     },
   },
   {
     index: 2,
-    title: "Creation",
-    slug: "creation",
-    icon: "globe",
-    overview:
-      "God created all things. We are made in his image to enjoy God's place, presence, people.",
-    themes: ["creation", "humanity"],
+    title: "Fall",
+    slug: "fall",
+    icon: "🍎",
+    overview: "The entrance of sin and its consequences",
+    themes: ["Sin", "Consequences", "Redemption"],
     patterns: [
-      "Order from chaos",
-      "Blessing and multiplication",
-      "God's presence with His creation",
+      "Temptation",
+      "Disobedience",
+      "Consequences",
+      "Promise of redemption",
     ],
-    promises: [
-      "Dominion over creation",
-      "Relationship with God",
-      "Purpose in creation",
-    ],
+    promises: ["God's justice", "Promise of a Savior", "Victory over sin"],
     progressions: [
-      "From formless to formed",
-      "From empty to filled",
-      "From potential to purpose",
+      "From innocence to sin",
+      "From harmony to brokenness",
+      "From curse to promise",
     ],
-    keyApplication: "Recognize our purpose in God's creation.",
+    keyApplication:
+      "Recognize the reality of sin and our need for God's redemption",
+    prayerPoints: [
+      "Confess areas where you've given in to temptation",
+      "Thank God for His promise of redemption",
+      "Pray for strength to resist temptation",
+      "Ask for wisdom to recognize sin's consequences",
+    ],
     questions: {
       Introduction: {
         questions: [
-          "What does it mean to be made in God's image?",
-          "How do you see God's creative power at work in the world today?",
-          "What responsibilities do we have as stewards of God's creation?",
-        ],
-        answers: [
-          "Being made in God's image means reflecting His character, representing His rule, and relating to Him in love.",
-          "Guide discussion toward both natural processes and God's ongoing creative work in salvation and transformation.",
-          "Focus on responsible dominion, care for creation, and using resources for God's glory.",
+          "What comes to mind when you think about sin?",
+          "How do you see the effects of the fall in the world?",
+          "What questions do you have about sin and its consequences?",
         ],
       },
-      "Genesis 1:1-2:25": {
+      "Genesis 3:1-24": {
         questions: [
-          "What does the creation account tell us about God's character?",
-          "How does the order of creation reveal God's purposes?",
-          "What significance do you see in God creating humans last?",
-          "How does the concept of 'very good' apply to God's creation?",
-          "What does the Sabbath rest teach us about God's intentions for humanity?",
-        ],
-        answers: [
-          "Emphasize God's power, wisdom, goodness, and purposeful design.",
-          "Shows progression from environment to inhabitants, culminating in humanity.",
-          "Humans are the pinnacle of creation, given authority and responsibility over creation.",
-          "'Very good' reflects perfection, harmony, and fulfillment of God's purposes.",
-          "Sabbath shows God's desire for relationship, worship, and proper work-rest balance.",
+          "What tactics does the serpent use to tempt Eve?",
+          "How do Adam and Eve respond to their sin?",
+          "What are the consequences of their disobedience?",
+          "What promise of hope do we see in this passage?",
         ],
       },
       Application: {
         questions: [
-          "How can you better reflect God's image in your daily life?",
-          "What specific ways can you exercise responsible dominion over creation?",
-          "How can you cultivate a deeper appreciation for God's creative work?",
-          "What changes can you make to honor the Sabbath principle in your life?",
-          "How can you help others see their value as God's image-bearers?",
-        ],
-        answers: [
-          "Suggest practical ways to demonstrate God's character in relationships, work, and decisions.",
-          "Discuss environmental stewardship, resource management, and cultivation of beauty.",
-          "Encourage observation of nature, scientific study, and artistic expression.",
-          "Guide toward balanced rhythms of work and rest, prioritizing worship and relationships.",
-          "Share ways to affirm others' dignity, potential, and purpose in God's design.",
+          "What temptations do you face regularly?",
+          "How can you better recognize and resist temptation?",
+          "What areas of your life need God's redemption?",
         ],
       },
     },
   },
   {
     index: 3,
-    title: "Fall",
-    slug: "fall",
-    icon: "alert",
-    overview:
-      "What went wrong: 4-fold ruin of sin. Promise of evil overcome in Genesis 3:15.",
-    themes: ["sin", "redemption"],
-    patterns: [
-      "Sin and its consequences",
-      "God's mercy in judgment",
-      "Promise of redemption",
-    ],
-    promises: [
-      "Victory over the serpent",
-      "Redemption through the seed",
-      "Restoration of relationship",
-    ],
-    progressions: [
-      "From innocence to knowledge",
-      "From blessing to curse",
-      "From presence to separation",
-    ],
-    keyApplication:
-      "Understand the consequences of sin and God's promise of redemption.",
-    questions: {
-      Introduction: {
-        questions: [
-          "How do you see the effects of sin in the world today?",
-          "What does it mean that sin has 'ruined' aspects of God's creation?",
-          "How does Genesis 3:15 give us hope in the face of sin?",
-        ],
-        answers: [
-          "Guide discussion toward both personal and systemic effects of sin, including broken relationships, suffering, and death.",
-          "Help identify how sin has corrupted work, relationships, worship, and our relationship with God.",
-          "Point to God's immediate promise of victory through the woman's offspring (Christ).",
-        ],
-      },
-      "Genesis 3:1-24": {
-        questions: [
-          "What tactics does the serpent use to deceive Eve?",
-          "How does Adam's response to God differ from Eve's?",
-          "What are the immediate consequences of their sin?",
-          "How does God show both justice and mercy in His response?",
-          "What hope does Genesis 3:15 offer for the future?",
-        ],
-        answers: [
-          "Identify questioning God's word, suggesting God is withholding good, minimizing consequences.",
-          "Note Adam's attempt to shift blame vs. Eve's admission of deception.",
-          "Discuss shame, fear, broken relationships, curse on creation, and expulsion from Eden.",
-          "Show how punishment demonstrates justice while provision of clothes and promise show mercy.",
-          "Explain the protoevangelium - first promise of Christ's victory over Satan.",
-        ],
-      },
-      Application: {
-        questions: [
-          "What areas of your life need redemption from sin's effects?",
-          "How can you better recognize and resist the enemy's deceptive tactics?",
-          "What steps can you take to restore relationships damaged by sin?",
-          "How can you live in light of God's promise of ultimate victory?",
-          "What specific ways can you demonstrate hope in God's redemption?",
-        ],
-        answers: [
-          "Guide toward honest assessment of sin's impact on relationships, work, and worship.",
-          "Help identify common lies and deceptions, emphasizing truth from God's Word.",
-          "Suggest practical steps for confession, forgiveness, and reconciliation.",
-          "Encourage living in Christ's victory while acknowledging ongoing struggle.",
-          "Point to ways of sharing gospel hope and participating in God's redemptive work.",
-        ],
-      },
-    },
-  },
-  {
-    index: 4,
     title: "Promise",
     slug: "promise",
-    icon: "ribbon",
-    overview:
-      "The promise of a recovery of the lost blessings of Eden through God's choice of one man.",
-    themes: ["promise", "covenant"],
+    icon: "🤝",
+    overview: "God's covenant with Abraham",
+    themes: ["Faith", "Promise", "Blessing"],
     patterns: [
-      "God's sovereign choice",
-      "Covenant making",
-      "Faith and obedience",
+      "God's faithfulness",
+      "Promise and fulfillment",
+      "Blessing through faith",
     ],
-    promises: [
-      "Land inheritance",
-      "Numerous descendants",
-      "Blessing to all nations",
-    ],
+    promises: ["Land", "Descendants", "Blessing to nations"],
     progressions: [
-      "From individual to nation",
-      "From promise to covenant",
-      "From faith to fulfillment",
+      "From promise to fulfillment",
+      "From one to many",
+      "From local to global",
     ],
-    keyApplication: "Trust in God's faithfulness to His promises.",
+    keyApplication: "Trust in God's promises and walk in faith",
+    prayerPoints: [
+      "Thank God for His faithfulness to His promises",
+      "Pray for faith to trust God's promises in your life",
+      "Ask for wisdom to see how God is fulfilling His promises",
+      "Pray for opportunities to be a blessing to others",
+    ],
     questions: {
       Introduction: {
         questions: [
@@ -325,29 +254,30 @@ export const studies: Study[] = [
     },
   },
   {
-    index: 5,
+    index: 4,
     title: "Rescue",
     slug: "rescue",
-    icon: "hand-left",
-    overview:
-      "God rescues his people. Reveals himself as faithful promise-maker; rescues through substitutionary sacrifice.",
-    themes: ["deliverance", "redemption"],
+    icon: "🦋",
+    overview: "God's deliverance of His people from Egypt",
+    themes: ["Deliverance", "Power", "Faithfulness"],
     patterns: [
-      "Substitutionary sacrifice",
-      "God's mighty acts",
-      "Faithful remembrance",
+      "God's power over enemies",
+      "Faith in action",
+      "Deliverance through sacrifice",
     ],
-    promises: [
-      "Deliverance from bondage",
-      "Redemption through blood",
-      "Covenant relationship",
-    ],
+    promises: ["Freedom from bondage", "God's presence", "Inheritance"],
     progressions: [
       "From slavery to freedom",
-      "From death to life",
-      "From bondage to worship",
+      "From fear to faith",
+      "From bondage to blessing",
     ],
-    keyApplication: "Rely on God's power to save and deliver.",
+    keyApplication: "Trust in God's power to deliver and provide",
+    prayerPoints: [
+      "Thank God for His deliverance in your life",
+      "Pray for faith to trust God in difficult situations",
+      "Ask for courage to follow God's leading",
+      "Pray for those still in spiritual bondage",
+    ],
     questions: {
       Introduction: {
         questions: [
@@ -408,25 +338,30 @@ export const studies: Study[] = [
     },
   },
   {
-    index: 6,
+    index: 5,
     title: "Law",
     slug: "law",
-    icon: "book",
-    overview:
-      "God relates to his people – presence and word. Covenant ceremony. Grace leads to obedience.",
-    themes: ["law", "covenant"],
-    patterns: ["God's holiness", "Covenant relationship", "Law and grace"],
-    promises: [
-      "God's presence",
-      "Blessing through obedience",
+    icon: "📖",
+    overview: "God's instructions for His people",
+    themes: ["Holiness", "Relationship", "Guidance"],
+    patterns: [
+      "God's standards",
       "Covenant relationship",
+      "Blessing through obedience",
     ],
+    promises: ["God's presence", "Guidance", "Blessing"],
     progressions: [
       "From slavery to service",
       "From law to love",
-      "From fear to relationship",
+      "From external to internal",
     ],
-    keyApplication: "Obey God's commands as a response to His grace.",
+    keyApplication: "Live according to God's standards with a heart of love",
+    prayerPoints: [
+      "Thank God for His guidance through His Word",
+      "Pray for a heart that desires to obey God",
+      "Ask for wisdom to apply God's principles",
+      "Pray for strength to live according to God's standards",
+    ],
     questions: {
       Introduction: {
         questions: [
@@ -475,25 +410,26 @@ export const studies: Study[] = [
     },
   },
   {
-    index: 7,
+    index: 6,
     title: "Fear",
     slug: "fear",
-    icon: "warning",
-    overview:
-      "Refusing to trust God's promise to take the land. Condemned to 40 years wilderness wandering.",
-    themes: ["faith", "judgment"],
-    patterns: [
-      "Unbelief and consequences",
-      "God's patience",
-      "Faith versus fear",
-    ],
-    promises: ["Land inheritance", "God's presence", "Victory over enemies"],
+    icon: "😨",
+    overview: "Israel's failure to trust God's promises",
+    themes: ["Faith", "Fear", "Consequences"],
+    patterns: ["Unbelief", "Consequences of fear", "God's patience"],
+    promises: ["God's presence", "Victory", "Inheritance"],
     progressions: [
-      "From promise to unbelief",
-      "From opportunity to consequence",
-      "From fear to faith",
+      "From promise to doubt",
+      "From faith to fear",
+      "From blessing to wandering",
     ],
-    keyApplication: "Trust in God's promises even when it seems difficult.",
+    keyApplication: "Trust in God's promises despite circumstances",
+    prayerPoints: [
+      "Confess areas where fear has replaced faith",
+      "Pray for courage to trust God's promises",
+      "Ask for eyes to see beyond present circumstances",
+      "Thank God for His patience in our unbelief",
+    ],
     questions: {
       Introduction: {
         questions: [
@@ -542,25 +478,26 @@ export const studies: Study[] = [
     },
   },
   {
-    index: 8,
+    index: 7,
     title: "Invasion / Jericho",
     slug: "invasion-jericho",
-    icon: "shield-checkmark",
-    overview:
-      "Trusting God's promise to take the land. Parallels with Numbers. Victory at the hands of God.",
-    themes: ["faith", "victory"],
-    patterns: ["God's battle strategy", "Faith in action", "Divine victory"],
-    promises: [
-      "Land possession",
-      "God's presence in battle",
-      "Victory through faith",
-    ],
+    icon: "🏰",
+    overview: "God's victory through faith and obedience",
+    themes: ["Faith", "Victory", "Obedience"],
+    patterns: ["God's power", "Faith in action", "Victory through obedience"],
+    promises: ["Land", "Victory", "God's presence"],
     progressions: [
       "From promise to possession",
-      "From preparation to victory",
-      "From faith to fulfillment",
+      "From fear to faith",
+      "From wandering to victory",
     ],
-    keyApplication: "Trust in God's power to fulfill His promises.",
+    keyApplication: "Trust in God's power and follow His instructions",
+    prayerPoints: [
+      "Thank God for victories He has given you",
+      "Pray for faith to trust God's unconventional methods",
+      "Ask for courage to obey God's instructions",
+      "Pray for victory in current spiritual battles",
+    ],
     questions: {
       Introduction: {
         questions: [
@@ -623,25 +560,26 @@ export const studies: Study[] = [
     },
   },
   {
-    index: 9,
+    index: 8,
     title: "Spiral",
     slug: "spiral",
-    icon: "refresh",
-    overview:
-      "Toxic cycle of sin – there was no king, everyone did as they pleased.",
-    themes: ["cycle of sin", "judgment"],
-    patterns: ["Sin cycle", "God's deliverance", "Human failure"],
-    promises: [
-      "God's faithfulness",
-      "Deliverance through judges",
-      "Future king",
-    ],
+    icon: "🌀",
+    overview: "The cycle of sin and deliverance in Judges",
+    themes: ["Sin", "Repentance", "Deliverance"],
+    patterns: ["Sin", "Oppression", "Cry for help", "Deliverance", "Peace"],
+    promises: ["God's mercy", "Deliverance", "Restoration"],
     progressions: [
-      "From obedience to rebellion",
-      "From blessing to judgment",
-      "From deliverance to failure",
+      "From peace to sin",
+      "From sin to suffering",
+      "From suffering to salvation",
     ],
-    keyApplication: "Recognize the need for God's leadership in our lives.",
+    keyApplication: "Break the cycle of sin through repentance and faith",
+    prayerPoints: [
+      "Confess areas where you're caught in sin cycles",
+      "Thank God for His mercy in delivering you",
+      "Pray for strength to break free from sinful patterns",
+      "Ask for wisdom to recognize warning signs",
+    ],
     questions: {
       Introduction: {
         questions: [
@@ -716,20 +654,26 @@ export const studies: Study[] = [
     },
   },
   {
-    index: 10,
+    index: 9,
     title: "True king",
     slug: "true-king",
-    icon: "crown",
-    overview: "The promise of a forever king in David's line.",
-    themes: ["kingdom of god", "promise"],
-    patterns: ["Davidic covenant", "God's faithfulness", "Eternal kingship"],
-    promises: ["Eternal dynasty", "God's presence", "Kingdom establishment"],
+    icon: "👑",
+    overview: "God's promise of a righteous king",
+    themes: ["Leadership", "Promise", "Hope"],
+    patterns: ["God's sovereignty", "Promise of Messiah", "Eternal kingdom"],
+    promises: ["Righteous king", "Eternal kingdom", "God's presence"],
     progressions: [
+      "From human kings to divine king",
       "From temporary to eternal",
-      "From human to divine",
-      "From promise to fulfillment",
+      "From partial to complete",
     ],
-    keyApplication: "Hope in the eternal reign of Christ.",
+    keyApplication: "Submit to Christ as your true king",
+    prayerPoints: [
+      "Thank God for sending Jesus as our true king",
+      "Pray for submission to Christ's rule in your life",
+      "Ask for wisdom to recognize Christ's authority",
+      "Pray for the coming of Christ's eternal kingdom",
+    ],
     questions: {
       Introduction: {
         questions: [
@@ -792,21 +736,26 @@ export const studies: Study[] = [
     },
   },
   {
-    index: 11,
+    index: 10,
     title: "High point",
     slug: "high-point",
-    icon: "trending-up",
-    overview: "Solomon is the best of the best, but it's not quite right.",
-    themes: ["leadership", "faithfulness"],
-    patterns: ["Human achievement", "Temporary glory", "Warning signs"],
-    promises: ["Wisdom and wealth", "Kingdom expansion", "God's presence"],
+    icon: "📈",
+    overview: "The height of Israel's kingdom under Solomon",
+    themes: ["Wisdom", "Blessing", "Warning"],
+    patterns: ["God's blessing", "Human weakness", "Temptation of success"],
+    promises: ["Wisdom", "Blessing", "Warning"],
     progressions: [
       "From promise to fulfillment",
-      "From glory to decline",
-      "From faithfulness to failure",
+      "From wisdom to folly",
+      "From blessing to warning",
     ],
-    keyApplication:
-      "Recognize that even the best human leadership falls short of God's perfect rule.",
+    keyApplication: "Use God's blessings wisely and remain faithful",
+    prayerPoints: [
+      "Thank God for His blessings in your life",
+      "Pray for wisdom to use blessings well",
+      "Ask for protection from the temptations of success",
+      "Pray for faithfulness in times of blessing",
+    ],
     questions: {
       Introduction: {
         questions: [
@@ -867,21 +816,26 @@ export const studies: Study[] = [
     },
   },
   {
-    index: 12,
+    index: 11,
     title: "Rebuild",
     slug: "rebuild",
-    icon: "construct",
-    overview:
-      "The promised restoration… A cause for rejoicing, but it's some way short of the glorious promises.",
-    themes: ["restoration", "hope"],
-    patterns: ["God's faithfulness", "Partial restoration", "Mixed response"],
-    promises: ["Return from exile", "Temple rebuilding", "Future glory"],
+    icon: "🏗️",
+    overview: "Restoring God's temple and people",
+    themes: ["Restoration", "Faithfulness", "Hope"],
+    patterns: ["God's faithfulness", "Human response", "Restoration process"],
+    promises: ["God's presence", "Restoration", "Future hope"],
     progressions: [
+      "From ruin to rebuilding",
       "From exile to return",
-      "From destruction to rebuilding",
-      "From promise to partial fulfillment",
+      "From despair to hope",
     ],
-    keyApplication: "Find hope in God's ongoing work of restoration.",
+    keyApplication: "Participate in God's work of restoration",
+    prayerPoints: [
+      "Thank God for His faithfulness in restoration",
+      "Pray for wisdom in rebuilding what's broken",
+      "Ask for courage to face challenges in restoration",
+      "Pray for those in need of spiritual restoration",
+    ],
     questions: {
       Introduction: {
         questions: [
@@ -942,26 +896,26 @@ export const studies: Study[] = [
     },
   },
   {
-    index: 13,
+    index: 12,
     title: "Flame",
     slug: "flame",
-    icon: "flame",
-    overview:
-      "Risen Lord Jesus sends Spirit to create new community of God's people.",
-    themes: ["holy spirit", "church"],
-    patterns: [
-      "Spirit empowerment",
-      "Gospel proclamation",
-      "Community formation",
-    ],
-    promises: ["Spirit baptism", "Power for witness", "New covenant community"],
+    icon: "🔥",
+    overview: "The coming of the Holy Spirit",
+    themes: ["Power", "Presence", "Mission"],
+    patterns: ["God's power", "Spirit's work", "Gospel spread"],
+    promises: ["Holy Spirit", "Power", "Presence"],
     progressions: [
       "From promise to fulfillment",
-      "From individual to community",
-      "From law to Spirit",
+      "From fear to boldness",
+      "From local to global",
     ],
-    keyApplication:
-      "Experience the power of the Holy Spirit in building God's community.",
+    keyApplication: "Rely on the Holy Spirit's power for mission",
+    prayerPoints: [
+      "Thank God for the gift of the Holy Spirit",
+      "Pray for the Spirit's power in your life",
+      "Ask for boldness to share the gospel",
+      "Pray for the spread of the gospel worldwide",
+    ],
     questions: {
       Introduction: {
         questions: [
@@ -1010,21 +964,26 @@ export const studies: Study[] = [
     },
   },
   {
-    index: 14,
+    index: 13,
     title: "Rest",
     slug: "rest",
-    icon: "moon",
-    overview:
-      "Rest is past, present, and future. Reviews Israel's history and teaches biblical theology.",
-    themes: ["rest", "faith"],
-    patterns: ["God's rest", "Faith and obedience", "Promise and fulfillment"],
-    promises: ["Entering God's rest", "Eternal Sabbath", "Perfect peace"],
+    icon: "🛌",
+    overview: "Entering God's rest",
+    themes: ["Rest", "Faith", "Promise"],
+    patterns: ["God's rest", "Faith required", "Promise fulfilled"],
+    promises: ["Rest", "Inheritance", "God's presence"],
     progressions: [
-      "From creation rest to eternal rest",
-      "From promise to fulfillment",
       "From work to rest",
+      "From striving to trusting",
+      "From promise to fulfillment",
     ],
-    keyApplication: "Enter into God's rest through faith in Christ.",
+    keyApplication: "Enter God's rest through faith in Christ",
+    prayerPoints: [
+      "Thank God for the rest found in Christ",
+      "Pray for faith to trust God's promises",
+      "Ask for peace in times of unrest",
+      "Pray for those struggling to find rest",
+    ],
     questions: {
       Introduction: {
         questions: [
@@ -1073,21 +1032,30 @@ export const studies: Study[] = [
     },
   },
   {
-    index: 15,
+    index: 14,
     title: "Invasion / Exile",
     slug: "invasion-exile",
-    icon: "exit",
-    overview:
-      "God's people are exiled from the land. But God promises restoration.",
-    themes: ["judgment", "hope"],
-    patterns: ["Sin and judgment", "God's faithfulness", "Hope in exile"],
-    promises: ["Future restoration", "Return to land", "New covenant"],
-    progressions: [
-      "From blessing to judgment",
-      "From land to exile",
-      "From judgment to hope",
+    icon: "🏰",
+    overview: "Judgment and hope in exile",
+    themes: ["Judgment", "Hope", "Faithfulness"],
+    patterns: [
+      "Sin's consequences",
+      "God's faithfulness",
+      "Future restoration",
     ],
-    keyApplication: "Trust in God's promises even in times of judgment.",
+    promises: ["Restoration", "Return", "New covenant"],
+    progressions: [
+      "From sin to judgment",
+      "From judgment to hope",
+      "From exile to return",
+    ],
+    keyApplication: "Trust in God's faithfulness despite judgment",
+    prayerPoints: [
+      "Confess areas of unfaithfulness",
+      "Thank God for His faithfulness in judgment",
+      "Pray for restoration in broken areas",
+      "Ask for hope in difficult circumstances",
+    ],
     questions: {
       Introduction: {
         questions: [
@@ -1148,24 +1116,30 @@ export const studies: Study[] = [
     },
   },
   {
-    index: 16,
+    index: 15,
     title: "New Covenant",
     slug: "new-covenant",
-    icon: "heart-circle",
-    overview: "Promises of new covenant, work of the Spirit.",
-    themes: ["covenant", "holy spirit"],
+    icon: "💝",
+    overview: "God's promise of a new relationship",
+    themes: ["Grace", "Transformation", "Relationship"],
     patterns: [
+      "God's initiative",
       "Heart transformation",
-      "Spirit empowerment",
-      "New relationship",
+      "Eternal relationship",
     ],
-    promises: ["New heart", "Spirit indwelling", "Forgiveness of sins"],
+    promises: ["New heart", "God's presence", "Forgiveness"],
     progressions: [
       "From external to internal",
-      "From law to Spirit",
+      "From law to grace",
       "From old to new",
     ],
-    keyApplication: "Embrace the new covenant through Christ.",
+    keyApplication: "Embrace the new covenant through faith in Christ",
+    prayerPoints: [
+      "Thank God for the new covenant in Christ",
+      "Pray for a transformed heart",
+      "Ask for deeper relationship with God",
+      "Pray for those who need to know God's grace",
+    ],
     questions: {
       Introduction: {
         questions: [
@@ -1226,28 +1200,30 @@ export const studies: Study[] = [
     },
   },
   {
-    index: 17,
+    index: 16,
     title: "Suffering Lamb",
     slug: "suffering-lamb",
-    icon: "paw",
-    overview: "Suffering servant. Sin will be atoned for, not ignored.",
-    themes: ["atonement", "suffering"],
+    icon: "🐑",
+    overview: "The suffering servant who bears our sins",
+    themes: ["Sacrifice", "Substitution", "Salvation"],
     patterns: [
-      "Substitutionary atonement",
       "Innocent suffering",
-      "Victory through death",
+      "Substitutionary atonement",
+      "Victory through suffering",
     ],
-    promises: [
-      "Forgiveness of sins",
-      "Healing through wounds",
-      "Justification through suffering",
-    ],
+    promises: ["Forgiveness", "Healing", "Peace"],
     progressions: [
       "From sin to sacrifice",
       "From suffering to glory",
       "From death to life",
     ],
-    keyApplication: "Find hope in Christ's atoning sacrifice.",
+    keyApplication: "Trust in Christ's sacrifice for salvation",
+    prayerPoints: [
+      "Thank God for Christ's sacrifice",
+      "Pray for those who need to know Christ's love",
+      "Ask for strength to follow Christ's example",
+      "Pray for those suffering for their faith",
+    ],
     questions: {
       Introduction: {
         questions: [
@@ -1296,28 +1272,26 @@ export const studies: Study[] = [
     },
   },
   {
-    index: 18,
+    index: 17,
     title: "Jesus",
     slug: "jesus",
-    icon: "person",
-    overview: "Jesus comes to fulfil the promises of God.",
-    themes: ["fulfillment", "messiah"],
-    patterns: [
-      "Promise fulfillment",
-      "Messianic mission",
-      "Kingdom proclamation",
-    ],
-    promises: [
-      "Good news to poor",
-      "Freedom for captives",
-      "Year of Lord's favor",
-    ],
+    icon: "✝️",
+    overview: "The fulfillment of God's promises in Christ",
+    themes: ["Fulfillment", "Messiah", "Kingdom"],
+    patterns: ["Promise and fulfillment", "God's timing", "Messianic mission"],
+    promises: ["Salvation", "Kingdom", "Eternal life"],
     progressions: [
-      "From prophecy to fulfillment",
-      "From promise to presence",
-      "From expectation to reality",
+      "From promise to fulfillment",
+      "From prophecy to reality",
+      "From expectation to realization",
     ],
-    keyApplication: "Recognize Jesus as the fulfillment of God's promises.",
+    keyApplication: "Recognize Jesus as the promised Messiah",
+    prayerPoints: [
+      "Thank God for sending Jesus",
+      "Pray for those who need to know Jesus",
+      "Ask for deeper understanding of Christ's mission",
+      "Pray for the spread of Christ's kingdom",
+    ],
     questions: {
       Introduction: {
         questions: [
@@ -1366,25 +1340,26 @@ export const studies: Study[] = [
     },
   },
   {
-    index: 19,
+    index: 18,
     title: "Cross",
     slug: "cross",
-    icon: "cross",
-    overview:
-      "Jesus dies as the perfect sacrifice, fulfilling the law and the prophets.",
-    themes: ["sacrifice", "atonement"],
-    patterns: ["Perfect sacrifice", "Darkness to light", "Temple veil torn"],
-    promises: [
-      "Forgiveness of sins",
-      "Reconciliation with God",
-      "New covenant established",
-    ],
+    icon: "✝️",
+    overview: "Christ's sacrifice for our sins",
+    themes: ["Sacrifice", "Love", "Victory"],
+    patterns: ["Substitution", "Victory through death", "Love demonstrated"],
+    promises: ["Forgiveness", "Reconciliation", "Victory"],
     progressions: [
-      "From sacrifice to salvation",
-      "From separation to access",
+      "From sin to sacrifice",
       "From death to life",
+      "From separation to reconciliation",
     ],
-    keyApplication: "Find salvation through Christ's sacrifice.",
+    keyApplication: "Receive Christ's sacrifice for your sins",
+    prayerPoints: [
+      "Thank God for Christ's sacrifice on the cross",
+      "Pray for those who need to know Christ's love",
+      "Ask for strength to take up your cross",
+      "Pray for those suffering for their faith",
+    ],
     questions: {
       Introduction: {
         questions: [
@@ -1433,24 +1408,26 @@ export const studies: Study[] = [
     },
   },
   {
-    index: 20,
+    index: 19,
     title: "Resurrection",
     slug: "resurrection",
-    icon: "sunny",
-    overview: "Resurrection – in fulfilment of Scripture.",
-    themes: ["resurrection", "victory"],
-    patterns: [
-      "Firstfruits of resurrection",
-      "Victory over death",
-      "New creation",
-    ],
-    promises: ["Bodily resurrection", "Victory over death", "Eternal life"],
+    icon: "🌅",
+    overview: "Christ's victory over death",
+    themes: ["Victory", "Hope", "New life"],
+    patterns: ["Death to life", "Promise fulfilled", "Victory demonstrated"],
+    promises: ["Eternal life", "Victory over death", "Future resurrection"],
     progressions: [
       "From death to life",
-      "From perishable to imperishable",
-      "From natural to spiritual",
+      "From despair to hope",
+      "From old to new",
     ],
-    keyApplication: "Live in the power of Christ's resurrection.",
+    keyApplication: "Live in light of Christ's resurrection",
+    prayerPoints: [
+      "Thank God for Christ's resurrection",
+      "Pray for those who need to know Christ's victory",
+      "Ask for hope in difficult circumstances",
+      "Pray for those facing death",
+    ],
     questions: {
       Introduction: {
         questions: [
@@ -1499,21 +1476,26 @@ export const studies: Study[] = [
     },
   },
   {
-    index: 21,
+    index: 20,
     title: "Now… not yet",
     slug: "now-not-yet",
-    icon: "hourglass",
-    overview:
-      "Life now is life in the Spirit, awaiting glory. Still struggle with sin & suffering, but full assurance.",
-    themes: ["perseverance", "hope"],
-    patterns: ["Already but not yet", "Spirit-led life", "Suffering and glory"],
-    promises: ["No condemnation", "Future glory", "All things work together"],
+    icon: "⏳",
+    overview: "Living in the tension of the already and not yet",
+    themes: ["Hope", "Patience", "Faithfulness"],
+    patterns: ["Present reality", "Future hope", "Faithful waiting"],
+    promises: ["God's presence", "Future fulfillment", "Eternal inheritance"],
     progressions: [
-      "From flesh to Spirit",
-      "From suffering to glory",
+      "From promise to partial fulfillment",
       "From present to future",
+      "From waiting to receiving",
     ],
-    keyApplication: "Live with assurance in the Spirit while awaiting glory.",
+    keyApplication: "Live faithfully while waiting for Christ's return",
+    prayerPoints: [
+      "Thank God for present blessings",
+      "Pray for patience in waiting",
+      "Ask for faithfulness in the present",
+      "Pray for those struggling with waiting",
+    ],
     questions: {
       Introduction: {
         questions: [
@@ -1562,29 +1544,26 @@ export const studies: Study[] = [
     },
   },
   {
-    index: 22,
+    index: 21,
     title: "No more sacrifice",
     slug: "no-more-sacrifice",
-    icon: "checkmark-done",
-    overview:
-      "The perfect sacrifice has been made. No more need for temple sacrifices.",
-    themes: ["atonement", "fulfillment"],
-    patterns: [
-      "Once for all sacrifice",
-      "Perfect fulfillment",
-      "New and living way",
-    ],
-    promises: [
-      "Complete forgiveness",
-      "Eternal redemption",
-      "Direct access to God",
-    ],
+    icon: "🎯",
+    overview: "Christ's once-for-all sacrifice",
+    themes: ["Completion", "Access", "Confidence"],
+    patterns: ["Final sacrifice", "Direct access", "Complete salvation"],
+    promises: ["Forgiveness", "Access to God", "Eternal salvation"],
     progressions: [
-      "From shadow to reality",
-      "From repeated to once-for-all",
-      "From external to internal",
+      "From many to one",
+      "From temporary to permanent",
+      "From partial to complete",
     ],
-    keyApplication: "Rest in the finished work of Christ.",
+    keyApplication: "Approach God with confidence through Christ",
+    prayerPoints: [
+      "Thank God for Christ's complete sacrifice",
+      "Pray for confidence in approaching God",
+      "Ask for deeper appreciation of Christ's work",
+      "Pray for those who need to know God's forgiveness",
+    ],
     questions: {
       Introduction: {
         questions: [
@@ -1633,25 +1612,26 @@ export const studies: Study[] = [
     },
   },
   {
-    index: 23,
+    index: 22,
     title: "Heaven",
     slug: "heaven",
-    icon: "cloud",
-    overview:
-      "The new creation – God's people in God's place, enjoying God's presence and people forever.",
-    themes: ["new creation", "eternity"],
-    patterns: ["New creation", "God's presence", "Perfect community"],
-    promises: [
-      "New heaven and earth",
-      "God dwelling with man",
-      "No more death or pain",
-    ],
+    icon: "✨",
+    overview: "Our eternal home with God",
+    themes: ["Eternity", "Glory", "Hope"],
+    patterns: ["God's presence", "Perfect restoration", "Eternal worship"],
+    promises: ["Eternal life", "New creation", "God's presence"],
     progressions: [
-      "From old to new",
+      "From earth to heaven",
       "From temporary to eternal",
       "From partial to complete",
     ],
-    keyApplication: "Live with hope for the new creation.",
+    keyApplication: "Live with an eternal perspective",
+    prayerPoints: [
+      "Thank God for the hope of heaven",
+      "Pray for an eternal perspective",
+      "Ask for strength to live for eternity",
+      "Pray for those who need to know eternal hope",
+    ],
     questions: {
       Introduction: {
         questions: [
@@ -1700,20 +1680,26 @@ export const studies: Study[] = [
     },
   },
   {
-    index: 27,
-    title: "Mission",
-    slug: "mission",
-    icon: "globe",
-    overview: "The mission of the church to spread the gospel to all nations.",
-    themes: ["mission", "gospel"],
-    patterns: ["Great Commission", "Kingdom expansion", "Global outreach"],
-    promises: ["Worldwide impact", "Discipleship", "Kingdom establishment"],
+    index: 23,
+    title: "Commission",
+    slug: "commission",
+    icon: "🌍",
+    overview: "Christ's command to make disciples of all nations",
+    themes: ["Mission", "Authority", "Presence"],
+    patterns: ["Christ's authority", "Global mission", "Divine presence"],
+    promises: ["Authority", "Presence", "Success"],
     progressions: [
-      "From promise to fulfillment",
-      "From proclamation to discipleship",
       "From local to global",
+      "From fear to boldness",
+      "From command to fulfillment",
     ],
-    keyApplication: "Participate in God's mission to reach the world.",
+    keyApplication: "Participate in Christ's mission to the world",
+    prayerPoints: [
+      "Thank God for including us in His mission",
+      "Pray for boldness to share the gospel",
+      "Ask for wisdom in making disciples",
+      "Pray for the spread of the gospel worldwide",
+    ],
     questions: {
       Introduction: {
         questions: [
@@ -1762,20 +1748,26 @@ export const studies: Study[] = [
     },
   },
   {
-    index: 28,
+    index: 24,
     title: "Kingdom",
     slug: "kingdom",
-    icon: "crown",
-    overview: "The kingdom of God is within you.",
-    themes: ["kingdom", "rule"],
-    patterns: ["Kingdom growth", "Kingdom value", "Kingdom priorities"],
-    promises: ["Kingdom presence", "Kingdom growth", "Kingdom inheritance"],
+    icon: "👑",
+    overview: "The growth and value of God's kingdom",
+    themes: ["Growth", "Value", "Transformation"],
+    patterns: ["Small beginnings", "Gradual growth", "Complete transformation"],
+    promises: ["Kingdom growth", "Future glory", "God's presence"],
     progressions: [
       "From small to great",
-      "From hidden to revealed",
+      "From hidden to visible",
       "From present to future",
     ],
-    keyApplication: "Seek first the kingdom of God.",
+    keyApplication: "Invest in the growth of God's kingdom",
+    prayerPoints: [
+      "Thank God for His growing kingdom",
+      "Pray for opportunities to invest in the kingdom",
+      "Ask for patience in kingdom growth",
+      "Pray for those who need to know the kingdom",
+    ],
     questions: {
       Introduction: {
         questions: [
