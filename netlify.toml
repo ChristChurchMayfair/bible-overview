@@ -1,6 +1,12 @@
 [build]
 command = "sed -i \"s|CROSSWAY_ESV_API_KEY|${CROSSWAY_ESV_API_KEY}|g\" netlify.toml && yarn build"
 
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Methods = "GET, OPTIONS"
+    Access-Control-Allow-Headers = "Content-Type, Authorization"
 
 [[redirects]]
   from = "/esv/*"
