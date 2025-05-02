@@ -14,7 +14,7 @@ import {
   useIonViewWillEnter,
 } from "@ionic/react";
 import classNames from "classnames";
-import { bookOutline, checkmarkCircleOutline, volumeMedium } from "ionicons/icons";
+import { bookOutline, bulbOutline, checkmarkCircleOutline, informationCircleOutline, volumeMedium } from "ionicons/icons";
 import { useState } from "react";
 import { useParams } from "react-router";
 import { useLocalStorage } from "usehooks-ts";
@@ -115,8 +115,6 @@ function ViewStudy() {
               <></>
             )}
             <IonRow className="ion-padding-horizontal">
-              <IonText>
-                <h3>Patterns, Promises & Progression</h3>
                 {study.themes.map((theme) => (
                   <IonButton
                     key={theme}
@@ -130,11 +128,10 @@ function ViewStudy() {
                     {theme}
                   </IonButton>
                 ))}
-              </IonText>
             </IonRow>
             <IonRow className="ion-padding-horizontal">
               <IonText>
-                <h3>Key Application</h3>
+                <h4>Key Application</h4>
                 {study.keyApplication}
               </IonText>
             </IonRow>
@@ -149,12 +146,13 @@ function ViewStudy() {
             <IonRow className="ion-padding-horizontal">
               <IonText>
                 <h3>Questions</h3>
+                <em><IonIcon icon={bulbOutline} /> Tap questions to track your progress</em>
                 {Object.entries(study.questions).map(
                   ([questionSectionTitle, questionSection]) => (
                     <div key={questionSectionTitle}>
                       {questionSectionTitle !== "Introduction" &&
                         questionSectionTitle !== "Application" && (
-                          <div className="ion-padding-bottom">
+                          <h4 className="ion-padding-bottom">
                             <IonRouterLink
                               routerLink={`/study/${study.slug}/passage/${
                                 getAllPassages().findIndex(
@@ -164,9 +162,9 @@ function ViewStudy() {
                             >
                               {questionSectionTitle}
                             </IonRouterLink>
-                          </div>
+                          </h4>
                         )}
-                        {questionSectionTitle == "Introduction" || questionSectionTitle == "Application" ? <h2>{questionSectionTitle}</h2> :<></>}
+                        {questionSectionTitle == "Introduction" || questionSectionTitle == "Application" ? <h4>{questionSectionTitle}</h4> :<></>}
                       <ul>
                         {questionSection.questions.map((question, index) => (
                           <li
