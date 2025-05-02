@@ -40,7 +40,10 @@ function BiblePassage() {
 
     if (passageRef) {
       setPassageReference(passageRef);
-      const crossway = new DefaultApi(undefined, "https://study.christchurchmayfair.org/esv");
+      const crossway = new DefaultApi(
+        undefined,
+        "https://study.christchurchmayfair.org/esv"
+      );
 
       crossway.v3PassageHtmlGet({ q: passageRef }).then((response) => {
         setPassage(response.data.passages![0]);
@@ -65,12 +68,13 @@ function BiblePassage() {
 
       <IonContent fullscreen>
         {passage ? (
-          <IonText className="ion-padding" mode="ios">
+          <IonText mode="ios">
             <div
+              className="ion-padding-horizontal"
               dangerouslySetInnerHTML={{
                 __html: passage,
               }}
-            ></div>
+            />
           </IonText>
         ) : (
           <div
