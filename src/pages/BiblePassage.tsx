@@ -19,7 +19,7 @@ import {
   ShowLeadersNotesStorageKey,
 } from "../components/localStorageKeys";
 import { getStudy } from "../data/studies";
-import "./ViewStudy.css";
+import "./BiblePassage.css";
 
 function BiblePassage() {
   const [passage, setPassage] = useState<string>();
@@ -70,7 +70,7 @@ function BiblePassage() {
         {passage ? (
           <IonText mode="ios">
             <div
-              className="ion-padding-horizontal"
+              className="ion-padding-horizontal passage-text"
               dangerouslySetInnerHTML={{
                 __html: passage,
               }}

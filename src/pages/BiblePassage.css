@@ -1,0 +1,18 @@
+.passage-text {
+  font-size: 1rem;
+  line-height: 2;
+  position: relative;
+}
+
+.passage-text .verse-num {
+  font-size: 0.6em;
+  font-weight: normal;
+  display: inline-block;
+  vertical-align: super;
+  /* margin-right: 0.2em; */
+}
+
+.passage-text .chapter-num {
+  font-size: 1.2em;
+  font-weight: bold;
+} 
