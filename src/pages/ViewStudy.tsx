@@ -83,11 +83,11 @@ function ViewStudy() {
               )}
             >
               <IonText>
-                {study.passages.map((passage) => (
+                {study.passages.map((passage, index) => (
                   <IonRouterLink
                     className="ion-padding-end"
                     key={passage}
-                    routerLink={`/study/${study.slug}/passage`}
+                    routerLink={`/study/${study.slug}/passage/${index + 1}`}
                   >
                     {passage}
                   </IonRouterLink>
@@ -250,7 +250,7 @@ function ViewStudy() {
                 <p>{study.passages[0]}</p>
                 <IonButton
                   fill="clear"
-                  routerLink={`/study/${study.slug}/passage`}
+                  routerLink={`/study/${study.slug}/passage/1`}
                   className="ion-margin-top"
                 >
                   <IonIcon slot="start" icon={bookOutline} />
@@ -258,7 +258,7 @@ function ViewStudy() {
                 </IonButton>
                 <IonButton
                   fill="clear"
-                  routerLink={`/study/${study.slug}/audio`}
+                  routerLink={`/study/${study.slug}/audio/1`}
                   className="ion-margin-top"
                 >
                   <IonIcon slot="start" icon={play} />

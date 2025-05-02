@@ -18,6 +18,7 @@ import {
   CompletedStudiesStorageKey,
   ShowLeadersNotesStorageKey,
 } from "../components/localStorageKeys";
+import { getStudy } from "../data/studies";
 import "./ViewStudy.css";
 
 function BiblePassage() {
@@ -25,7 +26,7 @@ function BiblePassage() {
   const [passageReference, setPassageReference] = useState<string>();
   const [completedStudies, setCompletedStudies, removeCompletedStudies] =
     useLocalStorage<number[]>(CompletedStudiesStorageKey, []);
-  const params = useParams<{ passage: string }>();
+  const params = useParams<{ slug: string; index: string }>();
 
   const [showLeadersNotes, setShowLeadersNotes] = useLocalStorage<boolean>(
     ShowLeadersNotesStorageKey,
@@ -33,12 +34,18 @@ function BiblePassage() {
   );
 
   useIonViewWillEnter(() => {
-    setPassageReference(params.passage);
-    const crossway = new DefaultApi(undefined, "/esv");
-    crossway.v3PassageHtmlGet({ q: params.passage }).then((response) => {
-      setPassage(response.data.passages![0]);
-      console.log(response.data.passages![0]);
-    });
+    const study = getStudy(params.slug);
+    const passageIndex = parseInt(params.index) - 1;
+    const passageRef = study?.passages[passageIndex];
+
+    if (passageRef) {
+      setPassageReference(passageRef);
+      const crossway = new DefaultApi(undefined, "https://study.christchurchmayfair.org/esv");
+
+      crossway.v3PassageHtmlGet({ q: passageRef }).then((response) => {
+        setPassage(response.data.passages![0]);
+      });
+    }
   });
 
   return (

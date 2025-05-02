@@ -5,83 +5,50 @@ import {
   IonContent,
   IonHeader,
   IonIcon,
+  IonItem,
+  IonLabel,
+  IonList,
   IonPage,
+  IonSpinner,
   IonTitle,
   IonToolbar,
   useIonViewWillEnter,
 } from "@ionic/react";
-import { pause, play, playSkipBack, playSkipForward } from "ionicons/icons";
-import { useEffect, useRef, useState } from "react";
+import { play } from "ionicons/icons";
+import { useState } from "react";
 import { useParams } from "react-router";
+import { getStudy } from "../data/studies";
 import "./AudioPassage.css";
 
 function AudioPassage() {
   const [passageReference, setPassageReference] = useState<string>();
   const [audioUrl, setAudioUrl] = useState<string>();
   const [isPlaying, setIsPlaying] = useState(false);
-  const [currentTime, setCurrentTime] = useState(0);
-  const [duration, setDuration] = useState(0);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
-  const progressRef = useRef<HTMLDivElement | null>(null);
-  const params = useParams<{ passage: string }>();
+  const params = useParams<{ slug: string; index: string }>();
 
   useIonViewWillEnter(() => {
-    setPassageReference(params.passage);
-    const crossway = new DefaultApi(undefined, "/esv");
-    crossway.v3PassageAudioGet({ q: params.passage }).then((response) => {
-      setAudioUrl("https://audio.esv.org/david-cochran-heath/mq/01001001-01002025.mp3");
-    });
+    const study = getStudy(params.slug);
+    const passageIndex = parseInt(params.index) - 1;
+    const passageRef = study?.passages[passageIndex];
+
+    if (passageRef) {
+      setPassageReference(passageRef);
+      const crossway = new DefaultApi(undefined, "/esv");
+
+      crossway.v3PassageAudioGet({ q: passageRef }).then((response) => {
+        if (
+          response.data &&
+          typeof response.data === "object" &&
+          "audioUrl" in response.data
+        ) {
+          setAudioUrl(response.data.audioUrl as string);
+        }
+      });
+    }
   });
 
-  useEffect(() => {
-    if (audioRef.current) {
-      const audio = audioRef.current;
-
-      const updateTime = () => {
-        setCurrentTime(audio.currentTime);
-        setDuration(audio.duration);
-      };
-
-      const handlePlay = () => setIsPlaying(true);
-      const handlePause = () => setIsPlaying(false);
-      const handleEnded = () => setIsPlaying(false);
-
-      audio.addEventListener("timeupdate", updateTime);
-      audio.addEventListener("play", handlePlay);
-      audio.addEventListener("pause", handlePause);
-      audio.addEventListener("ended", handleEnded);
-
-      return () => {
-        audio.removeEventListener("timeupdate", updateTime);
-        audio.removeEventListener("play", handlePlay);
-        audio.removeEventListener("pause", handlePause);
-        audio.removeEventListener("ended", handleEnded);
-      };
-    }
-  }, [audioUrl]);
-
-  const togglePlayPause = () => {
-    if (audioRef.current) {
-      if (isPlaying) {
-        audioRef.current.pause();
-      } else {
-        audioRef.current.play();
-      }
-    }
-  };
-
-  const handleProgressClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (audioRef.current && progressRef.current) {
-      const rect = progressRef.current.getBoundingClientRect();
-      const percent = (e.clientX - rect.left) / rect.width;
-      audioRef.current.currentTime = percent * duration;
-    }
-  };
-
-  const formatTime = (time: number) => {
-    const minutes = Math.floor(time / 60);
-    const seconds = Math.floor(time % 60);
-    return `${minutes}:${seconds.toString().padStart(2, "0")}`;
+  const togglePlay = () => {
+    setIsPlaying(!isPlaying);
   };
 
   return (
@@ -100,50 +67,38 @@ function AudioPassage() {
       </IonHeader>
 
       <IonContent fullscreen>
-        <div className="audio-container">
-          <audio ref={audioRef} src={audioUrl} />
-
+        {audioUrl ? (
+          <IonList>
+            <IonItem>
+              <IonLabel>{passageReference}</IonLabel>
+              <IonIcon
+                icon={play}
+                color="primary"
+                onClick={togglePlay}
+                style={{ cursor: "pointer" }}
+              />
+            </IonItem>
+            {isPlaying && (
+              <audio
+                src={audioUrl}
+                autoPlay
+                onEnded={() => setIsPlaying(false)}
+              />
+            )}
+          </IonList>
+        ) : (
           <div
-            className="progress-container"
-            ref={progressRef}
-            onClick={handleProgressClick}
+            className="ion-text-center ion-padding"
+            style={{
+              height: "100%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
           >
-            <div
-              className="progress-bar"
-              style={{ width: `${(currentTime / duration) * 100}%` }}
-            />
+            <IonSpinner name="crescent" />
           </div>
-
-          <div className="time-display">
-            <span>{formatTime(currentTime)}</span>
-            <span>{formatTime(duration)}</span>
-          </div>
-
-          <div className="controls">
-            <button
-              className="control-button"
-              onClick={() =>
-                audioRef.current && (audioRef.current.currentTime -= 15)
-              }
-            >
-              <IonIcon icon={playSkipBack} />
-            </button>
-            <button
-              className="control-button play-button"
-              onClick={togglePlayPause}
-            >
-              <IonIcon icon={isPlaying ? pause : play} />
-            </button>
-            <button
-              className="control-button"
-              onClick={() =>
-                audioRef.current && (audioRef.current.currentTime += 15)
-              }
-            >
-              <IonIcon icon={playSkipForward} />
-            </button>
-          </div>
-        </div>
+        )}
       </IonContent>
     </IonPage>
   );

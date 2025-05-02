@@ -71,10 +71,10 @@ const App: React.FC = () => {
           <Route path="/study/:slug/timeline" exact={true}>
             <ViewTimeline />
           </Route>
-          <Route path="/study/:slug/passage" exact={true}>
+          <Route path="/study/:slug/passage/:index" exact={true}>
             <BiblePassage />
           </Route>
-          <Route path="/study/:slug/audio" exact={true}>
+          <Route path="/study/:slug/audio/:index" exact={true}>
             <AudioPassage />
           </Route>
           <Route path="/theme/:name" exact={true}>
