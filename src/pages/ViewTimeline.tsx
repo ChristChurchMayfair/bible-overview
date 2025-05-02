@@ -17,7 +17,8 @@ import {
   CompletedStudiesStorageKey,
   ShowLeadersNotesStorageKey,
 } from "../components/localStorageKeys";
-import { Study, TimelineEntry, getStudy } from "../data/studies";
+import { getStudy } from "../data/studies";
+import { Study, TimelineEntry } from "../data/types";
 import "./ViewTimeline.css";
 
 function ViewTimeline() {

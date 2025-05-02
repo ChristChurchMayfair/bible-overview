@@ -18,7 +18,7 @@ import {
 } from "@ionic/react";
 import { useState } from "react";
 import StudyListItem from "../components/StudyListItem";
-import { Study, getStudies } from "../data/studies";
+import { getStudies } from "../data/studies";
 import "./Studies.css";
 import {
   checkmarkCircleOutline,
@@ -32,6 +32,7 @@ import { useLocalStorage } from "usehooks-ts";
 import { Menu } from "../components/Menu";
 import { CompletedStudiesStorageKey } from "../components/localStorageKeys";
 import { AppTitle } from "../data/contants";
+import { Study } from "../data/types";
 
 const CompletedStudies: React.FC = () => {
   const [studies, setStudies] = useState<Study[]>([]);
