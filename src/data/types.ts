@@ -1,3 +1,5 @@
+import { IconName } from "../components/StudyIcon";
+
 export type BaseTimelineEntry = {
   title: string;
   details: string;
@@ -27,7 +29,7 @@ export interface Study {
   index: number;
   title: string;
   slug: string;
-  icon: string;
+  icon: IconName;
   overview: string;
   themes: string[];
   patterns: string[];

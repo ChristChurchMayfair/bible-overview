@@ -25,11 +25,37 @@ import {
 } from "ionicons/icons";
 
 type StudyIconProps = {
-  iconName: string;
+  iconName: IconName;
 };
 
+export type IconName =
+| "analytics"
+| "globe"
+| "alert" 
+| "ribbon"
+| "hand-left"
+| "book"
+| "warning"
+| "shield-checkmark"
+| "refresh"
+| "crown"
+| "trending-up"
+| "construct"
+| "flame"
+| "moon"
+| "exit"
+| "heart-circle"
+| "paw"
+| "person"
+| "cross"
+| "sunny"
+| "hourglass"
+| "checkmark-done"
+| "cloud"
+| "home";
+
 const StudyIcon: React.FC<StudyIconProps> = ({ iconName }) => {
-  const iconMap: { [key: string]: any } = {
+  const iconMap: { [key in IconName]: string } = {
     analytics: analytics,
     globe: globe,
     alert: alert,
