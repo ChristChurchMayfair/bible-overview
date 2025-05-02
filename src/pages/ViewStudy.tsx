@@ -6,6 +6,7 @@ import {
   IonHeader,
   IonIcon,
   IonPage,
+  IonPopover,
   IonRouterLink,
   IonRow,
   IonText,
@@ -14,7 +15,7 @@ import {
   useIonViewWillEnter,
 } from "@ionic/react";
 import classNames from "classnames";
-import { bookOutline, bulbOutline, checkmarkCircleOutline, informationCircleOutline, volumeMedium } from "ionicons/icons";
+import { bookOutline, bulbOutline, checkmarkCircleOutline, informationCircleOutline, thumbsUp, volumeMedium } from "ionicons/icons";
 import { useState } from "react";
 import { useParams } from "react-router";
 import { useLocalStorage } from "usehooks-ts";
@@ -145,8 +146,11 @@ function ViewStudy() {
             )}
             <IonRow className="ion-padding-horizontal">
               <IonText>
-                <h3>Questions</h3>
-                <em><IonIcon icon={bulbOutline} /> Tap questions to track your progress</em>
+                <h3 id="questions-title">Questions</h3>
+                <IonPopover trigger="questions-title" side="bottom" triggerAction="click">
+                  <IonContent><em><IonIcon icon={bulbOutline} /> Tap questions to track your progress</em></IonContent>
+                </IonPopover>
+               
                 {Object.entries(study.questions).map(
                   ([questionSectionTitle, questionSection]) => (
                     <div key={questionSectionTitle}>
