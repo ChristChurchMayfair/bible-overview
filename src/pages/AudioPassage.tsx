@@ -1,5 +1,6 @@
 import {
   IonBackButton,
+  IonButton,
   IonButtons,
   IonContent,
   IonHeader,
@@ -10,7 +11,7 @@ import {
   IonToolbar,
   useIonViewWillEnter,
 } from "@ionic/react";
-import { pause, play, playSkipBack, playSkipForward } from "ionicons/icons";
+import { bookOutline, pause, play, playSkipBack, playSkipForward } from "ionicons/icons";
 import { useRef, useState } from "react";
 import { useParams } from "react-router";
 import { getPassagesFromStudy, getStudy } from "../data/studies";
@@ -103,6 +104,11 @@ function AudioPassage() {
             ></IonBackButton>
           </IonButtons>
           <IonTitle>{passageReference}</IonTitle>
+          <IonButtons slot="end">
+            <IonButton href={`/study/${params.slug}/passage/${params.index}`} routerDirection="back">
+            <IonIcon icon={bookOutline} />
+            </IonButton>
+          </IonButtons>
         </IonToolbar>
       </IonHeader>
 

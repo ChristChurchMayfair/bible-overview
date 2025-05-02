@@ -79,7 +79,7 @@ function BiblePassage() {
           </IonButtons>
           <IonTitle>{passageReference}</IonTitle>
           <IonButtons slot="end">
-            <IonButton mode="ios" href={`/study/${params.slug}/audio/1`}>
+            <IonButton mode="ios" href={`/study/${params.slug}/audio/1`} routerDirection="back">
               <IonIcon icon={volumeMedium} />
             </IonButton>
           </IonButtons>
