@@ -19,7 +19,8 @@ import {
   CompletedStudiesStorageKey,
   ShowLeadersNotesStorageKey,
 } from "../components/localStorageKeys";
-import { Study, getStudies, getTheme } from "../data/studies";
+import { getPassagesFromStudy, getStudies, getTheme } from "../data/studies";
+import { Study } from "../data/types";
 import "./ViewStudy.css";
 
 function ViewTheme() {
@@ -43,6 +44,9 @@ function ViewTheme() {
     );
     setRelatedStudies(relatedStudies_);
   });
+
+  // Get the first passage from any question block
+  const getFirstPassage = (study: Study) => getPassagesFromStudy(study)
 
   return (
     <IonPage id="view-study-page">
@@ -75,12 +79,12 @@ function ViewTheme() {
                   {relatedStudies.map((study) => (
                     <IonItem
                       lines="full"
-                      routerLink={`/study/${study.index}`}
+                      routerLink={`/study/${study.slug}`}
                       key={study.index}
                       detail={false}
                     >
                       <IonLabel slot="start">{study.title}</IonLabel>
-                      <IonLabel slot="end">{study.passages[0]}</IonLabel>
+                      <IonLabel slot="end">{getFirstPassage(study)}</IonLabel>
                     </IonItem>
                   ))}
                 </IonList>

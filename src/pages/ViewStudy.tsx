@@ -5,7 +5,6 @@ import {
   IonContent,
   IonHeader,
   IonIcon,
-  IonItem,
   IonPage,
   IonRouterLink,
   IonRow,
@@ -15,11 +14,7 @@ import {
   useIonViewWillEnter,
 } from "@ionic/react";
 import classNames from "classnames";
-import {
-  bookOutline,
-  checkmarkCircleOutline,
-  volumeMedium,
-} from "ionicons/icons";
+import { bookOutline, checkmarkCircleOutline, volumeMedium } from "ionicons/icons";
 import { useState } from "react";
 import { useParams } from "react-router";
 import { useLocalStorage } from "usehooks-ts";
@@ -27,7 +22,8 @@ import {
   CompletedStudiesStorageKey,
   ShowLeadersNotesStorageKey,
 } from "../components/localStorageKeys";
-import { Study, getStudy } from "../data/studies";
+import { Study } from "../data/types";
+import { getPassagesFromStudy, getStudy } from "../data/studies";
 import "./ViewStudy.css";
 
 function ViewStudy() {
@@ -57,6 +53,15 @@ function ViewStudy() {
     setStudy(study_);
   });
 
+  // Get all passages from section titles
+  const getAllPassages = () => {
+    if (!study) return [];
+    return getPassagesFromStudy(study).map((passage) => ({
+      passage,
+      sectionTitle: passage,
+    }));
+  };
+
   return (
     <IonPage id="view-study-page">
       <IonHeader collapse="fade">
@@ -69,6 +74,14 @@ function ViewStudy() {
             ></IonBackButton>
           </IonButtons>
           <IonTitle>{study?.title}</IonTitle>
+          <IonButtons slot="end">
+            <IonButton mode="ios" href={`/study/${study?.slug}/audio/1`}>
+              <IonIcon icon={volumeMedium} />
+            </IonButton>
+            <IonButton mode="ios" href={`/study/${study?.slug}/passage/1`}>
+              <IonIcon icon={bookOutline} />
+            </IonButton>
+          </IonButtons>
         </IonToolbar>
       </IonHeader>
 
@@ -86,23 +99,6 @@ function ViewStudy() {
                 "ion-padding-top"
               )}
             >
-              <IonText>
-                {study.passages.map((passage, index) => (
-                  <span key={passage} className="ion-padding-end">
-                    <IonRouterLink
-                      routerLink={`/study/${study.slug}/passage/${index + 1}`}
-                    >
-                      {passage}
-                    </IonRouterLink>
-                    <IonRouterLink
-                      routerLink={`/study/${study.slug}/audio/${index + 1}`}
-                      className="ion-padding-start"
-                    >
-                      <IonIcon icon={volumeMedium} size="small" />
-                    </IonRouterLink>
-                  </span>
-                ))}
-              </IonText>
             </IonRow>
             <IonRow className="ion-padding-horizontal">
               <IonText>
@@ -159,11 +155,21 @@ function ViewStudy() {
                 {Object.entries(study.questions).map(
                   ([questionSectionTitle, questionSection]) => (
                     <div key={questionSectionTitle}>
-                      {questionSectionTitle != "" ? (
-                        <h4>{questionSectionTitle}</h4>
-                      ) : (
-                        <></>
-                      )}
+                      {questionSectionTitle !== "Introduction" &&
+                        questionSectionTitle !== "Application" && (
+                          <div className="ion-padding-bottom">
+                            <IonRouterLink
+                              routerLink={`/study/${study.slug}/passage/${
+                                getAllPassages().findIndex(
+                                  (p) => p.passage === questionSectionTitle
+                                ) + 1
+                              }`}
+                            >
+                              {questionSectionTitle}
+                            </IonRouterLink>
+                          </div>
+                        )}
+                        {questionSectionTitle == "Introduction" || questionSectionTitle == "Application" ? <h2>{questionSectionTitle}</h2> :<></>}
                       <ul>
                         {questionSection.questions.map((question, index) => (
                           <li

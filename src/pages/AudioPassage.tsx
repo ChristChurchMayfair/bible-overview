@@ -13,7 +13,7 @@ import {
 import { pause, play, playSkipBack, playSkipForward } from "ionicons/icons";
 import { useRef, useState } from "react";
 import { useParams } from "react-router";
-import { getStudy } from "../data/studies";
+import { getPassagesFromStudy, getStudy } from "../data/studies";
 import "./AudioPassage.css";
 
 function AudioPassage() {
@@ -28,7 +28,8 @@ function AudioPassage() {
   useIonViewWillEnter(() => {
     const study = getStudy(params.slug);
     const passageIndex = parseInt(params.index) - 1;
-    const passageRef = study?.passages[passageIndex];
+    const passages = study ? getPassagesFromStudy(study) : [];
+    const passageRef = passages[passageIndex];
 
     if (passageRef) {
       setPassageReference(passageRef);
@@ -98,7 +99,7 @@ function AudioPassage() {
             <IonBackButton
               mode="ios"
               text="Study"
-              defaultHref="/"
+              defaultHref={`/study/${params.slug}`}
             ></IonBackButton>
           </IonButtons>
           <IonTitle>{passageReference}</IonTitle>

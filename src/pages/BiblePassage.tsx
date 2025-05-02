@@ -18,7 +18,7 @@ import {
   CompletedStudiesStorageKey,
   ShowLeadersNotesStorageKey,
 } from "../components/localStorageKeys";
-import { getStudy } from "../data/studies";
+import { getPassagesFromStudy, getStudy } from "../data/studies";
 import "./BiblePassage.css";
 
 function BiblePassage() {
@@ -35,8 +35,11 @@ function BiblePassage() {
 
   useIonViewWillEnter(() => {
     const study = getStudy(params.slug);
+    if (!study) return;
+
+    const passages = getPassagesFromStudy(study);
     const passageIndex = parseInt(params.index) - 1;
-    const passageRef = study?.passages[passageIndex];
+    const passageRef = passages[passageIndex];
 
     if (passageRef) {
       setPassageReference(passageRef);
@@ -59,7 +62,7 @@ function BiblePassage() {
             <IonBackButton
               mode="ios"
               text="Study"
-              defaultHref="/"
+              defaultHref={`/study/${params.slug}`}
             ></IonBackButton>
           </IonButtons>
           <IonTitle>{passageReference}</IonTitle>

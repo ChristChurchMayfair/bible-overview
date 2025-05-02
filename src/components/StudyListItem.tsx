@@ -1,5 +1,6 @@
 import { IonItem, IonLabel, IonNote } from "@ionic/react";
-import { Study } from "../data/studies";
+import { getFirstPassageFromStudy } from "../data/studies";
+import { Study } from "../data/types";
 import StudyIcon from "./StudyIcon";
 import "./StudyListItem.css";
 
@@ -14,6 +15,8 @@ const StudyListItem: React.FC<StudyListItemProps> = ({
   totalNumberOfStudies,
   isCompleted,
 }) => {
+  const firstPassage = getFirstPassageFromStudy(study);
+
   return (
     <IonItem
       id={`study-${study.index}`}
@@ -26,7 +29,7 @@ const StudyListItem: React.FC<StudyListItemProps> = ({
       <IonLabel className="ion-text-wrap">
         <h2>{study.title}</h2>
       </IonLabel>
-      <IonNote slot={"end"}>{study.passages[0]}</IonNote>
+      <IonNote slot={"end"}>{firstPassage}</IonNote>
     </IonItem>
   );
 };

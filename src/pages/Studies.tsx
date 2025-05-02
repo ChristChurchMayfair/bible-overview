@@ -23,7 +23,8 @@ import {
   ShowIntroBlurbStorageKey,
 } from "../components/localStorageKeys";
 import { AppTitle } from "../data/contants";
-import { Study, getStudies } from "../data/studies";
+import { getStudies } from "../data/studies";
+import { Study } from "../data/types";
 import "./Studies.css";
 
 const Studies: React.FC = () => {

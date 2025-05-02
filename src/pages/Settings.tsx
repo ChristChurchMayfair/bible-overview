@@ -18,7 +18,7 @@ import {
 } from "@ionic/react";
 import { useState } from "react";
 import StudyListItem from "../components/StudyListItem";
-import { Study, getStudies } from "../data/studies";
+import { getStudies } from "../data/studies";
 import { helpOutline } from "ionicons/icons";
 import { useLocalStorage } from "usehooks-ts";
 import { Menu } from "../components/Menu";
@@ -27,6 +27,7 @@ import {
   ShowIntroBlurbStorageKey,
   ShowLeadersNotesStorageKey,
 } from "../components/localStorageKeys";
+import { Study } from "../data/types";
 
 const Settings: React.FC = () => {
   const [studies, setStudies] = useState<Study[]>([]);
