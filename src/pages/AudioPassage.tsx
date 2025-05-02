@@ -33,17 +33,26 @@ function AudioPassage() {
 
     if (passageRef) {
       setPassageReference(passageRef);
-      const crossway = new DefaultApi(undefined, "/esv");
+      const crossway = new DefaultApi(
+        undefined,
+        "https://study.christchurchmayfair.org/esv"
+      );
 
-      crossway.v3PassageAudioGet({ q: passageRef }).then((response) => {
-        if (
-          response.data &&
-          typeof response.data === "object" &&
-          "audioUrl" in response.data
-        ) {
-          setAudioUrl(response.data.audioUrl as string);
-        }
-      });
+      crossway
+        .v3PassageAudioGet({ q: passageRef })
+        .then((response) => {
+          if (
+            response.data &&
+            typeof response.data === "object" &&
+            "audioUrl" in response.data
+          ) {
+            console.log("Audio URL:", response.data.audioUrl);
+            setAudioUrl(response.data.audioUrl as string);
+          }
+        })
+        .catch((error) => {
+          console.error("Error fetching audio URL:", error);
+        });
     }
   });
 
