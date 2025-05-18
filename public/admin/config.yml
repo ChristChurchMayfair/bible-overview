@@ -1,0 +1,4 @@
+backend:
+  name: github
+  repo: christchurchmayfair/bible-overview
+  use_graphql: true
