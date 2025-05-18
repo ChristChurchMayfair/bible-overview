@@ -1,0 +1,11 @@
+{
+  "index": 1,
+  "title": "Creation",
+  "slug": "Creation",
+  "icon": "globe",
+  "overview": "overview",
+  "keyApplication": "Key Application",
+  "questions": {
+    "section": "Intro"
+  }
+}
