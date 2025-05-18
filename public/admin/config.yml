@@ -8,6 +8,7 @@ collections:
     label: Study
     folder: "content/studies"
     create: true
+    format: json
     slug: "{{slug}}"
     fields:
       - { label: "Index", name: "index", widget: "number" }
