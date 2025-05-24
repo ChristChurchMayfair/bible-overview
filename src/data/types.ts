@@ -38,10 +38,7 @@ export type Study ={
   keyApplication: string;
   prayerPoints: string[];
   questions: {
-    [key: string]: {
-      questions: string[];
-      answers?: string[];
-    };
+    [key: string]: { question: string, answer?: string }[];
   };
   timeline?: TimelineEntry[];
   leadersNotes?: string;

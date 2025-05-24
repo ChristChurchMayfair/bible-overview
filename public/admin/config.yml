@@ -30,12 +30,9 @@ collections:
           - label: "Questions List"
             name: "questions"
             widget: "list"
-            field: { label: "Question", name: "question", widget: "string" }
-          - label: "Answers"
-            name: "answers"
-            widget: "list"
-            required: false
-            field: { label: "Answer", name: "answer", widget: "string" }
+            fields: 
+              - { label: "Question", name: "question", widget: "string" }
+              - { label: "Answer", name: "answer", widget: "string", required: false }
       - label: "Timeline"
         name: "timeline"
         widget: "list"

@@ -1,0 +1,82 @@
+{
+  "index": 0,
+  "title": "Plan",
+  "slug": "plan",
+  "icon": "book",
+  "overview": "God's plan for humanity and the world",
+  "themes": [
+    "Creation",
+    "Purpose",
+    "Relationship"
+  ],
+  "patterns": [
+    "God's intentional design",
+    "Order from chaos",
+    "Purpose in creation"
+  ],
+  "promises": [
+    "God's provision",
+    "Human dominion",
+    "Relationship with God"
+  ],
+  "progressions": [
+    "From nothing to everything",
+    "From chaos to order",
+    "From potential to purpose"
+  ],
+  "keyApplication": "Recognize God's intentional design in your life and the world around you",
+  "prayerPoints": [
+    "Thank God for His perfect design and purpose in creation",
+    "Pray for wisdom to see God's hand in your life",
+    "Ask for guidance in stewarding God's creation well",
+    "Pray for a deeper understanding of your purpose in God's plan"
+  ],
+  "questions": {
+    "Introduction": [
+      {
+        "question": "What comes to mind when you think about God's plan?",
+        "answer": ""
+      },
+      {
+        "question": "How do you see God's design in the world around you?",
+        "answer": ""
+      },
+      {
+        "question": "What questions do you have about God's plan?",
+        "answer": ""
+      }
+    ],
+    "Genesis 1:1-2:3": [
+      {
+        "question": "What does this passage reveal about God's character?",
+        "answer": ""
+      },
+      {
+        "question": "How does God bring order to chaos?",
+        "answer": ""
+      },
+      {
+        "question": "What does it mean that God created humans in His image?",
+        "answer": ""
+      },
+      {
+        "question": "What responsibilities did God give to humans?",
+        "answer": ""
+      }
+    ],
+    "Application": [
+      {
+        "question": "How can you better recognize God's design in your daily life?",
+        "answer": ""
+      },
+      {
+        "question": "What areas of your life need God's order and purpose?",
+        "answer": ""
+      },
+      {
+        "question": "How can you better fulfill your role in God's creation?",
+        "answer": ""
+      }
+    ]
+  }
+}

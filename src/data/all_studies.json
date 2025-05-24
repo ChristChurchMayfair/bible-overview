@@ -1,0 +1,1816 @@
+[
+  {
+    "index": 0,
+    "title": "Plan",
+    "slug": "plan",
+    "icon": "book",
+    "overview": "God's plan for humanity and the world",
+    "themes": ["Creation", "Purpose", "Relationship"],
+    "patterns": [
+      "God's intentional design",
+      "Order from chaos",
+      "Purpose in creation"
+    ],
+    "promises": ["God's provision", "Human dominion", "Relationship with God"],
+    "progressions": [
+      "From nothing to everything",
+      "From chaos to order",
+      "From potential to purpose"
+    ],
+    "keyApplication":
+      "Recognize God's intentional design in your life and the world around you",
+    "prayerPoints": [
+      "Thank God for His perfect design and purpose in creation",
+      "Pray for wisdom to see God's hand in your life",
+      "Ask for guidance in stewarding God's creation well",
+      "Pray for a deeper understanding of your purpose in God's plan"
+    ],
+    "questions": {
+      "Introduction": {
+        "questions": [
+          "What comes to mind when you think about God's plan?",
+          "How do you see God's design in the world around you?",
+          "What questions do you have about God's plan?"
+        ]
+      },
+      "Genesis 1:1-2:3": {
+        "questions": [
+          "What does this passage reveal about God's character?",
+          "How does God bring order to chaos?",
+          "What does it mean that God created humans in His image?",
+          "What responsibilities did God give to humans?"
+        ]
+      },
+      "Application": {
+        "questions": [
+          "How can you better recognize God's design in your daily life?",
+          "What areas of your life need God's order and purpose?",
+          "How can you better fulfill your role in God's creation?"
+        ]
+      }
+    }
+  },
+  {
+    "index": 1,
+    "title": "Creation",
+    "slug": "creation",
+    "icon": "globe",
+    "overview": "The beginning of all things",
+    "themes": ["Power", "Beauty", "Goodness"],
+    "patterns": [
+      "God's creative power",
+      "Purpose in design",
+      "Goodness of creation"
+    ],
+    "promises": ["God's sovereignty", "Human value", "Creation's purpose"],
+    "progressions": [
+      "From void to fullness",
+      "From potential to actuality",
+      "From design to purpose"
+    ],
+    "keyApplication":
+      "Appreciate and care for God's creation as an expression of worship",
+    "prayerPoints": [
+      "Praise God for His creative power and wisdom",
+      "Thank God for the beauty and diversity of His creation",
+      "Pray for wisdom in caring for God's creation",
+      "Ask for eyes to see God's hand in the natural world"
+    ],
+    "questions": {
+      "Introduction": {
+        "questions": [
+          "What aspects of creation amaze you the most?",
+          "How do you see God's creativity in nature?",
+          "What questions do you have about creation?"
+        ]
+      },
+      "Genesis 1:1-2:3": {
+        "questions": [
+          "What does this passage teach us about God's power?",
+          "How does God demonstrate His care in creation?",
+          "What does it mean that creation was 'good'?",
+          "How does creation reflect God's character?"
+        ]
+      },
+      "Application": {
+        "questions": [
+          "How can you better appreciate God's creation?",
+          "What steps can you take to care for creation?",
+          "How can creation inspire your worship?"
+        ]
+      }
+    }
+  },
+  {
+    "index": 2,
+    "title": "Fall",
+    "slug": "fall",
+    "icon": "alert",
+    "overview": "The entrance of sin and its consequences",
+    "themes": ["Sin", "Consequences", "Redemption"],
+    "patterns": [
+      "Temptation",
+      "Disobedience",
+      "Consequences",
+      "Promise of redemption"
+    ],
+    "promises": ["God's justice", "Promise of a Savior", "Victory over sin"],
+    "progressions": [
+      "From innocence to sin",
+      "From harmony to brokenness",
+      "From curse to promise"
+    ],
+    "keyApplication":
+      "Recognize the reality of sin and our need for God's redemption",
+    "prayerPoints": [
+      "Confess areas where you've given in to temptation",
+      "Thank God for His promise of redemption",
+      "Pray for strength to resist temptation",
+      "Ask for wisdom to recognize sin's consequences"
+    ],
+    "questions": {
+      "Introduction": {
+        "questions": [
+          "What comes to mind when you think about sin?",
+          "How do you see the effects of the fall in the world?",
+          "What questions do you have about sin and its consequences?"
+        ]
+      },
+      "Genesis 3:1-24": {
+        "questions": [
+          "What tactics does the serpent use to tempt Eve?",
+          "How do Adam and Eve respond to their sin?",
+          "What are the consequences of their disobedience?",
+          "What promise of hope do we see in this passage?"
+        ]
+      },
+      "Application": {
+        "questions": [
+          "What temptations do you face regularly?",
+          "How can you better recognize and resist temptation?",
+          "What areas of your life need God's redemption?"
+        ]
+      }
+    }
+  },
+  {
+    "index": 3,
+    "title": "Promise",
+    "slug": "promise",
+    "icon": "hand-left",
+    "overview": "God's covenant with Abraham",
+    "themes": ["Faith", "Promise", "Blessing"],
+    "patterns": [
+      "God's faithfulness",
+      "Promise and fulfillment",
+      "Blessing through faith"
+    ],
+    "promises": ["Land", "Descendants", "Blessing to nations"],
+    "progressions": [
+      "From promise to fulfillment",
+      "From one to many",
+      "From local to global"
+    ],
+    "key_application": "Trust in God's promises and walk in faith",
+    "prayerPoints": [
+      "Thank God for His faithfulness to His promises",
+      "Pray for faith to trust God's promises in your life",
+      "Ask for wisdom to see how God is fulfilling His promises",
+      "Pray for opportunities to be a blessing to others"
+    ],
+    "questions": {
+      "Introduction": {
+        "questions": [
+          "What promises has God made to you personally?",
+          "How do you respond when God's promises seem delayed?",
+          "What does it mean to live by faith in God's promises?"
+        ],
+        "answers": [
+          "Guide discussion toward both personal promises (salvation, presence, guidance) and corporate promises (kingdom, return of Christ).",
+          "Encourage sharing of personal experiences while pointing to biblical examples of waiting (Abraham, Joseph, etc.).",
+          "Help group understand that faith means trusting God's character and timing, not just His ability."
+        ]
+      },
+      "Genesis 12:1-9": {
+        "questions": [
+          "What does God promise Abram in this passage?",
+          "How does Abram respond to God's call?",
+          "What significance do you see in God choosing one man to bless all nations?",
+          "How does this passage show God's sovereignty in choosing Abram?"
+        ],
+        "answers": [
+          "God promises land, descendants, and blessing to all nations through Abram.",
+          "Abram demonstrates immediate obedience by leaving his country and family.",
+          "Shows God's pattern of working through individuals to impact many (like Christ).",
+          "God's choice of Abram was not based on merit but on His sovereign purpose."
+        ]
+      },
+      "Genesis 15:1-21": {
+        "questions": [
+          "Why does God tell Abram not to be afraid?",
+          "What does the covenant ceremony teach us about God's faithfulness?",
+          "How does God address Abram's concerns about having no heir?",
+          "What does the vision of the smoking firepot and blazing torch symbolize?"
+        ],
+        "answers": [
+          "Abram was likely afraid after the battle and needed reassurance of God's protection.",
+          "The covenant ceremony shows God's unilateral commitment to fulfill His promises.",
+          "God promises a biological heir and countless descendants like the stars.",
+          "Symbolizes God's presence passing between the pieces, taking full responsibility for the covenant."
+        ]
+      },
+      "Genesis 17:1-14": {
+        "questions": [
+          "What changes does God make to Abram's name and why?",
+          "How does the covenant of circumcision demonstrate commitment?",
+          "What does this passage teach us about God's eternal purposes?",
+          "How does this covenant point forward to the new covenant in Christ?"
+        ],
+        "answers": [
+          "Changes Abram to Abraham ('father of many') to reflect his new identity and destiny.",
+          "Circumcision was a permanent, physical sign of belonging to God's covenant people.",
+          "Shows God's commitment to establish an eternal covenant with Abraham's descendants.",
+          "Points to the need for a new covenant that would transform hearts, not just mark bodies."
+        ]
+      },
+      "Application": {
+        "questions": [
+          "How can you demonstrate faith in God's promises when they seem delayed?",
+          "What specific steps can you take to trust God's calling in your life?",
+          "How can you help others see God's faithfulness to His promises?",
+          "What areas of your life need to be surrendered to God's covenant purposes?",
+          "How can you live as someone who is part of God's blessing to the nations?"
+        ],
+        "answers": [
+          "Encourage practical steps like prayer, Scripture meditation, and community support.",
+          "Guide toward specific actions like obedience in small things and seeking godly counsel.",
+          "Suggest sharing personal testimonies and pointing to biblical examples of God's faithfulness.",
+          "Help identify areas of self-reliance or fear that need to be surrendered to God.",
+          "Discuss ways to be a blessing through evangelism, service, and living as God's representative."
+        ]
+      }
+    }
+  },
+  {
+    "index": 4,
+    "title": "Rescue",
+    "slug": "rescue",
+    "icon": "refresh",
+    "overview": "God's deliverance of His people from Egypt",
+    "themes": ["Deliverance", "Power", "Faithfulness"],
+    "patterns": [
+      "God's power over enemies",
+      "Faith in action",
+      "Deliverance through sacrifice"
+    ],
+    "promises": ["Freedom from bondage", "God's presence", "Inheritance"],
+    "progressions": [
+      "From slavery to freedom",
+      "From fear to faith",
+      "From bondage to blessing"
+    ],
+    "key_application": "Trust in God's power to deliver and provide",
+    "prayerPoints": [
+      "Thank God for His deliverance in your life",
+      "Pray for faith to trust God in difficult situations",
+      "Ask for courage to follow God's leading",
+      "Pray for those still in spiritual bondage"
+    ],
+    "questions": {
+      "Introduction": {
+        "questions": [
+          "How have you experienced God's deliverance in your life?",
+          "What does it mean that God rescues through substitutionary sacrifice?",
+          "How does the Passover point forward to Christ?"
+        ],
+        "answers": [
+          "Encourage sharing of personal testimonies while guiding toward both physical and spiritual deliverance.",
+          "Explain that God often saves through the sacrifice of an innocent substitute (like the Passover lamb).",
+          "Point to Christ as the ultimate Passover Lamb who delivers us from sin and death."
+        ]
+      },
+      "Exodus 6:1-8": {
+        "questions": [
+          "How does God reveal Himself to Moses in this passage?",
+          "What promises does God make to His people?",
+          "Why do you think the Israelites didn't listen to Moses?",
+          "How does this passage show God's faithfulness to His covenant?"
+        ],
+        "answers": [
+          "God reveals Himself as Yahweh, the covenant-keeping God who remembers His promises.",
+          "God promises deliverance, relationship, and inheritance of the land.",
+          "Their spirits were broken by harsh slavery, making it hard to believe in deliverance.",
+          "Despite their unbelief, God remains committed to fulfilling His covenant promises."
+        ]
+      },
+      "Exodus 12:21-32": {
+        "questions": [
+          "What significance do you see in the Passover lamb?",
+          "How does the blood on the doorposts protect the Israelites?",
+          "What does this passage teach us about God's judgment and mercy?",
+          "How does the Passover meal become a memorial of God's deliverance?"
+        ],
+        "answers": [
+          "The lamb's innocence and sacrifice points to Christ, the perfect Passover Lamb.",
+          "The blood serves as a sign of faith and obedience, marking those under God's protection.",
+          "Shows that God's judgment passes over those covered by the blood of the sacrifice.",
+          "The meal becomes an annual reminder of God's mighty act of deliverance."
+        ]
+      },
+      "Application": {
+        "questions": [
+          "What areas of your life need God's deliverance today?",
+          "How can you better trust in Christ's substitutionary sacrifice?",
+          "What specific ways can you remember and celebrate God's deliverance?",
+          "How can you help others experience God's rescue?",
+          "What steps can you take to live in the freedom Christ has won?"
+        ],
+        "answers": [
+          "Guide toward both spiritual bondage (sin, fear) and practical areas needing God's intervention.",
+          "Suggest ways to meditate on Christ's sacrifice and apply its power to daily struggles.",
+          "Encourage regular celebration of communion and sharing testimonies of God's deliverance.",
+          "Discuss practical ways to share the gospel and pray for others' deliverance.",
+          "Help identify areas where we still live in bondage despite Christ's victory."
+        ]
+      }
+    }
+  },
+  {
+    "index": 5,
+    "title": "Law",
+    "slug": "law",
+    "icon": "book",
+    "overview": "God's instructions for His people",
+    "themes": ["Holiness", "Relationship", "Guidance"],
+    "patterns": [
+      "God's standards",
+      "Covenant relationship",
+      "Blessing through obedience"
+    ],
+    "promises": ["God's presence", "Guidance", "Blessing"],
+    "progressions": [
+      "From slavery to service",
+      "From law to love",
+      "From external to internal"
+    ],
+    "key_application": "Live according to God's standards with a heart of love",
+    "prayerPoints": [
+      "Thank God for His guidance through His Word",
+      "Pray for a heart that desires to obey God",
+      "Ask for wisdom to apply God's principles",
+      "Pray for strength to live according to God's standards"
+    ],
+    "questions": {
+      "Introduction": {
+        "questions": [
+          "What role does the law play in your relationship with God?",
+          "How do you balance grace and obedience in your walk with God?",
+          "What does it mean to be a 'kingdom of priests'?"
+        ],
+        "answers": [
+          "The law reveals God's character and our need for grace while guiding us in righteous living.",
+          "Grace empowers obedience, and obedience demonstrates our love for God.",
+          "We are called to represent God to the world and bring others into relationship with Him."
+        ]
+      },
+      "Exodus 19:1-20:21": {
+        "questions": [
+          "How does God prepare the people to meet with Him?",
+          "What significance do you see in the Ten Commandments?",
+          "How does this passage show the relationship between God's grace and the law?",
+          "What does it mean to be God's treasured possession?",
+          "How does the fear of God lead to obedience?"
+        ],
+        "answers": [
+          "God sets boundaries and calls for consecration, showing His holiness and our need for preparation.",
+          "They reveal God's character and provide a framework for loving God and others.",
+          "God's grace in delivering Israel precedes the law, showing that obedience flows from gratitude.",
+          "We are chosen, valued, and set apart for God's special purposes.",
+          "Proper fear of God leads to reverence, wisdom, and willing obedience."
+        ]
+      },
+      "Application": {
+        "questions": [
+          "How can you better respond to God's grace with obedience?",
+          "What specific commandments do you need to focus on obeying?",
+          "How can you cultivate a healthy fear of the Lord?",
+          "What steps can you take to live as part of God's kingdom of priests?",
+          "How can you help others understand the relationship between grace and law?"
+        ],
+        "answers": [
+          "Suggest practical steps like daily surrender, accountability, and regular confession.",
+          "Help identify areas of weakness and develop specific strategies for growth.",
+          "Encourage regular meditation on God's holiness and the consequences of sin.",
+          "Discuss ways to serve others and represent God in various spheres of life.",
+          "Model and teach the balance of grace and obedience in your relationships."
+        ]
+      }
+    }
+  },
+  {
+    "index": 6,
+    "title": "Fear",
+    "slug": "fear",
+    "icon": "warning",
+    "overview": "Israel's failure to trust God's promises",
+    "themes": ["Faith", "Fear", "Consequences"],
+    "patterns": ["Unbelief", "Consequences of fear", "God's patience"],
+    "promises": ["God's presence", "Victory", "Inheritance"],
+    "progressions": [
+      "From promise to doubt",
+      "From faith to fear",
+      "From blessing to wandering"
+    ],
+    "key_application": "Trust in God's promises despite circumstances",
+    "prayerPoints": [
+      "Confess areas where fear has replaced faith",
+      "Pray for courage to trust God's promises",
+      "Ask for eyes to see beyond present circumstances",
+      "Thank God for His patience in our unbelief"
+    ],
+    "questions": {
+      "Introduction": {
+        "questions": [
+          "When have you struggled to trust God's promises?",
+          "How do you respond when God's promises seem impossible?",
+          "What role does fear play in preventing us from trusting God?"
+        ],
+        "answers": [
+          "Encourage sharing of personal experiences while maintaining confidentiality.",
+          "Guide discussion toward biblical examples and God's track record of faithfulness.",
+          "Fear often paralyzes faith and leads to self-reliance instead of trust in God."
+        ]
+      },
+      "Numbers 13-14": {
+        "questions": [
+          "What do the spies report about the land?",
+          "How do Caleb and Joshua respond differently from the other spies?",
+          "What consequences result from the people's unbelief?",
+          "How does God show both judgment and mercy in this situation?",
+          "What does this passage teach us about the cost of unbelief?"
+        ],
+        "answers": [
+          "They confirm the land's goodness but focus on the obstacles and their own inadequacy.",
+          "They acknowledge the challenges but trust in God's power and promises.",
+          "The people wander 40 years in the wilderness, missing their inheritance.",
+          "God judges their unbelief but preserves a remnant and maintains His covenant.",
+          "Unbelief leads to missed blessings and prolonged suffering."
+        ]
+      },
+      "Application": {
+        "questions": [
+          "What specific promises of God do you need to trust in today?",
+          "How can you cultivate a spirit like Caleb and Joshua?",
+          "What steps can you take to overcome fear and unbelief?",
+          "How can you help others trust in God's promises?",
+          "What areas of your life need to be surrendered to God's timing?"
+        ],
+        "answers": [
+          "Help identify specific promises from Scripture that apply to current situations.",
+          "Suggest practices like prayer, Scripture meditation, and remembering God's faithfulness.",
+          "Encourage practical steps like confession, accountability, and small acts of faith.",
+          "Discuss ways to share testimonies and point others to God's track record.",
+          "Guide toward areas where we're trying to control outcomes instead of trusting God."
+        ]
+      }
+    }
+  },
+  {
+    "index": 7,
+    "title": "Invasion / Jericho",
+    "slug": "invasion-jericho",
+    "icon": "shield-checkmark",
+    "overview": "God's victory through faith and obedience",
+    "themes": ["Faith", "Victory", "Obedience"],
+    "patterns": ["God's power", "Faith in action", "Victory through obedience"],
+    "promises": ["Land", "Victory", "God's presence"],
+    "progressions": [
+      "From promise to possession",
+      "From fear to faith",
+      "From wandering to victory"
+    ],
+    "key_application": "Trust in God's power and follow His instructions",
+    "prayerPoints": [
+      "Thank God for victories He has given you",
+      "Pray for faith to trust God's unconventional methods",
+      "Ask for courage to obey God's instructions",
+      "Pray for victory in current spiritual battles"
+    ],
+    "questions": {
+      "Introduction": {
+        "questions": [
+          "How do you see God fighting battles for His people today?",
+          "What does it mean to trust in God's unconventional strategies?",
+          "How does faith lead to victory in your life?"
+        ],
+        "answers": [
+          "Guide discussion toward both spiritual battles and God's intervention in practical situations.",
+          "God often works in ways that seem foolish to the world but demonstrate His power.",
+          "Faith enables us to see beyond circumstances and trust in God's victory."
+        ]
+      },
+      "Joshua 2": {
+        "questions": [
+          "What role does Rahab play in God's plan?",
+          "How does Rahab demonstrate faith in the God of Israel?",
+          "What significance do you see in the scarlet cord?",
+          "How does this chapter show God's grace to outsiders?"
+        ],
+        "answers": [
+          "Rahab's faith in God's promises and her actions demonstrate her trust in God.",
+          "Rahab's faith in God's promises and her actions demonstrate her trust in God.",
+          "The scarlet cord symbolizes God's protection and the Israelites' victory.",
+          "Rahab's faith in God's promises and her actions demonstrate her trust in God."
+        ]
+      },
+      "Joshua 5:13-6:23": {
+        "questions": [
+          "What does the appearance of the commander of the Lord's army signify?",
+          "Why do you think God chose such an unconventional battle strategy?",
+          "How does the fall of Jericho demonstrate God's power?",
+          "What lessons can we learn from the destruction of Jericho?",
+          "How does this victory fulfill God's promises to His people?"
+        ],
+        "answers": [
+          "The appearance of the commander of the Lord's army signifies God's presence and victory.",
+          "God chose an unconventional battle strategy to demonstrate His power and to show that He is with His people.",
+          "The fall of Jericho demonstrates God's power and victory over the enemy.",
+          "The destruction of Jericho teaches us that God is faithful to His promises and that we can trust Him.",
+          "This victory fulfills God's promises to His people by demonstrating His power and faithfulness."
+        ]
+      },
+      "Application": {
+        "questions": [
+          "What 'battles' in your life need to be surrendered to God?",
+          "How can you better trust in God's unconventional ways?",
+          "What specific steps can you take to demonstrate faith in God's power?",
+          "How can you help others see God's victory in their lives?",
+          "What areas of your life need to be dedicated to God's purposes?"
+        ],
+        "answers": [
+          "Guide toward identifying specific battles or challenges in your life that need to be surrendered to God.",
+          "Suggest practices like prayer, Scripture meditation, and seeking godly counsel to trust God's unconventional ways.",
+          "Encourage taking practical steps to demonstrate faith in God's power, such as obedience, prayer, and serving others.",
+          "Discuss ways to share testimonies and point others to God's track record of victory.",
+          "Guide toward areas of your life where you need to surrender control and trust God's purposes."
+        ]
+      }
+    }
+  },
+  {
+    "index": 8,
+    "title": "Spiral",
+    "slug": "spiral",
+    "icon": "refresh",
+    "overview": "The cycle of sin and deliverance in Judges",
+    "themes": ["Sin", "Repentance", "Deliverance"],
+    "patterns": ["Sin", "Oppression", "Cry for help", "Deliverance", "Peace"],
+    "promises": ["God's mercy", "Deliverance", "Restoration"],
+    "progressions": [
+      "From peace to sin",
+      "From sin to suffering",
+      "From suffering to salvation"
+    ],
+    "key_application": "Break the cycle of sin through repentance and faith",
+    "prayerPoints": [
+      "Confess areas where you're caught in sin cycles",
+      "Thank God for His mercy in delivering you",
+      "Pray for strength to break free from sinful patterns",
+      "Ask for wisdom to recognize warning signs"
+    ],
+    "questions": {
+      "Introduction": {
+        "questions": [
+          "How do you see the cycle of sin at work in your life?",
+          "What happens when people do what is right in their own eyes?",
+          "How does God's faithfulness show through even in times of failure?"
+        ],
+        "answers": [
+          "Guide discussion toward patterns of sin, repentance, and repeated failure.",
+          "Leads to chaos, broken relationships, and distance from God's purposes.",
+          "God continues to raise up deliverers and maintain His covenant despite human failure."
+        ]
+      },
+      "Judges 2:6-19": {
+        "questions": [
+          "What pattern of behavior do you see in this passage?",
+          "How does God respond to His people's unfaithfulness?",
+          "What role do the judges play in God's plan?",
+          "How does this passage show both human failure and God's faithfulness?"
+        ],
+        "answers": [
+          "A cycle of obedience, apostasy, oppression, crying out, and deliverance.",
+          "God allows consequences but raises up deliverers when they cry out.",
+          "They are temporary deliverers who point to the need for a permanent king.",
+          "Despite repeated failure, God remains faithful to His covenant promises."
+        ]
+      },
+      "Judges 3:7-11": {
+        "questions": [
+          "How does Othniel demonstrate godly leadership?",
+          "What causes the cycle to begin again after his death?",
+          "How does this passage illustrate the need for a permanent solution?",
+          "What does it mean that the Spirit of the Lord came upon Othniel?"
+        ],
+        "answers": [
+          "He leads Israel to victory and maintains peace through his lifetime.",
+          "The people return to idolatry and forget God's deliverance.",
+          "Shows that temporary deliverers can't solve the root problem of sin.",
+          "Indicates God's empowerment for leadership and victory."
+        ]
+      },
+      "Judges 21:25": {
+        "questions": [
+          "What does this verse tell us about the state of Israel?",
+          "How does this situation point to the need for a king?",
+          "What lessons can we learn from this period of Israel's history?",
+          "How does this verse summarize the book of Judges?"
+        ],
+        "answers": [
+          "Israel is in complete moral chaos with no central authority.",
+          "Shows the need for a godly king to lead and maintain righteousness.",
+          "Human leadership without God's authority leads to disaster.",
+          "Summarizes the theme of moral decline without godly leadership."
+        ]
+      },
+      "Application": {
+        "questions": [
+          "What cycles of sin do you need to break in your life?",
+          "How can you better submit to God's leadership?",
+          "What specific steps can you take to avoid doing what is right in your own eyes?",
+          "How can you help others recognize their need for God's rule?",
+          "What areas of your life need to be surrendered to Christ's kingship?"
+        ],
+        "answers": [
+          "Help identify specific patterns of sin and strategies for breaking them.",
+          "Suggest practices like daily surrender, accountability, and seeking godly counsel.",
+          "Encourage reliance on Scripture and the Holy Spirit for guidance.",
+          "Discuss ways to model and teach submission to God's authority.",
+          "Guide toward areas where we're resisting Christ's lordship."
+        ]
+      }
+    }
+  },
+  {
+    "index": 9,
+    "title": "True king",
+    "slug": "true-king",
+    "icon": "crown",
+    "overview": "God's promise of a righteous king",
+    "themes": ["Leadership", "Promise", "Hope"],
+    "patterns": ["God's sovereignty", "Promise of Messiah", "Eternal kingdom"],
+    "promises": ["Righteous king", "Eternal kingdom", "God's presence"],
+    "progressions": [
+      "From human kings to divine king",
+      "From temporary to eternal",
+      "From partial to complete"
+    ],
+    "key_application": "Submit to Christ as your true king",
+    "prayerPoints": [
+      "Thank God for sending Jesus as our true king",
+      "Pray for submission to Christ's rule in your life",
+      "Ask for wisdom to recognize Christ's authority",
+      "Pray for the coming of Christ's eternal kingdom"
+    ],
+    "questions": {
+      "Introduction": {
+        "questions": [
+          "What does it mean for Jesus to be our eternal king?",
+          "How do you see God's kingdom at work in the world today?",
+          "What does it mean to live under Christ's rule?"
+        ],
+        "answers": [
+          "Discuss the concept of God's kingdom and its reign in history.",
+          "Explore how God's kingdom is present in various aspects of life.",
+          "Explain the implications of living under Christ's rule in daily life."
+        ]
+      },
+      "2 Samuel 7": {
+        "questions": [
+          "What does David desire to do for God?",
+          "How does God respond to David's desire?",
+          "What promises does God make to David?",
+          "How does this passage point forward to Christ?",
+          "What does it mean that David's throne will be established forever?"
+        ],
+        "answers": [
+          "David's desire to build a temple for God reflects his heart for worship and service.",
+          "God promises to establish David's dynasty and fulfill His covenant with David.",
+          "The passage points to Jesus as the ultimate king and establishes the Davidic covenant.",
+          "This passage shows the fulfillment of God's promises through Jesus Christ.",
+          "It means that Jesus' reign is eternal and that God's kingdom will be established through David's lineage."
+        ]
+      },
+      "Ezekiel 34:11-16, 23": {
+        "questions": [
+          "How does God describe His role as shepherd?",
+          "What does this passage teach us about God's care for His people?",
+          "How does the promise of one shepherd point to Christ?",
+          "What does it mean for God to be our shepherd?"
+        ],
+        "answers": [
+          "God describes Himself as a shepherd who cares for His people and seeks their welfare.",
+          "This passage teaches that God cares for His people and seeks their welfare.",
+          "The promise of one shepherd points to Jesus as the ultimate shepherd and leader.",
+          "It means that Jesus is the good shepherd who lays down His life for the sheep."
+        ]
+      },
+      "Application": {
+        "questions": [
+          "How can you better submit to Christ's kingship in your life?",
+          "What specific areas need to be surrendered to God's rule?",
+          "How can you demonstrate loyalty to Christ as your king?",
+          "What steps can you take to live as part of God's kingdom?",
+          "How can you help others recognize Christ's eternal reign?"
+        ],
+        "answers": [
+          "Suggest practical ways to acknowledge God's authority and submit to His rule.",
+          "Help identify specific areas of your life that need to be surrendered to God's rule.",
+          "Discuss the importance of living out your faith in various aspects of life.",
+          "Encourage taking practical steps to live out your faith in daily life.",
+          "Share strategies for pointing others to Christ's lordship and kingdom."
+        ]
+      }
+    }
+  },
+  {
+    "index": 10,
+    "title": "High point",
+    "slug": "high-point",
+    "icon": "trending-up",
+    "overview": "The height of Israel's kingdom under Solomon",
+    "themes": ["Wisdom", "Blessing", "Warning"],
+    "patterns": ["God's blessing", "Human weakness", "Temptation of success"],
+    "promises": ["Wisdom", "Blessing", "Warning"],
+    "progressions": [
+      "From promise to fulfillment",
+      "From wisdom to folly",
+      "From blessing to warning"
+    ],
+    "key_application": "Use God's blessings wisely and remain faithful",
+    "prayerPoints": [
+      "Thank God for His blessings in your life",
+      "Pray for wisdom to use blessings well",
+      "Ask for protection from the temptations of success",
+      "Pray for faithfulness in times of blessing"
+    ],
+    "questions": {
+      "Introduction": {
+        "questions": [
+          "What makes a good leader in God's eyes?",
+          "How do you see human leadership falling short today?",
+          "What does it mean to look to Christ as our perfect leader?"
+        ],
+        "answers": [
+          "Discuss qualities like integrity, wisdom, and servant leadership.",
+          "Explore attitudes toward authority and submission.",
+          "Explain the concept of God's kingship and our response to it."
+        ]
+      },
+      "1 Kings 10:1-10": {
+        "questions": [
+          "What does the Queen of Sheba's visit reveal about Solomon's kingdom?",
+          "How does this passage show the height of Israel's glory?",
+          "What warning signs do you see even in this time of prosperity?",
+          "How does this passage point to the need for a greater king?"
+        ],
+        "answers": [
+          "The Queen of Sheba's visit reveals Solomon's kingdom as prosperous and wise.",
+          "This passage shows the height of Israel's glory under Solomon.",
+          "Warning signs include the potential for corruption and the need for a greater king.",
+          "This passage points to the need for a greater king to maintain righteousness."
+        ]
+      },
+      "1 Kings 11:1-13": {
+        "questions": [
+          "What causes Solomon's downfall?",
+          "How does this passage show the consequences of compromise?",
+          "What does God's response teach us about His faithfulness?",
+          "How does this passage point to the need for a perfect king?"
+        ],
+        "answers": [
+          "Solomon's downfall was due to his embracing foreign wives and idolatry.",
+          "This passage shows the consequences of compromising God's commands.",
+          "God's response teaches that He will not fulfill the promises to those who reject Him.",
+          "This passage points to the need for a perfect king who remains faithful to God."
+        ]
+      },
+      "Application": {
+        "questions": [
+          "How can you guard against the dangers of success and prosperity?",
+          "What specific areas of compromise do you need to address?",
+          "How can you better look to Christ as your perfect leader?",
+          "What steps can you take to maintain faithfulness in times of blessing?",
+          "How can you help others see their need for Christ's perfect rule?"
+        ],
+        "answers": [
+          "Suggest strategies for guarding against the dangers of success and prosperity.",
+          "Help identify specific areas of compromise and address them.",
+          "Discuss the importance of looking to Christ for guidance and wisdom.",
+          "Encourage taking practical steps to maintain faithfulness in times of blessing.",
+          "Share strategies for pointing others to Christ's perfect rule."
+        ]
+      }
+    }
+  },
+  {
+    "index": 11,
+    "title": "Rebuild",
+    "slug": "rebuild",
+    "icon": "construct",
+    "overview": "Restoring God's temple and people",
+    "themes": ["Restoration", "Faithfulness", "Hope"],
+    "patterns": ["God's faithfulness", "Human response", "Restoration process"],
+    "promises": ["God's presence", "Restoration", "Future hope"],
+    "progressions": [
+      "From ruin to rebuilding",
+      "From exile to return",
+      "From despair to hope"
+    ],
+    "key_application": "Participate in God's work of restoration",
+    "prayerPoints": [
+      "Thank God for His faithfulness in restoration",
+      "Pray for wisdom in rebuilding what's broken",
+      "Ask for courage to face challenges in restoration",
+      "Pray for those in need of spiritual restoration"
+    ],
+    "questions": {
+      "Introduction": {
+        "questions": [
+          "How do you see God restoring broken things in your life?",
+          "What does it mean that our restoration is both now and not yet?",
+          "How does this period point forward to Christ?"
+        ],
+        "answers": [
+          "Discuss the process of restoration and the tension between now and not yet.",
+          "Explain that restoration is a work in progress and that we are called to participate in it.",
+          "This passage points to Christ as the ultimate restorer and the fulfillment of God's promises."
+        ]
+      },
+      "Ezra 1:1-10": {
+        "questions": [
+          "How does God move Cyrus to allow the return?",
+          "What significance do you see in the return of the temple articles?",
+          "How does this passage show God's sovereignty over nations?",
+          "What does this passage teach us about God's faithfulness to His promises?"
+        ],
+        "answers": [
+          "God moves Cyrus to allow the return to rebuild the temple.",
+          "The return of the temple articles shows God's sovereignty over nations.",
+          "This passage shows God's sovereignty over nations and His faithfulness to His promises.",
+          "It teaches that God is faithful to His promises and sovereign over nations."
+        ]
+      },
+      "Ezra 3:8-13": {
+        "questions": [
+          "What mixed emotions do the people experience at the temple foundation?",
+          "How does this passage show both joy and sorrow?",
+          "What does this teach us about partial fulfillment of God's promises?",
+          "How does this passage point to a greater temple to come?"
+        ],
+        "answers": [
+          "The people experience mixed emotions at the temple foundation, reflecting the joy of restoration and the sorrow of partial fulfillment.",
+          "This passage shows the joy of restoration and the sorrow of partial fulfillment.",
+          "It teaches that God's promises are not fully fulfilled until the new heaven and earth.",
+          "This passage points to the need for a greater temple to come."
+        ]
+      },
+      "Application": {
+        "questions": [
+          "What areas of your life need God's restoration?",
+          "How can you maintain hope during partial restoration?",
+          "What specific steps can you take to participate in God's rebuilding work?",
+          "How can you help others experience God's restoration?",
+          "What does it look like to live in light of the greater restoration to come?"
+        ],
+        "answers": [
+          "Discuss areas of your life that need restoration and the importance of participating in God's work.",
+          "Help identify specific steps to participate in God's rebuilding work.",
+          "Encourage taking practical steps to participate in God's rebuilding work.",
+          "Share strategies for pointing others to God's restoration.",
+          "Guide toward living in light of the greater restoration to come."
+        ]
+      }
+    }
+  },
+  {
+    "index": 12,
+    "title": "Flame",
+    "slug": "flame",
+    "icon": "flame",
+    "overview": "The coming of the Holy Spirit",
+    "themes": ["Power", "Presence", "Mission"],
+    "patterns": ["God's power", "Spirit's work", "Gospel spread"],
+    "promises": ["Holy Spirit", "Power", "Presence"],
+    "progressions": [
+      "From promise to fulfillment",
+      "From fear to boldness",
+      "From local to global"
+    ],
+    "key_application": "Rely on the Holy Spirit's power for mission",
+    "prayerPoints": [
+      "Thank God for the gift of the Holy Spirit",
+      "Pray for the Spirit's power in your life",
+      "Ask for boldness to share the gospel",
+      "Pray for the spread of the gospel worldwide"
+    ],
+    "questions": {
+      "Introduction": {
+        "questions": [
+          "How have you experienced the Holy Spirit's power in your life?",
+          "What does it mean to be part of God's new community?",
+          "How does the Spirit empower us for witness?"
+        ],
+        "answers": [
+          "Discuss the power and presence of the Holy Spirit in your life.",
+          "Explain the concept of being part of God's new community.",
+          "Explain how the Holy Spirit empowers us for witness and mission."
+        ]
+      },
+      "Acts 2": {
+        "questions": [
+          "What significance do you see in the coming of the Spirit?",
+          "How does Peter explain what is happening?",
+          "What does this passage teach us about the new covenant community?",
+          "How does the Spirit's coming fulfill Old Testament promises?",
+          "What does this passage show us about the early church?"
+        ],
+        "answers": [
+          "The coming of the Spirit signifies the fulfillment of Old Testament promises.",
+          "Peter explains that the Holy Spirit has been given to believers to empower them for witness and service.",
+          "This passage teaches about the new covenant community and the work of the Holy Spirit.",
+          "The Spirit's coming fulfills Old Testament promises by empowering believers for mission.",
+          "This passage shows the early church as a community empowered by the Holy Spirit."
+        ]
+      },
+      "Application": {
+        "questions": [
+          "How can you be more open to the Spirit's work in your life?",
+          "What specific ways can you contribute to building God's community?",
+          "How can you better rely on the Spirit's power for witness?",
+          "What steps can you take to live more fully in the new covenant?",
+          "How can you help others experience the power of the Spirit?"
+        ],
+        "answers": [
+          "Discuss strategies for being open to the Spirit's work in your life.",
+          "Help identify specific ways to contribute to building God's community.",
+          "Encourage relying on the Spirit's power for witness and mission.",
+          "Discuss practical steps to live more fully in the new covenant.",
+          "Share strategies for helping others experience the power of the Spirit."
+        ]
+      }
+    }
+  },
+  {
+    "index": 13,
+    "title": "Rest",
+    "slug": "rest",
+    "icon": "moon",
+    "overview": "Entering God's rest",
+    "themes": ["Rest", "Faith", "Promise"],
+    "patterns": ["God's rest", "Faith required", "Promise fulfilled"],
+    "promises": ["Rest", "Inheritance", "God's presence"],
+    "progressions": [
+      "From work to rest",
+      "From striving to trusting",
+      "From promise to fulfillment"
+    ],
+    "key_application": "Enter God's rest through faith in Christ",
+    "prayerPoints": [
+      "Thank God for the rest found in Christ",
+      "Pray for faith to trust God's promises",
+      "Ask for peace in times of unrest",
+      "Pray for those struggling to find rest"
+    ],
+    "questions": {
+      "Introduction": {
+        "questions": [
+          "What does it mean to enter God's rest?",
+          "How do you experience rest in your relationship with God?",
+          "What prevents us from entering God's rest?"
+        ],
+        "answers": [
+          "Discuss the concept of entering God's rest and its implications for daily life.",
+          "Explain how God's presence and promises can bring rest in your relationship with Him.",
+          "Discuss common obstacles to entering God's rest, such as unbelief and fear."
+        ]
+      },
+      "Hebrews 3-4": {
+        "questions": [
+          "How does this passage connect creation rest to eternal rest?",
+          "What warning does the writer give about unbelief?",
+          "How does this passage show the progression of God's rest?",
+          "What does it mean to strive to enter God's rest?",
+          "How does this passage point to Christ as our rest?"
+        ],
+        "answers": [
+          "This passage connects creation rest to eternal rest by emphasizing the finished work of Christ.",
+          "The writer warns about the danger of unbelief, which can hinder entering God's rest.",
+          "This passage shows the progression of God's rest through faith and obedience.",
+          "It means striving to enter God's rest through faith and obedience in the midst of trials.",
+          "This passage points to Christ as our rest and the need for faith to enter God's rest."
+        ]
+      },
+      "Application": {
+        "questions": [
+          "What keeps you from experiencing God's rest in your life?",
+          "How can you better practice Sabbath rest in your weekly rhythm?",
+          "What specific areas of unbelief do you need to address?",
+          "How can you help others find rest in Christ?",
+          "What steps can you take to live in the peace of God's rest?"
+        ],
+        "answers": [
+          "Discuss common obstacles to experiencing God's rest, such as fear and unbelief.",
+          "Help identify strategies for practicing Sabbath rest in your weekly rhythm.",
+          "Encourage addressing specific areas of unbelief that hinder entering God's rest.",
+          "Share strategies for helping others find rest in Christ.",
+          "Encourage taking practical steps to live in the peace of God's rest."
+        ]
+      }
+    }
+  },
+  {
+    "index": 14,
+    "title": "Invasion / Exile",
+    "slug": "invasion-exile",
+    "icon": "exit",
+    "overview": "Judgment and hope in exile",
+    "themes": ["Judgment", "Hope", "Faithfulness"],
+    "patterns": [
+      "Sin's consequences",
+      "God's faithfulness",
+      "Future restoration"
+    ],
+    "promises": ["Restoration", "Return", "New covenant"],
+    "progressions": [
+      "From sin to judgment",
+      "From judgment to hope",
+      "From exile to return"
+    ],
+    "key_application": "Trust in God's faithfulness despite judgment",
+    "prayerPoints": [
+      "Confess areas of unfaithfulness",
+      "Thank God for His faithfulness in judgment",
+      "Pray for restoration in broken areas",
+      "Ask for hope in difficult circumstances"
+    ],
+    "questions": {
+      "Introduction": {
+        "questions": [
+          "How do you see God's judgment and mercy at work in the world?",
+          "What does it mean to live in exile while waiting for restoration?",
+          "How do we maintain hope in difficult circumstances?"
+        ],
+        "answers": [
+          "Discuss the nature of God's judgment and mercy in the world.",
+          "Explain the concept of living in exile while waiting for restoration.",
+          "Encourage maintaining hope in difficult circumstances through faith in God's promises."
+        ]
+      },
+      "2 Kings 25:1-12": {
+        "questions": [
+          "What leads to the fall of Jerusalem?",
+          "How does this passage show the consequences of sin?",
+          "What significance do you see in the destruction of the temple?",
+          "How does this passage point to the need for a greater restoration?"
+        ],
+        "answers": [
+          "The fall of Jerusalem was due to the people's rebellion and idolatry.",
+          "This passage shows the consequences of sin and the need for repentance.",
+          "The destruction of the temple symbolizes the judgment of God on sin.",
+          "This passage points to the need for a greater restoration through repentance and faith."
+        ]
+      },
+      "Jeremiah 29:1-14": {
+        "questions": [
+          "How does God instruct the exiles to live?",
+          "What promises does God make for the future?",
+          "How does this passage show God's faithfulness in judgment?",
+          "What does it mean to seek the welfare of the city?"
+        ],
+        "answers": [
+          "God instructs the exiles to live in a way that honors Him and seeks His welfare.",
+          "God promises restoration and a future hope for the exiles.",
+          "This passage shows God's faithfulness in judgment and His desire for the welfare of His people.",
+          "It means seeking the welfare of the city and living in a way that honors God."
+        ]
+      },
+      "Application": {
+        "questions": [
+          "How can you maintain faith during times of discipline or judgment?",
+          "What does it mean to seek the welfare of your community while living as an exile?",
+          "How can you hold onto God's promises during difficult times?",
+          "What specific steps can you take to live faithfully in a foreign culture?",
+          "How can you help others find hope in God's promises of restoration?"
+        ],
+        "answers": [
+          "Encourage maintaining faith in God's promises during difficult times.",
+          "Help identify strategies for seeking the welfare of your community while living as an exile.",
+          "Encourage holding onto God's promises during difficult times through faith.",
+          "Share strategies for living faithfully in a foreign culture.",
+          "Encourage helping others find hope in God's promises of restoration."
+        ]
+      }
+    }
+  },
+  {
+    "index": 15,
+    "title": "New Covenant",
+    "slug": "new-covenant",
+    "icon": "heart-circle",
+    "overview": "God's promise of a new relationship",
+    "themes": ["Grace", "Transformation", "Relationship"],
+    "patterns": [
+      "God's initiative",
+      "Heart transformation",
+      "Eternal relationship"
+    ],
+    "promises": ["New heart", "God's presence", "Forgiveness"],
+    "progressions": [
+      "From external to internal",
+      "From law to grace",
+      "From old to new"
+    ],
+    "key_application": "Embrace the new covenant through faith in Christ",
+    "prayerPoints": [
+      "Thank God for the new covenant in Christ",
+      "Pray for a transformed heart",
+      "Ask for deeper relationship with God",
+      "Pray for those who need to know God's grace"
+    ],
+    "questions": {
+      "Introduction": {
+        "questions": [
+          "What does it mean to have a new heart?",
+          "How do you experience the Spirit's work in your life?",
+          "What difference does the new covenant make in your relationship with God?"
+        ],
+        "answers": [
+          "Discuss the concept of having a new heart and the work of the Holy Spirit.",
+          "Explain how the Holy Spirit works in your life to transform you.",
+          "Discuss the difference the new covenant makes in your relationship with God."
+        ]
+      },
+      "Jeremiah 31:31-34": {
+        "questions": [
+          "How is the new covenant different from the old?",
+          "What does it mean to have God's law written on our hearts?",
+          "How does this passage show God's initiative in salvation?",
+          "What does it mean that everyone will know the Lord?"
+        ],
+        "answers": [
+          "The new covenant is different from the old because it is written on our hearts.",
+          "It means that God's law is now written on our hearts and guides our behavior.",
+          "This passage shows God's initiative in salvation and the new relationship with Him.",
+          "It means that everyone will know the Lord through the new covenant."
+        ]
+      },
+      "Ezekiel 36:22-32": {
+        "questions": [
+          "Why does God act for His own name's sake?",
+          "How does the Spirit's work transform us?",
+          "What does this passage teach us about God's cleansing?",
+          "What does this passage point to the work of Christ?"
+        ],
+        "answers": [
+          "God acts for His own name's sake to demonstrate His holiness and righteousness.",
+          "The Spirit's work transforms us into the image of Christ and enables us to live in accordance with God's law.",
+          "This passage teaches about God's cleansing and the work of the Holy Spirit in transforming us.",
+          "This passage points to the work of Christ in transforming us and enabling us to live in accordance with God's law."
+        ]
+      },
+      "Application": {
+        "questions": [
+          "How can you live more fully in the reality of the new covenant?",
+          "What areas of your life need transformation by the Spirit?",
+          "How can you better respond to God's work in your heart?",
+          "What steps can you take to know God more intimately?",
+          "How can you help others understand and experience the new covenant?"
+        ],
+        "answers": [
+          "Suggest practical ways to live out the new covenant in daily life.",
+          "Help identify specific areas needing transformation.",
+          "Encourage active participation in the Spirit's work.",
+          "Discuss spiritual disciplines that foster intimacy with God.",
+          "Share strategies for helping others understand the new covenant."
+        ]
+      }
+    }
+  },
+  {
+    "index": 16,
+    "title": "Suffering Lamb",
+    "slug": "suffering-lamb",
+    "icon": "paw",
+    "overview": "The suffering servant who bears our sins",
+    "themes": ["Sacrifice", "Substitution", "Salvation"],
+    "patterns": [
+      "Innocent suffering",
+      "Substitutionary atonement",
+      "Victory through suffering"
+    ],
+    "promises": ["Forgiveness", "Healing", "Peace"],
+    "progressions": [
+      "From sin to sacrifice",
+      "From suffering to glory",
+      "From death to life"
+    ],
+    "key_application": "Trust in Christ's sacrifice for salvation",
+    "prayerPoints": [
+      "Thank God for Christ's sacrifice",
+      "Pray for those who need to know Christ's love",
+      "Ask for strength to follow Christ's example",
+      "Pray for those suffering for their faith"
+    ],
+    "questions": {
+      "Introduction": {
+        "questions": [
+          "How do you understand Christ's suffering for us?",
+          "What does it mean that Jesus bore our sins?",
+          "How does this passage give you hope?"
+        ],
+        "answers": [
+          "Guide discussion toward understanding Christ's suffering as substitutionary.",
+          "Explain how Jesus took our place and bore the punishment we deserved.",
+          "Discuss how Christ's suffering brings hope through forgiveness and reconciliation."
+        ]
+      },
+      "Isaiah 53": {
+        "questions": [
+          "How does this passage describe the suffering servant?",
+          "What do we learn about the purpose of Christ's suffering?",
+          "How does this passage show the substitutionary nature of atonement?",
+          "What does it mean that the servant was 'pierced for our transgressions'?",
+          "How does this passage point to Christ's resurrection?"
+        ],
+        "answers": [
+          "As one who was despised, rejected, and bore our suffering.",
+          "To bring healing, forgiveness, and reconciliation with God.",
+          "Through the concept of one suffering for the many.",
+          "It shows the depth of Christ's sacrifice for our sins.",
+          "Through the promise of seeing his offspring and prolonging his days."
+        ]
+      },
+      "Application": {
+        "questions": [
+          "How does Christ's suffering change how you view your own suffering?",
+          "What does it mean to you personally that Jesus bore your sins?",
+          "How can you live in light of Christ's substitutionary sacrifice?",
+          "What specific ways can you express gratitude for Christ's atonement?",
+          "How can you help others understand the meaning of the cross?"
+        ],
+        "answers": [
+          "Help see suffering in light of Christ's redemptive purpose.",
+          "Guide toward personal application of Christ's sacrifice.",
+          "Suggest practical ways to live out gratitude for salvation.",
+          "Discuss specific expressions of thankfulness and worship.",
+          "Share strategies for explaining the gospel to others."
+        ]
+      }
+    }
+  },
+  {
+    "index": 17,
+    "title": "Jesus",
+    "slug": "jesus",
+    "icon": "person",
+    "overview": "The fulfillment of God's promises in Christ",
+    "themes": ["Fulfillment", "Messiah", "Kingdom"],
+    "patterns": ["Promise and fulfillment", "God's timing", "Messianic mission"],
+    "promises": ["Salvation", "Kingdom", "Eternal life"],
+    "progressions": [
+      "From promise to fulfillment",
+      "From prophecy to reality",
+      "From expectation to realization"
+    ],
+    "key_application": "Recognize Jesus as the promised Messiah",
+    "prayerPoints": [
+      "Thank God for sending Jesus",
+      "Pray for those who need to know Jesus",
+      "Ask for deeper understanding of Christ's mission",
+      "Pray for the spread of Christ's kingdom"
+    ],
+    "questions": {
+      "Introduction": {
+        "questions": [
+          "What expectations did people have for the Messiah?",
+          "How do you see Jesus fulfilling God's promises?",
+          "What does it mean that Jesus came to proclaim good news?"
+        ],
+        "answers": [
+          "Discuss Jewish expectations of a political/military Messiah.",
+          "Explore how Jesus fulfills both immediate and ultimate promises.",
+          "Explain the comprehensive nature of Jesus' good news."
+        ]
+      },
+      "Luke 4:14-21": {
+        "questions": [
+          "How does Jesus identify himself in this passage?",
+          "What promises is Jesus claiming to fulfill?",
+          "How does this passage show Jesus' mission?",
+          "What does it mean that 'today this Scripture is fulfilled'?",
+          "How does this passage point to the kingdom of God?"
+        ],
+        "answers": [
+          "As the anointed one who brings good news.",
+          "The promises of Isaiah 61 about restoration and freedom.",
+          "To bring spiritual and physical restoration to the oppressed.",
+          "That the Messianic age has begun with Jesus' ministry.",
+          "Through the comprehensive restoration Jesus brings."
+        ]
+      },
+      "Application": {
+        "questions": [
+          "How does Jesus' mission shape your understanding of the gospel?",
+          "What areas of your life need Jesus' restoration?",
+          "How can you participate in Jesus' mission today?",
+          "What specific ways can you proclaim good news to others?",
+          "How can you help others see Jesus as the fulfillment of God's promises?"
+        ],
+        "answers": [
+          "Help see the gospel as comprehensive restoration.",
+          "Guide toward areas needing spiritual and practical healing.",
+          "Suggest practical ways to join in Jesus' mission.",
+          "Discuss specific opportunities for sharing good news.",
+          "Share strategies for explaining Jesus' fulfillment of prophecy."
+        ]
+      }
+    }
+  },
+  {
+    "index": 18,
+    "title": "Cross",
+    "slug": "cross",
+    "icon": "cross",
+    "overview": "Christ's sacrifice for our sins",
+    "themes": ["Sacrifice", "Love", "Victory"],
+    "patterns": ["Substitution", "Victory through death", "Love demonstrated"],
+    "promises": ["Forgiveness", "Reconciliation", "Victory"],
+    "progressions": [
+      "From sin to sacrifice",
+      "From death to life",
+      "From separation to reconciliation"
+    ],
+    "key_application": "Receive Christ's sacrifice for your sins",
+    "prayerPoints": [
+      "Thank God for Christ's sacrifice on the cross",
+      "Pray for those who need to know Christ's love",
+      "Ask for strength to take up your cross",
+      "Pray for those suffering for their faith"
+    ],
+    "questions": {
+      "Introduction": {
+        "questions": [
+          "What does the cross mean to you personally?",
+          "How do you understand Jesus' death on the cross?",
+          "What impact has the cross had on your life?"
+        ],
+        "answers": [
+          "Guide discussion toward personal significance of the cross.",
+          "Explain the theological and personal meaning of the cross.",
+          "Discuss the transformative power of the cross in believers' lives."
+        ]
+      },
+      "Mark 15:21-39": {
+        "questions": [
+          "What do we learn about Jesus' suffering from this passage?",
+          "How does this passage show the meaning of the cross?",
+          "What significance do you see in the centurion's confession?",
+          "How does this passage point to Jesus' identity?",
+          "What does the tearing of the temple curtain signify?"
+        ],
+        "answers": [
+          "The physical and spiritual agony of crucifixion.",
+          "As the means of reconciliation between God and humanity.",
+          "That even a Gentile recognized Jesus as the Son of God.",
+          "As the Son of God who gives His life for others.",
+          "The removal of barriers between God and humanity."
+        ]
+      },
+      "Application": {
+        "questions": [
+          "How does the cross shape your daily life?",
+          "What does it mean to take up your cross and follow Jesus?",
+          "How can you live in light of Christ's sacrifice?",
+          "What specific ways can you demonstrate the power of the cross?",
+          "How can you help others understand the meaning of the cross?"
+        ],
+        "answers": [
+          "Help apply the cross to daily decisions and relationships.",
+          "Explain the call to sacrificial living and service.",
+          "Suggest practical ways to live out gratitude for salvation.",
+          "Discuss specific expressions of cross-shaped living.",
+          "Share strategies for explaining the gospel to others."
+        ]
+      }
+    }
+  },
+  {
+    "index": 19,
+    "title": "Resurrection",
+    "slug": "resurrection",
+    "icon": "sunny",
+    "overview": "Christ's victory over death",
+    "themes": ["Victory", "Hope", "New life"],
+    "patterns": ["Death to life", "Promise fulfilled", "Victory demonstrated"],
+    "promises": ["Eternal life", "Victory over death", "Future resurrection"],
+    "progressions": [
+      "From death to life",
+      "From despair to hope",
+      "From old to new"
+    ],
+    "key_application": "Live in light of Christ's resurrection",
+    "prayerPoints": [
+      "Thank God for Christ's resurrection",
+      "Pray for those who need to know Christ's victory",
+      "Ask for hope in difficult circumstances",
+      "Pray for those facing death"
+    ],
+    "questions": {
+      "Introduction": {
+        "questions": [
+          "What does the resurrection mean to you?",
+          "How does the resurrection impact your daily life?",
+          "What difference does the resurrection make in your faith?"
+        ],
+        "answers": [
+          "Guide discussion toward the significance of resurrection.",
+          "Explain how resurrection power affects daily living.",
+          "Discuss the hope and assurance resurrection brings."
+        ]
+      },
+      "1 Corinthians 15": {
+        "questions": [
+          "What does Paul say about the importance of resurrection?",
+          "How does this passage connect Christ's resurrection to ours?",
+          "What does it mean that Christ is the 'firstfruits'?",
+          "How does this passage show the victory over death?",
+          "What practical implications does resurrection have?"
+        ],
+        "answers": [
+          "That without resurrection, our faith is in vain.",
+          "Christ's resurrection guarantees our future resurrection.",
+          "It shows that His resurrection is the beginning of a greater harvest.",
+          "Through the defeat of death and the promise of new life.",
+          "It gives hope, purpose, and motivation for faithful living."
+        ]
+      },
+      "Application": {
+        "questions": [
+          "How can you live in light of resurrection power?",
+          "What specific areas of your life need resurrection hope?",
+          "How can you share the hope of resurrection with others?",
+          "What steps can you take to grow in resurrection faith?",
+          "How can you help others understand the significance of resurrection?"
+        ],
+        "answers": [
+          "Suggest practical ways to live in resurrection power.",
+          "Help identify areas needing hope and transformation.",
+          "Discuss effective ways to share resurrection hope.",
+          "Encourage spiritual disciplines that strengthen faith.",
+          "Share strategies for explaining resurrection significance."
+        ]
+      }
+    }
+  },
+  {
+    "index": 20,
+    "title": "Now… not yet",
+    "slug": "now-not-yet",
+    "icon": "hourglass",
+    "overview": "Living in the tension of the already and not yet",
+    "themes": ["Hope", "Patience", "Faithfulness"],
+    "patterns": ["Present reality", "Future hope", "Faithful waiting"],
+    "promises": ["God's presence", "Future fulfillment", "Eternal inheritance"],
+    "progressions": [
+      "From promise to partial fulfillment",
+      "From present to future",
+      "From waiting to receiving"
+    ],
+    "key_application": "Live faithfully while waiting for Christ's return",
+    "prayerPoints": [
+      "Thank God for present blessings",
+      "Pray for patience in waiting",
+      "Ask for faithfulness in the present",
+      "Pray for those struggling with waiting"
+    ],
+    "questions": {
+      "Introduction": {
+        "questions": [
+          "How do you experience the 'already but not yet' tension?",
+          "What does it mean to live by the Spirit?",
+          "How do you maintain hope in the midst of suffering?"
+        ],
+        "answers": [
+          "Guide discussion about the tension between present reality and future hope.",
+          "Explain the role of the Spirit in the Christian life.",
+          "Discuss practical ways to maintain hope in difficult times."
+        ]
+      },
+      "Romans 8:1-39": {
+        "questions": [
+          "What does it mean that there is no condemnation?",
+          "How does the Spirit help us in our weakness?",
+          "What does it mean that all things work together for good?",
+          "How does this passage show our security in Christ?",
+          "What does it mean that nothing can separate us from God's love?"
+        ],
+        "answers": [
+          "Explain the freedom from condemnation through Christ.",
+          "Discuss the Spirit's role in prayer and intercession.",
+          "Explain how God works all things for our good.",
+          "Highlight the security we have in Christ.",
+          "Emphasize the unbreakable nature of God's love."
+        ]
+      },
+      "Application": {
+        "questions": [
+          "How can you better live in the tension of 'already but not yet'?",
+          "What areas of your life need to be more fully surrendered to the Spirit?",
+          "How can you maintain eternal perspective in daily struggles?",
+          "What specific ways can you rest in God's love and security?",
+          "How can you help others find assurance in Christ's work?"
+        ],
+        "answers": [
+          "Suggest practical ways to live with hope.",
+          "Help identify areas needing Spirit-led change.",
+          "Discuss maintaining eternal perspective.",
+          "Encourage resting in God's love.",
+          "Share strategies for helping others find assurance."
+        ]
+      }
+    }
+  },
+  {
+    "index": 21,
+    "title": "No more sacrifice",
+    "slug": "no-more-sacrifice",
+    "icon": "checkmark-done",
+    "overview": "Christ's once-for-all sacrifice",
+    "themes": ["Completion", "Access", "Confidence"],
+    "patterns": ["Final sacrifice", "Direct access", "Complete salvation"],
+    "promises": ["Forgiveness", "Access to God", "Eternal salvation"],
+    "progressions": [
+      "From many to one",
+      "From temporary to permanent",
+      "From partial to complete"
+    ],
+    "key_application": "Approach God with confidence through Christ",
+    "prayerPoints": [
+      "Thank God for Christ's complete sacrifice",
+      "Pray for confidence in approaching God",
+      "Ask for deeper appreciation of Christ's work",
+      "Pray for those who need to know God's forgiveness"
+    ],
+    "questions": {
+      "Introduction": {
+        "questions": [
+          "What does it mean that Christ's sacrifice was final?",
+          "How does this affect our relationship with God?",
+          "What difference does it make in your daily life?"
+        ],
+        "answers": [
+          "Guide discussion toward understanding Christ's final sacrifice.",
+          "Explain how we now have direct access to God.",
+          "Discuss the practical implications of Christ's work."
+        ]
+      },
+      "Hebrews 10:1-18": {
+        "questions": [
+          "What was the limitation of the old system?",
+          "How does this passage show Christ's superiority?",
+          "What does it mean that Christ's sacrifice was once for all?",
+          "How does this passage demonstrate the finality of Christ's work?",
+          "What does this teach us about approaching God?"
+        ],
+        "answers": [
+          "That it could never make perfect those who drew near.",
+          "Through the contrast with the old system.",
+          "That it was complete and never needs to be repeated.",
+          "Through the declaration that sins are forgiven.",
+          "That we can approach with confidence through Christ."
+        ]
+      },
+      "Application": {
+        "questions": [
+          "How can you better appreciate Christ's sacrifice?",
+          "What specific areas need to be surrendered to Christ?",
+          "How can you live in the freedom Christ has won?",
+          "What steps can you take to grow in gratitude?",
+          "How can you help others understand Christ's work?"
+        ],
+        "answers": [
+          "Suggest practical ways to remember Christ's sacrifice.",
+          "Help identify areas needing surrender to Christ.",
+          "Discuss living in the freedom of Christ's work.",
+          "Encourage growth in gratitude and worship.",
+          "Share strategies for explaining Christ's sacrifice."
+        ]
+      }
+    }
+  },
+  {
+    "index": 22,
+    "title": "Heaven",
+    "slug": "heaven",
+    "icon": "cloud",
+    "overview": "Our eternal home with God",
+    "themes": ["Eternity", "Glory", "Hope"],
+    "patterns": ["God's presence", "Perfect restoration", "Eternal worship"],
+    "promises": ["Eternal life", "New creation", "God's presence"],
+    "progressions": [
+      "From earth to heaven",
+      "From temporary to eternal",
+      "From partial to complete"
+    ],
+    "key_application": "Live with an eternal perspective",
+    "prayerPoints": [
+      "Thank God for the hope of heaven",
+      "Pray for an eternal perspective",
+      "Ask for strength to live for eternity",
+      "Pray for those who need to know eternal hope"
+    ],
+    "questions": {
+      "Introduction": {
+        "questions": [
+          "What are you most looking forward to in the new creation?",
+          "How does the hope of heaven impact your daily life?",
+          "What does it mean that God will dwell with His people?"
+        ],
+        "answers": [
+          "Guide discussion about the hope of the new creation.",
+          "Explain how eternal perspective impacts daily life.",
+          "Discuss the significance of God dwelling with His people."
+        ]
+      },
+      "Revelation 21:1-22:5": {
+        "questions": [
+          "How does this passage describe the new creation?",
+          "What significance do you see in the new Jerusalem?",
+          "How does this passage show the fulfillment of all God's promises?",
+          "What does it mean that there will be no more death or pain?",
+          "How does this passage point to our eternal hope?"
+        ],
+        "answers": [
+          "Explain the characteristics of the new creation.",
+          "Discuss the symbolism of the new Jerusalem.",
+          "Highlight how God's promises are fulfilled.",
+          "Emphasize the end of suffering and death.",
+          "Point to the eternal hope we have in Christ."
+        ]
+      },
+      "Application": {
+        "questions": [
+          "How can you live now in light of the new creation to come?",
+          "What specific ways can you demonstrate heavenly values today?",
+          "How can you cultivate deeper longing for God's presence?",
+          "What steps can you take to build eternal community now?",
+          "How can you help others see the hope of the new creation?"
+        ],
+        "answers": [
+          "Suggest practical ways to live with eternal perspective.",
+          "Help identify areas needing hope and transformation.",
+          "Discuss strategies for maintaining hope in trials.",
+          "Encourage growth in godliness and eternal values.",
+          "Share strategies for explaining the hope of new creation."
+        ]
+      }
+    }
+  },
+  {
+    "index": 23,
+    "title": "Commission",
+    "slug": "commission",
+    "icon": "globe",
+    "overview": "Christ's command to make disciples of all nations",
+    "themes": ["Mission", "Authority", "Presence"],
+    "patterns": ["Christ's authority", "Global mission", "Divine presence"],
+    "promises": ["Authority", "Presence", "Success"],
+    "progressions": [
+      "From local to global",
+      "From fear to boldness",
+      "From command to fulfillment"
+    ],
+    "key_application": "Participate in Christ's mission to the world",
+    "prayerPoints": [
+      "Thank God for including us in His mission",
+      "Pray for boldness to share the gospel",
+      "Ask for wisdom in making disciples",
+      "Pray for the spread of the gospel worldwide"
+    ],
+    "questions": {
+      "Introduction": {
+        "questions": [
+          "What does it mean to be on mission with God?",
+          "How do you see yourself as part of God's mission?",
+          "What role does the church play in God's mission?"
+        ],
+        "answers": [
+          "Guide discussion toward understanding God's mission.",
+          "Explain the concept of being sent by God.",
+          "Discuss the church's role in fulfilling God's mission."
+        ]
+      },
+      "Matthew 28:18-20": {
+        "questions": [
+          "What authority does Jesus claim in this passage?",
+          "How does this passage define the church's mission?",
+          "What does it mean to make disciples?",
+          "How does this passage show God's presence in mission?",
+          "What does it mean to teach others to obey?"
+        ],
+        "answers": [
+          "All authority in heaven and on earth.",
+          "To make disciples of all nations.",
+          "To help others follow Jesus in all of life.",
+          "Through the promise of His presence with us.",
+          "To help others live out Jesus' teachings."
+        ]
+      },
+      "Application": {
+        "questions": [
+          "How can you participate in God's mission?",
+          "What specific opportunities do you have to make disciples?",
+          "How can you grow in your ability to teach others?",
+          "What steps can you take to be more mission-minded?",
+          "How can you help others understand their role in mission?"
+        ],
+        "answers": [
+          "Suggest practical ways to engage in mission.",
+          "Help identify specific opportunities for disciple-making.",
+          "Discuss ways to grow in teaching and mentoring skills.",
+          "Encourage intentional steps toward mission involvement.",
+          "Share strategies for mobilizing others for mission."
+        ]
+      }
+    }
+  },
+  {
+    "index": 24,
+    "title": "Kingdom",
+    "slug": "kingdom",
+    "icon": "crown",
+    "overview": "The growth and value of God's kingdom",
+    "themes": ["Growth", "Value", "Transformation"],
+    "patterns": ["Small beginnings", "Gradual growth", "Complete transformation"],
+    "promises": ["Kingdom growth", "Future glory", "God's presence"],
+    "progressions": [
+      "From small to great",
+      "From hidden to visible",
+      "From present to future"
+    ],
+    "key_application": "Invest in the growth of God's kingdom",
+    "prayerPoints": [
+      "Thank God for His growing kingdom",
+      "Pray for opportunities to invest in the kingdom",
+      "Ask for patience in kingdom growth",
+      "Pray for those who need to know the kingdom"
+    ],
+    "questions": {
+      "Introduction": {
+        "questions": [
+          "What does it mean for God to be King?",
+          "How do you see God's kingdom at work in the world?",
+          "What difference does God's kingship make in your life?"
+        ],
+        "answers": [
+          "Guide discussion toward understanding God's rule.",
+          "Explain how God's kingdom is present in the world.",
+          "Discuss the practical implications of God's kingship."
+        ]
+      },
+      "Matthew 13:31-33, 44-46": {
+        "questions": [
+          "How does this passage describe the kingdom of God?",
+          "What do we learn about the kingdom's growth?",
+          "What does it mean that the kingdom is like a treasure?",
+          "How does this passage show the kingdom's value?",
+          "What does this teach us about seeking the kingdom?"
+        ],
+        "answers": [
+          "As something small that grows and transforms.",
+          "That it starts small but has great impact.",
+          "That it's worth giving up everything to obtain.",
+          "Through the parables of the treasure and pearl.",
+          "That we should prioritize the kingdom above all else."
+        ]
+      },
+      "Application": {
+        "questions": [
+          "How can you better seek God's kingdom?",
+          "What specific areas need kingdom priorities?",
+          "How can you participate in kingdom growth?",
+          "What steps can you take to value the kingdom more?",
+          "How can you help others understand God's kingdom?"
+        ],
+        "answers": [
+          "Suggest practical ways to prioritize God's kingdom.",
+          "Help identify areas needing kingdom perspective.",
+          "Discuss ways to contribute to kingdom growth.",
+          "Encourage growth in kingdom values and priorities.",
+          "Share strategies for explaining God's kingdom."
+        ]
+      }
+    }
+  }
+]

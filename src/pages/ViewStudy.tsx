@@ -170,7 +170,7 @@ function ViewStudy() {
                         )}
                         {questionSectionTitle == "Introduction" || questionSectionTitle == "Application" ? <h4>{questionSectionTitle}</h4> :<></>}
                       <ul>
-                        {questionSection.questions.map((question, index) => (
+                        {questionSection.map((question_and_answer, index) => (
                           <li
                             key={index}
                             className={classNames(
@@ -183,13 +183,13 @@ function ViewStudy() {
                               toggleQuestion(questionSectionTitle, index)
                             }
                           >
-                            {question}
+                            {question_and_answer.question}
                             {showLeadersNotes &&
-                              questionSection.answers &&
-                              questionSection.answers[index] && (
+                              question_and_answer.answer !== undefined &&
+                              (
                                 <div className="ion-padding-start">
                                   <IonText color="medium">
-                                    {questionSection.answers[index]}
+                                    {question_and_answer.answer}
                                   </IonText>
                                 </div>
                               )}
