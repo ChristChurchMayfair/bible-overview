@@ -23,10 +23,10 @@ export const getStudy = (slug: string) => {
  * @returns Array of passage references
  */
 export const getPassagesFromStudy = (study: Study): string[] => {
-  return Object.keys(study.questions).filter(
-    (sectionTitle) =>
-      sectionTitle !== "Introduction" && sectionTitle !== "Application"
-  );
+  return study.questions.filter(
+    (section) =>
+      section.section !== "Introduction" && section.section !== "Application"
+  ).map((section) =>  section.section)
 };
 
 /**

@@ -25,88 +25,100 @@
     "From wandering to victory"
   ],
   "key_application": "Trust in God's power and follow His instructions",
-  "prayerPoints": [
+  "prayer_points": [
     "Thank God for victories He has given you",
     "Pray for faith to trust God's unconventional methods",
     "Ask for courage to obey God's instructions",
     "Pray for victory in current spiritual battles"
   ],
-  "questions": {
-    "Introduction": [
-      {
-        "question": "How do you see God fighting battles for His people today?",
-        "answer": "Guide discussion toward both spiritual battles and God's intervention in practical situations."
-      },
-      {
-        "question": "What does it mean to trust in God's unconventional strategies?",
-        "answer": "God often works in ways that seem foolish to the world but demonstrate His power."
-      },
-      {
-        "question": "How does faith lead to victory in your life?",
-        "answer": "Faith enables us to see beyond circumstances and trust in God's victory."
-      }
-    ],
-    "Joshua 2": [
-      {
-        "question": "What role does Rahab play in God's plan?",
-        "answer": "Rahab's faith in God's promises and her actions demonstrate her trust in God."
-      },
-      {
-        "question": "How does Rahab demonstrate faith in the God of Israel?",
-        "answer": "Rahab's faith in God's promises and her actions demonstrate her trust in God."
-      },
-      {
-        "question": "What significance do you see in the scarlet cord?",
-        "answer": "The scarlet cord symbolizes God's protection and the Israelites' victory."
-      },
-      {
-        "question": "How does this chapter show God's grace to outsiders?",
-        "answer": "Rahab's faith in God's promises and her actions demonstrate her trust in God."
-      }
-    ],
-    "Joshua 5:13-6:23": [
-      {
-        "question": "What does the appearance of the commander of the Lord's army signify?",
-        "answer": "The appearance of the commander of the Lord's army signifies God's presence and victory."
-      },
-      {
-        "question": "Why do you think God chose such an unconventional battle strategy?",
-        "answer": "God chose an unconventional battle strategy to demonstrate His power and to show that He is with His people."
-      },
-      {
-        "question": "How does the fall of Jericho demonstrate God's power?",
-        "answer": "The fall of Jericho demonstrates God's power and victory over the enemy."
-      },
-      {
-        "question": "What lessons can we learn from the destruction of Jericho?",
-        "answer": "The destruction of Jericho teaches us that God is faithful to His promises and that we can trust Him."
-      },
-      {
-        "question": "How does this victory fulfill God's promises to His people?",
-        "answer": "This victory fulfills God's promises to His people by demonstrating His power and faithfulness."
-      }
-    ],
-    "Application": [
-      {
-        "question": "What 'battles' in your life need to be surrendered to God?",
-        "answer": "Guide toward identifying specific battles or challenges in your life that need to be surrendered to God."
-      },
-      {
-        "question": "How can you better trust in God's unconventional ways?",
-        "answer": "Suggest practices like prayer, Scripture meditation, and seeking godly counsel to trust God's unconventional ways."
-      },
-      {
-        "question": "What specific steps can you take to demonstrate faith in God's power?",
-        "answer": "Encourage taking practical steps to demonstrate faith in God's power, such as obedience, prayer, and serving others."
-      },
-      {
-        "question": "How can you help others see God's victory in their lives?",
-        "answer": "Discuss ways to share testimonies and point others to God's track record of victory."
-      },
-      {
-        "question": "What areas of your life need to be dedicated to God's purposes?",
-        "answer": "Guide toward areas of your life where you need to surrender control and trust God's purposes."
-      }
-    ]
-  }
+  "questions": [
+    {
+      "section": "Introduction",
+      "questions": [
+        {
+          "question": "How do you see God fighting battles for His people today?",
+          "answer": "Guide discussion toward both spiritual battles and God's intervention in practical situations."
+        },
+        {
+          "question": "What does it mean to trust in God's unconventional strategies?",
+          "answer": "God often works in ways that seem foolish to the world but demonstrate His power."
+        },
+        {
+          "question": "How does faith lead to victory in your life?",
+          "answer": "Faith enables us to see beyond circumstances and trust in God's victory."
+        }
+      ]
+    },
+    {
+      "section": "Joshua 2",
+      "questions": [
+        {
+          "question": "What role does Rahab play in God's plan?",
+          "answer": "Rahab's faith in God's promises and her actions demonstrate her trust in God."
+        },
+        {
+          "question": "How does Rahab demonstrate faith in the God of Israel?",
+          "answer": "Rahab's faith in God's promises and her actions demonstrate her trust in God."
+        },
+        {
+          "question": "What significance do you see in the scarlet cord?",
+          "answer": "The scarlet cord symbolizes God's protection and the Israelites' victory."
+        },
+        {
+          "question": "How does this chapter show God's grace to outsiders?",
+          "answer": "Rahab's faith in God's promises and her actions demonstrate her trust in God."
+        }
+      ]
+    },
+    {
+      "section": "Joshua 5:13-6:23",
+      "questions": [
+        {
+          "question": "What does the appearance of the commander of the Lord's army signify?",
+          "answer": "The appearance of the commander of the Lord's army signifies God's presence and victory."
+        },
+        {
+          "question": "Why do you think God chose such an unconventional battle strategy?",
+          "answer": "God chose an unconventional battle strategy to demonstrate His power and to show that He is with His people."
+        },
+        {
+          "question": "How does the fall of Jericho demonstrate God's power?",
+          "answer": "The fall of Jericho demonstrates God's power and victory over the enemy."
+        },
+        {
+          "question": "What lessons can we learn from the destruction of Jericho?",
+          "answer": "The destruction of Jericho teaches us that God is faithful to His promises and that we can trust Him."
+        },
+        {
+          "question": "How does this victory fulfill God's promises to His people?",
+          "answer": "This victory fulfills God's promises to His people by demonstrating His power and faithfulness."
+        }
+      ]
+    },
+    {
+      "section": "Application",
+      "questions": [
+        {
+          "question": "What 'battles' in your life need to be surrendered to God?",
+          "answer": "Guide toward identifying specific battles or challenges in your life that need to be surrendered to God."
+        },
+        {
+          "question": "How can you better trust in God's unconventional ways?",
+          "answer": "Suggest practices like prayer, Scripture meditation, and seeking godly counsel to trust God's unconventional ways."
+        },
+        {
+          "question": "What specific steps can you take to demonstrate faith in God's power?",
+          "answer": "Encourage taking practical steps to demonstrate faith in God's power, such as obedience, prayer, and serving others."
+        },
+        {
+          "question": "How can you help others see God's victory in their lives?",
+          "answer": "Discuss ways to share testimonies and point others to God's track record of victory."
+        },
+        {
+          "question": "What areas of your life need to be dedicated to God's purposes?",
+          "answer": "Guide toward areas of your life where you need to surrender control and trust God's purposes."
+        }
+      ]
+    }
+  ]
 }

@@ -7,23 +7,22 @@ import {
   IonHeader,
   IonIcon,
   IonPage,
-  IonRow,
   IonSpinner,
   IonText,
   IonTitle,
   IonToolbar,
   useIonViewWillEnter,
 } from "@ionic/react";
+import { volumeMedium } from "ionicons/icons";
 import { useState } from "react";
 import { useParams } from "react-router";
 import { useLocalStorage } from "usehooks-ts";
 import {
   CompletedStudiesStorageKey,
-  ShowLeadersNotesStorageKey,
+  Showleaders_notesStorageKey,
 } from "../components/localStorageKeys";
 import { getPassagesFromStudy, getStudy } from "../data/studies";
 import "./BiblePassage.css";
-import { volumeMedium } from "ionicons/icons";
 
 function BiblePassage() {
   const [passage, setPassage] = useState<string>();
@@ -32,8 +31,8 @@ function BiblePassage() {
     useLocalStorage<number[]>(CompletedStudiesStorageKey, []);
   const params = useParams<{ slug: string; index: string }>();
 
-  const [showLeadersNotes, setShowLeadersNotes] = useLocalStorage<boolean>(
-    ShowLeadersNotesStorageKey,
+  const [showleaders_notes, setShowleaders_notes] = useLocalStorage<boolean>(
+    Showleaders_notesStorageKey,
     false
   );
 
@@ -79,7 +78,11 @@ function BiblePassage() {
           </IonButtons>
           <IonTitle>{passageReference}</IonTitle>
           <IonButtons slot="end">
-            <IonButton mode="ios" href={`/study/${params.slug}/audio/1`} routerDirection="back">
+            <IonButton
+              mode="ios"
+              href={`/study/${params.slug}/audio/1`}
+              routerDirection="back"
+            >
               <IonIcon icon={volumeMedium} />
             </IonButton>
           </IonButtons>

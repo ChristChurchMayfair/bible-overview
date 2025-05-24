@@ -15,7 +15,7 @@ import { useParams } from "react-router";
 import { useLocalStorage } from "usehooks-ts";
 import {
   CompletedStudiesStorageKey,
-  ShowLeadersNotesStorageKey,
+  Showleaders_notesStorageKey,
 } from "../components/localStorageKeys";
 import { getStudy } from "../data/studies";
 import { Study, TimelineEntry } from "../data/types";
@@ -27,8 +27,8 @@ function ViewTimeline() {
     useLocalStorage<number[]>(CompletedStudiesStorageKey, []);
   const params = useParams<{ id: string }>();
 
-  const [showLeadersNotes, setShowLeadersNotes] = useLocalStorage<boolean>(
-    ShowLeadersNotesStorageKey,
+  const [showleaders_notes, setShowleaders_notes] = useLocalStorage<boolean>(
+    Showleaders_notesStorageKey,
     false
   );
 

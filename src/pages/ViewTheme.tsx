@@ -17,7 +17,7 @@ import { useParams } from "react-router";
 import { useLocalStorage } from "usehooks-ts";
 import {
   CompletedStudiesStorageKey,
-  ShowLeadersNotesStorageKey,
+  Showleaders_notesStorageKey,
 } from "../components/localStorageKeys";
 import { getPassagesFromStudy, getStudies, getTheme } from "../data/studies";
 import { Study } from "../data/types";
@@ -30,8 +30,8 @@ function ViewTheme() {
     useLocalStorage<number[]>(CompletedStudiesStorageKey, []);
   const params = useParams<{ name: string }>();
 
-  const [showLeadersNotes, setShowLeadersNotes] = useLocalStorage<boolean>(
-    ShowLeadersNotesStorageKey,
+  const [showleaders_notes, setShowleaders_notes] = useLocalStorage<boolean>(
+    Showleaders_notesStorageKey,
     false
   );
 
@@ -46,7 +46,7 @@ function ViewTheme() {
   });
 
   // Get the first passage from any question block
-  const getFirstPassage = (study: Study) => getPassagesFromStudy(study)
+  const getFirstPassage = (study: Study) => getPassagesFromStudy(study);
 
   return (
     <IonPage id="view-study-page">

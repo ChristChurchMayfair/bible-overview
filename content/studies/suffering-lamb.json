@@ -25,70 +25,79 @@
     "From death to life"
   ],
   "key_application": "Trust in Christ's sacrifice for salvation",
-  "prayerPoints": [
+  "prayer_points": [
     "Thank God for Christ's sacrifice",
     "Pray for those who need to know Christ's love",
     "Ask for strength to follow Christ's example",
     "Pray for those suffering for their faith"
   ],
-  "questions": {
-    "Introduction": [
-      {
-        "question": "How do you understand Christ's suffering for us?",
-        "answer": "Guide discussion toward understanding Christ's suffering as substitutionary."
-      },
-      {
-        "question": "What does it mean that Jesus bore our sins?",
-        "answer": "Explain how Jesus took our place and bore the punishment we deserved."
-      },
-      {
-        "question": "How does this passage give you hope?",
-        "answer": "Discuss how Christ's suffering brings hope through forgiveness and reconciliation."
-      }
-    ],
-    "Isaiah 53": [
-      {
-        "question": "How does this passage describe the suffering servant?",
-        "answer": "As one who was despised, rejected, and bore our suffering."
-      },
-      {
-        "question": "What do we learn about the purpose of Christ's suffering?",
-        "answer": "To bring healing, forgiveness, and reconciliation with God."
-      },
-      {
-        "question": "How does this passage show the substitutionary nature of atonement?",
-        "answer": "Through the concept of one suffering for the many."
-      },
-      {
-        "question": "What does it mean that the servant was 'pierced for our transgressions'?",
-        "answer": "It shows the depth of Christ's sacrifice for our sins."
-      },
-      {
-        "question": "How does this passage point to Christ's resurrection?",
-        "answer": "Through the promise of seeing his offspring and prolonging his days."
-      }
-    ],
-    "Application": [
-      {
-        "question": "How does Christ's suffering change how you view your own suffering?",
-        "answer": "Help see suffering in light of Christ's redemptive purpose."
-      },
-      {
-        "question": "What does it mean to you personally that Jesus bore your sins?",
-        "answer": "Guide toward personal application of Christ's sacrifice."
-      },
-      {
-        "question": "How can you live in light of Christ's substitutionary sacrifice?",
-        "answer": "Suggest practical ways to live out gratitude for salvation."
-      },
-      {
-        "question": "What specific ways can you express gratitude for Christ's atonement?",
-        "answer": "Discuss specific expressions of thankfulness and worship."
-      },
-      {
-        "question": "How can you help others understand the meaning of the cross?",
-        "answer": "Share strategies for explaining the gospel to others."
-      }
-    ]
-  }
+  "questions": [
+    {
+      "section": "Introduction",
+      "questions": [
+        {
+          "question": "How do you understand Christ's suffering for us?",
+          "answer": "Guide discussion toward understanding Christ's suffering as substitutionary."
+        },
+        {
+          "question": "What does it mean that Jesus bore our sins?",
+          "answer": "Explain how Jesus took our place and bore the punishment we deserved."
+        },
+        {
+          "question": "How does this passage give you hope?",
+          "answer": "Discuss how Christ's suffering brings hope through forgiveness and reconciliation."
+        }
+      ]
+    },
+    {
+      "section": "Isaiah 53",
+      "questions": [
+        {
+          "question": "How does this passage describe the suffering servant?",
+          "answer": "As one who was despised, rejected, and bore our suffering."
+        },
+        {
+          "question": "What do we learn about the purpose of Christ's suffering?",
+          "answer": "To bring healing, forgiveness, and reconciliation with God."
+        },
+        {
+          "question": "How does this passage show the substitutionary nature of atonement?",
+          "answer": "Through the concept of one suffering for the many."
+        },
+        {
+          "question": "What does it mean that the servant was 'pierced for our transgressions'?",
+          "answer": "It shows the depth of Christ's sacrifice for our sins."
+        },
+        {
+          "question": "How does this passage point to Christ's resurrection?",
+          "answer": "Through the promise of seeing his offspring and prolonging his days."
+        }
+      ]
+    },
+    {
+      "section": "Application",
+      "questions": [
+        {
+          "question": "How does Christ's suffering change how you view your own suffering?",
+          "answer": "Help see suffering in light of Christ's redemptive purpose."
+        },
+        {
+          "question": "What does it mean to you personally that Jesus bore your sins?",
+          "answer": "Guide toward personal application of Christ's sacrifice."
+        },
+        {
+          "question": "How can you live in light of Christ's substitutionary sacrifice?",
+          "answer": "Suggest practical ways to live out gratitude for salvation."
+        },
+        {
+          "question": "What specific ways can you express gratitude for Christ's atonement?",
+          "answer": "Discuss specific expressions of thankfulness and worship."
+        },
+        {
+          "question": "How can you help others understand the meaning of the cross?",
+          "answer": "Share strategies for explaining the gospel to others."
+        }
+      ]
+    }
+  ]
 }

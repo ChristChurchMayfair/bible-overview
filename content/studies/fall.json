@@ -26,58 +26,67 @@
     "From curse to promise"
   ],
   "keyApplication": "Recognize the reality of sin and our need for God's redemption",
-  "prayerPoints": [
+  "prayer_points": [
     "Confess areas where you've given in to temptation",
     "Thank God for His promise of redemption",
     "Pray for strength to resist temptation",
     "Ask for wisdom to recognize sin's consequences"
   ],
-  "questions": {
-    "Introduction": [
-      {
-        "question": "What comes to mind when you think about sin?",
-        "answer": ""
-      },
-      {
-        "question": "How do you see the effects of the fall in the world?",
-        "answer": ""
-      },
-      {
-        "question": "What questions do you have about sin and its consequences?",
-        "answer": ""
-      }
-    ],
-    "Genesis 3:1-24": [
-      {
-        "question": "What tactics does the serpent use to tempt Eve?",
-        "answer": ""
-      },
-      {
-        "question": "How do Adam and Eve respond to their sin?",
-        "answer": ""
-      },
-      {
-        "question": "What are the consequences of their disobedience?",
-        "answer": ""
-      },
-      {
-        "question": "What promise of hope do we see in this passage?",
-        "answer": ""
-      }
-    ],
-    "Application": [
-      {
-        "question": "What temptations do you face regularly?",
-        "answer": ""
-      },
-      {
-        "question": "How can you better recognize and resist temptation?",
-        "answer": ""
-      },
-      {
-        "question": "What areas of your life need God's redemption?",
-        "answer": ""
-      }
-    ]
-  }
+  "questions": [
+    {
+      "section": "Introduction",
+      "questions": [
+        {
+          "question": "What comes to mind when you think about sin?",
+          "answer": ""
+        },
+        {
+          "question": "How do you see the effects of the fall in the world?",
+          "answer": ""
+        },
+        {
+          "question": "What questions do you have about sin and its consequences?",
+          "answer": ""
+        }
+      ]
+    },
+    {
+      "section": "Genesis 3:1-24",
+      "questions": [
+        {
+          "question": "What tactics does the serpent use to tempt Eve?",
+          "answer": ""
+        },
+        {
+          "question": "How do Adam and Eve respond to their sin?",
+          "answer": ""
+        },
+        {
+          "question": "What are the consequences of their disobedience?",
+          "answer": ""
+        },
+        {
+          "question": "What promise of hope do we see in this passage?",
+          "answer": ""
+        }
+      ]
+    },
+    {
+      "section": "Application",
+      "questions": [
+        {
+          "question": "What temptations do you face regularly?",
+          "answer": ""
+        },
+        {
+          "question": "How can you better recognize and resist temptation?",
+          "answer": ""
+        },
+        {
+          "question": "What areas of your life need God's redemption?",
+          "answer": ""
+        }
+      ]
+    }
+  ]
 }

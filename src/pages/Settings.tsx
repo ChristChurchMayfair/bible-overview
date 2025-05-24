@@ -3,7 +3,6 @@ import {
   IonButtons,
   IonContent,
   IonHeader,
-  IonIcon,
   IonItem,
   IonLabel,
   IonList,
@@ -17,16 +16,14 @@ import {
   useIonViewWillEnter,
 } from "@ionic/react";
 import { useState } from "react";
-import StudyListItem from "../components/StudyListItem";
-import { getStudies } from "../data/studies";
-import { helpOutline } from "ionicons/icons";
 import { useLocalStorage } from "usehooks-ts";
 import { Menu } from "../components/Menu";
 import {
   CompletedStudiesStorageKey,
   ShowIntroBlurbStorageKey,
-  ShowLeadersNotesStorageKey,
+  Showleaders_notesStorageKey,
 } from "../components/localStorageKeys";
+import { getStudies } from "../data/studies";
 import { Study } from "../data/types";
 
 const Settings: React.FC = () => {
@@ -35,8 +32,8 @@ const Settings: React.FC = () => {
   const [completedStudies, setCompletedStudies, removeCompletedStudies] =
     useLocalStorage<number[]>(CompletedStudiesStorageKey, []);
 
-  const [showLeadersNotes, setShowLeadersNotes] = useLocalStorage<boolean>(
-    ShowLeadersNotesStorageKey,
+  const [showleaders_notes, setShowleaders_notes] = useLocalStorage<boolean>(
+    Showleaders_notesStorageKey,
     false
   );
   const [showIntroBlurb, setShowIntroBlurb] = useLocalStorage<boolean>(
@@ -89,8 +86,8 @@ const Settings: React.FC = () => {
               <IonToggle
                 slot="end"
                 mode="ios"
-                checked={showLeadersNotes}
-                onIonChange={(e) => setShowLeadersNotes(e.detail.checked)}
+                checked={showleaders_notes}
+                onIonChange={(e) => setShowleaders_notes(e.detail.checked)}
               ></IonToggle>
             </IonItem>
             <IonItem>
@@ -116,7 +113,9 @@ const Settings: React.FC = () => {
                 onClick={() => {
                   removeCompletedStudies();
                 }}
-              >Reset</IonButton>
+              >
+                Reset
+              </IonButton>
             </IonItem>
           </IonList>
         </IonContent>

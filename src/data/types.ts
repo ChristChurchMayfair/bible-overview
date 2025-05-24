@@ -25,7 +25,13 @@ export type Resource = {
   type: "video" | "audio" | "article" | "book";
 };
 
-export type Study ={
+export type Question = {
+  question: string;
+  answer?: string;
+};
+export type QuestionSection = {section: string, questions: Question[]};
+
+export type Study = {
   index: number;
   title: string;
   slug: string;
@@ -35,12 +41,10 @@ export type Study ={
   patterns: string[];
   promises: string[];
   progressions: string[];
-  keyApplication: string;
-  prayerPoints: string[];
-  questions: {
-    [key: string]: { question: string, answer?: string }[];
-  };
+  key_application: string;
+  prayer_points: string[];
+  questions: QuestionSection[];
   timeline?: TimelineEntry[];
-  leadersNotes?: string;
-  additionalResources?: Resource[];
-}
+  leaders_notes?: string;
+  additional_resources?: Resource[];
+};

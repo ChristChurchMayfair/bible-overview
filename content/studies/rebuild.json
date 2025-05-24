@@ -25,84 +25,96 @@
     "From despair to hope"
   ],
   "key_application": "Participate in God's work of restoration",
-  "prayerPoints": [
+  "prayer_points": [
     "Thank God for His faithfulness in restoration",
     "Pray for wisdom in rebuilding what's broken",
     "Ask for courage to face challenges in restoration",
     "Pray for those in need of spiritual restoration"
   ],
-  "questions": {
-    "Introduction": [
-      {
-        "question": "How do you see God restoring broken things in your life?",
-        "answer": "Discuss the process of restoration and the tension between now and not yet."
-      },
-      {
-        "question": "What does it mean that our restoration is both now and not yet?",
-        "answer": "Explain that restoration is a work in progress and that we are called to participate in it."
-      },
-      {
-        "question": "How does this period point forward to Christ?",
-        "answer": "This passage points to Christ as the ultimate restorer and the fulfillment of God's promises."
-      }
-    ],
-    "Ezra 1:1-10": [
-      {
-        "question": "How does God move Cyrus to allow the return?",
-        "answer": "God moves Cyrus to allow the return to rebuild the temple."
-      },
-      {
-        "question": "What significance do you see in the return of the temple articles?",
-        "answer": "The return of the temple articles shows God's sovereignty over nations."
-      },
-      {
-        "question": "How does this passage show God's sovereignty over nations?",
-        "answer": "This passage shows God's sovereignty over nations and His faithfulness to His promises."
-      },
-      {
-        "question": "What does this passage teach us about God's faithfulness to His promises?",
-        "answer": "It teaches that God is faithful to His promises and sovereign over nations."
-      }
-    ],
-    "Ezra 3:8-13": [
-      {
-        "question": "What mixed emotions do the people experience at the temple foundation?",
-        "answer": "The people experience mixed emotions at the temple foundation, reflecting the joy of restoration and the sorrow of partial fulfillment."
-      },
-      {
-        "question": "How does this passage show both joy and sorrow?",
-        "answer": "This passage shows the joy of restoration and the sorrow of partial fulfillment."
-      },
-      {
-        "question": "What does this teach us about partial fulfillment of God's promises?",
-        "answer": "It teaches that God's promises are not fully fulfilled until the new heaven and earth."
-      },
-      {
-        "question": "How does this passage point to a greater temple to come?",
-        "answer": "This passage points to the need for a greater temple to come."
-      }
-    ],
-    "Application": [
-      {
-        "question": "What areas of your life need God's restoration?",
-        "answer": "Discuss areas of your life that need restoration and the importance of participating in God's work."
-      },
-      {
-        "question": "How can you maintain hope during partial restoration?",
-        "answer": "Help identify specific steps to participate in God's rebuilding work."
-      },
-      {
-        "question": "What specific steps can you take to participate in God's rebuilding work?",
-        "answer": "Encourage taking practical steps to participate in God's rebuilding work."
-      },
-      {
-        "question": "How can you help others experience God's restoration?",
-        "answer": "Share strategies for pointing others to God's restoration."
-      },
-      {
-        "question": "What does it look like to live in light of the greater restoration to come?",
-        "answer": "Guide toward living in light of the greater restoration to come."
-      }
-    ]
-  }
+  "questions": [
+    {
+      "section": "Introduction",
+      "questions": [
+        {
+          "question": "How do you see God restoring broken things in your life?",
+          "answer": "Discuss the process of restoration and the tension between now and not yet."
+        },
+        {
+          "question": "What does it mean that our restoration is both now and not yet?",
+          "answer": "Explain that restoration is a work in progress and that we are called to participate in it."
+        },
+        {
+          "question": "How does this period point forward to Christ?",
+          "answer": "This passage points to Christ as the ultimate restorer and the fulfillment of God's promises."
+        }
+      ]
+    },
+    {
+      "section": "Ezra 1:1-10",
+      "questions": [
+        {
+          "question": "How does God move Cyrus to allow the return?",
+          "answer": "God moves Cyrus to allow the return to rebuild the temple."
+        },
+        {
+          "question": "What significance do you see in the return of the temple articles?",
+          "answer": "The return of the temple articles shows God's sovereignty over nations."
+        },
+        {
+          "question": "How does this passage show God's sovereignty over nations?",
+          "answer": "This passage shows God's sovereignty over nations and His faithfulness to His promises."
+        },
+        {
+          "question": "What does this passage teach us about God's faithfulness to His promises?",
+          "answer": "It teaches that God is faithful to His promises and sovereign over nations."
+        }
+      ]
+    },
+    {
+      "section": "Ezra 3:8-13",
+      "questions": [
+        {
+          "question": "What mixed emotions do the people experience at the temple foundation?",
+          "answer": "The people experience mixed emotions at the temple foundation, reflecting the joy of restoration and the sorrow of partial fulfillment."
+        },
+        {
+          "question": "How does this passage show both joy and sorrow?",
+          "answer": "This passage shows the joy of restoration and the sorrow of partial fulfillment."
+        },
+        {
+          "question": "What does this teach us about partial fulfillment of God's promises?",
+          "answer": "It teaches that God's promises are not fully fulfilled until the new heaven and earth."
+        },
+        {
+          "question": "How does this passage point to a greater temple to come?",
+          "answer": "This passage points to the need for a greater temple to come."
+        }
+      ]
+    },
+    {
+      "section": "Application",
+      "questions": [
+        {
+          "question": "What areas of your life need God's restoration?",
+          "answer": "Discuss areas of your life that need restoration and the importance of participating in God's work."
+        },
+        {
+          "question": "How can you maintain hope during partial restoration?",
+          "answer": "Help identify specific steps to participate in God's rebuilding work."
+        },
+        {
+          "question": "What specific steps can you take to participate in God's rebuilding work?",
+          "answer": "Encourage taking practical steps to participate in God's rebuilding work."
+        },
+        {
+          "question": "How can you help others experience God's restoration?",
+          "answer": "Share strategies for pointing others to God's restoration."
+        },
+        {
+          "question": "What does it look like to live in light of the greater restoration to come?",
+          "answer": "Guide toward living in light of the greater restoration to come."
+        }
+      ]
+    }
+  ]
 }

@@ -25,58 +25,67 @@
     "From design to purpose"
   ],
   "keyApplication": "Appreciate and care for God's creation as an expression of worship",
-  "prayerPoints": [
+  "prayer_points": [
     "Praise God for His creative power and wisdom",
     "Thank God for the beauty and diversity of His creation",
     "Pray for wisdom in caring for God's creation",
     "Ask for eyes to see God's hand in the natural world"
   ],
-  "questions": {
-    "Introduction": [
-      {
-        "question": "What aspects of creation amaze you the most?",
-        "answer": ""
-      },
-      {
-        "question": "How do you see God's creativity in nature?",
-        "answer": ""
-      },
-      {
-        "question": "What questions do you have about creation?",
-        "answer": ""
-      }
-    ],
-    "Genesis 1:1-2:3": [
-      {
-        "question": "What does this passage teach us about God's power?",
-        "answer": ""
-      },
-      {
-        "question": "How does God demonstrate His care in creation?",
-        "answer": ""
-      },
-      {
-        "question": "What does it mean that creation was 'good'?",
-        "answer": ""
-      },
-      {
-        "question": "How does creation reflect God's character?",
-        "answer": ""
-      }
-    ],
-    "Application": [
-      {
-        "question": "How can you better appreciate God's creation?",
-        "answer": ""
-      },
-      {
-        "question": "What steps can you take to care for creation?",
-        "answer": ""
-      },
-      {
-        "question": "How can creation inspire your worship?",
-        "answer": ""
-      }
-    ]
-  }
+  "questions": [
+    {
+      "section": "Introduction",
+      "questions": [
+        {
+          "question": "What aspects of creation amaze you the most?",
+          "answer": ""
+        },
+        {
+          "question": "How do you see God's creativity in nature?",
+          "answer": ""
+        },
+        {
+          "question": "What questions do you have about creation?",
+          "answer": ""
+        }
+      ]
+    },
+    {
+      "section": "Genesis 1:1-2:3",
+      "questions": [
+        {
+          "question": "What does this passage teach us about God's power?",
+          "answer": ""
+        },
+        {
+          "question": "How does God demonstrate His care in creation?",
+          "answer": ""
+        },
+        {
+          "question": "What does it mean that creation was 'good'?",
+          "answer": ""
+        },
+        {
+          "question": "How does creation reflect God's character?",
+          "answer": ""
+        }
+      ]
+    },
+    {
+      "section": "Application",
+      "questions": [
+        {
+          "question": "How can you better appreciate God's creation?",
+          "answer": ""
+        },
+        {
+          "question": "What steps can you take to care for creation?",
+          "answer": ""
+        },
+        {
+          "question": "How can creation inspire your worship?",
+          "answer": ""
+        }
+      ]
+    }
+  ]
 }
