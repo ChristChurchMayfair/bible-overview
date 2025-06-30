@@ -13,7 +13,7 @@ import {
 import classNames from "classnames";
 import { helpOutline } from "ionicons/icons";
 import { Menu } from "../components/Menu";
-import { AppTitle } from "../data/contants";
+import { AppTitle } from "../data/constants";
 import "./Home.css";
 
 const Logo: React.FC = () => {
@@ -66,7 +66,7 @@ const Logo: React.FC = () => {
           strokeWidth="1"
           fillRule="evenodd"
           transform="translate(1253.000000, 446.000000) scale(-1, 1) translate(-1253.000000, -446.000000) translate(895.000000, 296.000000)"
-          stroke-linejoin="round"
+          strokeLinejoin="round"
         >
           <path
             d="M64,164 C116.666667,151.333333 170,152 224,166 C278,180 322.666667,210.666667 358,258 L358,48 C316,30.6666667 277.333333,17.6666667 242,9 C206.666667,0.333333333 168,-1.33333333 126,4 L40,224 C88.6666667,219.333333 139.666667,222.666667 193,234 C224.534835,240.701153 272.467078,257.973662 305,284 C318.333333,294.666667 336,300 358,300"

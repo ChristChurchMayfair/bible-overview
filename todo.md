@@ -1,8 +1,8 @@
 # Bible Overview App - Structural Improvements Todo
 
 ## Priority Fixes (Do First)
-- [x] ~~Remove `/src/components/asdfasdf.sketch` file~~ → Renamed to `assets.sketch`
-- [ ] Fix typo: rename `src/data/contants.ts` → `src/data/constants.ts`
+- [x] ~~Remove `/src/components/asdfasdf.sketch` file~~ → Moved to `/design/assets.sketch`
+- [x] ~~Fix typo: rename `src/data/contants.ts` → `src/data/constants.ts`~~
 - [ ] Consolidate duplicate array utilities (`/src/lib/array.ts` and `/src/utils/array.ts`)
 - [ ] Add proper error handling in `getStudy()` function (src/data/studies.ts:11)
 

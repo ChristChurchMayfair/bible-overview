@@ -22,7 +22,7 @@ import {
   CompletedStudiesStorageKey,
   ShowIntroBlurbStorageKey,
 } from "../components/localStorageKeys";
-import { AppTitle } from "../data/contants";
+import { AppTitle } from "../data/constants";
 import { getStudies } from "../data/studies";
 import { Study } from "../data/types";
 import "./Studies.css";

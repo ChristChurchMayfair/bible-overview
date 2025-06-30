@@ -1,3 +1,4 @@
+import { Icon } from "ionicons/dist/types/components/icon/icon";
 import { IconName } from "../components/StudyIcon";
 
 export type BaseTimelineEntry = {

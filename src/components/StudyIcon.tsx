@@ -26,52 +26,53 @@ import {
 
 type StudyIconProps = {
   iconName: IconName;
+  color?: string; // Optional color prop for customization
 };
 
 export type IconName =
-| "analytics"
-| "globe"
-| "alert" 
-| "ribbon"
-| "hand-left"
-| "book"
-| "warning"
-| "shield-checkmark"
-| "refresh"
-| "crown"
-| "trending-up"
-| "construct"
-| "flame"
-| "moon"
-| "exit"
-| "heart-circle"
-| "paw"
-| "person"
-| "cross"
-| "sunny"
-| "hourglass"
-| "checkmark-done"
-| "cloud"
-| "home";
+  | "analytics"
+  | "globe"
+  | "alert"
+  | "ribbon"
+  | "handLeft"
+  | "book"
+  | "warning"
+  | "shield-checkmark"
+  | "refresh"
+  | "crown"
+  | "trendingUp"
+  | "construct"
+  | "flame"
+  | "moon"
+  | "exit"
+  | "heartCircle"
+  | "paw"
+  | "person"
+  | "cross"
+  | "sunny"
+  | "hourglass"
+  | "checkmark-done"
+  | "cloud"
+  | "home";
 
-const StudyIcon: React.FC<StudyIconProps> = ({ iconName }) => {
+const StudyIcon: React.FC<StudyIconProps> = ({ iconName, color }) => {
   const iconMap: { [key in IconName]: string } = {
     analytics: analytics,
     globe: globe,
     alert: alert,
     ribbon: ribbon,
-    "hand-left": handLeft,
+    handLeft: handLeft,
     book: book,
     warning: warning,
     "shield-checkmark": shieldCheckmark,
     refresh: refresh,
     crown: person, // Using person as crown isn't available
-    "trending-up": trendingUp,
+    trendingUp: trendingUp,
     construct: construct,
     flame: flame,
     moon: moon,
     exit: exit,
-    "heart-circle": heartCircle,
+    heartCircle: heartCircle,
     paw: paw,
     person: person,
     cross: person, // Using person as cross isn't available
@@ -81,8 +82,9 @@ const StudyIcon: React.FC<StudyIconProps> = ({ iconName }) => {
     cloud: cloud,
     home: home,
   };
-
-  return <IonIcon icon={iconMap[iconName] || globe} slot="start" />;
+  return (
+    <IonIcon icon={iconMap[iconName] || globe} slot="start" color={color} />
+  );
 };
 
 export default StudyIcon;

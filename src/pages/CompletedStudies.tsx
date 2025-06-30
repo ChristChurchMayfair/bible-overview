@@ -31,7 +31,7 @@ import {
 import { useLocalStorage } from "usehooks-ts";
 import { Menu } from "../components/Menu";
 import { CompletedStudiesStorageKey } from "../components/localStorageKeys";
-import { AppTitle } from "../data/contants";
+import { AppTitle } from "../data/constants";
 import { Study } from "../data/types";
 
 const CompletedStudies: React.FC = () => {

@@ -19,7 +19,7 @@ import { useLocalStorage } from "usehooks-ts";
 import { Menu } from "../components/Menu";
 import StudyListItem from "../components/StudyListItem";
 import { CompletedStudiesStorageKey } from "../components/localStorageKeys";
-import { AppTitle } from "../data/contants";
+import { AppTitle } from "../data/constants";
 import { getStudies } from "../data/studies";
 import "./Studies.css";
 import { Study } from "../data/types";

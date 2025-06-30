@@ -1,4 +1,4 @@
-import { IonItem, IonLabel, IonNote } from "@ionic/react";
+import { IonIcon, IonItem, IonLabel, IonNote } from "@ionic/react";
 import { getFirstPassageFromStudy } from "../data/studies";
 import { Study } from "../data/types";
 import StudyIcon from "./StudyIcon";
@@ -25,7 +25,8 @@ const StudyListItem: React.FC<StudyListItemProps> = ({
       lines="inset"
       detail
     >
-      <StudyIcon iconName={study.icon} />
+      {/* <StudyIcon iconName={study.icon} /> */}
+      <StudyIcon iconName={study.icon} color={isCompleted ? "medium" : "primary"}/>
       <IonLabel className="ion-text-wrap">
         <h2>{study.title}</h2>
       </IonLabel>
