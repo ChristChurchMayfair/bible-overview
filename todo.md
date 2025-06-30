@@ -3,11 +3,11 @@
 ## Priority Fixes (Do First)
 - [x] ~~Remove `/src/components/asdfasdf.sketch` file~~ → Moved to `/design/assets.sketch`
 - [x] ~~Fix typo: rename `src/data/contants.ts` → `src/data/constants.ts`~~
-- [ ] Consolidate duplicate array utilities (`/src/lib/array.ts` and `/src/utils/array.ts`)
+- [x] ~~Consolidate duplicate array utilities (`/src/lib/array.ts` and `/src/utils/array.ts`)~~ → Removed `/src/lib/array.ts`, kept better implementation in `/src/utils/array.ts`
 - [ ] Add proper error handling in `getStudy()` function (src/data/studies.ts:11)
 
 ## Folder Structure Reorganization
-- [ ] Merge `/src/lib/` and `/src/utils/` into single `/src/utils/` directory
+- [x] ~~Merge `/src/lib/` and `/src/utils/` into single `/src/utils/` directory~~ → Completed by removing empty `/src/lib/` directory
 - [ ] Create `/src/hooks/` directory for custom hooks
 - [ ] Create `/src/constants/` directory and move constants out of data files
 - [ ] Create `/src/services/` directory for business logic
