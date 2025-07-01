@@ -26,7 +26,7 @@ import { useLocalStorage } from "usehooks-ts";
 import {
   CompletedStudiesStorageKey,
   Showleaders_notesStorageKey,
-} from "../components/localStorageKeys";
+} from "../constants/storage";
 import { getPassagesFromStudy, getStudy } from "../data/studies";
 import { Study } from "../data/types";
 import "./ViewStudy.css";

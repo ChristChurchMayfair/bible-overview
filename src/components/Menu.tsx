@@ -18,7 +18,7 @@ import {
   listOutline,
 } from "ionicons/icons";
 import React from "react";
-import { AppTitle } from "../data/constants";
+import { AppTitle } from "../constants/app";
 
 export const Menu: React.FC = () => {
   return (

@@ -30,8 +30,8 @@ import {
 } from "ionicons/icons";
 import { useLocalStorage } from "usehooks-ts";
 import { Menu } from "../components/Menu";
-import { CompletedStudiesStorageKey } from "../components/localStorageKeys";
-import { AppTitle } from "../data/constants";
+import { CompletedStudiesStorageKey } from "../constants/storage";
+import { AppTitle } from "../constants/app";
 import { Study } from "../data/types";
 
 const CompletedStudies: React.FC = () => {

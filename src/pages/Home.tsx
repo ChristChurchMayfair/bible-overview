@@ -13,7 +13,7 @@ import {
 import classNames from "classnames";
 import { helpOutline } from "ionicons/icons";
 import { Menu } from "../components/Menu";
-import { AppTitle } from "../data/constants";
+import { AppTitle } from "../constants/app";
 import "./Home.css";
 
 const Logo: React.FC = () => {

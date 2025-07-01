@@ -21,8 +21,8 @@ import StudyListItem from "../components/StudyListItem";
 import {
   CompletedStudiesStorageKey,
   ShowIntroBlurbStorageKey,
-} from "../components/localStorageKeys";
-import { AppTitle } from "../data/constants";
+} from "../constants/storage";
+import { AppTitle } from "../constants/app";
 import { getStudies } from "../data/studies";
 import { Study } from "../data/types";
 import "./Studies.css";

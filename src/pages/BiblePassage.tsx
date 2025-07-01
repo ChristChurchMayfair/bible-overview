@@ -20,7 +20,7 @@ import { useLocalStorage } from "usehooks-ts";
 import {
   CompletedStudiesStorageKey,
   Showleaders_notesStorageKey,
-} from "../components/localStorageKeys";
+} from "../constants/storage";
 import { getPassagesFromStudy, getStudy } from "../data/studies";
 import "./BiblePassage.css";
 
