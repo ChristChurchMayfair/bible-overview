@@ -8,10 +8,14 @@ export const getTheme = (theme: string) => themeData[theme];
 
 export const getStudies = () => studies;
 
-export const getStudy = (slug: string) => {
+export const getStudy = (slug: string): Study | undefined => {
+  if (!slug || typeof slug !== 'string') {
+    throw new Error('Invalid slug provided to getStudy');
+  }
+  
   const study = studies.find((s) => s.slug === slug);
   if (!study) {
-    console.error(`Study not found for slug: ${slug}`);
+    console.warn(`Study not found for slug: ${slug}`);
   }
   return study;
 };
