@@ -33,7 +33,7 @@ import "@ionic/react/css/palettes/dark.system.css";
 
 /* Theme variables */
 import { useLocalStorage } from "usehooks-ts";
-import { ShowIntroBlurbStorageKey } from "./components/localStorageKeys";
+import { ShowIntroBlurbStorageKey } from "./constants/storage";
 import AllStudies from "./pages/AllStudies";
 import AudioPassage from "./pages/AudioPassage";
 import BiblePassage from "./pages/BiblePassage";
