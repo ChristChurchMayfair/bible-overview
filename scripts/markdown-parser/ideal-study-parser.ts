@@ -6,6 +6,7 @@ import { remark } from "remark";
 
 export function parseIdealStudy(mdast: Root): Study {
   const studyNumber = extractStudyNumberFromRootContent(mdast.children);
+  const title = extractTitleFromRootContent(mdast.children);
   const summary = extractSummaryFromRootContent(mdast.children);
   const leadersNotes = extractLeadersNotesFromRootContent(mdast.children);
   const leadersWhat = extractLeadersWhatFromRootContent(mdast.children);
@@ -16,6 +17,7 @@ export function parseIdealStudy(mdast: Root): Study {
   const study: Study = {
     index: studyNumber,
     slug: `study-${studyNumber}`, // TODO: Make this configurable
+    title: title,
     summary: summary,
     leadersInfo: {
       notes: leadersNotes,
@@ -39,6 +41,19 @@ export function extractStudyNumberFromRootContent(
     throw new Error(`Study document must start with a heading, got ${firstChild.type}`);
   }
   return extractStudyNumberFromHeading(firstChild);
+}
+
+export function extractTitleFromRootContent(
+  children: RootContent[]
+): string {
+  const firstChild = children.find((child) => true);
+  if (firstChild === undefined) {
+    throw new Error("Study document is empty - expected at least one child element");
+  }
+  if (!isHeading(firstChild)) {
+    throw new Error(`Study document must start with a heading, got ${firstChild.type}`);
+  }
+  return extractTitleFromHeading(firstChild);
 }
 
 export function extractStudyNumberFromHeading(
@@ -73,6 +88,33 @@ export function extractStudyNumberFromHeading(
     }
     throw new Error(`Failed to parse study number from "${firstChild.value}": ${error}`);
   }
+}
+
+export function extractTitleFromHeading(
+  heading: Heading
+): string {
+  if (heading.depth !== 1) {
+    throw new Error(`Study title must be an h1 heading (depth 1), got depth ${heading.depth}`);
+  }
+  if (heading.children.length != 1) {
+    throw new Error(`Study title heading must have exactly one child, got ${heading.children.length} children`);
+  }
+  const firstChild = heading.children.find(child => true)
+  if (firstChild === undefined) {
+    throw new Error("Study title heading has no children");
+  }
+  if (! isText(firstChild)) {
+    throw new Error(`Study title heading must contain text, got ${firstChild.type}`);
+  }
+  if (!firstChild.value.startsWith("Study ")) {
+    throw new Error(`Study title must start with "Study ", got "${firstChild.value}"`);
+  }
+  
+  // Return the full heading text as the title
+  if (firstChild.value.includes(" - ")) {
+    return firstChild.value.split(" - ")[1];
+  }
+  return firstChild.value
 }
 
 

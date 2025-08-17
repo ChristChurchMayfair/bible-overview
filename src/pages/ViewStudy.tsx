@@ -80,7 +80,7 @@ function ViewStudy() {
               defaultHref="/studies"
             ></IonBackButton>
           </IonButtons>
-          <IonTitle>Study {study?.index}</IonTitle>
+          <IonTitle>{study?.title}</IonTitle>
           <IonButtons slot="end">
             <IonButton mode="ios" href={`/study/${study?.slug}/passage/1`}>
               <IonIcon icon={bookOutline} />

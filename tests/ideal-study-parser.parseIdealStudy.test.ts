@@ -11,7 +11,7 @@ function parseMarkdownFile(filePath: string) {
 
 test("Given complete ideal study markdown When parsing study Then returns complete Study object", () => {
   // Given
-  const mdast = parseMarkdownFile("./studies/1.ideal.md");
+  const mdast = parseMarkdownFile("./studies/1.md");
 
   // When
   const result = parseIdealStudy(mdast);
@@ -21,11 +21,14 @@ test("Given complete ideal study markdown When parsing study Then returns comple
   expect(result.index).toBe(1);
   expect(result.slug).toBe("study-1");
   
+  // Title should default to "Study N" when no custom title in heading
+  expect(result.title).toBe("History's Direction");
+  
   // Summary section
   expect(typeof result.summary).toBe("string");
   expect(result.summary).toContain("The Bible is not a random collection");
-  expect(result.summary).toContain("Ephesians 1 teaches us");
-  expect(result.summary).toContain("Acts 13 teaches us");
+  expect(result.summary).toContain("**Ephesians 1** teaches us");
+  expect(result.summary).toContain("**Acts 13** teaches us");
 
   // Leaders info sections
   expect(typeof result.leadersInfo.notes).toBe("string");
@@ -60,4 +63,66 @@ test("Given complete ideal study markdown When parsing study Then returns comple
   expect(actsSection).toBeDefined();
   expect(actsSection!.questions.length).toBeGreaterThanOrEqual(5); // Multiple questions in this section
   expect(actsSection!.passages).toEqual(["Acts 13:13-39"]); // Should extract the Bible reference
+});
+
+test("Given study with custom title in heading When parsing study Then extracts custom title", () => {
+  // Given
+  const markdownContent = `# Study 1 - Setting the Scene
+
+## Summary
+This is a test summary.
+
+## Introduction
+Test introduction content.
+
+## What
+Test what content.
+
+## So What
+Test so what content.
+
+## Questions
+* Test question?
+`;
+  
+  const rm = remark();
+  const mdast = rm.parse(markdownContent);
+
+  // When
+  const result = parseIdealStudy(mdast);
+
+  // Then
+  expect(result.index).toBe(1);
+  expect(result.title).toBe("Setting the Scene");
+});
+
+test("Given study with only 'Study N' in heading When parsing study Then uses default title", () => {
+  // Given
+  const markdownContent = `# Study 2
+
+## Summary
+This is a test summary.
+
+## Introduction
+Test introduction content.
+
+## What
+Test what content.
+
+## So What
+Test so what content.
+
+## Questions
+* Test question?
+`;
+  
+  const rm = remark();
+  const mdast = rm.parse(markdownContent);
+
+  // When
+  const result = parseIdealStudy(mdast);
+
+  // Then
+  expect(result.index).toBe(2);
+  expect(result.title).toBe("Study 2");
 });

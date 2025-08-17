@@ -3,7 +3,7 @@ export type MarkdownString = string
 export type Study = {
     index: number
     slug: string
-    // passages: string[]
+    title: string
     summary: MarkdownString
     leadersInfo: {
         notes: MarkdownString

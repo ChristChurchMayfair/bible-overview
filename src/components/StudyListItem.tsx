@@ -27,7 +27,7 @@ const StudyListItem: React.FC<StudyListItemProps> = ({
     >
       <StudyIcon iconName="book" color={isCompleted ? "medium" : "primary"}/>
       <IonLabel className="ion-text-wrap">
-        <h2>Study {study.index}</h2>
+        <h2>{study.title}</h2>
       </IonLabel>
       <IonNote slot={"end"}>{firstPassage}</IonNote>
     </IonItem>
