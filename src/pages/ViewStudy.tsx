@@ -142,8 +142,8 @@ function ViewStudy() {
                 >
                   <IonContent>
                     <em>
-                      <IonIcon icon={bulbOutline} /> Tap questions to track your
-                      progress
+                      <IonIcon icon={bulbOutline} /> Tap each question to mark it as complete and track your
+                      progress.
                     </em>
                   </IonContent>
                 </IonPopover>
