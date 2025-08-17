@@ -23,6 +23,7 @@ import {
 import { useState } from "react";
 import { useParams } from "react-router";
 import { useLocalStorage } from "usehooks-ts";
+import ReactMarkdown from "react-markdown";
 import {
   CompletedStudiesStorageKey,
   Showleaders_notesStorageKey,
@@ -30,6 +31,7 @@ import {
 import { getPassagesFromStudy, getStudy } from "../data/studies";
 import { Study } from "../data/types";
 import "./ViewStudy.css";
+import Markdown from "react-markdown";
 
 function ViewStudy() {
   const params = useParams<{ slug: string }>();
@@ -78,7 +80,7 @@ function ViewStudy() {
               defaultHref="/studies"
             ></IonBackButton>
           </IonButtons>
-          <IonTitle>{study?.title}</IonTitle>
+          <IonTitle>Study {study?.index}</IonTitle>
           <IonButtons slot="end">
             <IonButton mode="ios" href={`/study/${study?.slug}/passage/1`}>
               <IonIcon icon={bookOutline} />
@@ -92,7 +94,7 @@ function ViewStudy() {
           <>
             <IonHeader collapse="condense">
               <IonToolbar>
-                <IonTitle>{study.title}</IonTitle>
+                <IonTitle>Study {study.index}</IonTitle>
               </IonToolbar>
             </IonHeader>
             <IonRow
@@ -103,53 +105,36 @@ function ViewStudy() {
             ></IonRow>
             <IonRow className="ion-padding-horizontal">
               <IonText>
-                <p>{study.overview}</p>
+                <h2>Summary</h2>
+                <ReactMarkdown>{study.summary}</ReactMarkdown>
               </IonText>
             </IonRow>
-            {study.timeline !== undefined ? (
-              <IonRow className="ion-padding-horizontal">
-                <IonRouterLink
-                  routerLink={`/study/${study.slug}/timeline`}
-                  routerDirection="forward"
-                >
-                  Timeline
-                </IonRouterLink>
-              </IonRow>
-            ) : (
-              <></>
-            )}
-            <IonRow className="ion-padding-horizontal">
-              {study.themes.map((theme) => (
-                <IonButton
-                  key={theme}
-                  className={"ion-text-lowercase"}
-                  color="primary"
-                  shape="round"
-                  size="small"
-                  fill="outline"
-                  routerLink={`/theme/${theme.toLowerCase()}`}
-                >
-                  {theme}
-                </IonButton>
-              ))}
-            </IonRow>
-            <IonRow className="ion-padding-horizontal">
-              <IonText>
-                <h4>Key Application</h4>
-                {study.key_application}
-              </IonText>
-            </IonRow>
+
             {showleaders_notes && (
-              <IonRow className="ion-padding-horizontal">
-                <IonText>
-                  <h3>Leaders Notes</h3>
-                  <p>{study.leaders_notes ?? "No leaders notes available"}</p>
-                </IonText>
-              </IonRow>
+              <>
+                <IonRow className="ion-padding-horizontal">
+                  <IonText>
+                    <h3>Leaders Notes</h3>
+                    <ReactMarkdown>{study.leadersInfo.notes}</ReactMarkdown>
+                  </IonText>
+                </IonRow>
+                <IonRow className="ion-padding-horizontal">
+                  <IonText>
+                    <h4>What</h4>
+                    <ReactMarkdown>{study.leadersInfo.what}</ReactMarkdown>
+                  </IonText>
+                </IonRow>
+                <IonRow className="ion-padding-horizontal">
+                  <IonText>
+                    <h4>So What</h4>
+                    <ReactMarkdown>{study.leadersInfo.soWhat}</ReactMarkdown>
+                  </IonText>
+                </IonRow>
+              </>
             )}
             <IonRow className="ion-padding-horizontal">
               <IonText>
-                <h3 id="questions-title">Questions</h3>
+                <h1 id="questions-title">Questions</h1>
                 <IonPopover
                   trigger="questions-title"
                   side="bottom"
@@ -163,92 +148,42 @@ function ViewStudy() {
                   </IonContent>
                 </IonPopover>
 
-                {study.questions.map(
-                  (questionSection) => (
-                    <div key={questionSection.section}>
-                      {questionSection.section !== "Introduction" &&
-                        questionSection.section !== "Application" && (
-                          <h4 className="ion-padding-bottom">
-                            <IonRouterLink
-                              routerLink={`/study/${study.slug}/passage/${
-                                getAllPassages().findIndex(
-                                  (p) => p.passage === questionSection.section
-                                ) + 1
-                              }`}
-                            >
-                              {questionSection.section}
-                            </IonRouterLink>
-                          </h4>
-                        )}
-                      {questionSection.section == "Introduction" ||
-                      questionSection.section == "Application" ? (
-                        <h4>{questionSection.section}</h4>
-                      ) : (
-                        <></>
-                      )}
-                      <ul>
-                        {questionSection.questions.map((question_and_answer, index) => (
+                {study.questions.map((questionSection) => (
+                  <div key={questionSection.title}>
+                    <h4>{questionSection.title}</h4>
+                    <ul>
+                      {questionSection.questions.map(
+                        (question_and_answer, index) => (
                           <li
                             key={index}
                             className={classNames(
                               "ion-padding-bottom",
                               completedQuestions[
-                                `${questionSection.section}-${index}`
+                                `${questionSection.title}-${index}`
                               ] && "completed"
                             )}
                             onClick={() =>
-                              toggleQuestion(questionSection.section, index)
+                              toggleQuestion(questionSection.title, index)
                             }
                           >
                             {question_and_answer.question}
                             {showleaders_notes &&
-                              question_and_answer.answer !== undefined && (
+                              question_and_answer.leadersHint && (
                                 <div className="ion-padding-start">
-                                  <IonText color="medium">
-                                    {question_and_answer.answer}
+                                  <IonText>
+                                    <strong>Leader's Hint:</strong>{" "}
+                                    <em>{question_and_answer.leadersHint}</em>
                                   </IonText>
                                 </div>
                               )}
                           </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )
-                )}
+                        )
+                      )}
+                    </ul>
+                  </div>
+                ))}
               </IonText>
             </IonRow>
-            {(study.prayer_points?.length ?? 0) > 0 ? (
-              <IonRow className="ion-padding-horizontal">
-                <IonText>
-                  <h3>Pray</h3>
-                  <ul>
-                    {study.prayer_points?.map((prayerPoint) => (
-                      <li key={prayerPoint} className={"ion-padding-bottom"}>
-                        {prayerPoint}
-                      </li>
-                    ))}
-                  </ul>
-                </IonText>
-              </IonRow>
-            ) : (
-              <></>
-            )}
-            {(study.additional_resources?.length ?? 0) > 0 ? (
-              <IonRow className="ion-padding-horizontal">
-                <IonText>
-                  <h3>Additional Resources</h3>
-                  {study.additional_resources?.map((reading) => (
-                    <div key={reading.url} className="ion-padding-bottom">
-                      <a href={reading.url} target="_blank" rel="noreferrer">
-                        {reading.title} - {reading.author}
-                      </a>
-                    </div>
-                  ))}
-                </IonText>
-              </IonRow>
-            ) : (
-              <></>
-            )}
 
             <IonButton
               className="ion-padding-horizontal"

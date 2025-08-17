@@ -36,3 +36,6 @@ yarn-error.log*
 bible-overview-site-*.json
 
 .env
+
+# Generated files
+src/data/generated-studies.json

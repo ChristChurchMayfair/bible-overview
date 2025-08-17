@@ -1,0 +1,278 @@
+import { Heading, Root, RootContent, List } from "mdast";
+import { Study, MarkdownString, QuestionSection, Question } from "../../src/data/types";
+import { isHeading, isText, extractText } from "./ast-utils";
+import { toMarkdown } from "mdast-util-to-markdown";
+import { remark } from "remark";
+
+export function parseIdealStudy(mdast: Root): Study {
+  const studyNumber = extractStudyNumberFromRootContent(mdast.children);
+  const summary = extractSummaryFromRootContent(mdast.children);
+  const leadersNotes = extractLeadersNotesFromRootContent(mdast.children);
+  const leadersWhat = extractLeadersWhatFromRootContent(mdast.children);
+  const leadersSoWhat = extractLeadersSoWhatFromRootContent(mdast.children);
+  const questionsMarkdown = extractQuestionsFromRootContent(mdast.children);
+  const questions = parseQuestionsFromMarkdown(questionsMarkdown);
+
+  const study: Study = {
+    index: studyNumber,
+    slug: `study-${studyNumber}`, // TODO: Make this configurable
+    summary: summary,
+    leadersInfo: {
+      notes: leadersNotes,
+      what: leadersWhat,
+      soWhat: leadersSoWhat
+    },
+    questions: questions
+  };
+  
+  return study;
+}
+
+export function extractStudyNumberFromRootContent(
+  children: RootContent[]
+): number {
+  const firstChild = children.find((child) => true);
+  if (firstChild === undefined) {
+    throw new Error("Study document is empty - expected at least one child element");
+  }
+  if (!isHeading(firstChild)) {
+    throw new Error(`Study document must start with a heading, got ${firstChild.type}`);
+  }
+  return extractStudyNumberFromHeading(firstChild);
+}
+
+export function extractStudyNumberFromHeading(
+  heading: Heading
+): number {
+  if (heading.depth !== 1) {
+    throw new Error(`Study title must be an h1 heading (depth 1), got depth ${heading.depth}`);
+  }
+  if (heading.children.length != 1) {
+    throw new Error(`Study title heading must have exactly one child, got ${heading.children.length} children`);
+  }
+  const firstChild = heading.children.find(child => true)
+  if (firstChild === undefined) {
+    throw new Error("Study title heading has no children");
+  }
+  if (! isText(firstChild)) {
+    throw new Error(`Study title heading must contain text, got ${firstChild.type}`);
+  }
+  if (!firstChild.value.startsWith("Study ")) {
+    throw new Error(`Study title must start with "Study ", got "${firstChild.value}"`);
+  }
+  var index: number
+  try {
+    index = parseInt(firstChild.value.replace("Study ", ""))
+    if (isNaN(index)) {
+      throw new Error(`Study number must be a valid integer, got "${firstChild.value.replace("Study ", "")}"`);
+    }
+    return index
+  } catch (error) {
+    if (error instanceof Error && error.message.includes("Study number must be")) {
+      throw error;
+    }
+    throw new Error(`Failed to parse study number from "${firstChild.value}": ${error}`);
+  }
+}
+
+
+export function extractSummaryFromRootContent(
+  children: RootContent[]
+): MarkdownString {
+  return extractContentFromHeadingUntilNextHeading(children, "Summary");
+}
+
+export function extractLeadersNotesFromRootContent(
+  children: RootContent[]
+): MarkdownString {
+  return extractContentFromHeadingUntilNextHeading(children, "Introduction");
+}
+
+export function extractLeadersWhatFromRootContent(
+  children: RootContent[]
+): MarkdownString {
+  return extractContentFromHeadingUntilNextHeading(children, "What");
+}
+
+export function extractLeadersSoWhatFromRootContent(
+  children: RootContent[]
+): MarkdownString {
+  return extractContentFromHeadingUntilNextHeading(children, "So What");
+}
+
+export function extractQuestionsFromRootContent(
+  children: RootContent[]
+): MarkdownString {
+  return extractContentFromHeadingUntilNextHeading(children, "Questions");
+}
+
+export function parseQuestionsFromMarkdown(questionsMarkdown: MarkdownString): QuestionSection[] {
+  if (!questionsMarkdown.trim()) {
+    return [];
+  }
+
+  const rm = remark();
+  const questionsAst = rm.parse(questionsMarkdown);
+  
+  const sections: QuestionSection[] = [];
+  let currentSection: QuestionSection | null = null;
+  
+  for (const child of questionsAst.children) {
+    if (isHeading(child) && child.depth === 3) {
+      // New section - save current and start new one
+      if (currentSection) {
+        sections.push(currentSection);
+      }
+      
+      const headingText = extractText(child);
+      currentSection = {
+        title: headingText,
+        passages: extractPassagesFromHeading(headingText),
+        questions: []
+      };
+    } else if (child.type === 'list') {
+      // Handle list items
+      if (!currentSection) {
+        // Create implicit Introduction section
+        currentSection = {
+          title: "Introduction", 
+          passages: [],
+          questions: []
+        };
+      }
+      
+      // Parse questions from list
+      const questions = parseQuestionsFromList(child);
+      currentSection.questions.push(...questions);
+    }
+  }
+  
+  // Don't forget the last section
+  if (currentSection) {
+    sections.push(currentSection);
+  }
+  
+  return sections;
+}
+
+export function extractPassagesFromHeading(headingText: string): string[] {
+  // Extract passages from headings like "Read Ephesians 1:9-14" or "Genesis 1:1-3:3, 1 John 1:2"
+  // Parse Bible references from the text using regex pattern matching
+  const passages = parseBibleReferencesFromText(headingText);
+  return passages;
+}
+
+function parseBibleReferencesFromText(text: string): string[] {
+  // List of known Bible book names (both full names and common abbreviations)
+  const bibleBooks = [
+    // Old Testament
+    'Genesis', 'Gen', 'Exodus', 'Ex', 'Exod', 'Leviticus', 'Lev', 'Numbers', 'Num', 'Deuteronomy', 'Deut',
+    'Joshua', 'Josh', 'Judges', 'Judg', 'Ruth', 'Samuel', 'Sam', '1 Samuel', '2 Samuel', '1 Sam', '2 Sam',
+    'Kings', '1 Kings', '2 Kings', '1 Kgs', '2 Kgs', 'Chronicles', 'Chr', '1 Chronicles', '2 Chronicles', '1 Chr', '2 Chr',
+    'Ezra', 'Nehemiah', 'Neh', 'Esther', 'Est', 'Job', 'Psalms', 'Ps', 'Psalm', 'Proverbs', 'Prov',
+    'Ecclesiastes', 'Eccl', 'Song of Songs', 'Song', 'Isaiah', 'Isa', 'Jeremiah', 'Jer', 'Lamentations', 'Lam',
+    'Ezekiel', 'Ezek', 'Daniel', 'Dan', 'Hosea', 'Hos', 'Joel', 'Amos', 'Obadiah', 'Obad', 'Jonah',
+    'Micah', 'Mic', 'Nahum', 'Nah', 'Habakkuk', 'Hab', 'Zephaniah', 'Zeph', 'Haggai', 'Hag', 'Zechariah', 'Zech', 'Malachi', 'Mal',
+    // New Testament
+    'Matthew', 'Matt', 'Mt', 'Mark', 'Mk', 'Luke', 'Lk', 'John', 'Jn', 'Acts', 'Romans', 'Rom',
+    'Corinthians', 'Cor', '1 Corinthians', '2 Corinthians', '1 Cor', '2 Cor', 'Galatians', 'Gal',
+    'Ephesians', 'Eph', 'Philippians', 'Phil', 'Colossians', 'Col', 'Thessalonians', 'Thess', '1 Thessalonians', '2 Thessalonians', '1 Thess', '2 Thess',
+    'Timothy', 'Tim', '1 Timothy', '2 Timothy', '1 Tim', '2 Tim', 'Titus', 'Tit', 'Philemon', 'Phlm',
+    'Hebrews', 'Heb', 'James', 'Jas', 'Peter', 'Pet', '1 Peter', '2 Peter', '1 Pet', '2 Pet',
+    'John', '1 John', '2 John', '3 John', '1 Jn', '2 Jn', '3 Jn', 'Jude', 'Revelation', 'Rev'
+  ];
+  
+  // Create a pattern that matches any of the Bible books followed by chapter:verse
+  const bookPattern = bibleBooks.map(book => book.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|');
+  const bibleRefPattern = new RegExp(`((?:\\d+\\s+)?(?:${bookPattern})\\s+\\d+:\\d+(?:-\\d+(?::\\d+)?)?)`, 'gi');
+  
+  const matches = text.match(bibleRefPattern);
+  if (!matches) return [];
+  
+  console.log('Raw matches:', matches);
+  
+  // Clean up matches
+  return matches
+    .map(match => match.trim())
+    .filter(match => match.length > 0);
+}
+
+
+function parseQuestionsFromList(list: List): Question[] {
+  const questions: Question[] = [];
+  
+  for (const listItem of list.children) {
+    if (listItem.type === 'listItem') {
+      const questionText = extractQuestionFromListItem(listItem);
+      const leadersHint = extractLeadersHintFromListItem(listItem);
+      
+      if (questionText) {
+        questions.push({
+          question: questionText,
+          refs: [], // TODO: Extract refs
+          leadersHint: leadersHint
+        });
+      }
+    }
+  }
+  
+  return questions;
+}
+
+function extractQuestionFromListItem(listItem: any): string {
+  // Get the first paragraph's text as the question
+  const firstParagraph = listItem.children.find((child: any) => child.type === 'paragraph');
+  if (firstParagraph) {
+    return extractText(firstParagraph);
+  }
+  return '';
+}
+
+function extractLeadersHintFromListItem(listItem: any): string {
+  // Look for nested list items as leaders hints
+  const nestedList = listItem.children.find((child: any) => child.type === 'list');
+  if (nestedList && nestedList.children.length > 0) {
+    const firstNestedItem = nestedList.children[0];
+    const nestedParagraph = firstNestedItem.children.find((child: any) => child.type === 'paragraph');
+    if (nestedParagraph) {
+      return extractText(nestedParagraph);
+    }
+  }
+  return '';
+}
+
+export function extractContentFromHeadingUntilNextHeading(
+  children: RootContent[],
+  headingText: string,
+  headingDepth: number = 2
+): MarkdownString {
+  const startHeadingIndex = children.findIndex((child) => {
+    if (!isHeading(child)) return false;
+    if (child.depth !== headingDepth) return false;
+    if (child.children.length !== 1) return false;
+    const firstChild = child.children[0];
+    if (!isText(firstChild)) return false;
+    return firstChild.value === headingText;
+  });
+
+  if (startHeadingIndex === -1) {
+    throw new Error(`Could not find "${headingText}" heading (h${headingDepth})`);
+  }
+
+  const nextHeadingIndex = children.findIndex((child, index) => {
+    if (index <= startHeadingIndex) return false;
+    if (!isHeading(child)) return false;
+    return child.depth <= headingDepth;
+  });
+
+  const sectionContent = nextHeadingIndex === -1
+    ? children.slice(startHeadingIndex + 1)
+    : children.slice(startHeadingIndex + 1, nextHeadingIndex);
+
+  const sectionRoot = {
+    type: "root" as const,
+    children: sectionContent
+  };
+
+  return toMarkdown(sectionRoot).trim();
+}

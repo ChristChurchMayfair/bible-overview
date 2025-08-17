@@ -18,7 +18,7 @@ import {
   Showleaders_notesStorageKey,
 } from "../constants/storage";
 import { getStudy } from "../data/studies";
-import { Study, TimelineEntry } from "../data/types";
+import { Study } from "../data/types";
 import "./ViewTimeline.css";
 
 function ViewTimeline() {
@@ -48,7 +48,7 @@ function ViewTimeline() {
               defaultHref="/"
             ></IonBackButton>
           </IonButtons>
-          <IonTitle>{study?.title}</IonTitle>
+          <IonTitle>Study {study?.index}</IonTitle>
         </IonToolbar>
       </IonHeader>
 
@@ -57,26 +57,15 @@ function ViewTimeline() {
           <>
             <IonHeader collapse="condense">
               <IonToolbar>
-                <IonTitle>{study.title}</IonTitle>
+                <IonTitle>Study {study.index}</IonTitle>
               </IonToolbar>
             </IonHeader>
 
             <IonRow className="ion-padding-horizontal">
               <IonText>
-                <h2>{study.title} Timeline</h2>
+                <h2>Study {study.index} Timeline</h2>
+                <p>Timeline functionality is not available with the new study structure.</p>
               </IonText>
-            </IonRow>
-            <IonRow className="ion-padding-horizontal">
-              <div className="timeline">
-                {study.timeline?.map((event, index) => (
-                  <TimelineEventView
-                    key={index}
-                    first={index == 0}
-                    last={index == (study.timeline ?? []).length - 1}
-                    event={event}
-                  />
-                ))}
-              </div>
             </IonRow>
           </>
         ) : (
@@ -89,52 +78,3 @@ function ViewTimeline() {
 
 export default ViewTimeline;
 
-type TimelineEventProps = {
-  event: TimelineEntry;
-  first: boolean;
-  last: boolean;
-};
-
-const TimelineEventView: React.FC<TimelineEventProps> = (props) => (
-  <div className="event">
-    <svg>
-      <g transform="translate(15, 5)">
-        {props.last !== true ||
-        (props.event.type === "Period" &&
-          typeof props.event.duration === "number") ? (
-          <line x1={0} y1={20} x2={0} y2={500} stroke="green" />
-        ) : (
-          <></>
-        )}
-        {props.event.type === "Period" &&
-        props.event.duration === "Infinite" &&
-        props.last === true ? (
-          <>
-            <line x1={0} y1={20} x2={0} y2={400} stroke="green" />
-            <line x1={0} y1={500} x2={-10} y2={490} stroke="green" />
-          </>
-        ) : (
-          <></>
-        )}
-        {props.first == false ? <line x1={0} y1={-10} x2={0} y2={20} /> : <></>}
-        {props.event.type === "Event" && props.event.subType === "Major" ? (
-          <circle />
-        ) : (
-          <></>
-        )}
-        {props.event.type === "Event" && props.event.subType === "Minor" ? (
-          <line x1={0} y1={24} x2={10} y2={24} />
-        ) : (
-          <></>
-        )}
-        {/* {props.event.type === "IndeterminatePeriod" ? <line x1={0} y1={20} x2={0} y2={5}/> : <></>} */}
-      </g>
-    </svg>
-    <div>
-      <h3>{props.event.title}</h3>
-      <p>{props.event.details}</p>
-      <p>{props.event.type}</p>
-      <p>{props.event.type === "Period" ? props.event.duration : ""}</p>
-    </div>
-  </div>
-);

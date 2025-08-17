@@ -1,10 +1,6 @@
 import "../utils/array";
-import { studies, themeData } from "./data";
+import { studies } from "./data";
 import { Study } from "./types";
-
-export const getThemes = () => Object.keys(themeData);
-
-export const getTheme = (theme: string) => themeData[theme];
 
 export const getStudies = () => studies;
 
@@ -27,10 +23,7 @@ export const getStudy = (slug: string): Study | undefined => {
  * @returns Array of passage references
  */
 export const getPassagesFromStudy = (study: Study): string[] => {
-  return study.questions.filter(
-    (section) =>
-      section.section !== "Introduction" && section.section !== "Application"
-  ).map((section) =>  section.section)
+  return study.questions.flatMap(questionSection => questionSection.passages)
 };
 
 /**

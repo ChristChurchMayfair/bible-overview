@@ -45,6 +45,27 @@
 - [ ] Implement loading states
 - [ ] Consider using React Query for data fetching
 
+## Test Coverage Improvements
+- [ ] Configure test coverage reporting with vitest
+- [ ] Add unit tests for data layer functions:
+  - [ ] Test `getStudy()` function with valid/invalid slugs
+  - [ ] Test `getPassagesFromStudy()` function
+  - [ ] Test `getFirstPassageFromStudy()` function
+  - [ ] Test array utility functions in `/src/utils/array.ts`
+- [ ] Add component tests:
+  - [ ] Test `StudyListItem` component rendering and interactions
+  - [ ] Test `Menu` component navigation
+  - [ ] Test `StudyIcon` component display logic
+- [ ] Add integration tests:
+  - [ ] Test study completion persistence in localStorage
+  - [ ] Test settings storage and retrieval
+  - [ ] Test theme switching functionality
+- [ ] Add page-level tests:
+  - [ ] Test routing logic in main pages
+  - [ ] Test study progress tracking
+  - [ ] Test error handling for missing studies
+- [ ] Fix existing test import issues after file reorganization
+
 ---
 
 **Notes:**

@@ -19,7 +19,7 @@ import {
   CompletedStudiesStorageKey,
   Showleaders_notesStorageKey,
 } from "../constants/storage";
-import { getPassagesFromStudy, getStudies, getTheme } from "../data/studies";
+import { getPassagesFromStudy, getStudies } from "../data/studies";
 import { Study } from "../data/types";
 import "./ViewStudy.css";
 
@@ -36,13 +36,9 @@ function ViewTheme() {
   );
 
   useIonViewWillEnter(() => {
-    const theme_ = getTheme(params.name);
-    setTheme({ name: params.name, description: theme_ });
-    const allStudies = getStudies();
-    const relatedStudies_ = allStudies.filter((study) =>
-      study.themes.includes(params.name)
-    );
-    setRelatedStudies(relatedStudies_);
+    setTheme({ name: params.name, description: "Theme functionality not available with new study structure" });
+    // Since themes were removed from studies, this functionality is disabled
+    setRelatedStudies([]);
   });
 
   // Get the first passage from any question block
@@ -83,7 +79,7 @@ function ViewTheme() {
                       key={study.index}
                       detail={false}
                     >
-                      <IonLabel slot="start">{study.title}</IonLabel>
+                      <IonLabel slot="start">Study {study.index}</IonLabel>
                       <IonLabel slot="end">{getFirstPassage(study)}</IonLabel>
                     </IonItem>
                   ))}
