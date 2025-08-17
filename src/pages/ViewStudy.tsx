@@ -26,7 +26,7 @@ import { useLocalStorage } from "usehooks-ts";
 import ReactMarkdown from "react-markdown";
 import {
   CompletedStudiesStorageKey,
-  Showleaders_notesStorageKey,
+  Showleaders_notesStorageKey as ShowLeadersNotesStorageKey,
 } from "../constants/storage";
 import { getPassagesFromStudy, getStudy } from "../data/studies";
 import { Study } from "../data/types";
@@ -42,8 +42,8 @@ function ViewStudy() {
     [key: string]: boolean;
   }>(`completed-questions-${params.slug}`, {});
 
-  const [showleaders_notes, setShowleaders_notes] = useLocalStorage<boolean>(
-    Showleaders_notesStorageKey,
+  const [showLeadersNotes, setShowleadersNotes] = useLocalStorage<boolean>(
+    ShowLeadersNotesStorageKey,
     false
   );
 
@@ -110,7 +110,7 @@ function ViewStudy() {
               </IonText>
             </IonRow>
 
-            {showleaders_notes && (
+            {showLeadersNotes && (
               <>
                 <IonRow className="ion-padding-horizontal">
                   <IonText>
@@ -148,9 +148,9 @@ function ViewStudy() {
                   </IonContent>
                 </IonPopover>
 
-                {study.questions.map((questionSection) => (
+                {study.questions.map((questionSection, sectionIndex) => (
                   <div key={questionSection.title}>
-                    <h4>{questionSection.title}</h4>
+                    {questionSection.passages.length > 0 ? <h4><IonRouterLink routerLink={`/study/${study.slug}/passage/${sectionIndex}`}>{questionSection.title}</IonRouterLink></h4> : <h4>{questionSection.title}</h4>}
                     <ul>
                       {questionSection.questions.map(
                         (question_and_answer, index) => (
@@ -167,7 +167,7 @@ function ViewStudy() {
                             }
                           >
                             {question_and_answer.question}
-                            {showleaders_notes &&
+                            {showLeadersNotes &&
                               question_and_answer.leadersHint && (
                                 <div className="ion-padding-start">
                                   <IonText>
