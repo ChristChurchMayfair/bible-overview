@@ -21,7 +21,7 @@ import { Menu } from "../components/Menu";
 import {
   CompletedStudiesStorageKey,
   ShowIntroBlurbStorageKey,
-  Showleaders_notesStorageKey,
+  ShowLeadersNotesStorageKey,
 } from "../constants/storage";
 import { getStudies } from "../data/studies";
 import { Study } from "../data/types";
@@ -33,7 +33,7 @@ const Settings: React.FC = () => {
     useLocalStorage<number[]>(CompletedStudiesStorageKey, []);
 
   const [showleaders_notes, setShowleaders_notes] = useLocalStorage<boolean>(
-    Showleaders_notesStorageKey,
+    ShowLeadersNotesStorageKey,
     false
   );
   const [showIntroBlurb, setShowIntroBlurb] = useLocalStorage<boolean>(

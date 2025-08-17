@@ -21,17 +21,16 @@ import {
   checkmarkCircleOutline,
 } from "ionicons/icons";
 import { useState } from "react";
+import ReactMarkdown from "react-markdown";
 import { useParams } from "react-router";
 import { useLocalStorage } from "usehooks-ts";
-import ReactMarkdown from "react-markdown";
 import {
   CompletedStudiesStorageKey,
-  Showleaders_notesStorageKey as ShowLeadersNotesStorageKey,
+  ShowLeadersNotesStorageKey,
 } from "../constants/storage";
 import { getPassagesFromStudy, getStudy } from "../data/studies";
 import { Study } from "../data/types";
 import "./ViewStudy.css";
-import Markdown from "react-markdown";
 
 function ViewStudy() {
   const params = useParams<{ slug: string }>();
@@ -42,7 +41,7 @@ function ViewStudy() {
     [key: string]: boolean;
   }>(`completed-questions-${params.slug}`, {});
 
-  const [showLeadersNotes, setShowleadersNotes] = useLocalStorage<boolean>(
+  const [showLeadersNotes, setShowLeadersNotes] = useLocalStorage<boolean>(
     ShowLeadersNotesStorageKey,
     false
   );
@@ -142,15 +141,25 @@ function ViewStudy() {
                 >
                   <IonContent>
                     <em>
-                      <IonIcon icon={bulbOutline} /> Tap each question to mark it as complete and track your
-                      progress.
+                      <IonIcon icon={bulbOutline} /> Tap each question to mark
+                      it as complete and track your progress.
                     </em>
                   </IonContent>
                 </IonPopover>
 
                 {study.questions.map((questionSection, sectionIndex) => (
                   <div key={questionSection.title}>
-                    {questionSection.passages.length > 0 ? <h4><IonRouterLink routerLink={`/study/${study.slug}/passage/${sectionIndex}`}>{questionSection.title}</IonRouterLink></h4> : <h4>{questionSection.title}</h4>}
+                    {questionSection.passages.length > 0 ? (
+                      <h4>
+                        <IonRouterLink
+                          routerLink={`/study/${study.slug}/passage/${sectionIndex}`}
+                        >
+                          {questionSection.title}
+                        </IonRouterLink>
+                      </h4>
+                    ) : (
+                      <h4>{questionSection.title}</h4>
+                    )}
                     <ul>
                       {questionSection.questions.map(
                         (question_and_answer, index) => (

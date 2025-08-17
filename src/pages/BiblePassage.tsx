@@ -19,7 +19,7 @@ import { useParams } from "react-router";
 import { useLocalStorage } from "usehooks-ts";
 import {
   CompletedStudiesStorageKey,
-  Showleaders_notesStorageKey,
+  ShowLeadersNotesStorageKey,
 } from "../constants/storage";
 import { getPassagesFromStudy, getStudy } from "../data/studies";
 import "./BiblePassage.css";
@@ -31,8 +31,8 @@ function BiblePassage() {
     useLocalStorage<number[]>(CompletedStudiesStorageKey, []);
   const params = useParams<{ slug: string; index: string }>();
 
-  const [showleaders_notes, setShowleaders_notes] = useLocalStorage<boolean>(
-    Showleaders_notesStorageKey,
+  const [showLeadersNotes, setShowLeadersNotes] = useLocalStorage<boolean>(
+    ShowLeadersNotesStorageKey,
     false
   );
 

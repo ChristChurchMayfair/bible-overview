@@ -15,7 +15,7 @@ import { useParams } from "react-router";
 import { useLocalStorage } from "usehooks-ts";
 import {
   CompletedStudiesStorageKey,
-  Showleaders_notesStorageKey,
+  ShowLeadersNotesStorageKey,
 } from "../constants/storage";
 import { getStudy } from "../data/studies";
 import { Study } from "../data/types";
@@ -28,7 +28,7 @@ function ViewTimeline() {
   const params = useParams<{ id: string }>();
 
   const [showleaders_notes, setShowleaders_notes] = useLocalStorage<boolean>(
-    Showleaders_notesStorageKey,
+    ShowLeadersNotesStorageKey,
     false
   );
 
@@ -64,7 +64,10 @@ function ViewTimeline() {
             <IonRow className="ion-padding-horizontal">
               <IonText>
                 <h2>Study {study.index} Timeline</h2>
-                <p>Timeline functionality is not available with the new study structure.</p>
+                <p>
+                  Timeline functionality is not available with the new study
+                  structure.
+                </p>
               </IonText>
             </IonRow>
           </>
@@ -77,4 +80,3 @@ function ViewTimeline() {
 }
 
 export default ViewTimeline;
-

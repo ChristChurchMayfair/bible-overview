@@ -17,9 +17,9 @@ import { useParams } from "react-router";
 import { useLocalStorage } from "usehooks-ts";
 import {
   CompletedStudiesStorageKey,
-  Showleaders_notesStorageKey,
+  ShowLeadersNotesStorageKey,
 } from "../constants/storage";
-import { getPassagesFromStudy, getStudies } from "../data/studies";
+import { getPassagesFromStudy } from "../data/studies";
 import { Study } from "../data/types";
 import "./ViewStudy.css";
 
@@ -31,12 +31,15 @@ function ViewTheme() {
   const params = useParams<{ name: string }>();
 
   const [showleaders_notes, setShowleaders_notes] = useLocalStorage<boolean>(
-    Showleaders_notesStorageKey,
+    ShowLeadersNotesStorageKey,
     false
   );
 
   useIonViewWillEnter(() => {
-    setTheme({ name: params.name, description: "Theme functionality not available with new study structure" });
+    setTheme({
+      name: params.name,
+      description: "Theme functionality not available with new study structure",
+    });
     // Since themes were removed from studies, this functionality is disabled
     setRelatedStudies([]);
   });
