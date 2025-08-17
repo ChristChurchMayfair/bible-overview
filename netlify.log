@@ -1,0 +1,29 @@
+2:59:14 PM: Failed during stage 'Install dependencies': dependency_installation script returned non-zero exit code: 1
+2:59:10 PM: build-image version: e5074bde24e53715f94c72a3902b7868fbfe84e1 (noble)
+2:59:10 PM: buildbot version: e2595138a7c5ab9f292ccfa2932733582fe0dc65
+2:59:10 PM: Fetching cached dependencies
+2:59:10 PM: Failed to fetch cache, continuing with build
+2:59:10 PM: Starting to prepare the repo for build
+2:59:10 PM: No cached dependencies found. Cloning fresh repo
+2:59:10 PM: git clone --filter=blob:none https://github.com/ChristChurchMayfair/bible-overview
+2:59:10 PM: Preparing Git Reference refs/heads/main
+2:59:11 PM: Custom build command detected. Proceeding with the specified command: 'sed -i "s|CROSSWAY_ESV_API_KEY|${CROSSWAY_ESV_API_KEY}|g" netlify.toml && yarn build'
+2:59:12 PM: Starting to install dependencies
+2:59:13 PM: v22.18.0 is already installed.
+2:59:14 PM: Now using node v22.18.0 (npm v10.9.3)
+2:59:14 PM: Enabling Node.js Corepack
+2:59:14 PM: Started restoring cached build plugins
+2:59:14 PM: Finished restoring cached build plugins
+2:59:14 PM: Started restoring cached corepack dependencies
+2:59:14 PM: Finished restoring cached corepack dependencies
+2:59:14 PM: mise ERROR Tool not installed for shim: bun
+2:59:14 PM: Missing tool version: core:bun@1.2.18
+2:59:14 PM: Install all missing tools with: mise install
+2:59:14 PM: mise ERROR Run with --verbose or MISE_VERBOSE=1 for more information
+2:59:14 PM: Installing npm packages using bun version
+2:59:14 PM: mise ERROR Tool not installed for shim: bun
+2:59:14 PM: Missing tool version: core:bun@1.2.18
+2:59:14 PM: Install all missing tools with: mise install
+2:59:14 PM: mise ERROR Run with --verbose or MISE_VERBOSE=1 for more information
+2:59:14 PM: Error during bun install
+2:59:14 PM: Failing build: Failed to install dependencies
