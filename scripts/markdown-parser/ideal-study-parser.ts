@@ -189,8 +189,6 @@ function parseBibleReferencesFromText(text: string): string[] {
   const matches = text.match(bibleRefPattern);
   if (!matches) return [];
   
-  console.log('Raw matches:', matches);
-  
   // Clean up matches
   return matches
     .map(match => match.trim())
