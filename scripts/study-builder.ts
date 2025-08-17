@@ -20,6 +20,15 @@ export function buildStudiesFromDirectory(options: StudyBuilderOptions = {}): St
   console.log(`📚 Building studies from directory: ${studiesDir}`);
   
   try {
+    // Check if studies directory exists
+    try {
+      const stats = readdirSync(studiesDir);
+    } catch (error) {
+      console.warn(`⚠️  Studies directory not found: ${studiesDir}`);
+      console.log('📝 Creating empty studies array for build');
+      return [];
+    }
+    
     const files = readdirSync(studiesDir)
       .filter(f => filePattern.test(f))
       .sort();
