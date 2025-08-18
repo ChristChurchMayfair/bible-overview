@@ -104,7 +104,24 @@ function ViewStudy() {
             ></IonRow>
             <IonRow className="ion-padding-horizontal">
               <IonText>
-                <h2>Summary</h2>
+                {getAllPassages().length > 0 && (
+                  <div className="ion-margin-bottom">
+                    <p>
+                      {getAllPassages().map((passageInfo, index) => (
+                        <span key={passageInfo.passage}>
+                          <IonRouterLink
+                            routerLink={`/study/${study.slug}/passage/${index + 1}`}
+                            style={{ textDecoration: 'none' }}
+                          >
+                            {passageInfo.passage}
+                          </IonRouterLink>
+                          {index < getAllPassages().length - 1 && ', '}
+                        </span>
+                      ))}
+                    </p>
+                  </div>
+                )}
+                
                 <ReactMarkdown>{study.summary}</ReactMarkdown>
               </IonText>
             </IonRow>
