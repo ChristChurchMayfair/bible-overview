@@ -207,9 +207,13 @@ function ViewStudy() {
                               {question_and_answer.question}
                               {showLeadersNotes &&
                                 question_and_answer.leadersHint && (
-                                  <div className="ion-padding-start">
-                                    <IonText>
-                                      <strong>Leader's Hint:</strong>{" "}
+                                  <div className="ion-padding-start ion-margin-top" style={{ display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
+                                    <IonIcon 
+                                      icon={bulbOutline} 
+                                      style={{ marginTop: '2px', flexShrink: 0 }}
+                                      color="primary"
+                                    />
+                                    <IonText color={"light"}>
                                       <em>{question_and_answer.leadersHint}</em>
                                     </IonText>
                                   </div>
