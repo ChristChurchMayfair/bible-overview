@@ -4,10 +4,8 @@ import {
   IonContent,
   IonHeader,
   IonIcon,
-  IonItem,
   IonLabel,
   IonList,
-  IonMenu,
   IonMenuButton,
   IonPage,
   IonRefresher,
@@ -16,26 +14,19 @@ import {
   IonToolbar,
   useIonViewWillEnter,
 } from "@ionic/react";
+import { helpOutline, trash } from "ionicons/icons";
 import { useState } from "react";
-import StudyListItem from "../components/StudyListItem";
-import { getStudies } from "../data/studies";
-import "./Studies.css";
-import {
-  checkmarkCircleOutline,
-  helpOutline,
-  listOutline,
-  sparklesOutline,
-  trash,
-  warning,
-} from "ionicons/icons";
 import { useLocalStorage } from "usehooks-ts";
 import { Menu } from "../components/Menu";
-import { CompletedStudiesStorageKey } from "../constants/storage";
+import StudyListItem from "../components/StudyListItem";
 import { AppTitle } from "../constants/app";
-import { Study } from "../data/types";
+import { CompletedStudiesStorageKey } from "../constants/storage";
+import { getStudies } from "../data/studies";
+import { FullStudy } from "../data/types";
+import "./Studies.css";
 
 const CompletedStudies: React.FC = () => {
-  const [studies, setStudies] = useState<Study[]>([]);
+  const [studies, setStudies] = useState<FullStudy[]>([]);
 
   const [completedStudies, setCompletedStudies, removeCompletedStudies] =
     useLocalStorage<number[]>(CompletedStudiesStorageKey, []);
@@ -90,7 +81,9 @@ const CompletedStudies: React.FC = () => {
                 <StudyListItem
                   key={study.index}
                   study={study}
-                  totalNumberOfStudies={studies.length} isCompleted={false}                />
+                  totalNumberOfStudies={studies.length}
+                  isCompleted={false}
+                />
               ))}
             </IonList>
           ) : (

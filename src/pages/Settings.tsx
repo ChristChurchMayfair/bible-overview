@@ -24,10 +24,10 @@ import {
   ShowLeadersNotesStorageKey,
 } from "../constants/storage";
 import { getStudies } from "../data/studies";
-import { Study } from "../data/types";
+import { FullStudy } from "../data/types";
 
 const Settings: React.FC = () => {
-  const [studies, setStudies] = useState<Study[]>([]);
+  const [studies, setStudies] = useState<FullStudy[]>([]);
 
   const [completedStudies, setCompletedStudies, removeCompletedStudies] =
     useLocalStorage<number[]>(CompletedStudiesStorageKey, []);

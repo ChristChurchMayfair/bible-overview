@@ -18,11 +18,11 @@ import {
   ShowLeadersNotesStorageKey,
 } from "../constants/storage";
 import { getStudy } from "../data/studies";
-import { Study } from "../data/types";
+import { FullStudy } from "../data/types";
 import "./ViewTimeline.css";
 
 function ViewTimeline() {
-  const [study, setStudy] = useState<Study>();
+  const [study, setStudy] = useState<FullStudy>();
   const [completedStudies, setCompletedStudies, removeCompletedStudies] =
     useLocalStorage<number[]>(CompletedStudiesStorageKey, []);
   const params = useParams<{ id: string }>();

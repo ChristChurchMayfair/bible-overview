@@ -20,12 +20,12 @@ import {
   ShowLeadersNotesStorageKey,
 } from "../constants/storage";
 import { getPassagesFromStudy } from "../data/studies";
-import { Study } from "../data/types";
+import { FullStudy } from "../data/types";
 import "./ViewStudy.css";
 
 function ViewTheme() {
   const [theme, setTheme] = useState<{ name: string; description: string }>();
-  const [relatedStudies, setRelatedStudies] = useState<Study[]>([]);
+  const [relatedStudies, setRelatedStudies] = useState<FullStudy[]>([]);
   const [completedStudies, setCompletedStudies, removeCompletedStudies] =
     useLocalStorage<number[]>(CompletedStudiesStorageKey, []);
   const params = useParams<{ name: string }>();
@@ -45,7 +45,7 @@ function ViewTheme() {
   });
 
   // Get the first passage from any question block
-  const getFirstPassage = (study: Study) => getPassagesFromStudy(study);
+  const getFirstPassage = (study: FullStudy) => getPassagesFromStudy(study);
 
   return (
     <IonPage id="view-study-page">

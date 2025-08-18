@@ -18,17 +18,17 @@ import { useEffect, useRef, useState } from "react";
 import { useLocalStorage } from "usehooks-ts";
 import { Menu } from "../components/Menu";
 import StudyListItem from "../components/StudyListItem";
+import { AppTitle } from "../constants/app";
 import {
   CompletedStudiesStorageKey,
   ShowIntroBlurbStorageKey,
 } from "../constants/storage";
-import { AppTitle } from "../constants/app";
 import { getStudies } from "../data/studies";
-import { Study } from "../data/types";
+import { FullStudy } from "../data/types";
 import "./Studies.css";
 
 const Studies: React.FC = () => {
-  const [studies, setStudies] = useState<Study[]>([]);
+  const [studies, setStudies] = useState<FullStudy[]>([]);
   const contentRef = useRef<HTMLIonContentElement>(null);
 
   const [completedStudies, setCompletedStudies, removeCompletedStudies] =

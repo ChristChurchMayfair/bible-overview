@@ -29,12 +29,12 @@ import {
   ShowLeadersNotesStorageKey,
 } from "../constants/storage";
 import { getPassagesFromStudy, getStudy } from "../data/studies";
-import { Study } from "../data/types";
+import { FullStudy, isFullStudy } from "../data/types";
 import "./ViewStudy.css";
 
 function ViewStudy() {
   const params = useParams<{ slug: string }>();
-  const [study, setStudy] = useState<Study>();
+  const [study, setStudy] = useState<FullStudy>();
   const [completedStudies, setCompletedStudies, removeCompletedStudies] =
     useLocalStorage<number[]>(CompletedStudiesStorageKey, []);
   const [completedQuestions, setCompletedQuestions] = useLocalStorage<{
@@ -56,7 +56,9 @@ function ViewStudy() {
 
   useIonViewWillEnter(() => {
     const study_ = getStudy(params.slug);
-    setStudy(study_);
+    if (study_ !== undefined && isFullStudy(study_)) {
+      setStudy(study_);
+    }
   });
 
   // Get all passages from section titles
@@ -110,18 +112,20 @@ function ViewStudy() {
                       {getAllPassages().map((passageInfo, index) => (
                         <span key={passageInfo.passage}>
                           <IonRouterLink
-                            routerLink={`/study/${study.slug}/passage/${index + 1}`}
-                            style={{ textDecoration: 'none' }}
+                            routerLink={`/study/${study.slug}/passage/${
+                              index + 1
+                            }`}
+                            style={{ textDecoration: "none" }}
                           >
                             {passageInfo.passage}
                           </IonRouterLink>
-                          {index < getAllPassages().length - 1 && ', '}
+                          {index < getAllPassages().length - 1 && ", "}
                         </span>
                       ))}
                     </p>
                   </div>
                 )}
-                
+
                 <ReactMarkdown>{study.summary}</ReactMarkdown>
               </IonText>
             </IonRow>
@@ -166,14 +170,17 @@ function ViewStudy() {
 
                 {study.questions.map((block, blockIndex) => {
                   // Handle markdown string blocks
-                  if (typeof block === 'string') {
+                  if (typeof block === "string") {
                     return (
-                      <div key={`markdown-${blockIndex}`} className="ion-margin-vertical">
+                      <div
+                        key={`markdown-${blockIndex}`}
+                        className="ion-margin-vertical"
+                      >
                         <ReactMarkdown>{block}</ReactMarkdown>
                       </div>
                     );
                   }
-                  
+
                   // Handle QuestionSection blocks
                   const questionSection = block;
                   return (
@@ -207,10 +214,20 @@ function ViewStudy() {
                               {question_and_answer.question}
                               {showLeadersNotes &&
                                 question_and_answer.leadersHint && (
-                                  <div className="ion-padding-start ion-margin-top" style={{ display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
-                                    <IonIcon 
-                                      icon={bulbOutline} 
-                                      style={{ marginTop: '2px', flexShrink: 0 }}
+                                  <div
+                                    className="ion-padding-start ion-margin-top"
+                                    style={{
+                                      display: "flex",
+                                      alignItems: "flex-start",
+                                      gap: "8px",
+                                    }}
+                                  >
+                                    <IonIcon
+                                      icon={bulbOutline}
+                                      style={{
+                                        marginTop: "2px",
+                                        flexShrink: 0,
+                                      }}
                                       color="primary"
                                     />
                                     <IonText color={"light"}>

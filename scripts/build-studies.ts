@@ -1,7 +1,8 @@
 #!/usr/bin/env tsx
-import { writeFileSync } from 'fs';
-import { join } from 'path';
-import { buildStudiesFromDirectory, validateStudies } from './study-builder';
+import { writeFileSync } from "fs";
+import { join } from "path";
+import { isFullStudy } from "../src/data/types";
+import { buildStudiesFromDirectory, validateStudies } from "./study-builder";
 
 interface BuildOptions {
   outputPath?: string;
@@ -12,59 +13,93 @@ interface BuildOptions {
 
 export function buildAndSaveStudies(options: BuildOptions = {}): void {
   const {
-    outputPath = join(process.cwd(), 'src/data/generated-studies.json'),
-    studiesDir = join(process.cwd(), 'studies'),
+    outputPath = join(process.cwd(), "src/data/generated-studies.json"),
+    studiesDir = join(process.cwd(), "studies"),
     validate = true,
-    pretty = true
+    pretty = true,
   } = options;
 
-  console.log('🔨 Building studies from markdown files...\n');
+  console.log("🔨 Building studies from markdown files...\n");
 
   try {
     // Build studies from markdown files
     const studies = buildStudiesFromDirectory({ studiesDir });
 
     if (studies.length === 0) {
-      console.warn('⚠️  No studies were built. Check your studies directory and file format.');
+      console.warn(
+        "⚠️  No studies were built. Check your studies directory and file format."
+      );
       return;
     }
 
     // Validation
     if (validate) {
-      console.log('\n🔍 Validating studies...');
+      console.log("\n🔍 Validating studies...");
       const validationResults = validateStudies(studies);
-      
+
       if (validationResults.length > 0) {
-        console.warn(`\n⚠️  Found validation issues in ${validationResults.length} studies:`);
+        console.warn(
+          `\n⚠️  Found validation issues in ${validationResults.length} studies:`
+        );
         validationResults.forEach(({ study, issues }) => {
           console.warn(`\n   📖 ${study.slug} (Study ${study.index}):`);
-          issues.forEach(issue => console.warn(`      • ${issue}`));
+          issues.forEach((issue) => console.warn(`      • ${issue}`));
         });
-        console.warn('\n   Consider fixing these issues before deployment.\n');
+        console.warn("\n   Consider fixing these issues before deployment.\n");
       } else {
-        console.log('✅ All studies passed validation');
+        console.log("✅ All studies passed validation");
       }
     }
 
     // Write JSON file
     console.log(`\n💾 Writing studies to: ${outputPath}`);
-    const jsonContent = pretty 
+    const jsonContent = pretty
       ? JSON.stringify(studies, null, 2)
       : JSON.stringify(studies);
-    
+
     writeFileSync(outputPath, jsonContent);
 
     // Summary
-    console.log('\n📊 Build Summary:');
+    console.log("\n📊 Build Summary:");
     console.log(`   📚 Total studies: ${studies.length}`);
-    console.log(`   📝 Total questions: ${studies.reduce((sum, s) => sum + s.questions.reduce((qSum, block) => qSum + (typeof block === 'object' && 'questions' in block ? block.questions.length : 0), 0), 0)}`);
-    console.log(`   📖 Total question sections: ${studies.reduce((sum, s) => sum + s.questions.filter(block => typeof block === 'object' && 'questions' in block).length, 0)}`);
-    console.log(`   📝 Total content blocks: ${studies.reduce((sum, s) => sum + s.questions.length, 0)}`);
+    console.log(
+      `   📝 Total questions: ${studies
+        .filter(isFullStudy)
+        .reduce(
+          (sum, s) =>
+            sum +
+            s.questions.reduce(
+              (qSum, block) =>
+                qSum +
+                (typeof block === "object" && "questions" in block
+                  ? block.questions.length
+                  : 0),
+              0
+            ),
+          0
+        )}`
+    );
+    console.log(
+      `   📖 Total question sections: ${studies
+        .filter(isFullStudy)
+        .reduce(
+          (sum, s) =>
+            sum +
+            s.questions.filter(
+              (block) => typeof block === "object" && "questions" in block
+            ).length,
+          0
+        )}`
+    );
+    console.log(
+      `   📝 Total content blocks: ${studies
+        .filter(isFullStudy)
+        .reduce((sum, s) => sum + s.questions.length, 0)}`
+    );
     console.log(`   💾 Output file: ${outputPath}`);
-    console.log('\n✨ Studies build completed successfully!');
-
+    console.log("\n✨ Studies build completed successfully!");
   } catch (error) {
-    console.error('\n💥 Build failed:', error);
+    console.error("\n💥 Build failed:", error);
     process.exit(1);
   }
 }
@@ -78,22 +113,22 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   for (let i = 0; i < args.length; i++) {
     const arg = args[i];
     switch (arg) {
-      case '--output':
-      case '-o':
+      case "--output":
+      case "-o":
         options.outputPath = args[++i];
         break;
-      case '--studies-dir':
-      case '-s':
+      case "--studies-dir":
+      case "-s":
         options.studiesDir = args[++i];
         break;
-      case '--no-validate':
+      case "--no-validate":
         options.validate = false;
         break;
-      case '--no-pretty':
+      case "--no-pretty":
         options.pretty = false;
         break;
-      case '--help':
-      case '-h':
+      case "--help":
+      case "-h":
         console.log(`
 Usage: tsx scripts/build-studies.ts [options]
 

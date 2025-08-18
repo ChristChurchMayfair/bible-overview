@@ -1,4 +1,4 @@
-import { Study } from "./types";
 import generatedStudies from "./generated-studies.json";
+import { FullStudy } from "./types";
 
-export const studies: Study[] = generatedStudies;
+export const studies: FullStudy[] = generatedStudies;

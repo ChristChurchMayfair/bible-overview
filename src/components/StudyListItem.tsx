@@ -1,6 +1,6 @@
-import { IonIcon, IonItem, IonLabel, IonNote } from "@ionic/react";
+import { IonItem, IonLabel, IonNote } from "@ionic/react";
 import { getFirstPassageFromStudy } from "../data/studies";
-import { Study } from "../data/types";
+import { FullStudy, isFullStudy, Study } from "../data/types";
 import StudyIcon from "./StudyIcon";
 import "./StudyListItem.css";
 
@@ -17,15 +17,18 @@ const StudyListItem: React.FC<StudyListItemProps> = ({
 }) => {
   const firstPassage = getFirstPassageFromStudy(study);
 
+  const showLink = isFullStudy(study)
+
   return (
     <IonItem
       id={`study-${study.index}`}
       className={`ion-padding-left ${isCompleted ? "completed-study" : ""}`}
-      routerLink={`/study/${study.slug}`}
+      routerLink={showLink ? `/study/${study.slug}`: undefined}
+      disabled={!showLink}
       lines="inset"
       detail
     >
-      <StudyIcon iconName="book" color={isCompleted ? "medium" : "primary"}/>
+      <StudyIcon iconName="book" color={isCompleted ? "medium" : "primary"} />
       <IonLabel className="ion-text-wrap">
         <h2>{study.title}</h2>
       </IonLabel>

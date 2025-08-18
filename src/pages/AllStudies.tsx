@@ -18,14 +18,14 @@ import { useState } from "react";
 import { useLocalStorage } from "usehooks-ts";
 import { Menu } from "../components/Menu";
 import StudyListItem from "../components/StudyListItem";
-import { CompletedStudiesStorageKey } from "../constants/storage";
 import { AppTitle } from "../constants/app";
+import { CompletedStudiesStorageKey } from "../constants/storage";
 import { getStudies } from "../data/studies";
+import { FullStudy } from "../data/types";
 import "./Studies.css";
-import { Study } from "../data/types";
 
 const AllStudies: React.FC = () => {
-  const [studies, setStudies] = useState<Study[]>([]);
+  const [studies, setStudies] = useState<FullStudy[]>([]);
 
   const [completedStudies, setCompletedStudies, removeCompletedStudies] =
     useLocalStorage<number[]>(CompletedStudiesStorageKey, []);
