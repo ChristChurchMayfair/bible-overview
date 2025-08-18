@@ -106,17 +106,19 @@ export function validateStudy(study: Study): string[] {
     issues.push('No questions found');
   }
   
-  // Check for questions with bible refs
-  study.questions.forEach((section, sectionIndex) => {
-    section.questions.forEach((question, questionIndex) => {
-      if (question.refs && question.refs.length > 0) {
-        question.refs.forEach((ref, refIndex) => {
-          if (!ref || ref.trim() === '') {
-            issues.push(`Empty bible reference in section ${sectionIndex}, question ${questionIndex}, ref ${refIndex}`);
-          }
-        });
-      }
-    });
+  // Check for questions with bible refs (only for QuestionSection blocks, skip markdown strings)
+  study.questions.forEach((block, blockIndex) => {
+    if (typeof block === 'object' && 'questions' in block) {
+      block.questions.forEach((question, questionIndex) => {
+        if (question.refs && question.refs.length > 0) {
+          question.refs.forEach((ref, refIndex) => {
+            if (!ref || ref.trim() === '') {
+              issues.push(`Empty bible reference in block ${blockIndex}, question ${questionIndex}, ref ${refIndex}`);
+            }
+          });
+        }
+      });
+    }
   });
   
   return issues;

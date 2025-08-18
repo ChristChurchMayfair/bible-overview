@@ -10,7 +10,7 @@ export type Study = {
         what: MarkdownString
         soWhat: MarkdownString
     }
-    questions: QuestionSection[]
+    questions: QuestionSectionBlock[]
 }
 
 export type QuestionSection = {
@@ -18,6 +18,8 @@ export type QuestionSection = {
     passages: string[]
     questions: Question[]
 }
+
+export type QuestionSectionBlock = QuestionSection | MarkdownString
 
 export type Question = {
     question: string

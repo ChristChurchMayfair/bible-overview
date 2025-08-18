@@ -147,50 +147,63 @@ function ViewStudy() {
                   </IonContent>
                 </IonPopover>
 
-                {study.questions.map((questionSection, sectionIndex) => (
-                  <div key={questionSection.title}>
-                    {questionSection.passages.length > 0 ? (
-                      <h4>
-                        <IonRouterLink
-                          routerLink={`/study/${study.slug}/passage/${sectionIndex}`}
-                        >
-                          {questionSection.title}
-                        </IonRouterLink>
-                      </h4>
-                    ) : (
-                      <h4>{questionSection.title}</h4>
-                    )}
-                    <ul>
-                      {questionSection.questions.map(
-                        (question_and_answer, index) => (
-                          <li
-                            key={index}
-                            className={classNames(
-                              "ion-padding-bottom",
-                              completedQuestions[
-                                `${questionSection.title}-${index}`
-                              ] && "completed"
-                            )}
-                            onClick={() =>
-                              toggleQuestion(questionSection.title, index)
-                            }
+                {study.questions.map((block, blockIndex) => {
+                  // Handle markdown string blocks
+                  if (typeof block === 'string') {
+                    return (
+                      <div key={`markdown-${blockIndex}`} className="ion-margin-vertical">
+                        <ReactMarkdown>{block}</ReactMarkdown>
+                      </div>
+                    );
+                  }
+                  
+                  // Handle QuestionSection blocks
+                  const questionSection = block;
+                  return (
+                    <div key={questionSection.title}>
+                      {questionSection.passages.length > 0 ? (
+                        <h4>
+                          <IonRouterLink
+                            routerLink={`/study/${study.slug}/passage/${blockIndex}`}
                           >
-                            {question_and_answer.question}
-                            {showLeadersNotes &&
-                              question_and_answer.leadersHint && (
-                                <div className="ion-padding-start">
-                                  <IonText>
-                                    <strong>Leader's Hint:</strong>{" "}
-                                    <em>{question_and_answer.leadersHint}</em>
-                                  </IonText>
-                                </div>
-                              )}
-                          </li>
-                        )
+                            {questionSection.title}
+                          </IonRouterLink>
+                        </h4>
+                      ) : (
+                        <h4>{questionSection.title}</h4>
                       )}
-                    </ul>
-                  </div>
-                ))}
+                      <ul>
+                        {questionSection.questions.map(
+                          (question_and_answer, index) => (
+                            <li
+                              key={index}
+                              className={classNames(
+                                "ion-padding-bottom",
+                                completedQuestions[
+                                  `${questionSection.title}-${index}`
+                                ] && "completed"
+                              )}
+                              onClick={() =>
+                                toggleQuestion(questionSection.title, index)
+                              }
+                            >
+                              {question_and_answer.question}
+                              {showLeadersNotes &&
+                                question_and_answer.leadersHint && (
+                                  <div className="ion-padding-start">
+                                    <IonText>
+                                      <strong>Leader's Hint:</strong>{" "}
+                                      <em>{question_and_answer.leadersHint}</em>
+                                    </IonText>
+                                  </div>
+                                )}
+                            </li>
+                          )
+                        )}
+                      </ul>
+                    </div>
+                  );
+                })}
               </IonText>
             </IonRow>
 

@@ -1,5 +1,5 @@
 import { Heading, Root, RootContent, List } from "mdast";
-import { Study, MarkdownString, QuestionSection, Question } from "../../src/data/types";
+import { Study, MarkdownString, QuestionSection, Question, QuestionSectionBlock } from "../../src/data/types";
 import { isHeading, isText, extractText } from "./ast-utils";
 import { toMarkdown } from "mdast-util-to-markdown";
 import { remark } from "remark";
@@ -11,8 +11,7 @@ export function parseIdealStudy(mdast: Root): Study {
   const leadersNotes = extractLeadersNotesFromRootContent(mdast.children);
   const leadersWhat = extractLeadersWhatFromRootContent(mdast.children);
   const leadersSoWhat = extractLeadersSoWhatFromRootContent(mdast.children);
-  const questionsMarkdown = extractQuestionsFromRootContent(mdast.children);
-  const questions = parseQuestionsFromMarkdown(questionsMarkdown);
+  const questions = extractQuestionsFromRootContentDirect(mdast.children);
 
   const study: Study = {
     index: studyNumber,
@@ -148,22 +147,23 @@ export function extractQuestionsFromRootContent(
   return extractContentFromHeadingUntilNextHeading(children, "Questions");
 }
 
-export function parseQuestionsFromMarkdown(questionsMarkdown: MarkdownString): QuestionSection[] {
-  if (!questionsMarkdown.trim()) {
-    return [];
-  }
+export function extractQuestionsFromRootContentDirect(
+  children: RootContent[]
+): QuestionSectionBlock[] {
+  // Extract AST nodes directly to avoid markdown round-trip conversion
+  const sectionContent = extractAstContentFromHeadingUntilNextHeading(children, "Questions");
+  return parseQuestionsFromAstNodes(sectionContent);
+}
 
-  const rm = remark();
-  const questionsAst = rm.parse(questionsMarkdown);
-  
-  const sections: QuestionSection[] = [];
+export function parseQuestionsFromAstNodes(astNodes: RootContent[]): QuestionSectionBlock[] {
+  const blocks: QuestionSectionBlock[] = [];
   let currentSection: QuestionSection | null = null;
   
-  for (const child of questionsAst.children) {
+  for (const child of astNodes) {
     if (isHeading(child) && child.depth === 3) {
-      // New section - save current and start new one
-      if (currentSection) {
-        sections.push(currentSection);
+      // Save any current section before starting a new one
+      if (currentSection && currentSection.questions.length > 0) {
+        blocks.push(currentSection);
       }
       
       const headingText = extractText(child);
@@ -175,7 +175,7 @@ export function parseQuestionsFromMarkdown(questionsMarkdown: MarkdownString): Q
     } else if (child.type === 'list') {
       // Handle list items
       if (!currentSection) {
-        // Create implicit Introduction section
+        // Create implicit Introduction section for orphaned lists
         currentSection = {
           title: "Introduction", 
           passages: [],
@@ -186,15 +186,90 @@ export function parseQuestionsFromMarkdown(questionsMarkdown: MarkdownString): Q
       // Parse questions from list
       const questions = parseQuestionsFromList(child);
       currentSection.questions.push(...questions);
+    } else {
+      // Handle any other content (paragraphs, etc.) as markdown strings
+      // But first, save any completed section
+      if (currentSection && currentSection.questions.length > 0) {
+        blocks.push(currentSection);
+        currentSection = null;
+      }
+      
+      const contentMarkdown = toMarkdown({
+        type: 'root',
+        children: [child]
+      }).trim();
+      
+      if (contentMarkdown) {
+        blocks.push(contentMarkdown);
+      }
     }
   }
   
-  // Don't forget the last section
-  if (currentSection) {
-    sections.push(currentSection);
+  // Don't forget the last section if it has questions
+  if (currentSection && currentSection.questions.length > 0) {
+    blocks.push(currentSection);
   }
   
-  return sections;
+  return blocks;
+}
+
+export function parseQuestionsFromMarkdown(questionsMarkdown: MarkdownString): QuestionSectionBlock[] {
+  if (!questionsMarkdown.trim()) {
+    return [];
+  }
+
+  const rm = remark();
+  const questionsAst = rm.parse(questionsMarkdown);
+  
+  const blocks: QuestionSectionBlock[] = [];
+  let currentSection: QuestionSection | null = null;
+  
+  for (const child of questionsAst.children) {
+    if (isHeading(child) && child.depth === 3) {
+      // Save any current section before starting a new one
+      if (currentSection && currentSection.questions.length > 0) {
+        blocks.push(currentSection);
+      }
+      
+      const headingText = extractText(child);
+      currentSection = {
+        title: headingText,
+        passages: extractPassagesFromHeading(headingText),
+        questions: []
+      };
+    } else if (child.type === 'list') {
+      // Handle list items
+      if (!currentSection) {
+        // Create implicit Introduction section for orphaned lists
+        currentSection = {
+          title: "Introduction", 
+          passages: [],
+          questions: []
+        };
+      }
+      
+      // Parse questions from list
+      const questions = parseQuestionsFromList(child);
+      currentSection.questions.push(...questions);
+    } else {
+      // Handle any other content (paragraphs, etc.) as markdown strings
+      const contentMarkdown = toMarkdown({
+        type: 'root',
+        children: [child]
+      }).trim();
+      
+      if (contentMarkdown) {
+        blocks.push(contentMarkdown);
+      }
+    }
+  }
+  
+  // Don't forget the last section if it has questions
+  if (currentSection && currentSection.questions.length > 0) {
+    blocks.push(currentSection);
+  }
+  
+  return blocks;
 }
 
 export function extractPassagesFromHeading(headingText: string): string[] {
@@ -286,6 +361,19 @@ export function extractContentFromHeadingUntilNextHeading(
   headingText: string,
   headingDepth: number = 2
 ): MarkdownString {
+  const sectionContent = extractAstContentFromHeadingUntilNextHeading(children, headingText, headingDepth);
+  const sectionRoot = {
+    type: "root" as const,
+    children: sectionContent
+  };
+  return toMarkdown(sectionRoot).trim();
+}
+
+export function extractAstContentFromHeadingUntilNextHeading(
+  children: RootContent[],
+  headingText: string,
+  headingDepth: number = 2
+): RootContent[] {
   const startHeadingIndex = children.findIndex((child) => {
     if (!isHeading(child)) return false;
     if (child.depth !== headingDepth) return false;
@@ -305,14 +393,7 @@ export function extractContentFromHeadingUntilNextHeading(
     return child.depth <= headingDepth;
   });
 
-  const sectionContent = nextHeadingIndex === -1
+  return nextHeadingIndex === -1
     ? children.slice(startHeadingIndex + 1)
     : children.slice(startHeadingIndex + 1, nextHeadingIndex);
-
-  const sectionRoot = {
-    type: "root" as const,
-    children: sectionContent
-  };
-
-  return toMarkdown(sectionRoot).trim();
 }

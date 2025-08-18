@@ -57,8 +57,9 @@ export function buildAndSaveStudies(options: BuildOptions = {}): void {
     // Summary
     console.log('\n📊 Build Summary:');
     console.log(`   📚 Total studies: ${studies.length}`);
-    console.log(`   📝 Total questions: ${studies.reduce((sum, s) => sum + s.questions.reduce((qSum, section) => qSum + section.questions.length, 0), 0)}`);
-    console.log(`   📖 Total question sections: ${studies.reduce((sum, s) => sum + s.questions.length, 0)}`);
+    console.log(`   📝 Total questions: ${studies.reduce((sum, s) => sum + s.questions.reduce((qSum, block) => qSum + (typeof block === 'object' && 'questions' in block ? block.questions.length : 0), 0), 0)}`);
+    console.log(`   📖 Total question sections: ${studies.reduce((sum, s) => sum + s.questions.filter(block => typeof block === 'object' && 'questions' in block).length, 0)}`);
+    console.log(`   📝 Total content blocks: ${studies.reduce((sum, s) => sum + s.questions.length, 0)}`);
     console.log(`   💾 Output file: ${outputPath}`);
     console.log('\n✨ Studies build completed successfully!');
 
