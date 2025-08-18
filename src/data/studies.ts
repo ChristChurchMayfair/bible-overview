@@ -1,6 +1,6 @@
 import "../utils/array";
 import { studies } from "./data";
-import { Study } from "./types";
+import { Study, isQuestionSection } from "./types";
 
 export const getStudies = () => studies;
 
@@ -23,7 +23,9 @@ export const getStudy = (slug: string): Study | undefined => {
  * @returns Array of passage references
  */
 export const getPassagesFromStudy = (study: Study): string[] => {
-  return study.questions.flatMap(questionSection => questionSection.passages)
+  return study.questions
+    .filter(isQuestionSection)
+    .flatMap(questionSection => questionSection.passages);
 };
 
 /**

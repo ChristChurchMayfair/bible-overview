@@ -27,3 +27,12 @@ export type Question = {
     leadersHint: string
 }
 
+// Type guard functions
+export function isQuestionSection(block: QuestionSectionBlock): block is QuestionSection {
+    return typeof block === 'object' && 'questions' in block;
+}
+
+export function isMarkdownString(block: QuestionSectionBlock): block is MarkdownString {
+    return typeof block === 'string';
+}
+
