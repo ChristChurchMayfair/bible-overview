@@ -5,5 +5,5 @@
     "moduleResolution": "Node",
     "allowSyntheticDefaultImports": true
   },
-  "include": ["vite.config.ts", "vite-plugin-studies.ts"]
+  "include": ["vite.config.ts", "vite-plugin-studies.ts", "scripts/**/*", "src/data/types.ts"]
 }
