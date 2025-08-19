@@ -40,17 +40,19 @@ const WeekItem: React.FC<WeekItemProps> = ({ week, study, isCurrentWeek, note })
     }
   };
 
+  const hasValidStudy = !!(week.studyNumber && study);
+
   return (
     <IonItem 
-      button={!!week.studyNumber}
-      onClick={goToStudy}
+      button={hasValidStudy}
+      onClick={hasValidStudy ? goToStudy : undefined}
       color={isCurrentWeek ? "primary" : undefined}
     >
       <IonLabel slot="start" color={"medium"}>
           {formatDate(week.weekStarting)}
       </IonLabel>
-      <IonLabel color={week.studyNumber ? "light" : "medium"}>
-        {study?.title ?? week.notes ?? "TBC"}
+      <IonLabel color={hasValidStudy ? "light" : "medium"}>
+        {study?.title ?? week.notes ?? "Study details coming soon"}
       </IonLabel>
     </IonItem>
   );
