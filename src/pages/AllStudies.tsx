@@ -23,6 +23,7 @@ import { CompletedStudiesStorageKey } from "../constants/storage";
 import { getStudies } from "../data/studies";
 import { FullStudy } from "../data/types";
 import "./Studies.css";
+import { getScheduleStats } from "../data/schedule";
 
 const AllStudies: React.FC = () => {
   const [studies, setStudies] = useState<FullStudy[]>([]);
@@ -34,6 +35,11 @@ const AllStudies: React.FC = () => {
     const studies_ = getStudies();
     setStudies(studies_);
   });
+
+  const scheduleStats = getScheduleStats();
+  const availableStudies = studies.length;
+  const totalPlannedStudies = scheduleStats.totalStudies;
+  const remainingStudies = totalPlannedStudies - availableStudies;
 
   const refresh = (e: CustomEvent) => {
     setTimeout(() => {
@@ -80,6 +86,19 @@ const AllStudies: React.FC = () => {
               />
             ))}
           </IonList>
+          <div className="ion-padding">
+            <div className="ion-text-center">
+              {remainingStudies > 0 && (
+                <>
+                  <p>
+                    {remainingStudies} more{" "}
+                    {remainingStudies === 1 ? "study" : "studies"} to come.
+                  </p>
+                  <p>Check back for updates.</p>
+                </>
+              )}
+            </div>
+          </div>
           <div className="ion-padding" style={{ height: "90px" }} />
         </IonContent>
       </IonPage>
