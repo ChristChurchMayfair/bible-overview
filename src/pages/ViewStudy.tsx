@@ -119,7 +119,7 @@ function ViewStudy() {
                           >
                             {passageInfo.passage}
                           </IonRouterLink>
-                          {index < getAllPassages().length - 1 && ", "}
+                          {index < getAllPassages().length - 1 && " · "}
                         </span>
                       ))}
                     </p>
