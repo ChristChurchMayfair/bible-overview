@@ -11,6 +11,7 @@ import {
   IonToolbar,
 } from "@ionic/react";
 import {
+  calendarOutline,
   checkmarkCircleOutline,
   cogOutline,
   helpOutline,
@@ -42,6 +43,10 @@ export const Menu: React.FC = () => {
                 slot="start"
               />
               <IonLabel>Completed Studies</IonLabel>
+            </IonItem>
+            <IonItem routerLink="/calendar" detail={false}>
+              <IonIcon icon={calendarOutline} color="primary" slot="start" />
+              <IonLabel>Study Calendar</IonLabel>
             </IonItem>
 
             <IonItem routerLink="/intro" detail={false}>

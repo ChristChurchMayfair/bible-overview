@@ -22,7 +22,7 @@ export const Help: React.FC = () => (
         <IonButtons slot="start">
           <IonBackButton
             mode="ios"
-            text="Bible Overview"
+            // text="Bible Overview"
             defaultHref="/"
           ></IonBackButton>
         </IonButtons>

@@ -1,0 +1,127 @@
+.calendar-stats {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.calendar-stats h2 {
+  margin-bottom: 1rem;
+  color: var(--ion-text-color);
+}
+
+.stats-grid {
+  display: flex;
+  justify-content: space-around;
+  margin: 1rem 0;
+  gap: 1rem;
+  color: var(--ion-color-medium);
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.stat-item ion-icon {
+  font-size: 1.5rem;
+  color: var(--ion-color-primary);
+}
+
+.stat-item span {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.current-week-info {
+  background: var(--ion-color-primary);
+  color: var(--ion-color-primary-contrast);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+.current-week-info h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+.current-week-info p {
+  margin: 0;
+  opacity: 0.9;
+}
+
+.week-item {
+  display: flex;
+  align-items: stretch;
+  gap: 1rem;
+  width: 100%;
+  min-height: 60px;
+}
+
+/* Date in start slot should be narrower */
+ion-item ion-label[slot="start"] {
+  max-width: 35px;
+  min-width: 35px;
+  font-weight: 600;
+  font-size: 1.3rem;
+  color: var(--ion-color-medium);
+  text-align: center;
+}
+
+.week-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.week-content ion-label {
+  flex: 1;
+}
+
+.week-content ion-icon {
+  color: var(--ion-color-primary);
+}
+
+ion-item[color="primary"] .week-date {
+  color: var(--ion-color-primary-contrast);
+  font-weight: 700;
+}
+
+.month-header {
+  --background: transparent;
+  --padding-top: 1rem;
+  --padding-bottom: 0.5rem;
+}
+
+.month-header ion-label h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--ion-text-color);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 576px) {
+  .stats-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .stat-item {
+    flex-direction: row;
+    gap: 1rem;
+  }
+  
+  .week-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .week-date {
+    min-width: auto;
+  }
+}
