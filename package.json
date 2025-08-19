@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "prebuild": "tsx scripts/build-studies.ts",
+    "prebuild": "tsx scripts/build-studies.ts && tsx scripts/build-schedule.ts",
     "build": "vite build",
     "preview": "vite preview",
     "test.e2e": "cypress run",
@@ -13,6 +13,7 @@
     "lint": "eslint",
     "serve": "netlify dev",
     "build:studies": "tsx scripts/build-studies.ts",
+    "build:schedule": "tsx scripts/build-schedule.ts",
     "extract-studies": "tsx scripts/extract-studies.ts",
     "convert_studies": "tsx scripts/markdown_to_ts.ts"
   },

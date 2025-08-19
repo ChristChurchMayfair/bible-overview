@@ -39,6 +39,7 @@ bible-overview-site-*.json
 
 # Generated files
 src/data/generated-studies.json
+src/data/generated-schedule.json
 
 # TypeScript build info
 *.tsbuildinfo

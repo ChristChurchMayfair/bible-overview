@@ -31,6 +31,12 @@ export type Question = {
 
 export type Study = FullStudy | StudyStub
 
+export type ScheduleEntry = {
+  weekStarting: string;
+  studyNumber?: number;
+  notes?: string;
+};
+
 // Type guard functions
 export function isQuestionSection(
   block: QuestionSectionBlock
