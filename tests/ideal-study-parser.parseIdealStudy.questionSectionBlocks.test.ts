@@ -60,16 +60,16 @@ We will look at it under 4 categories: God, Place, Work, People:
   assert.equal(introSection.questions.length, 1);
   assert.equal(introSection.questions[0].question, "What do you imagine when you think about paradise?");
   
-  // Second block: Explanatory text
-  assert.equal(typeof result.questions[1], 'string', "Second block should be markdown string");
-  assert.equal(result.questions[1], "We will look at it under 4 categories: God, Place, Work, People:");
-  
-  // Third block: Read Genesis section  
-  assert.equal(typeof result.questions[2], 'object', "Third block should be Read Genesis section");
-  const genesisSection = result.questions[2] as QuestionSection;
+  // Second block: Read Genesis section  
+  assert.equal(typeof result.questions[1], 'object', "Second block should be Read Genesis section");
+  const genesisSection = result.questions[1] as QuestionSection;
   assert.equal(genesisSection.title, "Read Genesis 2:4-25");
   assert.deepEqual(genesisSection.passages, ["Genesis 2:4-25"]);
   assert.equal(genesisSection.questions.length, 1);
+  
+  // Third block: Explanatory text
+  assert.equal(typeof result.questions[2], 'string', "Third block should be markdown string");
+  assert.equal(result.questions[2], "We will look at it under 4 categories: God, Place, Work, People:");
   
   // Fourth block: God section
   assert.equal(typeof result.questions[3], 'object', "Fourth block should be God section");
