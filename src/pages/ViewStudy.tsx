@@ -5,6 +5,9 @@ import {
   IonContent,
   IonHeader,
   IonIcon,
+  IonItem,
+  IonLabel,
+  IonList,
   IonPage,
   IonPopover,
   IonRouterLink,
@@ -20,7 +23,7 @@ import {
   bulbOutline,
   checkmarkCircleOutline,
 } from "ionicons/icons";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import { useParams } from "react-router";
 import { useLocalStorage } from "usehooks-ts";
@@ -35,6 +38,7 @@ import "./ViewStudy.css";
 function ViewStudy() {
   const params = useParams<{ slug: string }>();
   const [study, setStudy] = useState<FullStudy>();
+  const popoverRef = useRef<HTMLIonPopoverElement>(null);
   const [completedStudies, setCompletedStudies, removeCompletedStudies] =
     useLocalStorage<number[]>(CompletedStudiesStorageKey, []);
   const [completedQuestions, setCompletedQuestions] = useLocalStorage<{
@@ -83,9 +87,28 @@ function ViewStudy() {
           </IonButtons>
           <IonTitle>{study?.title}</IonTitle>
           <IonButtons slot="end">
-            <IonButton mode="ios" href={`/study/${study?.slug}/passage/1`}>
+            <IonButton mode="ios" id="passages-trigger">
               <IonIcon icon={bookOutline} />
             </IonButton>
+            <IonPopover ref={popoverRef} trigger="passages-trigger" triggerAction="click">
+              <IonContent>
+                {study && getAllPassages().length > 0 && (
+                  <IonList>
+                    {getAllPassages().map((passageInfo, index) => (
+                      <IonItem 
+                        key={index}
+                        button 
+                        routerLink={`/study/${study.slug}/passage/${index + 1}`}
+                        routerDirection="forward"
+                        onClick={() => popoverRef.current?.dismiss()}
+                      >
+                        <IonLabel color="primary">{passageInfo.passage}</IonLabel>
+                      </IonItem>
+                    ))}
+                  </IonList>
+                )}
+              </IonContent>
+            </IonPopover>
           </IonButtons>
         </IonToolbar>
       </IonHeader>
