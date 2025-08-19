@@ -46,7 +46,7 @@ export const Menu: React.FC = () => {
             </IonItem>
             <IonItem routerLink="/calendar" detail={false}>
               <IonIcon icon={calendarOutline} color="primary" slot="start" />
-              <IonLabel>Study Calendar</IonLabel>
+              <IonLabel>Year View</IonLabel>
             </IonItem>
 
             <IonItem routerLink="/intro" detail={false}>

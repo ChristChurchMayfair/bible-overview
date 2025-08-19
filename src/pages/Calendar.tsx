@@ -75,7 +75,7 @@ const Calendar: React.FC = () => {
             <IonButtons slot="start">
               <IonMenuButton mode="ios" />
             </IonButtons>
-            <IonTitle>{AppTitle}</IonTitle>
+            <IonTitle>Year View</IonTitle>
             <IonButtons slot="end">
               <IonButton routerLink={`/help`} mode="ios">
                     <IonIcon icon={helpOutline} />
@@ -85,15 +85,10 @@ const Calendar: React.FC = () => {
         </IonHeader>
 
         <IonContent>
-          <IonHeader collapse="condense">
-            <IonToolbar>
-              <IonTitle>{AppTitle}</IonTitle>
-            </IonToolbar>
-          </IonHeader>
           {stats && (
             <div className="ion-padding">
               <div className="calendar-stats">
-                <h2>Academic Year 2025-26</h2>
+                <h2>DG Year 2025-26</h2>
                 <div className="stats-grid">
                   <span>
                     {stats.totalWeeks} weeks • {stats.studyWeeks} studies
