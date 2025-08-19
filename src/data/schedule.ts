@@ -35,13 +35,24 @@ export function getCurrentWeekEntry(): ScheduleEntry | null {
   return currentEntry;
 }
 
-export function getScheduleByMonth(): { month: string; weeks: ScheduleEntry[] }[] {
+export function getScheduleByMonth(meetingDay: number = 1): { month: string; weeks: ScheduleEntry[] }[] {
   const schedule = getSchedule();
   const monthMap = new Map<string, ScheduleEntry[]>();
   
   schedule.forEach(entry => {
-    const date = new Date(entry.weekStarting);
-    const monthKey = date.toLocaleDateString('en-US', { year: 'numeric', month: 'long' });
+    const weekStart = new Date(entry.weekStarting);
+    
+    // For prayer meetings, always use Wednesday (3)
+    // For studies and other events, use the specified meeting day
+    const isPrayerMeeting = entry.notes?.toLowerCase().includes('prayer meeting');
+    const targetDay = isPrayerMeeting ? 3 : meetingDay;
+    
+    // Calculate the actual meeting date
+    const daysToAdd = targetDay === 0 ? 6 : targetDay - 1; // Sunday is 0, but we want it to be 6 days after Monday
+    const meetingDate = new Date(weekStart);
+    meetingDate.setDate(weekStart.getDate() + daysToAdd);
+    
+    const monthKey = meetingDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long' });
     
     if (!monthMap.has(monthKey)) {
       monthMap.set(monthKey, []);
