@@ -22,6 +22,7 @@ import {
   bookOutline,
   bulbOutline,
   checkmarkCircleOutline,
+  copyOutline,
 } from "ionicons/icons";
 import { useRef, useState } from "react";
 import ReactMarkdown from "react-markdown";
@@ -49,6 +50,18 @@ function ViewStudy() {
     ShowLeadersNotesStorageKey,
     false
   );
+  
+  const [copiedSection, setCopiedSection] = useState<string | null>(null);
+
+  const copyToClipboard = async (text: string, sectionName: string) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopiedSection(sectionName);
+      setTimeout(() => setCopiedSection(null), 2000); // Clear feedback after 2 seconds
+    } catch (err) {
+      console.error('Failed to copy text: ', err);
+    }
+  };
 
   const toggleQuestion = (sectionTitle: string, questionIndex: number) => {
     const key = `${sectionTitle}-${questionIndex}`;
@@ -157,19 +170,49 @@ function ViewStudy() {
               <>
                 <IonRow className="ion-padding-horizontal">
                   <IonText>
-                    <h3>Leaders Notes</h3>
+                    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                      <h3>Leaders Notes</h3>
+                      <IonButton 
+                        fill="clear" 
+                        size="small"
+                        onClick={() => copyToClipboard(study.leadersInfo.notes, 'notes')}
+                      >
+                        <IonIcon icon={copyOutline} />
+                        {copiedSection === 'notes' ? ' Copied!' : ''}
+                      </IonButton>
+                    </div>
                     <ReactMarkdown>{study.leadersInfo.notes}</ReactMarkdown>
                   </IonText>
                 </IonRow>
                 <IonRow className="ion-padding-horizontal">
                   <IonText>
-                    <h4>What</h4>
+                    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                      <h4>What</h4>
+                      <IonButton 
+                        fill="clear" 
+                        size="small"
+                        onClick={() => copyToClipboard(study.leadersInfo.what, 'what')}
+                      >
+                        <IonIcon icon={copyOutline} />
+                        {copiedSection === 'what' ? ' Copied!' : ''}
+                      </IonButton>
+                    </div>
                     <ReactMarkdown>{study.leadersInfo.what}</ReactMarkdown>
                   </IonText>
                 </IonRow>
                 <IonRow className="ion-padding-horizontal">
                   <IonText>
-                    <h4>So What</h4>
+                    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                      <h4>So What</h4>
+                      <IonButton 
+                        fill="clear" 
+                        size="small"
+                        onClick={() => copyToClipboard(study.leadersInfo.soWhat, 'sowhat')}
+                      >
+                        <IonIcon icon={copyOutline} />
+                        {copiedSection === 'sowhat' ? ' Copied!' : ''}
+                      </IonButton>
+                    </div>
                     <ReactMarkdown>{study.leadersInfo.soWhat}</ReactMarkdown>
                   </IonText>
                 </IonRow>
@@ -206,19 +249,37 @@ function ViewStudy() {
 
                   // Handle QuestionSection blocks
                   const questionSection = block;
+                  
+                  // Create text content for copying (questions only, no leader hints)
+                  const questionsText = questionSection.questions
+                    .map((qa, index) => `${index + 1}. ${qa.question}`)
+                    .join('\n');
+                  
                   return (
                     <div key={questionSection.title}>
-                      {questionSection.passages.length > 0 ? (
-                        <h4>
-                          <IonRouterLink
-                            routerLink={`/study/${study.slug}/passage/${blockIndex}`}
+                      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "0.5rem" }}>
+                        {questionSection.passages.length > 0 ? (
+                          <h4 style={{ margin: 0 }}>
+                            <IonRouterLink
+                              routerLink={`/study/${study.slug}/passage/${blockIndex}`}
+                            >
+                              {questionSection.title}
+                            </IonRouterLink>
+                          </h4>
+                        ) : (
+                          <h4 style={{ margin: 0 }}>{questionSection.title}</h4>
+                        )}
+                        {showLeadersNotes && (
+                          <IonButton 
+                            fill="clear" 
+                            size="small"
+                            onClick={() => copyToClipboard(questionsText, `questions-${blockIndex}`)}
                           >
-                            {questionSection.title}
-                          </IonRouterLink>
-                        </h4>
-                      ) : (
-                        <h4>{questionSection.title}</h4>
-                      )}
+                            <IonIcon icon={copyOutline} />
+                            {copiedSection === `questions-${blockIndex}` ? ' Copied!' : ''}
+                          </IonButton>
+                        )}
+                      </div>
                       <ul>
                         {questionSection.questions.map(
                           (question_and_answer, index) => (
