@@ -69,7 +69,7 @@ const Calendar: React.FC = () => {
   return (
     <>
       <Menu />
-      <IonPage>
+      <IonPage id="home-page">
         <IonHeader collapse="fade">
           <IonToolbar mode="ios">
             <IonButtons slot="start">
@@ -84,7 +84,13 @@ const Calendar: React.FC = () => {
           </IonToolbar>
         </IonHeader>
 
-        <IonContent>
+        <IonContent fullscreen>
+          <IonHeader collapse="condense">
+            <IonToolbar>
+              <IonTitle>Year View</IonTitle>
+            </IonToolbar>
+          </IonHeader>
+
           {stats && (
             <div className="ion-padding">
               <div className="calendar-stats">
