@@ -55,11 +55,33 @@ function ViewStudy() {
 
   const copyToClipboard = async (text: string, sectionName: string) => {
     try {
-      await navigator.clipboard.writeText(text);
+      // Try to copy with multiple formats
+      if (navigator.clipboard.write) {
+        // Create a ClipboardItem with both text and HTML
+        const blob = new Blob([text], { type: 'text/plain' });
+        const htmlBlob = new Blob([text], { type: 'text/html' });
+        const item = new ClipboardItem({
+          'text/plain': blob,
+          'text/html': htmlBlob,
+          'text/markdown': blob // Some apps support markdown MIME type
+        });
+        await navigator.clipboard.write([item]);
+      } else {
+        // Fallback to simple text
+        await navigator.clipboard.writeText(text);
+      }
       setCopiedSection(sectionName);
       setTimeout(() => setCopiedSection(null), 2000); // Clear feedback after 2 seconds
     } catch (err) {
       console.error('Failed to copy text: ', err);
+      // Try simple fallback
+      try {
+        await navigator.clipboard.writeText(text);
+        setCopiedSection(sectionName);
+        setTimeout(() => setCopiedSection(null), 2000);
+      } catch (fallbackErr) {
+        console.error('Fallback copy also failed: ', fallbackErr);
+      }
     }
   };
 
