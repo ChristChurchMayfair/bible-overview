@@ -2,7 +2,6 @@ import { IonIcon } from "@ionic/react";
 import {
   alert,
   analytics,
-  book,
   bookOutline,
   checkmarkDone,
   cloud,
