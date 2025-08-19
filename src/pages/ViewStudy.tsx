@@ -95,7 +95,7 @@ function ViewStudy() {
           <>
             <IonHeader collapse="condense">
               <IonToolbar>
-                <IonTitle>Study {study.index}</IonTitle>
+                <IonTitle>{study.title}</IonTitle>
               </IonToolbar>
             </IonHeader>
             <IonRow
