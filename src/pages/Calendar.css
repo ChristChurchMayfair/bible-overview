@@ -61,8 +61,8 @@
 
 /* Date in start slot should be narrower */
 ion-item ion-label[slot="start"] {
-  max-width: 45px;
-  min-width: 45px;
+  max-width: 55px;
+  min-width: 55px;
   font-weight: 600;
   font-size: 1.3rem;
   color: var(--ion-color-medium);

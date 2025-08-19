@@ -12,14 +12,17 @@ import {
   IonMenuButton,
   IonNote,
   IonPage,
+  IonRouterLink,
   IonTitle,
   IonToolbar,
   useIonViewWillEnter,
 } from "@ionic/react";
 import { useState } from "react";
+import { useLocalStorage } from "usehooks-ts";
 import { Menu } from "../components/Menu";
 import WeekItem from "../components/WeekItem";
 import { AppTitle } from "../constants/app";
+import { MeetingDayStorageKey } from "../constants/storage";
 import {
   getScheduleByMonth,
   getCurrentWeekEntry,
@@ -42,6 +45,8 @@ const Calendar: React.FC = () => {
     totalStudies: number;
   } | null>(null);
   const [studies, setStudies] = useState<StudyStub[]>([]);
+  
+  const [meetingDay] = useLocalStorage<number>(MeetingDayStorageKey, 1);
 
   useIonViewWillEnter(() => {
     setScheduleByMonth(getScheduleByMonth());
@@ -100,6 +105,9 @@ const Calendar: React.FC = () => {
                     {stats.totalWeeks} weeks • {stats.studyWeeks} studies
                   </span>
                 </div>
+                <p className="ion-text-center">
+                  <small>Your DG day is <IonRouterLink routerLink="/settings" style={{ textDecoration: "none" }}>{['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][meetingDay]}</IonRouterLink></small>
+                </p>
                 {currentWeek && (
                   <div className="current-week-info">
                     <h3>Current Week</h3>
@@ -136,6 +144,7 @@ const Calendar: React.FC = () => {
                         : undefined
                     }
                     isCurrentWeek={isCurrentWeek(week.weekStarting)}
+                    meetingDay={meetingDay}
                   />
                 ))}
               </IonList>

@@ -10,6 +10,8 @@ import {
   IonPage,
   IonRefresher,
   IonRefresherContent,
+  IonSelect,
+  IonSelectOption,
   IonTitle,
   IonToggle,
   IonToolbar,
@@ -20,6 +22,7 @@ import { useLocalStorage } from "usehooks-ts";
 import { Menu } from "../components/Menu";
 import {
   CompletedStudiesStorageKey,
+  MeetingDayStorageKey,
   ShowIntroBlurbStorageKey,
   ShowLeadersNotesStorageKey,
 } from "../constants/storage";
@@ -39,6 +42,11 @@ const Settings: React.FC = () => {
   const [showIntroBlurb, setShowIntroBlurb] = useLocalStorage<boolean>(
     ShowIntroBlurbStorageKey,
     true
+  );
+  
+  const [meetingDay, setMeetingDay] = useLocalStorage<number>(
+    MeetingDayStorageKey,
+    1 // Default to Monday (1 = Monday, 2 = Tuesday, etc.)
   );
 
   useIonViewWillEnter(() => {
@@ -100,6 +108,26 @@ const Settings: React.FC = () => {
                 checked={showIntroBlurb}
                 onIonChange={(e) => setShowIntroBlurb(e.detail.checked)}
               ></IonToggle>
+            </IonItem>
+            <IonItem>
+              <IonLabel slot="start" className="no-wrap">
+                Meeting Day
+              </IonLabel>
+              <IonSelect
+                slot="end"
+                mode="ios"
+                value={meetingDay}
+                onIonChange={(e) => setMeetingDay(e.detail.value)}
+                interface="popover"
+              >
+                <IonSelectOption value={1}>Monday</IonSelectOption>
+                <IonSelectOption value={2}>Tuesday</IonSelectOption>
+                <IonSelectOption value={3}>Wednesday</IonSelectOption>
+                <IonSelectOption value={4}>Thursday</IonSelectOption>
+                <IonSelectOption value={5}>Friday</IonSelectOption>
+                <IonSelectOption value={6}>Saturday</IonSelectOption>
+                <IonSelectOption value={0}>Sunday</IonSelectOption>
+              </IonSelect>
             </IonItem>
             <IonItem>
               <IonLabel slot="start" className="no-wrap">
