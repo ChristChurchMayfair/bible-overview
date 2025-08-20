@@ -55,11 +55,11 @@ const WeekItem: React.FC<WeekItemProps> = ({ week, study, isCurrentWeek, note, m
     >
       <IonLabel slot="start" color={"medium"}>
         <div style={{ textAlign: "center", fontSize: "0.75rem", lineHeight: "1.1" }}>
-          <div style={{ fontWeight: "400", opacity: "0.7", color: "var(--ion-color-light)" }}>{dateInfo.dayOfWeek}</div>
+          <div style={{ fontWeight: "400", opacity: "0.7", color: "var(--ion-text-color-step-400)" }}>{dateInfo.dayOfWeek}</div>
           <div style={{ fontWeight: "600", fontSize: "1.5rem" }}>{dateInfo.dayWithSuffix}</div>
         </div>
       </IonLabel>
-      <IonLabel color={hasValidStudy ? "light" : "medium"}>
+      <IonLabel style={{ color: hasValidStudy ? "var(--ion-text-color)" : "var(--ion-text-color-step-600)" }}>
         {study?.title ?? week.notes ?? "Study details coming soon"}
       </IonLabel>
     </IonItem>
