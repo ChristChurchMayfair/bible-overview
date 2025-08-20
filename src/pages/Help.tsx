@@ -92,6 +92,11 @@ export const Help: React.FC = () => (
         <IonIcon slot="start" icon={settingsOutline} />
         Report an Issue
       </IonButton>
+      <h3>App Address</h3>
+      <p>
+        <a href="https://study.christchurchmayfair.org">https://study.christchurchmayfair.org</a>
+      </p>
+      
       <h3>Copyright Notices</h3>
       <h4>ESV Copyright</h4>
       <p>
