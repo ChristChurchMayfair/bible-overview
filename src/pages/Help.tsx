@@ -26,7 +26,7 @@ export const Help: React.FC = () => (
             defaultHref="/"
           ></IonBackButton>
         </IonButtons>
-        <IonTitle>About</IonTitle>
+        <IonTitle>Help & About</IonTitle>
       </IonToolbar>
     </IonHeader>
     <IonContent className="ion-padding">
@@ -90,6 +90,17 @@ export const Help: React.FC = () => (
         <IonIcon slot="start" icon={settingsOutline} />
         Report an Issue
       </IonButton>
+      <h3>Copyright Notices</h3>
+      <h4>ESV Copyright</h4>
+      <p>
+        Unless otherwise indicated, all Scripture quotations are from the ESV® Bible (The Holy Bible, English Standard Version®), © 2001 by Crossway, a publishing ministry of Good News Publishers. Used by permission. All rights reserved.
+      </p>
+      <p>
+        The ESV text may not be quoted in any publication made available to the public by a Creative Commons license. The ESV may not be translated into any other language.
+      </p>
+      <p>
+        Users may not copy or download more than 500 verses of the ESV Bible or more than one half of any book of the ESV Bible.
+      </p>
     </IonContent>
   </IonPage>
 );

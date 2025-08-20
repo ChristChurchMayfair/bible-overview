@@ -59,7 +59,7 @@ export const Menu: React.FC = () => {
             </IonItem>
             <IonItem routerLink="/help" detail={false}>
               <IonIcon icon={helpOutline} color="primary" slot="start" />
-              <IonLabel>Help</IonLabel>
+              <IonLabel>Help & About</IonLabel>
             </IonItem>
           </IonMenuToggle>
         </IonList>
