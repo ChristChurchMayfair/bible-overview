@@ -69,16 +69,54 @@ export const Help: React.FC = () => (
         you're in London, you'd be very welcome to join us at Christ Church
         Mayfair.
       </p>
-      <IonButton expand="block" fill="outline" href="https://christchurchmayfair.org">
+      <IonButton
+        expand="block"
+        fill="outline"
+        href="https://christchurchmayfair.org"
+      >
         <IonIcon slot="start" icon={globeOutline} />
         Christ Church Mayfair
       </IonButton>
 
+      <h2>Install as App</h2>
+       <p>
+        This web app is hosted as this address:{" "} 
+        <a href="https://study.christchurchmayfair.org">
+          https://study.christchurchmayfair.org
+        </a>
+      </p>
+      <p>
+        You can "install" it on your device for a better experience. It
+        will work offline and appear like a native app on your home screen.
+      </p>
+
+      <h3>On iPhone/iPad (Safari)</h3>
+      <p>
+        1. Open the app in Safari
+        <br />
+        2. Tap the Share button (square with arrow up)
+        <br />
+        3. Scroll down and tap "Add to Home Screen"
+        <br />
+        4. Tap "Add" to confirm
+      </p>
+
+      <h3>On Android (Chrome)</h3>
+      <p>
+        1. Open the app in Chrome
+        <br />
+        2. Tap the menu (three dots) in the top right
+        <br />
+        3. Tap "Add to Home screen" or "Install app"
+        <br />
+        4. Tap "Add" or "Install" to confirm
+      </p>
+
       <h2>App Support</h2>
       <p>
         This app was built by volunteers from Christ Church Mayfair. If you have
-        problems with this app or have ideas to make it better we'd love to hear
-        them.
+        problems with it or have ideas to make it better we'd love to hear from
+        you.
       </p>
       <p>
         If you encounter any bugs or have feature requests, please raise them
@@ -92,21 +130,23 @@ export const Help: React.FC = () => (
         <IonIcon slot="start" icon={settingsOutline} />
         Report an Issue
       </IonButton>
-      <h3>App Address</h3>
-      <p>
-        <a href="https://study.christchurchmayfair.org">https://study.christchurchmayfair.org</a>
-      </p>
-      
+
       <h3>Copyright Notices</h3>
       <h4>ESV Copyright</h4>
       <p>
-        Unless otherwise indicated, all Scripture quotations are from the ESV® Bible (The Holy Bible, English Standard Version®), © 2001 by Crossway, a publishing ministry of Good News Publishers. Used by permission. All rights reserved.
+        Unless otherwise indicated, all Scripture quotations are from the ESV®
+        Bible (The Holy Bible, English Standard Version®), © 2001 by Crossway, a
+        publishing ministry of Good News Publishers. Used by permission. All
+        rights reserved.
       </p>
       <p>
-        The ESV text may not be quoted in any publication made available to the public by a Creative Commons license. The ESV may not be translated into any other language.
+        The ESV text may not be quoted in any publication made available to the
+        public by a Creative Commons license. The ESV may not be translated into
+        any other language.
       </p>
       <p>
-        Users may not copy or download more than 500 verses of the ESV Bible or more than one half of any book of the ESV Bible.
+        Users may not copy or download more than 500 verses of the ESV Bible or
+        more than one half of any book of the ESV Bible.
       </p>
     </IonContent>
   </IonPage>
