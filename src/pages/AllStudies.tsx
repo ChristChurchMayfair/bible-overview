@@ -74,8 +74,6 @@ const AllStudies: React.FC = () => {
               <IonTitle>{AppTitle}</IonTitle>
             </IonToolbar>
           </IonHeader>
-          <div className="ion-padding ion-text-center">All studies</div>
-
           <IonList>
             {studies.map((study) => (
               <StudyListItem
