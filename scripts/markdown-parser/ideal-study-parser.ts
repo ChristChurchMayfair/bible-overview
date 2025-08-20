@@ -7,9 +7,11 @@ import {
   Question,
   QuestionSection,
   QuestionSectionBlock,
+  Study,
   StudyStub,
 } from "../../src/data/types";
 import { extractText, isHeading, isText } from "./ast-utils";
+import { detectVerseReferences } from "./verse-reference-detector";
 
 export function containsHeading(
   children: RootContent[],
@@ -252,7 +254,7 @@ export function parseQuestionsFromAstNodes(
       }
 
       // Parse questions from list
-      const questions = parseQuestionsFromList(child);
+      const questions = parseQuestionsFromList(child, currentSection.passages);
       currentSection.questions.push(...questions);
     } else {
       // Handle any other content (paragraphs, etc.) as markdown strings
@@ -319,7 +321,7 @@ export function parseQuestionsFromMarkdown(
       }
 
       // Parse questions from list
-      const questions = parseQuestionsFromList(child);
+      const questions = parseQuestionsFromList(child, currentSection.passages);
       currentSection.questions.push(...questions);
     } else {
       // Handle any other content (paragraphs, etc.) as markdown strings
@@ -515,7 +517,7 @@ function parseBibleReferencesFromText(text: string): string[] {
     .filter((match) => match.length > 0);
 }
 
-function parseQuestionsFromList(list: List): Question[] {
+function parseQuestionsFromList(list: List, sectionPassages: string[]): Question[] {
   const questions: Question[] = [];
 
   for (const listItem of list.children) {
@@ -524,9 +526,12 @@ function parseQuestionsFromList(list: List): Question[] {
       const leadersHint = extractLeadersHintFromListItem(listItem);
 
       if (questionText) {
+        // Detect verse references in the question text
+        const detectedRefs = detectVerseReferences(questionText, sectionPassages);
+        
         questions.push({
           question: questionText,
-          refs: [], // TODO: Extract refs
+          refs: detectedRefs,
           leadersHint: leadersHint,
         });
       }

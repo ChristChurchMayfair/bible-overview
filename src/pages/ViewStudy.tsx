@@ -306,6 +306,20 @@ function ViewStudy() {
                               }
                             >
                               {question_and_answer.question}
+                              {showLeadersNotes && question_and_answer.refs && question_and_answer.refs.length > 0 && (
+                                <div
+                                  className="ion-padding-start ion-margin-top"
+                                  style={{
+                                    display: "flex",
+                                    alignItems: "flex-start",
+                                    gap: "8px",
+                                  }}
+                                >
+                                  <IonText color="medium" style={{ fontSize: "0.8em" }}>
+                                    <strong>Verse refs:</strong> {question_and_answer.refs.join(", ")}
+                                  </IonText>
+                                </div>
+                              )}
                               {showLeadersNotes &&
                                 question_and_answer.leadersHint && (
                                   <div
