@@ -1,7 +1,7 @@
-import { IonItem, IonLabel, IonNote } from "@ionic/react";
+import { IonIcon, IonItem, IonLabel, IonNote } from "@ionic/react";
+import { bookOutline, checkmarkCircleOutline } from "ionicons/icons";
 import { getFirstPassageFromStudy } from "../data/studies";
 import { FullStudy, isFullStudy, Study } from "../data/types";
-import StudyIcon from "./StudyIcon";
 import "./StudyListItem.css";
 
 interface StudyListItemProps {
@@ -28,7 +28,11 @@ const StudyListItem: React.FC<StudyListItemProps> = ({
       lines="inset"
       detail
     >
-      <StudyIcon iconName="book" color={isCompleted ? "medium" : "primary"} />
+      <IonIcon 
+        icon={isCompleted ? checkmarkCircleOutline : bookOutline} 
+        color="primary"
+        style={{ marginRight: '16px', fontSize: '24px' }}
+      />
       <IonLabel className="ion-text-wrap">
         <h2>{study.title}</h2>
       </IonLabel>
