@@ -54,6 +54,7 @@ export const Help: React.FC = () => (
       </p>
       <IonButton
         expand="block"
+        fill="outline"
         href="mailto:phil.allcock@christchurchmayfair.org"
       >
         <IonIcon slot="start" icon={helpCircleOutline} />
@@ -68,7 +69,7 @@ export const Help: React.FC = () => (
         you're in London, you'd be very welcome to join us at Christ Church
         Mayfair.
       </p>
-      <IonButton expand="block" href="https://christchurchmayfair.org">
+      <IonButton expand="block" fill="outline" href="https://christchurchmayfair.org">
         <IonIcon slot="start" icon={globeOutline} />
         Christ Church Mayfair
       </IonButton>
@@ -85,6 +86,7 @@ export const Help: React.FC = () => (
       </p>
       <IonButton
         expand="block"
+        fill="outline"
         href="https://github.com/tomduckering/bibleoverviewapp/issues/new/choose"
       >
         <IonIcon slot="start" icon={settingsOutline} />
