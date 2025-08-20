@@ -338,7 +338,7 @@ function ViewStudy() {
                                       }}
                                       color="primary"
                                     />
-                                    <IonText color={"light"}>
+                                    <IonText color={"medium"}>
                                       <em>{question_and_answer.leadersHint}</em>
                                     </IonText>
                                   </div>
