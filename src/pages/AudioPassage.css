@@ -47,10 +47,12 @@
   color: var(--ion-color-primary);
   cursor: pointer;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
   transition: background-color 0.2s;
+  gap: 0.25rem;
 }
 
 .control-button:hover {
@@ -72,6 +74,10 @@
   font-size: 1.5rem;
 }
 
+.skip-button ion-icon {
+  font-size: 2.5rem;
+}
+
 .play-button ion-icon {
   font-size: 2rem;
 }
@@ -85,4 +91,29 @@
 
 .audio-player {
   display: none;
+}
+
+.skip-button {
+  position: relative;
+  flex-direction: row !important;
+}
+
+.skip-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, calc(-50% + 1px));
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ion-color-primary);
+  pointer-events: none;
+  user-select: none;
+}
+
+.skip-left {
+  transform: translate(calc(-50% + 1px), calc(-50% + 1px));
+}
+
+.skip-right {
+  transform: translate(calc(-50% - 1px), calc(-50% + 1px));
 } 

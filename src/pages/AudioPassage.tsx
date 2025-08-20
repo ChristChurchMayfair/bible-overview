@@ -11,7 +11,7 @@ import {
   IonToolbar,
   useIonViewWillEnter,
 } from "@ionic/react";
-import { bookOutline, pause, play, playSkipBack, playSkipForward } from "ionicons/icons";
+import { bookOutline, pause, play, reloadOutline } from "ionicons/icons";
 import { useRef, useState } from "react";
 import { useParams } from "react-router";
 import { getPassagesFromStudy, getStudy } from "../data/studies";
@@ -126,8 +126,9 @@ function AudioPassage() {
               <span>{formatTime(duration)}</span>
             </div>
             <div className="controls">
-              <button className="control-button" onClick={skipBack}>
-                <IonIcon icon={playSkipBack} />
+              <button className="control-button skip-button" onClick={skipBack} title="Skip back 15 seconds">
+                <IonIcon icon={reloadOutline} style={{ transform: 'scaleX(-1) rotate(-45deg)' }} />
+                <span className="skip-overlay skip-left">15</span>
               </button>
               <button className="control-button" onClick={togglePlay}>
                 <IonIcon
@@ -135,8 +136,9 @@ function AudioPassage() {
                   className="play-button"
                 />
               </button>
-              <button className="control-button" onClick={skipForward}>
-                <IonIcon icon={playSkipForward} />
+              <button className="control-button skip-button" onClick={skipForward} title="Skip forward 15 seconds">
+                <IonIcon icon={reloadOutline} style={{ transform: 'rotate(-45deg)' }} />
+                <span className="skip-overlay skip-right">15</span>
               </button>
             </div>
             <audio

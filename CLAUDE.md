@@ -85,6 +85,9 @@ The codebase is undergoing structural improvements (see `todo.md`):
 - Enhanced error handling and type safety in progress
 
 ### Testing Strategy
+- Absolutely must use a TDD approach.
+- Tests written before any implementation and must be seen to fail.
+- Strict use of Red, Green, Refactor method
 - Unit tests for data layer functions and utilities
 - Component tests for UI interactions
 - E2E tests for critical user flows
