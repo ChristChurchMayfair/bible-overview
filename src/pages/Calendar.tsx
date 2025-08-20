@@ -107,7 +107,7 @@ const Calendar: React.FC = () => {
                 </div>
                 {meetingDay === null ? (
                   <p className="ion-text-center" style={{ margin: "0.5rem 0" }}>
-                    <small><IonRouterLink routerLink="/settings" style={{ textDecoration: "none" }}>Set your study day</IonRouterLink> - most groups meet Tue-Thu</small>
+                    <small><IonRouterLink routerLink="/settings" style={{ textDecoration: "none" }}>Set your study day</IonRouterLink></small>
                   </p>
                 ) : (
                   <p className="ion-text-center">
