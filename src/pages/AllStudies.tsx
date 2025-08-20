@@ -42,9 +42,7 @@ const AllStudies: React.FC = () => {
   const remainingStudies = totalPlannedStudies - availableStudies;
 
   const refresh = (e: CustomEvent) => {
-    setTimeout(() => {
-      e.detail.complete();
-    }, 3000);
+    window.location.reload();
   };
 
   return (

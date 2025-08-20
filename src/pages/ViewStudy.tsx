@@ -10,6 +10,8 @@ import {
   IonList,
   IonPage,
   IonPopover,
+  IonRefresher,
+  IonRefresherContent,
   IonRouterLink,
   IonRow,
   IonText,
@@ -87,6 +89,10 @@ function ViewStudy() {
     }));
   };
 
+  const handleRefresh = (event: CustomEvent) => {
+    window.location.reload();
+  };
+
   return (
     <IonPage id="view-study-page">
       <IonHeader collapse="fade">
@@ -127,6 +133,10 @@ function ViewStudy() {
       </IonHeader>
 
       <IonContent fullscreen>
+        <IonRefresher slot="fixed" onIonRefresh={handleRefresh}>
+          <IonRefresherContent />
+        </IonRefresher>
+        
         {study ? (
           <>
             <IonHeader collapse="condense">

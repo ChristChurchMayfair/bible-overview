@@ -12,6 +12,8 @@ import {
   IonMenuButton,
   IonNote,
   IonPage,
+  IonRefresher,
+  IonRefresherContent,
   IonRouterLink,
   IonTitle,
   IonToolbar,
@@ -71,6 +73,10 @@ const Calendar: React.FC = () => {
     return currentWeek?.weekStarting === weekStarting;
   };
 
+  const handleRefresh = (event: CustomEvent) => {
+    window.location.reload();
+  };
+
   return (
     <>
       <Menu />
@@ -90,6 +96,10 @@ const Calendar: React.FC = () => {
         </IonHeader>
 
         <IonContent fullscreen>
+          <IonRefresher slot="fixed" onIonRefresh={handleRefresh}>
+            <IonRefresherContent />
+          </IonRefresher>
+          
           <IonHeader collapse="condense">
             <IonToolbar>
               <IonTitle>Year Overview</IonTitle>
