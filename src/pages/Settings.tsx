@@ -12,6 +12,7 @@ import {
   IonRefresherContent,
   IonSelect,
   IonSelectOption,
+  IonText,
   IonTitle,
   IonToggle,
   IonToolbar,
@@ -146,6 +147,14 @@ const Settings: React.FC = () => {
               </IonButton>
             </IonItem>
           </IonList>
+          
+          <div className="ion-padding">
+            <IonText color="medium">
+              <p style={{ fontSize: "0.9em", textAlign: "center" }}>
+                Settings are stored locally on this device and won't sync across devices or work in private browsing mode.
+              </p>
+            </IonText>
+          </div>
         </IonContent>
       </IonPage>
     </>
