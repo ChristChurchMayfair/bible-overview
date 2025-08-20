@@ -35,18 +35,7 @@ const WeekItem: React.FC<WeekItemProps> = ({ week, study, isCurrentWeek, note, m
     const dayOfWeek = isPrayerMeeting ? meetingDate.toLocaleDateString("en-GB", { weekday: "short" }) : 
                       (meetingDay === null ? "w/c" : meetingDate.toLocaleDateString("en-GB", { weekday: "short" }));
     
-    // Add ordinal suffix
-    const suffix = (day: number) => {
-      if (day >= 11 && day <= 13) return 'th';
-      switch (day % 10) {
-        case 1: return 'st';
-        case 2: return 'nd';
-        case 3: return 'rd';
-        default: return 'th';
-      }
-    };
-    
-    return { dayOfWeek, dayWithSuffix: `${day}${suffix(day)}` };
+    return { dayOfWeek, dayWithSuffix: `${day}` };
   };
 
   const goToStudy = () => {
@@ -66,8 +55,8 @@ const WeekItem: React.FC<WeekItemProps> = ({ week, study, isCurrentWeek, note, m
     >
       <IonLabel slot="start" color={"medium"}>
         <div style={{ textAlign: "center", fontSize: "0.75rem", lineHeight: "1.1" }}>
-          <div style={{ fontWeight: "400", opacity: "0.7" }}>{dateInfo.dayOfWeek}</div>
-          <div style={{ fontWeight: "600", fontSize: "1.3rem" }}>{dateInfo.dayWithSuffix}</div>
+          <div style={{ fontWeight: "400", opacity: "0.7", color: "var(--ion-color-light)" }}>{dateInfo.dayOfWeek}</div>
+          <div style={{ fontWeight: "600", fontSize: "1.5rem" }}>{dateInfo.dayWithSuffix}</div>
         </div>
       </IonLabel>
       <IonLabel color={hasValidStudy ? "light" : "medium"}>

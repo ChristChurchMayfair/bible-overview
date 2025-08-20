@@ -133,7 +133,7 @@ const Calendar: React.FC = () => {
           )}
          
             {scheduleByMonth.map((monthData, monthIndex) => (
-              <IonList inset key={monthIndex}>
+              <IonList lines="full" key={monthIndex}>
                 <IonItem lines="none">
                   <IonLabel>
                     <h1>{monthData.month}</h1>
