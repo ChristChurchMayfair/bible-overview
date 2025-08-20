@@ -11,19 +11,19 @@ interface WeekItemProps {
   study?: StudyStub;
   isCurrentWeek: boolean;
   note?: string;
-  meetingDay?: number;
+  meetingDay?: number | null;
 }
 
-const WeekItem: React.FC<WeekItemProps> = ({ week, study, isCurrentWeek, note, meetingDay = 1 }) => {
+const WeekItem: React.FC<WeekItemProps> = ({ week, study, isCurrentWeek, note, meetingDay = null }) => {
   const history = useHistory();
 
   const formatDate = (dateString: string) => {
     const weekStart = new Date(dateString);
     
     // For prayer meetings, always use Wednesday (3)
-    // For studies, use the user's preferred meeting day
+    // For studies, use the user's preferred meeting day (default to Monday if null - week commencing)
     const isPrayerMeeting = week.notes?.toLowerCase().includes('prayer meeting');
-    const targetDay = isPrayerMeeting ? 3 : meetingDay;
+    const targetDay = isPrayerMeeting ? 3 : (meetingDay ?? 1);
     
     // Calculate the meeting date based on the target day
     // weekStart is Monday (1), so adjust accordingly
@@ -32,7 +32,8 @@ const WeekItem: React.FC<WeekItemProps> = ({ week, study, isCurrentWeek, note, m
     meetingDate.setDate(weekStart.getDate() + daysToAdd);
     
     const day = meetingDate.getDate();
-    const dayOfWeek = meetingDate.toLocaleDateString("en-GB", { weekday: "short" });
+    const dayOfWeek = isPrayerMeeting ? meetingDate.toLocaleDateString("en-GB", { weekday: "short" }) : 
+                      (meetingDay === null ? "w/c" : meetingDate.toLocaleDateString("en-GB", { weekday: "short" }));
     
     // Add ordinal suffix
     const suffix = (day: number) => {

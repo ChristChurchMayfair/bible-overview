@@ -35,7 +35,7 @@ export function getCurrentWeekEntry(): ScheduleEntry | null {
   return currentEntry;
 }
 
-export function getScheduleByMonth(meetingDay: number = 1): { month: string; weeks: ScheduleEntry[] }[] {
+export function getScheduleByMonth(meetingDay: number | null = null): { month: string; weeks: ScheduleEntry[] }[] {
   const schedule = getSchedule();
   const monthMap = new Map<string, ScheduleEntry[]>();
   
@@ -43,9 +43,9 @@ export function getScheduleByMonth(meetingDay: number = 1): { month: string; wee
     const weekStart = new Date(entry.weekStarting);
     
     // For prayer meetings, always use Wednesday (3)
-    // For studies and other events, use the specified meeting day
+    // For studies and other events, use the specified meeting day (default to Monday if null)
     const isPrayerMeeting = entry.notes?.toLowerCase().includes('prayer meeting');
-    const targetDay = isPrayerMeeting ? 3 : meetingDay;
+    const targetDay = isPrayerMeeting ? 3 : (meetingDay ?? 1);
     
     // Calculate the actual meeting date
     const daysToAdd = targetDay === 0 ? 6 : targetDay - 1; // Sunday is 0, but we want it to be 6 days after Monday

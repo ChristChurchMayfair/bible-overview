@@ -45,9 +45,9 @@ const Settings: React.FC = () => {
     true
   );
   
-  const [meetingDay, setMeetingDay] = useLocalStorage<number>(
+  const [meetingDay, setMeetingDay] = useLocalStorage<number | null>(
     MeetingDayStorageKey,
-    1 // Default to Monday (1 = Monday, 2 = Tuesday, etc.)
+    null // Default to Week Commencing (null = Week Commencing)
   );
 
   useIonViewWillEnter(() => {
@@ -121,6 +121,7 @@ const Settings: React.FC = () => {
                 onIonChange={(e) => setMeetingDay(e.detail.value)}
                 interface="popover"
               >
+                <IonSelectOption value={null}>None (w/c)</IonSelectOption>
                 <IonSelectOption value={1}>Monday</IonSelectOption>
                 <IonSelectOption value={2}>Tuesday</IonSelectOption>
                 <IonSelectOption value={3}>Wednesday</IonSelectOption>

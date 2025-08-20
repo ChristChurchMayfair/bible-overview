@@ -46,7 +46,7 @@ const Calendar: React.FC = () => {
   } | null>(null);
   const [studies, setStudies] = useState<StudyStub[]>([]);
   
-  const [meetingDay] = useLocalStorage<number>(MeetingDayStorageKey, 1);
+  const [meetingDay] = useLocalStorage<number | null>(MeetingDayStorageKey, null);
 
   useIonViewWillEnter(() => {
     setScheduleByMonth(getScheduleByMonth(meetingDay));
@@ -105,13 +105,13 @@ const Calendar: React.FC = () => {
                     {stats.totalWeeks} weeks • {stats.studyWeeks} studies
                   </span>
                 </div>
-                {meetingDay === 1 ? (
+                {meetingDay === null ? (
                   <p className="ion-text-center" style={{ margin: "0.5rem 0" }}>
                     <small><IonRouterLink routerLink="/settings" style={{ textDecoration: "none" }}>Set your study day</IonRouterLink> - most groups meet Tue-Thu</small>
                   </p>
                 ) : (
                   <p className="ion-text-center">
-                    <small>Your DG day is <IonRouterLink routerLink="/settings" style={{ textDecoration: "none" }}>{['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][meetingDay]}</IonRouterLink></small>
+                    <small>Your DG day is <IonRouterLink routerLink="/settings" style={{ textDecoration: "none" }}>{meetingDay === null ? 'w/c' : ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][meetingDay]}</IonRouterLink></small>
                   </p>
                 )}
                 {currentWeek && (
