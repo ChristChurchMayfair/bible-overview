@@ -28,6 +28,7 @@ import {
 } from "ionicons/icons";
 import { useRef, useState } from "react";
 import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import { useParams } from "react-router";
 import { useLocalStorage } from "usehooks-ts";
 import {
@@ -173,7 +174,7 @@ function ViewStudy() {
                   </div>
                 )}
 
-                <ReactMarkdown>{study.summary}</ReactMarkdown>
+                <ReactMarkdown remarkPlugins={[remarkGfm]}>{study.summary}</ReactMarkdown>
               </IonText>
             </IonRow>
 
@@ -192,7 +193,7 @@ function ViewStudy() {
                         {copiedSection === 'notes' ? ' Copied!' : ''}
                       </IonButton>
                     </div>
-                    <ReactMarkdown>{study.leadersInfo.notes}</ReactMarkdown>
+                    <ReactMarkdown remarkPlugins={[remarkGfm]}>{study.leadersInfo.notes}</ReactMarkdown>
                   </IonText>
                 </IonRow>
                 <IonRow className="ion-padding-horizontal">
@@ -208,7 +209,7 @@ function ViewStudy() {
                         {copiedSection === 'what' ? ' Copied!' : ''}
                       </IonButton>
                     </div>
-                    <ReactMarkdown>{study.leadersInfo.what}</ReactMarkdown>
+                    <ReactMarkdown remarkPlugins={[remarkGfm]}>{study.leadersInfo.what}</ReactMarkdown>
                   </IonText>
                 </IonRow>
                 <IonRow className="ion-padding-horizontal">
@@ -224,7 +225,7 @@ function ViewStudy() {
                         {copiedSection === 'sowhat' ? ' Copied!' : ''}
                       </IonButton>
                     </div>
-                    <ReactMarkdown>{study.leadersInfo.soWhat}</ReactMarkdown>
+                    <ReactMarkdown remarkPlugins={[remarkGfm]}>{study.leadersInfo.soWhat}</ReactMarkdown>
                   </IonText>
                 </IonRow>
               </>
@@ -253,7 +254,7 @@ function ViewStudy() {
                         key={`markdown-${blockIndex}`}
                         className="ion-margin-vertical"
                       >
-                        <ReactMarkdown>{block}</ReactMarkdown>
+                        <ReactMarkdown remarkPlugins={[remarkGfm]}>{block}</ReactMarkdown>
                       </div>
                     );
                   }

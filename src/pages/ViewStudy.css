@@ -102,3 +102,40 @@
 #view-study-page ul li.completed .verse-reference-clickable {
   color: var(--ion-color-medium);
 }
+
+/* Table styling for markdown tables */
+#view-study-page table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+  font-size: 0.9rem;
+}
+
+#view-study-page table th,
+#view-study-page table td {
+  border: 1px solid var(--ion-color-medium);
+  padding: 8px 12px;
+  text-align: left;
+}
+
+#view-study-page table th {
+  background-color: var(--ion-color-step-50);
+  font-weight: 600;
+  text-align: left;
+}
+
+#view-study-page table td {
+  vertical-align: top;
+}
+
+/* Center aligned table cells (from markdown :---:) */
+#view-study-page table th[align="center"],
+#view-study-page table td[align="center"] {
+  text-align: center;
+}
+
+/* Right aligned table cells (from markdown ---:) */
+#view-study-page table th[align="right"],
+#view-study-page table td[align="right"] {
+  text-align: right;
+}

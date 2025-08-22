@@ -12,6 +12,7 @@ import {
 import { chevronUpOutline, chevronDownOutline } from "ionicons/icons";
 import { useState } from "react";
 import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import { useLocalStorage } from "usehooks-ts";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -96,7 +97,7 @@ const StorySoFar: React.FC = () => {
                   </small>
                 )}
                 
-                <ReactMarkdown>{study.summary}</ReactMarkdown>
+                <ReactMarkdown remarkPlugins={[remarkGfm]}>{study.summary}</ReactMarkdown>
               </div>
             </SwiperSlide>
           ))}
