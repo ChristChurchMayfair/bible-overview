@@ -126,7 +126,7 @@ describe('detectVerseReferences', () => {
     const result = detectVerseReferencesWithOriginal(questionText, sectionPassages);
     
     expect(result).toEqual([
-      { originalText: "verse 5", resolvedRef: "John 3:5" }
+      { originalText: "5", resolvedRef: "John 3:5" }
     ]);
   });
 
@@ -137,8 +137,29 @@ describe('detectVerseReferences', () => {
     const result = detectVerseReferencesWithOriginal(questionText, sectionPassages);
     
     expect(result).toEqual([
-      { originalText: "verse 5", resolvedRef: "John 3:5" }
+      { originalText: "5", resolvedRef: "John 3:5" }
     ]);
     expect(result).toHaveLength(1); // Should only have one result due to deduplication
+  });
+
+  it('should exclude "verse" and "verses" words from original text but include v/vv prefixes', () => {
+    const questionText = "Compare verse 5, verses 7-9, v.12, and vv.15-17.";
+    const sectionPassages = ["John 3:1-20"];
+    
+    const result = detectVerseReferencesWithOriginal(questionText, sectionPassages);
+    
+    // Sort by position in text to get consistent ordering
+    const sortedResult = result.sort((a, b) => {
+      const aPos = questionText.indexOf(a.originalText);
+      const bPos = questionText.indexOf(b.originalText);
+      return aPos - bPos;
+    });
+    
+    expect(sortedResult).toEqual([
+      { originalText: "5", resolvedRef: "John 3:5" },
+      { originalText: "7-9", resolvedRef: "John 3:7-9" },
+      { originalText: "v.12", resolvedRef: "John 3:12" },
+      { originalText: "vv.15-17", resolvedRef: "John 3:15-17" }
+    ]);
   });
 });

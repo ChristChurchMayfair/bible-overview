@@ -157,14 +157,34 @@ export function detectVerseReferencesWithOriginal(
     while ((match = pattern.exec(questionText)) !== null) {
       const matchStart = match.index;
       const matchEnd = match.index + match[0].length;
-      const originalText = match[0]; // The full matched text
+      
+      // For "verse" and "verses" patterns, extract only the number part
+      let originalText = match[0]; // The full matched text
+      let adjustedStart = matchStart;
+      let adjustedEnd = matchEnd;
+      
+      if (match[0].startsWith('verse ')) {
+        // Extract just the number part for "verse N"
+        const numberPart = match[1];
+        const numberStart = match.index + match[0].indexOf(numberPart);
+        originalText = numberPart;
+        adjustedStart = numberStart;
+        adjustedEnd = numberStart + numberPart.length;
+      } else if (match[0].startsWith('verses ')) {
+        // Extract just the number range part for "verses N-M"
+        const numberPart = `${match[1]}-${match[2]}`;
+        const numberStart = match.index + match[0].indexOf(numberPart);
+        originalText = numberPart;
+        adjustedStart = numberStart;
+        adjustedEnd = numberStart + numberPart.length;
+      }
       
       // Check if this match overlaps with any previously processed range
       const overlaps = processedRanges.some(range => 
-        (matchStart >= range.start && matchStart < range.end) ||
-        (matchEnd > range.start && matchEnd <= range.end) ||
-        (matchStart <= range.start && matchEnd >= range.end) ||
-        (matchStart >= range.start && matchEnd <= range.end) // subset case
+        (adjustedStart >= range.start && adjustedStart < range.end) ||
+        (adjustedEnd > range.start && adjustedEnd <= range.end) ||
+        (adjustedStart <= range.start && adjustedEnd >= range.end) ||
+        (adjustedStart >= range.start && adjustedEnd <= range.end) // subset case
       );
       
       if (overlaps) {
@@ -176,8 +196,8 @@ export function detectVerseReferencesWithOriginal(
         continue;
       }
       
-      // Mark this range as processed
-      processedRanges.push({start: matchStart, end: matchEnd});
+      // Mark this range as processed (use adjusted positions for actual clickable area)
+      processedRanges.push({start: adjustedStart, end: adjustedEnd});
       seenOriginalTexts.add(originalText);
       
       // Find the best matching passage for this verse reference
