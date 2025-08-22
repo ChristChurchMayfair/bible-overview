@@ -85,3 +85,15 @@
 .passage-link ion-icon {
   color: var(--ion-color-primary);
 }
+
+/* Clickable verse references in question text */
+.verse-reference-clickable {
+  color: var(--ion-color-primary);
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.verse-reference-clickable:hover {
+  opacity: 0.7;
+}

@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { detectVerseReferences } from '../scripts/markdown-parser/verse-reference-detector';
+import { detectVerseReferences, detectVerseReferencesWithOriginal } from '../scripts/markdown-parser/verse-reference-detector';
 
 describe('detectVerseReferences', () => {
   it('should detect simple verse reference with single passage context', () => {
@@ -117,5 +117,28 @@ describe('detectVerseReferences', () => {
     const result = detectVerseReferences(questionText, sectionPassages);
     
     expect(result).toEqual(["Acts 13:26-31"]);
+  });
+
+  it('should return original text with resolved references', () => {
+    const questionText = "What does verse 5 tell us about God's love?";
+    const sectionPassages = ["John 3:1-10"];
+    
+    const result = detectVerseReferencesWithOriginal(questionText, sectionPassages);
+    
+    expect(result).toEqual([
+      { originalText: "verse 5", resolvedRef: "John 3:5" }
+    ]);
+  });
+
+  it('should deduplicate identical original text references', () => {
+    const questionText = "Compare verse 5 with verse 5 again to see the pattern.";
+    const sectionPassages = ["John 3:1-10"];
+    
+    const result = detectVerseReferencesWithOriginal(questionText, sectionPassages);
+    
+    expect(result).toEqual([
+      { originalText: "verse 5", resolvedRef: "John 3:5" }
+    ]);
+    expect(result).toHaveLength(1); // Should only have one result due to deduplication
   });
 });

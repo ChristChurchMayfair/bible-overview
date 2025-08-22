@@ -23,9 +23,15 @@ export type QuestionSection = {
 
 export type QuestionSectionBlock = QuestionSection | MarkdownString;
 
+export type VerseReferenceWithOriginal = {
+  originalText: string;
+  resolvedRef: string;
+};
+
 export type Question = {
   question: string;
   refs: string[];
+  detectedRefs?: VerseReferenceWithOriginal[];
   leadersHint: string;
 };
 

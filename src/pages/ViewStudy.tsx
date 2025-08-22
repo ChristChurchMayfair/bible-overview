@@ -36,6 +36,7 @@ import {
 } from "../constants/storage";
 import { getPassagesFromStudy, getStudy } from "../data/studies";
 import { FullStudy, isFullStudy } from "../data/types";
+import { StudyQuestion } from "../components/StudyQuestion";
 import "./ViewStudy.css";
 
 function ViewStudy() {
@@ -293,57 +294,14 @@ function ViewStudy() {
                       <ul>
                         {questionSection.questions.map(
                           (question_and_answer, index) => (
-                            <li
+                            <StudyQuestion
                               key={index}
-                              className={classNames(
-                                "ion-padding-bottom",
-                                completedQuestions[
-                                  `${questionSection.title}-${index}`
-                                ] && "completed"
-                              )}
-                              onClick={() =>
-                                toggleQuestion(questionSection.title, index)
-                              }
-                            >
-                              {question_and_answer.question}
-                              {showLeadersNotes && question_and_answer.refs && question_and_answer.refs.length > 0 && (
-                                <div
-                                  className="ion-padding-start ion-margin-top"
-                                  style={{
-                                    display: "flex",
-                                    alignItems: "flex-start",
-                                    gap: "8px",
-                                  }}
-                                >
-                                  <IonText color="medium" style={{ fontSize: "0.8em" }}>
-                                    <strong>Verse refs:</strong> {question_and_answer.refs.join(", ")}
-                                  </IonText>
-                                </div>
-                              )}
-                              {showLeadersNotes &&
-                                question_and_answer.leadersHint && (
-                                  <div
-                                    className="ion-padding-start ion-margin-top"
-                                    style={{
-                                      display: "flex",
-                                      alignItems: "flex-start",
-                                      gap: "8px",
-                                    }}
-                                  >
-                                    <IonIcon
-                                      icon={bulbOutline}
-                                      style={{
-                                        marginTop: "2px",
-                                        flexShrink: 0,
-                                      }}
-                                      color="primary"
-                                    />
-                                    <IonText color={"medium"}>
-                                      <em>{question_and_answer.leadersHint}</em>
-                                    </IonText>
-                                  </div>
-                                )}
-                            </li>
+                              question={question_and_answer}
+                              questionKey={`${questionSection.title}-${index}`}
+                              isCompleted={completedQuestions[`${questionSection.title}-${index}`] || false}
+                              onToggleComplete={() => toggleQuestion(questionSection.title, index)}
+                              showLeaderHints={showLeadersNotes}
+                            />
                           )
                         )}
                       </ul>

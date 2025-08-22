@@ -11,7 +11,7 @@ import {
   StudyStub,
 } from "../../src/data/types";
 import { extractText, isHeading, isText } from "./ast-utils";
-import { detectVerseReferences } from "./verse-reference-detector";
+import { detectVerseReferences, detectVerseReferencesWithOriginal } from "./verse-reference-detector";
 
 export function containsHeading(
   children: RootContent[],
@@ -528,10 +528,12 @@ function parseQuestionsFromList(list: List, sectionPassages: string[]): Question
       if (questionText) {
         // Detect verse references in the question text
         const detectedRefs = detectVerseReferences(questionText, sectionPassages);
+        const detectedRefsWithOriginal = detectVerseReferencesWithOriginal(questionText, sectionPassages);
         
         questions.push({
           question: questionText,
           refs: detectedRefs,
+          detectedRefs: detectedRefsWithOriginal,
           leadersHint: leadersHint,
         });
       }
