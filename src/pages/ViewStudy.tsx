@@ -232,7 +232,7 @@ function ViewStudy() {
             )}
             <IonRow className="ion-padding-horizontal">
               <IonText>
-                <h1 id="questions-title">Questions</h1>
+                <h1 id="questions-title" style={{ marginBottom: '1rem' }}>Questions</h1>
                 <IonPopover
                   trigger="questions-title"
                   side="bottom"
