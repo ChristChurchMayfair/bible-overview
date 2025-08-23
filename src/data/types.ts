@@ -18,7 +18,7 @@ export type StudyStub = Pick<FullStudy, "index" | "slug" | "title" | "summary">;
 export type QuestionSection = {
   title: string;
   passages: string[];
-  questions: Question[];
+  content: (Question | MarkdownString)[];
 };
 
 export type QuestionSectionBlock = QuestionSection | MarkdownString;
@@ -47,7 +47,19 @@ export type ScheduleEntry = {
 export function isQuestionSection(
   block: QuestionSectionBlock
 ): block is QuestionSection {
-  return typeof block === "object" && "questions" in block;
+  return typeof block === "object" && "content" in block;
+}
+
+export function isQuestion(
+  item: Question | MarkdownString
+): item is Question {
+  return typeof item === "object" && "question" in item;
+}
+
+export function isMarkdownContent(
+  item: Question | MarkdownString
+): item is MarkdownString {
+  return typeof item === "string";
 }
 
 export function isMarkdownString(

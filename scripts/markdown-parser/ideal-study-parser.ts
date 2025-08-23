@@ -232,7 +232,7 @@ export function parseQuestionsFromAstNodes(
   for (const child of astNodes) {
     if (isHeading(child) && child.depth === 3) {
       // Save any current section before starting a new one
-      if (currentSection && currentSection.questions.length > 0) {
+      if (currentSection && currentSection.content.length > 0) {
         blocks.push(currentSection);
       }
 
@@ -240,7 +240,7 @@ export function parseQuestionsFromAstNodes(
       currentSection = {
         title: headingText,
         passages: extractPassagesFromHeading(headingText),
-        questions: [],
+        content: [],
       };
     } else if (child.type === "list") {
       // Handle list items
@@ -249,34 +249,34 @@ export function parseQuestionsFromAstNodes(
         currentSection = {
           title: "Introduction",
           passages: [],
-          questions: [],
+          content: [],
         };
       }
 
       // Parse questions from list
       const questions = parseQuestionsFromList(child, currentSection.passages);
-      currentSection.questions.push(...questions);
+      currentSection.content.push(...questions);
     } else {
-      // Handle any other content (paragraphs, etc.) as markdown strings
-      // But first, save any completed section
-      if (currentSection && currentSection.questions.length > 0) {
-        blocks.push(currentSection);
-        currentSection = null;
-      }
-
+      // Handle any other content (paragraphs, tables, etc.) as markdown strings
       const contentMarkdown = toMarkdown({
         type: "root",
         children: [child],
       }).trim();
 
       if (contentMarkdown) {
-        blocks.push(contentMarkdown);
+        if (currentSection) {
+          // Add markdown content to the current section
+          currentSection.content.push(contentMarkdown);
+        } else {
+          // No current section, add as standalone block
+          blocks.push(contentMarkdown);
+        }
       }
     }
   }
 
   // Don't forget the last section if it has questions
-  if (currentSection && currentSection.questions.length > 0) {
+  if (currentSection && currentSection.content.length > 0) {
     blocks.push(currentSection);
   }
 
@@ -299,7 +299,7 @@ export function parseQuestionsFromMarkdown(
   for (const child of questionsAst.children) {
     if (isHeading(child) && child.depth === 3) {
       // Save any current section before starting a new one
-      if (currentSection && currentSection.questions.length > 0) {
+      if (currentSection && currentSection.content.length > 0) {
         blocks.push(currentSection);
       }
 
@@ -307,7 +307,7 @@ export function parseQuestionsFromMarkdown(
       currentSection = {
         title: headingText,
         passages: extractPassagesFromHeading(headingText),
-        questions: [],
+        content: [],
       };
     } else if (child.type === "list") {
       // Handle list items
@@ -316,28 +316,34 @@ export function parseQuestionsFromMarkdown(
         currentSection = {
           title: "Introduction",
           passages: [],
-          questions: [],
+          content: [],
         };
       }
 
       // Parse questions from list
       const questions = parseQuestionsFromList(child, currentSection.passages);
-      currentSection.questions.push(...questions);
+      currentSection.content.push(...questions);
     } else {
-      // Handle any other content (paragraphs, etc.) as markdown strings
+      // Handle any other content (paragraphs, tables, etc.) as markdown strings
       const contentMarkdown = toMarkdown({
         type: "root",
         children: [child],
       }).trim();
 
       if (contentMarkdown) {
-        blocks.push(contentMarkdown);
+        if (currentSection) {
+          // Add markdown content to the current section
+          currentSection.content.push(contentMarkdown);
+        } else {
+          // No current section, add as standalone block
+          blocks.push(contentMarkdown);
+        }
       }
     }
   }
 
   // Don't forget the last section if it has questions
-  if (currentSection && currentSection.questions.length > 0) {
+  if (currentSection && currentSection.content.length > 0) {
     blocks.push(currentSection);
   }
 

@@ -36,7 +36,7 @@ import {
   ShowLeadersNotesStorageKey,
 } from "../constants/storage";
 import { getPassagesFromStudy, getStudy } from "../data/studies";
-import { FullStudy, isFullStudy } from "../data/types";
+import { FullStudy, isFullStudy, isQuestion, isMarkdownContent } from "../data/types";
 import { StudyQuestion } from "../components/StudyQuestion";
 import "./ViewStudy.css";
 
@@ -263,8 +263,10 @@ function ViewStudy() {
                   const questionSection = block;
                   
                   // Create text content for copying (questions only, no leader hints)
-                  const questionsText = questionSection.questions
-                    .map((qa, index) => `${index + 1}. ${qa.question}`)
+                  let questionIndex = 0;
+                  const questionsText = questionSection.content
+                    .filter(isQuestion)
+                    .map((question) => `${++questionIndex}. ${question.question}`)
                     .join('\n');
                   
                   return (
@@ -292,20 +294,56 @@ function ViewStudy() {
                           </IonButton>
                         )}
                       </div>
-                      <ul>
-                        {questionSection.questions.map(
-                          (question_and_answer, index) => (
-                            <StudyQuestion
-                              key={index}
-                              question={question_and_answer}
-                              questionKey={`${questionSection.title}-${index}`}
-                              isCompleted={completedQuestions[`${questionSection.title}-${index}`] || false}
-                              onToggleComplete={() => toggleQuestion(questionSection.title, index)}
-                              showLeaderHints={showLeadersNotes}
-                            />
-                          )
-                        )}
-                      </ul>
+                      {(() => {
+                        let questionIndex = 0;
+                        const elements: JSX.Element[] = [];
+                        let currentQuestions: JSX.Element[] = [];
+                        
+                        const flushQuestions = () => {
+                          if (currentQuestions.length > 0) {
+                            elements.push(
+                              <ul key={`questions-${elements.length}`}>
+                                {currentQuestions}
+                              </ul>
+                            );
+                            currentQuestions = [];
+                          }
+                        };
+
+                        questionSection.content.forEach((item, index) => {
+                          if (isQuestion(item)) {
+                            // Add question to current batch
+                            const currentQuestionIndex = questionIndex++;
+                            currentQuestions.push(
+                              <StudyQuestion
+                                key={index}
+                                question={item}
+                                questionKey={`${questionSection.title}-${currentQuestionIndex}`}
+                                isCompleted={completedQuestions[`${questionSection.title}-${currentQuestionIndex}`] || false}
+                                onToggleComplete={() => toggleQuestion(questionSection.title, currentQuestionIndex)}
+                                showLeaderHints={showLeadersNotes}
+                              />
+                            );
+                          } else if (isMarkdownContent(item)) {
+                            // Flush any pending questions first
+                            flushQuestions();
+                            // Add markdown content
+                            elements.push(
+                              <div
+                                key={index}
+                                className="ion-margin-vertical"
+                              >
+                                <ReactMarkdown remarkPlugins={[remarkGfm]}>{item}</ReactMarkdown>
+                              </div>
+                            );
+                          }
+                        });
+
+                        // Flush any remaining questions
+                        flushQuestions();
+                        
+                        return <>{elements}</>;
+                      })()}
                     </div>
                   );
                 })}
