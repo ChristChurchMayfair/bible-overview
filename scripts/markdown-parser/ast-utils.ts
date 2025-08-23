@@ -49,27 +49,3 @@ export function stripPositionData<T extends Node>(node: T): T {
     
     return copy;
 }
-
-export function filterChildren<T extends Parent>(parent: T, predicate: (child: Node, index: number, array: Node[]) => boolean): T {
-  const copy = structuredClone(parent)
-  copy.children = copy.children.filter(predicate)
-  return copy
-}
-
-export function mapChildren<T extends Parent>(parent: T, update: (child: RootContent) => RootContent): T {
-  const copy = structuredClone(parent)
-  copy.children = copy.children.map(c => update(c))
-  return copy
-}
-
-export function reduceChildren<T extends Parent>(parent: T, reducer: (acc: RootContent[], current: RootContent) => RootContent[]): T {
-    const copy = structuredClone(parent)
-    copy.children = copy.children.reduce(reducer, [])
-    return copy
-}
-
-export function mapText(element: Text, updateText: (text: string) => string): Text {
-  const copy = structuredClone(element)
-  copy.value = updateText(copy.value)
-  return copy
-}
