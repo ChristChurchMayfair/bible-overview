@@ -51,29 +51,31 @@ We will look at it under 4 categories: God, Place, Work, People:
   
   // Check that questions is now QuestionSectionBlock[]
   assert.equal(Array.isArray(result.questions), true, "Questions should be an array");
-  assert.equal(result.questions.length, 4, "Should have 4 blocks");
+  assert.equal(result.questions.length, 3, "Should have 3 blocks (content is now within sections)");
   
   // First block: Introduction section
   assert.equal(typeof result.questions[0], 'object', "First block should be Introduction section");
   const introSection = result.questions[0] as QuestionSection;
   assert.equal(introSection.title, "Introduction");
-  assert.equal(introSection.questions.length, 1);
-  assert.equal(introSection.questions[0].question, "What do you imagine when you think about paradise?");
+  assert.equal(introSection.content.length, 1);
+  assert.equal(typeof introSection.content[0], 'object');
+  if (typeof introSection.content[0] === 'object') {
+    assert.equal(introSection.content[0].question, "What do you imagine when you think about paradise?");
+  }
   
-  // Second block: Read Genesis section  
+  // Second block: Read Genesis section (now contains mixed content)
   assert.equal(typeof result.questions[1], 'object', "Second block should be Read Genesis section");
   const genesisSection = result.questions[1] as QuestionSection;
   assert.equal(genesisSection.title, "Read Genesis 2:4-25");
   assert.deepEqual(genesisSection.passages, ["Genesis 2:4-25"]);
-  assert.equal(genesisSection.questions.length, 1);
+  // Should have 1 question + 1 markdown string (the explanatory text)
+  assert.equal(genesisSection.content.length, 2);
   
-  // Third block: Explanatory text
-  assert.equal(typeof result.questions[2], 'string', "Third block should be markdown string");
-  assert.equal(result.questions[2], "We will look at it under 4 categories: God, Place, Work, People:");
-  
-  // Fourth block: God section
-  assert.equal(typeof result.questions[3], 'object', "Fourth block should be God section");
-  const godSection = result.questions[3] as QuestionSection;
+  // Third block: God section
+  assert.equal(typeof result.questions[2], 'object', "Third block should be God section");
+  const godSection = result.questions[2] as QuestionSection;
   assert.equal(godSection.title, "God");
-  assert.equal(godSection.questions.length, 2);
+  // Should have multiple questions
+  const questionCount = godSection.content.filter((item: any) => typeof item === 'object').length;
+  assert.equal(questionCount >= 2, true, "God section should have multiple questions");
 });

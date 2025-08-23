@@ -45,24 +45,38 @@ test("Given complete ideal study markdown When parsing study Then returns comple
   expect(result.questions.length).toBe(3); // Introduction + 2 scripture sections
   
   // Introduction questions
-  const introSection = result.questions.find(section => section.title === "Introduction");
+  const introSection = result.questions.find(section => typeof section === 'object' && section.title === "Introduction");
   expect(introSection).toBeDefined();
-  expect(introSection!.questions.length).toBe(1);
-  expect(introSection!.questions[0].question).toBe('What different "stories" do humans tell to make sense of who we are and our place in the world?');
-  expect(introSection!.questions[0].leadersHint).toBe("if they need help: 'for example, what story does evolutionary atheism tell?'");
-  expect(introSection!.questions[0].refs).toEqual([]);
-  expect(introSection!.passages).toEqual([]);
+  expect(typeof introSection).toBe('object');
+  if (typeof introSection === 'object') {
+    expect(introSection.content.length).toBe(1);
+    expect(typeof introSection.content[0]).toBe('object');
+    if (typeof introSection.content[0] === 'object') {
+      expect(introSection.content[0].question).toBe('What different "stories" do humans tell to make sense of who we are and our place in the world?');
+      expect(introSection.content[0].leadersHint).toBe("if they need help: 'for example, what story does evolutionary atheism tell?'");
+      expect(introSection.content[0].refs).toEqual([]);
+    }
+    expect(introSection.passages).toEqual([]);
+  }
   
   // Named sections with Bible reference extraction
-  const ephesiansSection = result.questions.find(section => section.title === "Read Ephesians 1:9-14");
+  const ephesiansSection = result.questions.find((section: any) => typeof section === 'object' && section.title === "Read Ephesians 1:9-14");
   expect(ephesiansSection).toBeDefined();
-  expect(ephesiansSection!.questions.length).toBeGreaterThanOrEqual(5); // Multiple questions in this section
-  expect(ephesiansSection!.passages).toEqual(["Ephesians 1:9-14"]); // Should extract the Bible reference
+  expect(typeof ephesiansSection).toBe('object');
+  if (typeof ephesiansSection === 'object') {
+    const questionCount = ephesiansSection.content.filter((item: any) => typeof item === 'object').length;
+    expect(questionCount).toBeGreaterThanOrEqual(5); // Multiple questions in this section
+    expect(ephesiansSection.passages).toEqual(["Ephesians 1:9-14"]); // Should extract the Bible reference
+  }
   
-  const actsSection = result.questions.find(section => section.title === "Read Acts 13:13-39");
+  const actsSection = result.questions.find((section: any) => typeof section === 'object' && section.title === "Read Acts 13:13-39");
   expect(actsSection).toBeDefined();
-  expect(actsSection!.questions.length).toBeGreaterThanOrEqual(5); // Multiple questions in this section
-  expect(actsSection!.passages).toEqual(["Acts 13:13-39"]); // Should extract the Bible reference
+  expect(typeof actsSection).toBe('object');
+  if (typeof actsSection === 'object') {
+    const questionCount = actsSection.content.filter((item: any) => typeof item === 'object').length;
+    expect(questionCount).toBeGreaterThanOrEqual(5); // Multiple questions in this section
+    expect(actsSection.passages).toEqual(["Acts 13:13-39"]); // Should extract the Bible reference
+  }
 });
 
 test("Given study with custom title in heading When parsing study Then extracts custom title", () => {
