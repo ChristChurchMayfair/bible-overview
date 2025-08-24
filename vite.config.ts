@@ -13,8 +13,8 @@ export default defineConfig({
     buildStudiesPlugin()
   ],
   test: {
-    // globals: true,
-    // environment: 'jsdom',
-    // setupFiles: './src/setupTests.ts',
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: ['./tests/setup.ts'],
   }
 })

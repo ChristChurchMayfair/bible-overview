@@ -52,7 +52,7 @@
   "devDependencies": {
     "@capacitor/cli": "7.0.1",
     "@testing-library/dom": ">=7.21.4",
-    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/jest-dom": "^6.8.0",
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.3",
     "@types/mdast": "^4.0.4",
@@ -64,7 +64,7 @@
     "cypress": "^13.5.0",
     "eslint": "^8.35.0",
     "eslint-plugin-react": "^7.32.2",
-    "jsdom": "^22.1.0",
+    "jsdom": "^26.1.0",
     "netlify-cli": "^19.0.2",
     "terser": "^5.4.0",
     "tsx": "^4.20.3",

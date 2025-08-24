@@ -33,6 +33,7 @@ export function buildStudiesFromDirectory(
 
     const files = readdirSync(studiesDir)
       .filter((f) => filePattern.test(f))
+      .filter((f) => f !== 'README.md') // Exclude README.md from study processing
       .sort();
 
     console.log(`📄 Found ${files.length} markdown files`);
