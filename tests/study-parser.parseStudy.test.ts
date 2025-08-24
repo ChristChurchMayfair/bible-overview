@@ -2,6 +2,7 @@ import { readFileSync } from "fs";
 import { remark } from "remark";
 import { expect, test } from "vitest";
 import { parseStudy } from "../scripts/markdown-parser/study-parser";
+import { FullStudy, isFullStudy } from "../src/data/types";
 
 function parseMarkdownFile(filePath: string) {
   const content = readFileSync(filePath, 'utf-8');
@@ -9,40 +10,43 @@ function parseMarkdownFile(filePath: string) {
   return rm.parse(content);
 }
 
-test("Given complete ideal study markdown When parsing study Then returns complete Study object", () => {
+test("Given complete study markdown When parsing study Then returns complete Study object", () => {
   // Given
-  const mdast = parseMarkdownFile("./studies/1.md");
+  const mdast = parseMarkdownFile("./tests/resources/test-study.md");
 
   // When
   const result = parseStudy(mdast);
 
   // Then
+  // Should be a FullStudy
+  expect(isFullStudy(result)).toBe(true);
+  if (!isFullStudy(result)) return;
+
   // Basic structure
   expect(result.index).toBe(1);
   expect(result.slug).toBe("study-1");
   
-  // Title should default to "Study N" when no custom title in heading
-  expect(result.title).toBe("History's Direction");
+  // Title should extract from heading
+  expect(result.title).toBe("Test Study");
   
   // Summary section
   expect(typeof result.summary).toBe("string");
-  expect(result.summary).toContain("The Bible is not a random collection");
-  expect(result.summary).toContain("**Ephesians 1** teaches us");
-  expect(result.summary).toContain("**Acts 13** teaches us");
+  expect(result.summary).toContain("test summary for the study");
+  expect(result.summary).toContain("**should be preserved**");
 
   // Leaders info sections
   expect(typeof result.leadersInfo.notes).toBe("string");
-  expect(result.leadersInfo.notes).toContain("We are the storytelling animal");
+  expect(result.leadersInfo.notes).toContain("Test introduction content");
 
   expect(typeof result.leadersInfo.what).toBe("string");
-  expect(result.leadersInfo.what).toContain("God's plan for history");
+  expect(result.leadersInfo.what).toContain("testing");
 
   expect(typeof result.leadersInfo.soWhat).toBe("string");
-  expect(result.leadersInfo.soWhat).toContain("Pray for a heart");
+  expect(result.leadersInfo.soWhat).toContain("write good tests");
 
   // Questions structure
   expect(Array.isArray(result.questions)).toBe(true);
-  expect(result.questions.length).toBe(3); // Introduction + 2 scripture sections
+  expect(result.questions.length).toBe(3); // Introduction + 2 scripture sections (table content is within Ephesians section)
   
   // Introduction questions
   const introSection = result.questions.find(section => typeof section === 'object' && section.title === "Introduction");
@@ -52,30 +56,37 @@ test("Given complete ideal study markdown When parsing study Then returns comple
     expect(introSection.content.length).toBe(1);
     expect(typeof introSection.content[0]).toBe('object');
     if (typeof introSection.content[0] === 'object') {
-      expect(introSection.content[0].question).toBe('What different "stories" do humans tell to make sense of who we are and our place in the world?');
-      expect(introSection.content[0].leadersHint).toBe("if they need help: 'for example, what story does evolutionary atheism tell?'");
+      expect(introSection.content[0].question).toBe('What is your favorite testing framework?');
+      expect(introSection.content[0].leadersHint).toBe("This is a hint for the leader");
       expect(introSection.content[0].refs).toEqual([]);
     }
     expect(introSection.passages).toEqual([]);
   }
   
-  // Named sections with Bible reference extraction
-  const ephesiansSection = result.questions.find((section: any) => typeof section === 'object' && section.title === "Read Ephesians 1:9-14");
+  // Ephesians section with Bible reference extraction
+  const ephesiansSection = result.questions.find(section => typeof section === 'object' && section.title === "Read Ephesians 1:3-14");
   expect(ephesiansSection).toBeDefined();
   expect(typeof ephesiansSection).toBe('object');
-  if (typeof ephesiansSection === 'object') {
-    const questionCount = ephesiansSection.content.filter((item: any) => typeof item === 'object').length;
-    expect(questionCount).toBeGreaterThanOrEqual(5); // Multiple questions in this section
-    expect(ephesiansSection.passages).toEqual(["Ephesians 1:9-14"]); // Should extract the Bible reference
+  if (typeof ephesiansSection === 'object' && 'content' in ephesiansSection) {
+    const questionCount = ephesiansSection.content.filter(item => typeof item === 'object').length;
+    expect(questionCount).toBe(3); // 3 questions in this section
+    expect(ephesiansSection.passages).toEqual(["Ephesians 1:3-14"]); // Should extract the Bible reference
+    
+    // Should contain the table markdown as strings within the content
+    const markdownStrings = ephesiansSection.content.filter(item => typeof item === 'string');
+    expect(markdownStrings.length).toBe(2); // Two markdown strings
+    expect(markdownStrings.some(str => str.includes('Tables and other content'))).toBe(true);
+    expect(markdownStrings.some(str => str.includes('| Column A | Column B |'))).toBe(true);
   }
   
-  const actsSection = result.questions.find((section: any) => typeof section === 'object' && section.title === "Read Acts 13:13-39");
-  expect(actsSection).toBeDefined();
-  expect(typeof actsSection).toBe('object');
-  if (typeof actsSection === 'object') {
-    const questionCount = actsSection.content.filter((item: any) => typeof item === 'object').length;
-    expect(questionCount).toBeGreaterThanOrEqual(5); // Multiple questions in this section
-    expect(actsSection.passages).toEqual(["Acts 13:13-39"]); // Should extract the Bible reference
+  // Romans section
+  const romansSection = result.questions.find(section => typeof section === 'object' && section.title === "Read Romans 8:28-30");
+  expect(romansSection).toBeDefined();
+  expect(typeof romansSection).toBe('object');
+  if (typeof romansSection === 'object' && 'content' in romansSection) {
+    const questionCount = romansSection.content.filter(item => typeof item === 'object').length;
+    expect(questionCount).toBe(2); // 2 questions in this section
+    expect(romansSection.passages).toEqual(["Romans 8:28-30"]); // Should extract the Bible reference
   }
 });
 
