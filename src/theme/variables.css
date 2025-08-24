@@ -81,3 +81,20 @@ http://ionicframework.com/docs/theming/ */
     overflow: ellipsis;
     text-overflow: ellipsis;
 }
+
+/* Blockquote styling for ReactMarkdown */
+blockquote {
+    border-left: 4px solid var(--ion-color-medium);
+    padding-left: 1rem;
+    margin-left: 0;
+    margin-right: 0;
+    padding-right: 0;
+    font-style: italic;
+    opacity: 0.8;
+}
+
+@media (prefers-color-scheme: dark) {
+    blockquote {
+        border-left-color: var(--ion-color-step-400);
+    }
+}
