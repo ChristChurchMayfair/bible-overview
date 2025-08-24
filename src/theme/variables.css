@@ -98,3 +98,31 @@ blockquote {
         border-left-color: var(--ion-color-step-400);
     }
 }
+
+/* Improve line height for better text readability */
+ion-text p,
+ion-text li,
+ion-text blockquote,
+.ion-text p,
+.ion-text li,
+.ion-text blockquote {
+    line-height: 1.6;
+}
+
+/* Specific improvements for ReactMarkdown content */
+ion-text p,
+ion-text div,
+.ion-text p,
+.ion-text div {
+    line-height: 1.6;
+    margin-bottom: 0.8rem;
+}
+
+/* Improve spacing between list items */
+ion-text ul li,
+ion-text ol li,
+.ion-text ul li,
+.ion-text ol li {
+    margin-bottom: 0.4rem;
+    line-height: 1.6;
+}
