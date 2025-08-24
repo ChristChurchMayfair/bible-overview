@@ -139,3 +139,9 @@
 #view-study-page table td[align="right"] {
   text-align: right;
 }
+
+/* Navigation popover width */
+.navigation-popover {
+  --width: 280px;
+  --min-width: 280px;
+}

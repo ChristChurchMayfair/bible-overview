@@ -25,6 +25,10 @@ import {
   bulbOutline,
   checkmarkCircleOutline,
   copyOutline,
+  documentTextOutline,
+  helpCircleOutline,
+  listOutline,
+  personOutline,
 } from "ionicons/icons";
 import { useRef, useState } from "react";
 import ReactMarkdown from "react-markdown";
@@ -91,6 +95,19 @@ function ViewStudy() {
     }));
   };
 
+  // Scroll to a specific section
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'start',
+        inline: 'nearest' 
+      });
+      popoverRef.current?.dismiss();
+    }
+  };
+
   const handleRefresh = (event: CustomEvent) => {
     window.location.reload();
   };
@@ -108,24 +125,61 @@ function ViewStudy() {
           </IonButtons>
           <IonTitle>{study?.title}</IonTitle>
           <IonButtons slot="end">
-            <IonButton mode="ios" id="passages-trigger">
-              <IonIcon icon={bookOutline} />
+            <IonButton mode="ios" id="navigation-trigger">
+              <IonIcon icon={listOutline} />
             </IonButton>
-            <IonPopover ref={popoverRef} trigger="passages-trigger" triggerAction="click">
+            <IonPopover 
+              ref={popoverRef} 
+              trigger="navigation-trigger" 
+              triggerAction="click"
+              className="navigation-popover"
+            >
               <IonContent>
-                {study && getAllPassages().length > 0 && (
+                {study && (
                   <IonList>
-                    {getAllPassages().map((passageInfo, index) => (
-                      <IonItem 
-                        key={index}
-                        button 
-                        routerLink={`/study/${study.slug}/passage/${index + 1}`}
-                        routerDirection="forward"
-                        onClick={() => popoverRef.current?.dismiss()}
-                      >
-                        <IonLabel color="primary">{passageInfo.passage}</IonLabel>
+                    <IonItem>
+                      <IonLabel>
+                        <h3>Jump to</h3>
+                      </IonLabel>
+                    </IonItem>
+                    <IonItem button onClick={() => scrollToSection('summary')}>
+                      <IonIcon icon={documentTextOutline} slot="start" size="small" />
+                      <IonLabel>Summary</IonLabel>
+                    </IonItem>
+                    
+                    {showLeadersNotes && (
+                      <IonItem button onClick={() => scrollToSection('leaders-notes')}>
+                        <IonIcon icon={personOutline} slot="start" size="small" />
+                        <IonLabel>Leader's Notes</IonLabel>
                       </IonItem>
-                    ))}
+                    )}
+                    
+                    <IonItem button onClick={() => scrollToSection('questions')}>
+                      <IonIcon icon={helpCircleOutline} slot="start" size="small" />
+                      <IonLabel>Questions</IonLabel>
+                    </IonItem>
+                    
+                    {getAllPassages().length > 0 && (
+                      <>
+                        <IonItem>
+                          <IonLabel>
+                            <h3>Bible Passages</h3>
+                          </IonLabel>
+                        </IonItem>
+                        {getAllPassages().map((passageInfo, index) => (
+                          <IonItem 
+                            key={index}
+                            button 
+                            routerLink={`/study/${study.slug}/passage/${index + 1}`}
+                            routerDirection="forward"
+                            onClick={() => popoverRef.current?.dismiss()}
+                          >
+                            <IonIcon icon={bookOutline} slot="start" size="small" />
+                            <IonLabel color="primary">{passageInfo.passage}</IonLabel>
+                          </IonItem>
+                        ))}
+                      </>
+                    )}
                   </IonList>
                 )}
               </IonContent>
@@ -152,7 +206,7 @@ function ViewStudy() {
                 "ion-padding-top"
               )}
             ></IonRow>
-            <IonRow className="ion-padding-horizontal">
+            <IonRow className="ion-padding-horizontal" id="summary">
               <IonText>
                 {getAllPassages().length > 0 && (
                   <div className="ion-margin-bottom">
@@ -180,7 +234,7 @@ function ViewStudy() {
 
             {showLeadersNotes && (
               <>
-                <IonRow className="ion-padding-horizontal">
+                <IonRow className="ion-padding-horizontal" id="leaders-notes">
                   <IonText>
                     <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
                       <h3>Leaders Notes</h3>
@@ -230,7 +284,7 @@ function ViewStudy() {
                 </IonRow>
               </>
             )}
-            <IonRow className="ion-padding-horizontal">
+            <IonRow className="ion-padding-horizontal" id="questions">
               <IonText>
                 <h1 id="questions-title" style={{ marginBottom: '1rem' }}>Questions</h1>
                 <IonPopover
