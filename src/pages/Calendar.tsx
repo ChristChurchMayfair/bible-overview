@@ -31,14 +31,13 @@ import {
   getScheduleStats,
 } from "../data/schedule";
 import { getStudies } from "../data/studies";
-import type { ScheduleEntry, StudyStub } from "../data/types";
+import type { ScheduleEntry } from "../data/types";
+import { transformScheduleToCalendar, type CalendarMonth } from "../utils/calendar";
 import "./Calendar.css";
 import { helpOutline } from "ionicons/icons";
 
 const Calendar: React.FC = () => {
-  const [scheduleByMonth, setScheduleByMonth] = useState<
-    { month: string; weeks: ScheduleEntry[] }[]
-  >([]);
+  const [calendarData, setCalendarData] = useState<CalendarMonth[]>([]);
   const [currentWeek, setCurrentWeek] = useState<ScheduleEntry | null>(null);
   const [stats, setStats] = useState<{
     totalWeeks: number;
@@ -46,34 +45,24 @@ const Calendar: React.FC = () => {
     breakWeeks: number;
     totalStudies: number;
   } | null>(null);
-  const [studies, setStudies] = useState<StudyStub[]>([]);
   
   const [meetingDay] = useLocalStorage<number | null>(MeetingDayStorageKey, null);
 
   useIonViewWillEnter(() => {
-    setScheduleByMonth(getScheduleByMonth(meetingDay));
+    const scheduleByMonth = getScheduleByMonth(meetingDay);
+    const studies = getStudies();
+    const allScheduleEntries = scheduleByMonth.flatMap(month => month.weeks);
+    
+    setCalendarData(transformScheduleToCalendar(allScheduleEntries, studies, meetingDay));
     setCurrentWeek(getCurrentWeekEntry());
     setStats(getScheduleStats());
-    setStudies(getStudies());
   });
-
-  const getStudyForNumber = (studyNumber: number): StudyStub | undefined => {
-    return studies.find((study) => study.index === studyNumber);
-  };
-
-  const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
-    return date.toLocaleDateString("en-GB", {
-      day: "numeric",
-      month: "short",
-    });
-  };
 
   const isCurrentWeek = (weekStarting: string): boolean => {
     return currentWeek?.weekStarting === weekStarting;
   };
 
-  const handleRefresh = (event: CustomEvent) => {
+  const handleRefresh = () => {
     window.location.reload();
   };
 
@@ -127,10 +116,15 @@ const Calendar: React.FC = () => {
                   <div className="current-week-info">
                     <h3>Current Week</h3>
                     <p>
-                      Week of {formatDate(currentWeek.weekStarting)} -
+                      Week of {new Date(currentWeek.weekStarting).toLocaleDateString("en-GB", {
+                        day: "numeric",
+                        month: "short",
+                      })} -
                       {currentWeek.studyNumber
                         ? ` Study ${currentWeek.studyNumber}: ${
-                            getStudyForNumber(currentWeek.studyNumber)?.title ||
+                            calendarData
+                              .flatMap(month => month.weeks)
+                              .find(week => week.studyNumber === currentWeek.studyNumber)?.studyTitle ||
                             "Unknown"
                           }`
                         : ` ${currentWeek.notes || "Break week"}`}
@@ -141,7 +135,7 @@ const Calendar: React.FC = () => {
             </div>
           )}
          
-            {scheduleByMonth.map((monthData, monthIndex) => (
+            {calendarData.map((monthData, monthIndex) => (
               <IonList lines="full" key={monthIndex}>
                 <IonItem lines="none">
                   <IonLabel>
@@ -149,19 +143,29 @@ const Calendar: React.FC = () => {
                   </IonLabel>
                 </IonItem>
 
-                {monthData.weeks.map((week, weekIndex) => (
-                  <WeekItem
-                    key={weekIndex}
-                    week={week}
-                    study={
-                      week.studyNumber
-                        ? getStudyForNumber(week.studyNumber)
-                        : undefined
-                    }
-                    isCurrentWeek={isCurrentWeek(week.weekStarting)}
-                    meetingDay={meetingDay}
-                  />
-                ))}
+                {monthData.weeks.map((week, weekIndex) => {
+                  const scheduleEntry: ScheduleEntry = {
+                    weekStarting: week.weekStarting,
+                    studyNumber: week.studyNumber,
+                    notes: week.notes
+                  };
+                  const study = week.studyTitle ? {
+                    index: week.studyNumber!,
+                    title: week.studyTitle,
+                    slug: '',
+                    summary: ''
+                  } : undefined;
+                  
+                  return (
+                    <WeekItem
+                      key={weekIndex}
+                      week={scheduleEntry}
+                      study={study}
+                      isCurrentWeek={isCurrentWeek(week.weekStarting)}
+                      meetingDay={meetingDay}
+                    />
+                  );
+                })}
               </IonList>
             ))}
 
