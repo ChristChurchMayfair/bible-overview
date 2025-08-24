@@ -189,6 +189,43 @@ The app detects and displays Bible references from **question section headings o
 4. **Wrong Bible reference format**: Use standard format like "Ephesians 1:9-14"
 5. **Mixed up section order**: Sections must be in the exact order shown above
 
+## Study Schedule Management
+
+### Schedule.csv File
+
+The `schedule.csv` file controls the study calendar and schedule in the app. It defines:
+
+- Which weeks have studies vs. other activities
+- Break periods (Christmas, Easter, etc.)
+- Prayer meetings and special events
+- Overall study progression timing
+
+**File Format:**
+```csv
+Week Starting,Has Study,Notes
+2025-09-01,No,Prayer Meeting
+2025-09-08,Yes,
+2025-09-15,Yes,
+2025-09-22,Yes,
+2025-09-29,No,Prayer Meeting
+2025-12-22,No,Christmas break
+2025-12-29,No,Christmas break
+```
+
+**Column Definitions:**
+- **Week Starting**: Date in `YYYY-MM-DD` format (must be a Monday)
+- **Has Study**: `Yes` or `No` - whether this week includes a study
+- **Notes**: Optional description for non-study weeks (e.g., "Prayer Meeting", "Christmas break")
+
+**Usage Guidelines:**
+1. **Start dates**: Always use Monday dates for week starting
+2. **Study weeks**: Set `Has Study` to `Yes` and leave Notes empty
+3. **Special weeks**: Set `Has Study` to `No` and add descriptive Notes
+4. **Breaks**: Mark holiday periods clearly (Christmas, Easter, summer)
+5. **Build after changes**: Run `yarn run build` to update the app schedule
+
+The app automatically assigns study numbers to weeks marked `Has Study=Yes` in chronological order (Study 1, Study 2, etc.).
+
 ## Testing Your Study
 
 After writing a study, you can test it by:
