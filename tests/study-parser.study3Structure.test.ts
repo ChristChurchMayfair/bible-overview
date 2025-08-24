@@ -1,5 +1,5 @@
 import { assert, test } from "vitest";
-import { parseQuestionsFromMarkdown } from "../scripts/markdown-parser/ideal-study-parser";
+import { parseQuestionsFromMarkdown } from "../scripts/markdown-parser/study-parser";
 import { QuestionSection } from "../src/data/types";
 
 test("Given study 3 structure When parsing questions Then creates separate sections correctly", () => {

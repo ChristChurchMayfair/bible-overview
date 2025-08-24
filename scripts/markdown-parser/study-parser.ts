@@ -26,7 +26,7 @@ export function containsHeading(
   return asdf === value;
 }
 
-export function parseIdealStudy(mdast: Root): Study {
+export function parseStudy(mdast: Root): Study {
   const studyNumber = extractStudyNumberFromRootContent(mdast.children);
   const title = extractTitleFromRootContent(mdast.children);
   const summary = extractSummaryFromRootContent(mdast.children);

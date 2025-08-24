@@ -1,5 +1,5 @@
 import { expect, test } from "vitest";
-import { extractPassagesFromHeading } from "../scripts/markdown-parser/ideal-study-parser";
+import { extractPassagesFromHeading } from "../scripts/markdown-parser/study-parser";
 
 test("Given heading with single bible reference When extracting passages Then returns single passage", () => {
   // Given

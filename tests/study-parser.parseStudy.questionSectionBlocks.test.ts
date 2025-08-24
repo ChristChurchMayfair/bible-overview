@@ -1,5 +1,5 @@
 import { assert, test } from "vitest";
-import { parseIdealStudy } from "../scripts/markdown-parser/ideal-study-parser";
+import { parseStudy } from "../scripts/markdown-parser/study-parser";
 import { remark } from "remark";
 import { QuestionSectionBlock, QuestionSection } from "../src/data/types";
 
@@ -42,7 +42,7 @@ We will look at it under 4 categories: God, Place, Work, People:
   // When
   const rm = remark();
   const ast = rm.parse(studyMarkdown);
-  const result = parseIdealStudy(ast);
+  const result = parseStudy(ast);
 
   // Then
   assert.equal(result.index, 3, "Should have correct study number");

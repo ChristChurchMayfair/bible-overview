@@ -1,6 +1,6 @@
 import { remark } from "remark";
 import { assert, test } from "vitest";
-import { extractStudyNumberFromHeading } from "../scripts/markdown-parser/ideal-study-parser";
+import { extractStudyNumberFromHeading } from "../scripts/markdown-parser/study-parser";
 import { isHeading } from "../scripts/markdown-parser/ast-utils";
 
 function parseMarkdownHeading(markdown: string) {

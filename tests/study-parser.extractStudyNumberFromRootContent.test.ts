@@ -1,6 +1,6 @@
 import { remark } from "remark";
 import { assert, test } from "vitest";
-import { extractStudyNumberFromRootContent } from "../scripts/markdown-parser/ideal-study-parser";
+import { extractStudyNumberFromRootContent } from "../scripts/markdown-parser/study-parser";
 
 function parseMarkdown(markdown: string) {
   const rm = remark();

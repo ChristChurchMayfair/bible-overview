@@ -1,5 +1,5 @@
 import { assert, test } from "vitest";
-import { extractContentFromHeadingUntilNextHeading } from "../scripts/markdown-parser/ideal-study-parser";
+import { extractContentFromHeadingUntilNextHeading } from "../scripts/markdown-parser/study-parser";
 import { remark } from "remark";
 
 test("Given content with h3 headings When extracting Questions section Then should not escape h3 headings", () => {

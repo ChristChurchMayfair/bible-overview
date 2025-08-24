@@ -1,5 +1,5 @@
 import { assert, test } from "vitest";
-import { parseQuestionsFromMarkdown } from "../scripts/markdown-parser/ideal-study-parser";
+import { parseQuestionsFromMarkdown } from "../scripts/markdown-parser/study-parser";
 import { QuestionSectionBlock, QuestionSection } from "../src/data/types";
 
 test("Given mixed content with headings and questions When parsing questions Then returns array of blocks in correct order", () => {

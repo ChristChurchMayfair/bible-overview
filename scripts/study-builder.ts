@@ -2,7 +2,7 @@ import { readFileSync, readdirSync } from "fs";
 import { join } from "path";
 import { remark } from "remark";
 import { FullStudy, Study, StudyStub, isFullStudy } from "../src/data/types";
-import { parseIdealStudy } from "./markdown-parser/ideal-study-parser";
+import { parseStudy } from "./markdown-parser/study-parser";
 
 export interface StudyBuilderOptions {
   studiesDir?: string;
@@ -47,7 +47,7 @@ export function buildStudiesFromDirectory(
         const filePath = join(studiesDir, file);
         const content = readFileSync(filePath, "utf-8");
         const mdast = remark().parse(content);
-        const study = parseIdealStudy(mdast);
+        const study = parseStudy(mdast);
 
         studies.push(study);
         console.log(`✅ Parsed study ${study.index}: ${study.slug}`);

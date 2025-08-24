@@ -1,7 +1,7 @@
 import { readFileSync } from "fs";
 import { remark } from "remark";
 import { expect, test } from "vitest";
-import { parseIdealStudy } from "../scripts/markdown-parser/ideal-study-parser";
+import { parseStudy } from "../scripts/markdown-parser/study-parser";
 
 function parseMarkdownFile(filePath: string) {
   const content = readFileSync(filePath, 'utf-8');
@@ -14,7 +14,7 @@ test("Given complete ideal study markdown When parsing study Then returns comple
   const mdast = parseMarkdownFile("./studies/1.md");
 
   // When
-  const result = parseIdealStudy(mdast);
+  const result = parseStudy(mdast);
 
   // Then
   // Basic structure
@@ -103,7 +103,7 @@ Test so what content.
   const mdast = rm.parse(markdownContent);
 
   // When
-  const result = parseIdealStudy(mdast);
+  const result = parseStudy(mdast);
 
   // Then
   expect(result.index).toBe(1);
@@ -134,7 +134,7 @@ Test so what content.
   const mdast = rm.parse(markdownContent);
 
   // When
-  const result = parseIdealStudy(mdast);
+  const result = parseStudy(mdast);
 
   // Then
   expect(result.index).toBe(2);
