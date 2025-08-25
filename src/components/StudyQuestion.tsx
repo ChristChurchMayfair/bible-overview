@@ -124,7 +124,7 @@ export function StudyQuestion({
       {/* Leader hints */}
       {showLeaderHints && question.leadersHint && (
         <div
-          className="ion-padding-start ion-margin-top"
+          className="ion-margin-top"
           style={{
             display: "flex",
             alignItems: "flex-start",
@@ -139,7 +139,7 @@ export function StudyQuestion({
             }}
             color="primary"
           />
-          <IonText color={"medium"}>
+          <IonText>
             <em>{question.leadersHint}</em>
           </IonText>
         </div>
