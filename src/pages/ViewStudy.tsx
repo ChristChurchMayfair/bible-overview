@@ -126,7 +126,7 @@ function ViewStudy() {
           <IonTitle>{study?.title}</IonTitle>
           <IonButtons slot="end">
             <IonButton mode="ios" id="navigation-trigger">
-              <IonIcon icon={listOutline} />
+              Jump to
             </IonButton>
             <IonPopover 
               ref={popoverRef} 
@@ -137,11 +137,6 @@ function ViewStudy() {
               <IonContent>
                 {study && (
                   <IonList>
-                    <IonItem>
-                      <IonLabel>
-                        <h3>Jump to</h3>
-                      </IonLabel>
-                    </IonItem>
                     <IonItem button onClick={() => scrollToSection('summary')}>
                       <IonIcon icon={documentTextOutline} slot="start" size="small" />
                       <IonLabel>Summary</IonLabel>
