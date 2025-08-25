@@ -48,7 +48,6 @@ The app uses a file-based content management system:
 /study/:slug/timeline           # Timeline view for study
 /study/:slug/passage/:index     # Bible passage view
 /study/:slug/audio/:index       # Audio passage view
-/theme/:name        # Theme-based study grouping
 /completedstudies   # User's completed studies
 /settings           # App settings
 /help               # Help documentation

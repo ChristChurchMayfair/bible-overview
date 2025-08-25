@@ -42,7 +42,6 @@ import CompletedStudies from "./pages/CompletedStudies";
 import Help from "./pages/Help";
 import Settings from "./pages/Settings";
 import StorySoFar from "./pages/StorySoFar";
-import ViewTheme from "./pages/ViewTheme";
 import ViewTimeline from "./pages/ViewTimeline";
 import "./theme/variables.css";
 
@@ -78,9 +77,6 @@ const App: React.FC = () => {
           </Route>
           <Route path="/study/:slug/audio/:index" exact={true}>
             <AudioPassage />
-          </Route>
-          <Route path="/theme/:name" exact={true}>
-            <ViewTheme />
           </Route>
           <Route path="/help" exact={true}>
             <Help />
