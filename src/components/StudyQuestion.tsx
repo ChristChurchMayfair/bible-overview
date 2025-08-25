@@ -120,21 +120,6 @@ export function StudyQuestion({
         </div>
       )}
 
-      {/* Leader hints debug info */}
-      {showLeaderHints && question.refs && question.refs.length > 0 && (
-        <div
-          className="ion-padding-start ion-margin-top"
-          style={{
-            display: "flex",
-            alignItems: "flex-start",
-            gap: "8px",
-          }}
-        >
-          <IonText color="medium" style={{ fontSize: "0.8em" }}>
-            <strong>Verse refs:</strong> {question.refs.join(", ")}
-          </IonText>
-        </div>
-      )}
 
       {/* Leader hints */}
       {showLeaderHints && question.leadersHint && (
