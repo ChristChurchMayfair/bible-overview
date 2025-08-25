@@ -38,7 +38,6 @@ import AllStudies from "./pages/AllStudies";
 import AudioPassage from "./pages/AudioPassage";
 import BiblePassage from "./pages/BiblePassage";
 import Calendar from "./pages/Calendar";
-import CompletedStudies from "./pages/CompletedStudies";
 import Help from "./pages/Help";
 import Settings from "./pages/Settings";
 import StorySoFar from "./pages/StorySoFar";
@@ -80,9 +79,6 @@ const App: React.FC = () => {
           </Route>
           <Route path="/help" exact={true}>
             <Help />
-          </Route>
-          <Route path="/completedstudies" exact={true}>
-            <CompletedStudies />
           </Route>
           <Route path="/settings" exact={true}>
             <Settings />

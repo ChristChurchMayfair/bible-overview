@@ -13,7 +13,6 @@ import {
 import {
   bookOutline,
   calendarOutline,
-  checkmarkCircleOutline,
   cogOutline,
   helpOutline,
   homeOutline,
@@ -36,14 +35,6 @@ export const Menu: React.FC = () => {
             <IonItem routerLink="/studies" detail={false}>
               <IonIcon icon={listOutline} color="primary" slot="start" />
               <IonLabel>Studies</IonLabel>
-            </IonItem>
-            <IonItem routerLink="/completedstudies" detail={false}>
-              <IonIcon
-                icon={checkmarkCircleOutline}
-                color="primary"
-                slot="start"
-              />
-              <IonLabel>Completed Studies</IonLabel>
             </IonItem>
             <IonItem routerLink="/story-so-far" detail={false}>
               <IonIcon icon={bookOutline} color="primary" slot="start" />
