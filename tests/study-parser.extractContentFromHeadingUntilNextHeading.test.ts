@@ -33,11 +33,6 @@ Some what content here.`;
   const questionsContent = extractContentFromHeadingUntilNextHeading(ast.children, "Questions");
   
   // Then - the extracted content should preserve h3 headings properly
-  console.log("Extracted Questions content:");
-  console.log("---");
-  console.log(questionsContent);
-  console.log("---");
-  
   // The content should contain "### Read Genesis 2:4-25" not "\### Read Genesis 2:4-25"
   assert.include(questionsContent, "### Read Genesis 2:4-25", "Should contain unescaped h3 heading");
   assert.notInclude(questionsContent, "\\### Read Genesis 2:4-25", "Should not contain escaped h3 heading");
